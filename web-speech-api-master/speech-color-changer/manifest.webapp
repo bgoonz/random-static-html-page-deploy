@@ -13,11 +13,11 @@
   },
   "default_locale": "en",
   "permissions": {
-    "audio-capture" : {
-      "description" : "Audio capture"
+    "audio-capture": {
+      "description": "Audio capture"
     },
-    "speech-recognition" : {
-      "description" : "Speech recognition"
+    "speech-recognition": {
+      "description": "Speech recognition"
     }
   }
 }
