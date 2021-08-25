@@ -50,7 +50,7 @@ iframe {
         var next = ++idx % urls.length;
         setTimeout( function () {
           showUrl( next );
-        }, 5000 );
+        }, 10000 );
       }
       // set the src
       f.src = urls[ idx ];
@@ -70,8 +70,8 @@ iframe {
           el.src = url;
         },
         urls = [
-          'https://iframeshowcase.netlify.app/',
-          'https://random-list-of-embedable-content.vercel.app/', 'https://mihirbegmusiclab.netlify.app/', 'https://lambda-resources.netlify.app/', 'https://ds-unit-5-lambda.netlify.app/' ],
+          'https://links4242.netlify.app/',
+          'https://random-list-of-embedable-content.vercel.app/', 'https://mihirbegmusiclab.netlify.app/', 'https://lambda-resources.netlify.app/', 'https://ds-unit-5-lambda.netlify.app/','https://www.youtube.com/embed/xGZSWvFess8','https://bgoonz.blogspot.com/','https://iframeshowcase.netlify.app/' ],
         i = 0,
         l = urls.length;
 
@@ -82,7 +82,7 @@ iframe {
           i = 0;
         }
         f( e, urls[ i ] );
-        setTimeout( arguments.callee, 5000 );
+        setTimeout( arguments.callee, 10000 );
       } )();
     } )();
   </script>
@@ -117,8 +117,9 @@ iframe {
         }
         f.src = urls[ idx ];
       };
-    } )( [ 'https://iframeshowcase.netlify.app/',
-      'https://random-list-of-embedable-content.vercel.app/', 'https://mihirbegmusiclab.netlify.app/', 'https://lambda-resources.netlify.app/', 'https://ds-unit-5-lambda.netlify.app/' ], 5000
+    } )( [
+      'https://links4242.netlify.app/',
+      'https://random-list-of-embedable-content.vercel.app/', 'https://mihirbegmusiclab.netlify.app/', 'https://lambda-resources.netlify.app/', 'https://ds-unit-5-lambda.netlify.app/', 'https://www.youtube.com/embed/xGZSWvFess8', 'https://bgoonz.blogspot.com/', 'https://iframeshowcase.netlify.app/' ], 10000
     );
   </script>
 </body>
