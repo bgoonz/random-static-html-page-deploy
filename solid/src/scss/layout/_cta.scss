@@ -16,13 +16,13 @@
 	overflow: hidden;
 
 	&::before {
-		content: '';
+		content: "";
 		position: absolute;
 		right: 98px;
 		top: -117px;
 		width: 160px;
 		height: 187px;
-		background-image: url('../images/cta-illustration.svg');
+		background-image: url("../images/cta-illustration.svg");
 		background-repeat: no-repeat;
 	}
 
@@ -31,8 +31,7 @@
 	}
 }
 
-@include media( '>medium') {
-
+@include media(">medium") {
 	.cta {
 		text-align: left;
 

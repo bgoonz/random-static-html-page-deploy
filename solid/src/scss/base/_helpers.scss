@@ -5,27 +5,26 @@
 	padding-left: get-content-padding(mobile);
 	padding-right: get-content-padding(mobile);
 
-	@include media( '>small' ) {
+	@include media(">small") {
 		padding-left: get-content-padding(desktop);
 		padding-right: get-content-padding(desktop);
 	}
 }
 
 .container {
-	max-width: $container__width + ( get-content-padding(desktop) * 2 );
+	max-width: $container__width + (get-content-padding(desktop) * 2);
 }
 
 .container-sm {
-	max-width: $container__width-sm + ( get-content-padding(desktop) * 2 );
+	max-width: $container__width-sm + (get-content-padding(desktop) * 2);
 }
 
 .container {
-
-    .container-sm {
+	.container-sm {
 		max-width: $container__width-sm;
-        padding-left: 0;
-        padding-right: 0;
-    }
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 /* Text meant only for screen readers. */
@@ -43,18 +42,18 @@
 		clip: auto !important;
 		display: block;
 		@include font-size(8, mobile, true, false, true);
-	    @if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
-	        @include media( '>medium' ) {
-	            @include font-size(8, desktop, true, false, true);
-	        }
-	    }
-	    @include font-weight(semibold);
-	    line-height: 16px;
-	    text-decoration: none;
+		@if (get-font-size(8, desktop) != get-font-size(8, mobile)) {
+			@include media(">medium") {
+				@include font-size(8, desktop, true, false, true);
+			}
+		}
+		@include font-weight(semibold);
+		line-height: 16px;
+		text-decoration: none;
 		text-transform: uppercase;
-	    background-color: color(bg, 2);
-	    color: color(primary, 1) !important;
-	    border: none;
+		background-color: color(bg, 2);
+		color: color(primary, 1) !important;
+		border: none;
 		height: auto;
 		left: 8px;
 		padding: 16px 32px;
@@ -70,27 +69,27 @@
 }
 
 .text-left {
-  text-align: left;
+	text-align: left;
 }
 
 .text-center {
-  text-align: center;
+	text-align: center;
 }
 
 .text-right {
-  text-align: right;
+	text-align: right;
 }
 
 .text-primary {
-    color: color(primary, 1);
+	color: color(primary, 1);
 }
 
 .has-top-divider {
-    @include divider(before);
+	@include divider(before);
 }
 
 .has-bottom-divider {
-    @include divider(after);
+	@include divider(after);
 }
 
 .m-0 {
@@ -455,9 +454,7 @@
 
 /* Reveal animations */
 .sr {
-
 	.has-animations {
-
 		.is-revealing {
 			visibility: hidden;
 		}
@@ -465,7 +462,6 @@
 }
 
 .has-animations {
-
 	.anime-element {
 		visibility: hidden;
 

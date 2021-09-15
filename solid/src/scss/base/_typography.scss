@@ -1,7 +1,7 @@
 html {
 	@include font-size(5, mobile, true, true);
-	@if ( get-font-size(5, desktop) != get-font-size(5, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(5, desktop) != get-font-size(5, mobile)) {
+		@include media(">medium") {
 			@include font-size(5, desktop, true, true, true);
 		}
 	}
@@ -24,11 +24,21 @@ a {
 	@include anchor-aspect(main);
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
 	clear: both;
 	color: color(typography, 1);
-	@if ( get-font-family(heading) != get-font-family(base) ) {
+	@if (get-font-family(heading) != get-font-family(base)) {
 		@include font-family(heading);
 	}
 	@include font-weight(semibold);
@@ -37,8 +47,8 @@ h1, h2, h3, h4, h5, h6,
 h1,
 .h1 {
 	@include font-size(1, mobile, true, true, true);
-	@if ( get-font-size(1, desktop) != get-font-size(1, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(1, desktop) != get-font-size(1, mobile)) {
+		@include media(">medium") {
 			@include font-size(1, desktop, true, true, true);
 		}
 	}
@@ -47,8 +57,8 @@ h1,
 h2,
 .h2 {
 	@include font-size(2, mobile, true, true, true);
-	@if ( get-font-size(2, desktop) != get-font-size(2, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(2, desktop) != get-font-size(2, mobile)) {
+		@include media(">medium") {
 			@include font-size(2, desktop, true, true, true);
 		}
 	}
@@ -58,8 +68,8 @@ h3,
 .h3,
 blockquote {
 	@include font-size(3, mobile, true, true, true);
-	@if ( get-font-size(3, desktop) != get-font-size(3, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(3, desktop) != get-font-size(3, mobile)) {
+		@include media(">medium") {
 			@include font-size(3, desktop, true, true, true);
 		}
 	}
@@ -72,15 +82,14 @@ h6,
 .h5,
 .h6 {
 	@include font-size(4, mobile, true, true, true);
-	@if ( get-font-size(4, desktop) != get-font-size(4, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(4, desktop) != get-font-size(4, mobile)) {
+		@include media(">medium") {
 			@include font-size(4, desktop, true, true, true);
 		}
 	}
 }
 
-@include media( '<=medium' ) {
-
+@include media("<=medium") {
 	.h1-mobile {
 		@include font-size(1, mobile, true, true, true);
 	}
@@ -109,17 +118,26 @@ h6,
 }
 
 .text-light {
-
-	h1, h2, h3, h4, h5, h6,
-	.h1, .h2, .h3, .h4, .h5, .h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
 		color: color(typography, 1i) !important;
 	}
 }
 
 .text-sm {
 	@include font-size(6, mobile, true, true, true);
-	@if ( get-font-size(6, desktop) != get-font-size(6, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(6, desktop) != get-font-size(6, mobile)) {
+		@include media(">medium") {
 			@include font-size(6, desktop, true, true, true);
 		}
 	}
@@ -127,15 +145,17 @@ h6,
 
 .text-xs {
 	@include font-size(7, mobile, true, true, true);
-	@if ( get-font-size(7, desktop) != get-font-size(7, mobile) ) {
-		@include media( '>medium' ) {
+	@if (get-font-size(7, desktop) != get-font-size(7, mobile)) {
+		@include media(">medium") {
 			@include font-size(7, desktop, true, true, true);
 		}
 	}
 }
 
-h1, h2,
-.h1, .h2 {
+h1,
+h2,
+.h1,
+.h2 {
 	margin-top: 48px;
 	margin-bottom: 16px;
 }
@@ -146,8 +166,12 @@ h3,
 	margin-bottom: 12px;
 }
 
-h4, h5, h6,
-.h4, .h5, .h6 {
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
 	margin-top: 24px;
 	margin-bottom: 4px;
 }
@@ -157,7 +181,10 @@ p {
 	margin-bottom: 24px;
 }
 
-dfn, cite, em, i {
+dfn,
+cite,
+em,
+i {
 	font-style: italic;
 }
 
@@ -202,11 +229,15 @@ pre .h2,
 pre .h3,
 pre .h4,
 pre .h5,
-pre .h6  {
+pre .h6 {
 	@include font-family(pre);
 }
 
-pre, code, kbd, tt, var {
+pre,
+code,
+kbd,
+tt,
+var {
 	background: color(bg, 2);
 }
 
@@ -220,17 +251,22 @@ pre {
 	margin-bottom: 24px;
 }
 
-code, kbd, tt, var {
+code,
+kbd,
+tt,
+var {
 	@include font-family(code);
 	@include font-size(7, mobile, true);
 	padding: 2px 4px;
 }
 
-abbr, acronym {
+abbr,
+acronym {
 	cursor: help;
 }
 
-mark, ins {
+mark,
+ins {
 	text-decoration: none;
 }
 

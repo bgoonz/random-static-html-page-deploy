@@ -1,17 +1,24 @@
 // Font-size + Line-height + Kerning
 // Usage: @include font-size(1, mobile)
 // Add more true/false args to control what to output: font-size, line-height, kerning
-@mixin font-size($size, $elem, $font-size: true, $line-height: false, $kerning: false, $adjust-font-size: 0) {
+@mixin font-size(
+	$size,
+	$elem,
+	$font-size: true,
+	$line-height: false,
+	$kerning: false,
+	$adjust-font-size: 0
+) {
 	@if not map-has-key(map-get($font__scale, $elem), $size) {
 		@warn "'#{$size}' key does not exist in array!";
 	}
-	@if ( $font-size != false ) {
+	@if ($font-size != false) {
 		font-size: get-font-size($size, $elem) + $adjust-font-size;
 	}
-	@if ( $line-height == true ) {
+	@if ($line-height == true) {
 		line-height: get-line-height($size, $elem);
 	}
-	@if ( $kerning == true ) {
+	@if ($kerning == true) {
 		letter-spacing: get-kerning($size, $elem);
 	}
 }
@@ -27,8 +34,9 @@
 }
 
 // Anchor aspect
-@mixin anchor-aspect($type: 'main') {
-	@if ($type == 'main') { // Base
+@mixin anchor-aspect($type: "main") {
+	@if ($type == "main") {
+		// Base
 		color: color(typography, 2);
 		text-decoration: underline;
 
@@ -37,7 +45,7 @@
 			outline: 0;
 			text-decoration: none;
 		}
-	} @else if ($type == 'header') {
+	} @else if ($type == "header") {
 		color: color(typography, 2);
 		text-transform: uppercase;
 		text-decoration: none;
@@ -45,7 +53,7 @@
 		&:hover,
 		&:active {
 		}
-	} @else if ($type == 'footer') {
+	} @else if ($type == "footer") {
 		color: color(typography, 2);
 		text-decoration: none;
 
@@ -57,12 +65,12 @@
 }
 
 @mixin shadow {
-	box-shadow: 0 24px 48px rgba(color(bg, 1), .24);
+	box-shadow: 0 24px 48px rgba(color(bg, 1), 0.24);
 	mix-blend-mode: multiply;
 }
 
 @mixin shadow-sm {
-	box-shadow: 0 16px 24px rgba(color(bg, 1), .24);
+	box-shadow: 0 16px 24px rgba(color(bg, 1), 0.24);
 	mix-blend-mode: multiply;
 }
 
@@ -73,22 +81,22 @@
 }
 
 @mixin divider($type: false) {
-	@if ( $type == 'before' ) {
+	@if ($type == "before") {
 		position: relative;
 
 		&::before {
-			content: '';
+			content: "";
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			@include divider-mix;
 		}
-	} @else if ($type == 'after') {
+	} @else if ($type == "after") {
 		position: relative;
 
 		&::after {
-			content: '';
+			content: "";
 			position: absolute;
 			bottom: 0;
 			left: 0;

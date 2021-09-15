@@ -1,10 +1,8 @@
 /*--------------------------------------------------------------
 # Variables, functions and mixins
 --------------------------------------------------------------*/
-@import "abstracts/variables",
-        "abstracts/functions",
-        "abstracts/mixins",
-        'abstracts/include-media';
+@import "abstracts/variables", "abstracts/functions", "abstracts/mixins",
+	"abstracts/include-media";
 
 /*--------------------------------------------------------------
 1.0 Normalize
