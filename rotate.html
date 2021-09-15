@@ -19,20 +19,26 @@
     html {
       margin: 0;
       padding: 0;
-      height: 95%;
-      overflow: hidden;
     }
 
     #content {
       position: absolute;
       left: 0;
       right: 0;
+      top: 250px;
       bottom: 0px;
     }
   </style>
 
-<body onload="showUrl(1)" class="app-chrome">
-  <div id="content">
+<body>
+  <iframe height="300" style="width: 100%;" scrolling="no" title="Nav"
+    src="https://codepen.io/bgoonz/embed/OJgxqbm?default-tab=result&editable=true&theme-id=light" frameborder="no"
+    loading="lazy" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href="https://codepen.io/bgoonz/pen/OJgxqbm">
+      Nav</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+  <div onload="showUrl(1)" class="app-chrome" id="content">
     <iframe id="f" style="border: 0; width: 100%; height: 95%" src="about:blank"></iframe>
     <!-- <iframe id="foo"></iframe> -->
   </div>
