@@ -6,12 +6,12 @@ Hello everybody 👋! I created this GIF cheatsheet for my own reference and I h
 
 ### [](#index)Index
 
-*   [How is this organized?](#conventions)
-*   [Promise.resolve](#promiseresolve),[Promise.reject](#promisereject)
-*   [Promise.all](#promiseall)
-*   [Promise.allSettled](#promiseallsettled)
-*   [Promise.race](#promiserace)
-*   [Promise.any](#promiseany)
+- [How is this organized?](#conventions)
+- [Promise.resolve](#promiseresolve),[Promise.reject](#promisereject)
+- [Promise.all](#promiseall)
+- [Promise.allSettled](#promiseallsettled)
+- [Promise.race](#promiserace)
+- [Promise.any](#promiseany)
 
 Consider the GIFs like watching a slow-mo video of Promise API methods in action. The scenarios for each Promise API describe how they work with an emphasis on Promise status transition, value/reasons, and the order.
 
@@ -81,24 +81,21 @@ _Scenario 4_: Passing an Empty iterable
 
 And hey, I love staying in touch with the curious folks and _learning_ from them as well! ❤️ So, Please feel free to reach out if you have any questions or interesting thoughts 🙋‍♀️🙋‍♂️Don't forget to share this post if you found it useful 🚀
 
-* * *
+---
 
 Repo Link :
 
-![GitHub logo](https://res.cloudinary.com/practicaldev/image/fetch/s--vJ70wriM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/github-logo-ba8488d21cd8ee1fee097b8410db9deaa41d0ca30b004c0c63de0a479114156f.svg) [ hemchander23 ](https://github.com/hemchander23) / [javascript\_in\_gifs](https://github.com/hemchander23/javascript_in_gifs) 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## ![GitHub logo](https://res.cloudinary.com/practicaldev/image/fetch/s--vJ70wriM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/github-logo-ba8488d21cd8ee1fee097b8410db9deaa41d0ca30b004c0c63de0a479114156f.svg) [ hemchander23 ](https://github.com/hemchander23) / [javascript_in_gifs](https://github.com/hemchander23/javascript_in_gifs)
 
 ### Javascript concepts and features visualised in the form of GIFS. I use it for my own reference. Glad if it was useful for you !
 
 Do you find the documentation hard to understand ? Worry no more, the GIFs got you covered!
 
-Contents
---------
+## Contents
 
 1.  [Promise API](https://raw.githubusercontent.com/hemchander23/javascript_in_gifs/master/promise_api)
 2.  [Nullish Coalescing](https://raw.githubusercontent.com/hemchander23/javascript_in_gifs/master/nullish_coalescing)
 
 Feel free to contribute ❤️
-
 
 [Source](https://dev.to/hem/gif-cheatsheet-for-javascript-promise-api-methods-promise-all-promise-allsettled-promise-race-promise-any-1l2o)
