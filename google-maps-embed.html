@@ -1,181 +1,525 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Address Selection</title>
+    <title>Locator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://www.gstatic.com/external_hosted/handlebars/v4.7.6/handlebars.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
+      html,
       body {
+        height: 100%;
         margin: 0;
+        padding: 0;
       }
 
-      .sb-title {
+      #map-container {
+        width: 100%;
+        height: 100%;
         position: relative;
-        top: -12px;
-        font-family: Roboto, sans-serif;
-        font-weight: 500;
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
       }
 
-      .sb-title-icon {
-        position: relative;
-        top: -5px;
-      }
-
-      .card-container {
-        display: flex;
-        height: 500px;
-        width: 600px;
-        margin:auto;
-      }
-
-      .panel {
-        background: white;
-        width: 300px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-      }
-
-      .half-input-container {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .half-input {
-        max-width: 120px;
-      }
-
-      .map {
-        width: 300px;
-      }
-
-      h2 {
-        margin: 0;
-        font-family: Roboto, sans-serif;
-      }
-
-      input {
-        height: 30px;
-      }
-
-      input {
-        border: 0;
-        border-bottom: 1px solid black;
-        font-size: 14px;
-        font-family: Roboto, sans-serif;
-        font-style: normal;
-        font-weight: normal;
-      }
-
-      input:focus::placeholder {
-        color: white;
-      }
-
-      .button-cta {
-        height: 40px;
-        width: 40%;
-        background: #3367d6;
-        color: white;
-        font-size: 15px;
-        text-transform: uppercase;
-        font-family: Roboto, sans-serif;
-        border: 0;
-        border-radius: 3px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.48);
+      #map-container button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        font-size: inherit;
         cursor: pointer;
+      }
+
+      #map {
+        position: absolute;
+        left: 22em;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #locations-panel {
+        position: absolute;
+        left: 0;
+        width: 22em;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        background: white;
+        padding: 0.5em;
+        box-sizing: border-box;
+      }
+
+      @media only screen and (max-width: 876px) {
+        #map {
+          left: 0;
+          bottom: 50%;
+        }
+
+        #locations-panel {
+          top: 50%;
+          right: 0;
+          width: unset;
+        }
+      }
+
+      #locations-panel-list > header {
+        padding: 1.4em 1.4em 0 1.4em;
+      }
+
+      #locations-panel-list h1.search-title {
+        font-size: 1em;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      #locations-panel-list h1.search-title > img {
+        vertical-align: bottom;
+        margin-top: -1em;
+      }
+
+      #locations-panel-list .search-input {
+        width: 100%;
+        margin-top: 0.8em;
+        position: relative;
+      }
+
+      #locations-panel-list .search-input input {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 0.3em;
+        height: 2.2em;
+        box-sizing: border-box;
+        padding: 0 2.5em 0 1em;
+        font-size: 1em;
+      }
+
+      #locations-panel-list .search-input-overlay {
+        position: absolute;
+      }
+
+      #locations-panel-list .search-input-overlay.search {
+        right: 2px;
+        top: 2px;
+        bottom: 2px;
+        width: 2.4em;
+      }
+
+      #locations-panel-list .search-input-overlay.search button {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.2em;
+        color: black;
+        background: transparent;
+      }
+
+      #locations-panel-list .search-input-overlay.search .icon {
+        margin-top: 0.05em;
+        vertical-align: top;
+      }
+
+      #locations-panel-list .section-name {
+        font-weight: 500;
+        font-size: 0.9em;
+        margin: 1.8em 0 1em 1.5em;
+      }
+
+      #locations-panel-list .location-result {
+        position: relative;
+        padding: 0.8em 3.5em 0.8em 1.4em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+      }
+
+      #locations-panel-list .location-result:first-of-type {
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+      }
+
+      #locations-panel-list .location-result:last-of-type {
+        border-bottom: none;
+      }
+
+      #locations-panel-list .location-result.selected {
+        outline: 2px solid #4285f4;
+      }
+
+      #locations-panel-list button.select-location {
+        margin-bottom: 0.6em;
+        text-align: left;
+      }
+
+      #locations-panel-list .location-result h2.name {
+        font-size: 1em;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      #locations-panel-list .location-result .address {
+        font-size: 0.9em;
+        margin-bottom: 0.5em;
+      }
+
+      #locations-panel-list .location-result .distance {
+        position: absolute;
+        top: 0.9em;
+        right: 0;
+        text-align: center;
+        font-size: 0.9em;
+        width: 5em;
+      }
+
+      #location-results-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
       }
     </style>
     <script>
-    "use strict";
+      'use strict';
 
-    function initMap() {
-      const componentForm = [
-        'location',
-        'locality',
-        'administrative_area_level_1',
-        'country',
-        'postal_code',
-      ];
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 11,
-        center: { lat: 37.4221, lng: -122.0841 },
-        mapTypeControl: false,
-        fullscreenControl: true,
-        zoomControl: true,
-        streetViewControl: true
-      });
-      const marker = new google.maps.Marker({map: map, draggable: false});
-      const autocompleteInput = document.getElementById('location');
-      const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
-        fields: ["address_components", "geometry", "name"],
-        types: ["address"],
-      });
-      autocomplete.addListener('place_changed', function () {
-        marker.setVisible(false);
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          // User entered the name of a Place that was not suggested and
-          // pressed the Enter key, or the Place Details request failed.
-          window.alert('No details available for input: \'' + place.name + '\'');
-          return;
-        }
-        renderAddress(place);
-        fillInAddress(place);
-      });
+      /**
+       * Defines an instance of the Locator+ solution, to be instantiated
+       * when the Maps library is loaded.
+       */
+      function LocatorPlus(configuration) {
+        const locator = this;
 
-      function fillInAddress(place) {  // optional parameter
-        const addressNameFormat = {
-          'street_number': 'short_name',
-          'route': 'long_name',
-          'locality': 'long_name',
-          'administrative_area_level_1': 'short_name',
-          'country': 'long_name',
-          'postal_code': 'short_name',
-        };
-        const getAddressComp = function (type) {
-          for (const component of place.address_components) {
-            if (component.types[0] === type) {
-              return component[addressNameFormat[type]];
+        locator.locations = configuration.locations || [];
+        locator.capabilities = configuration.capabilities || {};
+
+        const mapEl = document.getElementById('map');
+        const panelEl = document.getElementById('locations-panel');
+        locator.panelListEl = document.getElementById('locations-panel-list');
+        const sectionNameEl =
+            document.getElementById('location-results-section-name');
+        const resultsContainerEl = document.getElementById('location-results-list');
+
+        const itemsTemplate = Handlebars.compile(
+            document.getElementById('locator-result-items-tmpl').innerHTML);
+
+        locator.searchLocation = null;
+        locator.searchLocationMarker = null;
+        locator.selectedLocationIdx = null;
+        locator.userCountry = null;
+
+        // Initialize the map -------------------------------------------------------
+        locator.map = new google.maps.Map(mapEl, configuration.mapOptions);
+
+        // Store selection.
+        const selectResultItem = function(locationIdx, panToMarker, scrollToResult) {
+          locator.selectedLocationIdx = locationIdx;
+          for (let locationElem of resultsContainerEl.children) {
+            locationElem.classList.remove('selected');
+            if (getResultIndex(locationElem) === locator.selectedLocationIdx) {
+              locationElem.classList.add('selected');
+              if (scrollToResult) {
+                panelEl.scrollTop = locationElem.offsetTop;
+              }
             }
           }
-          return '';
-        };
-        document.getElementById('location').value = getAddressComp('street_number') + ' '
-                  + getAddressComp('route');
-        for (const component of componentForm) {
-          // Location field is handled separately above as it has different logic.
-          if (component !== 'location') {
-            document.getElementById(component).value = getAddressComp(component);
+          if (panToMarker && (locationIdx != null)) {
+            locator.map.panTo(locator.locations[locationIdx].coords);
           }
+        };
+
+        // Create a marker for each location.
+        const markers = locator.locations.map(function(location, index) {
+          const marker = new google.maps.Marker({
+            position: location.coords,
+            map: locator.map,
+            title: location.title,
+          });
+          marker.addListener('click', function() {
+            selectResultItem(index, false, true);
+          });
+          return marker;
+        });
+
+        // Fit map to marker bounds.
+        locator.updateBounds = function() {
+          const bounds = new google.maps.LatLngBounds();
+          if (locator.searchLocationMarker) {
+            bounds.extend(locator.searchLocationMarker.getPosition());
+          }
+          for (let i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].getPosition());
+          }
+          locator.map.fitBounds(bounds);
+        };
+        if (locator.locations.length) {
+          locator.updateBounds();
         }
+
+        // Get the distance of a store location to the user's location,
+        // used in sorting the list.
+        const getLocationDistance = function(location) {
+          if (!locator.searchLocation) return null;
+
+          // Use travel distance if available (from Distance Matrix).
+          if (location.travelDistanceValue != null) {
+            return location.travelDistanceValue;
+          }
+
+          // Fall back to straight-line distance.
+          return google.maps.geometry.spherical.computeDistanceBetween(
+              new google.maps.LatLng(location.coords),
+              locator.searchLocation.location);
+        };
+
+        // Render the results list --------------------------------------------------
+        const getResultIndex = function(elem) {
+          return parseInt(elem.getAttribute('data-location-index'));
+        };
+
+        locator.renderResultsList = function() {
+          let locations = locator.locations.slice();
+          for (let i = 0; i < locations.length; i++) {
+            locations[i].index = i;
+          }
+          if (locator.searchLocation) {
+            sectionNameEl.textContent =
+                'Nearest locations (' + locations.length + ')';
+            locations.sort(function(a, b) {
+              return getLocationDistance(a) - getLocationDistance(b);
+            });
+          } else {
+            sectionNameEl.textContent = `All locations (${locations.length})`;
+          }
+          const resultItemContext = { locations: locations };
+          resultsContainerEl.innerHTML = itemsTemplate(resultItemContext);
+          for (let item of resultsContainerEl.children) {
+            const resultIndex = getResultIndex(item);
+            if (resultIndex === locator.selectedLocationIdx) {
+              item.classList.add('selected');
+            }
+
+            const resultSelectionHandler = function() {
+              selectResultItem(resultIndex, true, false);
+            };
+
+            // Clicking anywhere on the item selects this location.
+            // Additionally, create a button element to make this behavior
+            // accessible under tab navigation.
+            item.addEventListener('click', resultSelectionHandler);
+            item.querySelector('.select-location')
+                .addEventListener('click', function(e) {
+                  resultSelectionHandler();
+                  e.stopPropagation();
+                });
+          }
+        };
+
+        // Optional capability initialization --------------------------------------
+        initializeSearchInput(locator);
+        initializeDistanceMatrix(locator);
+
+        // Initial render of results -----------------------------------------------
+        locator.renderResultsList();
       }
 
-      function renderAddress(place) {
-        map.setCenter(place.geometry.location);
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
+      /** When the search input capability is enabled, initialize it. */
+      function initializeSearchInput(locator) {
+        const geocodeCache = new Map();
+        const geocoder = new google.maps.Geocoder();
+
+        const searchInputEl = document.getElementById('location-search-input');
+        const searchButtonEl = document.getElementById('location-search-button');
+
+        const updateSearchLocation = function(address, location) {
+          if (locator.searchLocationMarker) {
+            locator.searchLocationMarker.setMap(null);
+          }
+          if (!location) {
+            locator.searchLocation = null;
+            return;
+          }
+          locator.searchLocation = {'address': address, 'location': location};
+          locator.searchLocationMarker = new google.maps.Marker({
+            position: location,
+            map: locator.map,
+            title: 'My location',
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 12,
+              fillColor: '#3367D6',
+              fillOpacity: 0.5,
+              strokeOpacity: 0,
+            }
+          });
+
+          // Update the locator's idea of the user's country, used for units. Use
+          // `formatted_address` instead of the more structured `address_components`
+          // to avoid an additional billed call.
+          const addressParts = address.split(' ');
+          locator.userCountry = addressParts[addressParts.length - 1];
+
+          // Update map bounds to include the new location marker.
+          locator.updateBounds();
+
+          // Update the result list so we can sort it by proximity.
+          locator.renderResultsList();
+
+          locator.updateTravelTimes();
+        };
+
+        const geocodeSearch = function(query) {
+          if (!query) {
+            return;
+          }
+
+          const handleResult = function(geocodeResult) {
+            searchInputEl.value = geocodeResult.formatted_address;
+            updateSearchLocation(
+                geocodeResult.formatted_address, geocodeResult.geometry.location);
+          };
+
+          if (geocodeCache.has(query)) {
+            handleResult(geocodeCache.get(query));
+            return;
+          }
+          const request = {address: query, bounds: locator.map.getBounds()};
+          geocoder.geocode(request, function(results, status) {
+            if (status === 'OK') {
+              if (results.length > 0) {
+                const result = results[0];
+                geocodeCache.set(query, result);
+                handleResult(result);
+              }
+            }
+          });
+        };
+
+        // Set up geocoding on the search input.
+        searchButtonEl.addEventListener('click', function() {
+          geocodeSearch(searchInputEl.value.trim());
+        });
+
+        // Initialize Autocomplete.
+        initializeSearchInputAutocomplete(
+            locator, searchInputEl, geocodeSearch, updateSearchLocation);
       }
-    }
+
+      /** Add Autocomplete to the search input. */
+      function initializeSearchInputAutocomplete(
+          locator, searchInputEl, fallbackSearch, searchLocationUpdater) {
+        // Set up Autocomplete on the search input. Bias results to map viewport.
+        const autocomplete = new google.maps.places.Autocomplete(searchInputEl, {
+          types: ['geocode'],
+          fields: ['place_id', 'formatted_address', 'geometry.location']
+        });
+        autocomplete.bindTo('bounds', locator.map);
+        autocomplete.addListener('place_changed', function() {
+          const placeResult = autocomplete.getPlace();
+          if (!placeResult.geometry) {
+            // Hitting 'Enter' without selecting a suggestion will result in a
+            // placeResult with only the text input value as the 'name' field.
+            fallbackSearch(placeResult.name);
+            return;
+          }
+          searchLocationUpdater(
+              placeResult.formatted_address, placeResult.geometry.location);
+        });
+      }
+
+      /** Initialize Distance Matrix for the locator. */
+      function initializeDistanceMatrix(locator) {
+        const distanceMatrixService = new google.maps.DistanceMatrixService();
+
+        // Annotate travel times to the selected location using Distance Matrix.
+        locator.updateTravelTimes = function() {
+          if (!locator.searchLocation) return;
+
+          const units = (locator.userCountry === 'USA') ?
+              google.maps.UnitSystem.IMPERIAL :
+              google.maps.UnitSystem.METRIC;
+          const request = {
+            origins: [locator.searchLocation.location],
+            destinations: locator.locations.map(function(x) {
+              return x.coords;
+            }),
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: units,
+          };
+          const callback = function(response, status) {
+            if (status === 'OK') {
+              const distances = response.rows[0].elements;
+              for (let i = 0; i < distances.length; i++) {
+                const distResult = distances[i];
+                let travelDistanceText, travelDistanceValue;
+                if (distResult.status === 'OK') {
+                  travelDistanceText = distResult.distance.text;
+                  travelDistanceValue = distResult.distance.value;
+                }
+                const location = locator.locations[i];
+                location.travelDistanceText = travelDistanceText;
+                location.travelDistanceValue = travelDistanceValue;
+              }
+
+              // Re-render the results list, in case the ordering has changed.
+              locator.renderResultsList();
+            }
+          };
+          distanceMatrixService.getDistanceMatrix(request, callback);
+        };
+      }
+    </script>
+    <script>
+      const CONFIGURATION = {
+        "locations": [
+          {"title":"Henley Place","address1":"Henley Pl","address2":"Weehawken, NJ 07086, USA","coords":{"lat":40.76866993487134,"lng":-74.01593805361536},"placeId":"EiNIZW5sZXkgUGwsIFdlZWhhd2tlbiwgTkogMDcwODYsIFVTQSIuKiwKFAoSCdMw20IwWMKJEfU3CiArX0s2EhQKEgkB0IUVMFjCiRGUmggtWZ9PJQ"}
+        ],
+        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17},
+        "mapsApiKey": "AIzaSyDHEGb8XzHTqWyHezNyXGFRRwVZbvQmd3E"
+      };
+
+      function initMap() {
+        new LocatorPlus(CONFIGURATION);
+      }
+    </script>
+    <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
+      {{#each locations}}
+        <li class="location-result" data-location-index="{{index}}">
+          <button class="select-location">
+            <h2 class="name">{{title}}</h2>
+          </button>
+          <div class="address">{{address1}}<br>{{address2}}</div>
+          {{#if travelDistanceText}}
+            <div class="distance">{{travelDistanceText}}</div>
+          {{/if}}
+        </li>
+      {{/each}}
     </script>
   </head>
   <body>
-    <div class="card-container">
-      <div class="panel">
-        <div>
-          <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
-          <span class="sb-title">Address Selection</span>
+    <div id="map-container">
+      <div id="locations-panel">
+        <div id="locations-panel-list">
+          <header>
+            <h1 class="search-title">
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg"/>
+              Find a location near you
+            </h1>
+            <div class="search-input">
+              <input id="location-search-input" placeholder="Enter your address or zip code">
+              <div id="search-overlay-search" class="search-input-overlay search">
+                <button id="location-search-button">
+                  <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search"/>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div class="section-name" id="location-results-section-name">
+            All locations
+          </div>
+          <div class="results">
+            <ul id="location-results-list"></ul>
+          </div>
         </div>
-        <input type="text" placeholder="Address" id="location"/>
-        <input type="text" placeholder="Apt, Suite, etc (optional)"/>
-        <input type="text" placeholder="City" id="locality"/>
-        <div class="half-input-container">
-          <input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1"/>
-          <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code"/>
-        </div>
-        <input type="text" placeholder="Country" id="country"/>
-        <button class="button-cta">Checkout</button>
       </div>
-      <div class="map" id="map"></div>
+      <div id="map"></div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHEGb8XzHTqWyHezNyXGFRRwVZbvQmd3E&libraries=places&callback=initMap&channel=GMPSB_addressselection_v1_cABC" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHEGb8XzHTqWyHezNyXGFRRwVZbvQmd3E&callback=initMap&libraries=places,geometry&channel=GMPSB_locatorplus_v4_cABD" async defer></script>
   </body>
 </html>
