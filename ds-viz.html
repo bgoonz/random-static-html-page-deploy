@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    iframe {
+      background-color: aliceblue;
+      width: 450px;
+      height: 800px;
+      margin-left: auto;
+      /* Automatic margin from left */
+      margin-right: auto;
+      /* Automatic margin from right */
+    }
+
+    body {
+      background-image: url('https://thumbs.gfycat.com/AffectionateInfiniteGuernseycow-size_restricted.gif');
+
+
+
+    }
+  </style>
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="text-area">
+			<h1>
+				Data Structures Viz
+			</h1>
+			<h3 style="margin-top: -22px">
+				See Numbers Displayed as Various Data Structures
+			</h3>
+			<ul class="ul">
+				<button type="submit" class="button" style="z-index:2" id="randomizer" onclick="randomizer()">Generate Random Integers</button>
+				<label class="numbers-area" id="numbersArea"></label></h3>
+			</ul>
+			<h5>
+				<label class="label" id="binaryTree" onclick="createBinaryTree()">Binary Tree</label>||
+				<label class="label" id="queue" onclick="createQueue()">Queue</label>||
+				<label class="label" id="stack" onclick="createStack()">Stack</label>||
+				<label class="label" id="linkedList" onclick="createLinkedList()">Linked List</label>||
+				<label class="label" id="heap" onclick="createHeap()">Heap</label>||
+				<label class="label" id="doubleLinkedList" onclick="createDblLinkedList()">Doubly Linked List</label>
+			</h5>
+			<p id="buttonAppear" style="z-index: 2"></p>
+		</div>
+	</div>
+
+	<div>
+		<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+	</div>
+</div>
+</body>
+
+</html>
