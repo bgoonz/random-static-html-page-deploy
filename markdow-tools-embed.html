@@ -1,0 +1,170 @@
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.getElementsByTagName("html")[0].className = "js";
+    </script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" href="./iframe-style.css">
+
+</head>
+
+<body>
+    <center>
+        <h1>All Iframes Are Resizable... Just Drag The Corner</h1>
+    </center>
+    <div class="wrapper">
+        <div class="item">
+            <div class="iframe">
+                <iframe src="https://euangoddard.github.io/clipboard2markdown/"></iframe>
+            </div>
+        </div>
+        <div class="item">
+            <div class="iframe">
+                <iframe src="https://codepen.io/bgoonz/embed/JjNaPpL?default-tab=result&amp;theme-id=light" /></iframe>
+            </div>
+        </div>
+        <div class="item">
+            <div class="iframe">
+                <iframe src="https://pedantic-wing-adbf82.netlify.app/" /></iframe>
+            </div>
+        </div>
+        <div class="item">
+            <div class="iframe">
+                <iframe src="https://githtmlpreview.netlify.app/" /></iframe>
+            </div>
+        </div>
+        <div class="item">
+            <div class="iframe">
+                <iframe src="https://onedrive.live.com/embed?cid=D21009FDD967A241&resid=D21009FDD967A241%21538729&authkey=AHSDSyoYqzg2K2E" /></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+    $(document).ready(function () {
+    $(".iframe").responsiveIframes({
+        openMessage: "Full screen",
+        closeMessage: "Close full screen"
+    });
+});
+
+
+(function ($) {
+    $.responsiveIframes = function (el, options) {
+        var self = this;
+
+        // Access to jQuery and DOM versions of element
+        self.$el = $(el);
+        self.el = el;
+
+        // Add a reverse reference to the DOM object
+        self.$el.data("responsiveIframes", self);
+
+        self.init = function () {
+            self.options = $.extend(
+                {},
+                $.responsiveIframes.defaultOptions,
+                options
+            );
+
+            // wrap iframe
+            var iframeSrc = self.$el
+                .find("iframe")
+                .wrap('<div class="iframe-content" />')
+                .attr("src");
+
+            //generate header
+            var header =
+                '<div class="iframe-header">' +
+                '<a href="' +
+                iframeSrc +
+                '" class="iframe-trigger">' +
+                self.options.openMessage +
+                "</a>" +
+                "</div>";
+
+            var trigger = self.$el.prepend(header).find(".iframe-trigger");
+
+            // click event
+            $(trigger).click(function (e) {
+                e.preventDefault();
+
+                var $this = $(this),
+                    $html = $("html"),
+                    isFullScreen = $html.hasClass("iframe-full-screen"),
+                    message = isFullScreen
+                        ? self.options.openMessage
+                        : self.options.closeMessage;
+
+                $this.text(message);
+
+                if (isFullScreen) {
+                    self.$el.removeClass("iframe-active");
+                    $html.removeClass("iframe-full-screen");
+                    setTimeout(function () {
+                        $(window).scrollTop(
+                            $this.data("iframe-scroll-position")
+                        );
+                    }, 1);
+                } else {
+                    $this.data("iframe-scroll-position", $(window).scrollTop());
+                    self.$el.addClass("iframe-active");
+                    $html.addClass("iframe-full-screen");
+                }
+            });
+        };
+
+        // Run initializer
+        self.init();
+    };
+
+    $.responsiveIframes.defaultOptions = {
+        openMessage: "Full screen",
+        closeMessage: "Close"
+    };
+
+    $.fn.responsiveIframes = function (options) {
+        return this.each(function () {
+            new $.responsiveIframes(this, options);
+        });
+    };
+})(jQuery);
+
+    </script>
+</body>
+
+</html>
+
+<!--Notes:
+https://random-static-html-deploys.netlify.app/
+https://devtools42.netlify.app/
+https://determined-dijkstra-ee7390.netlify.app/
+https://links4242.netlify.app/
+https://markdown-templates-42.netlify.app/
+https://sidebar-blog.netlify.app/
+https://friendly-amaranth-51833.netlify.app/
+https://bgoonzbookmarks.netlify.app/
+https://sanity-gatsby-hey-sugar-5.netlify.app/
+https://sanity-gatsby-hey-sugar-5.netlify.app/
+https://dev-journal42.netlify.app/
+https://kguner-fractions-website.netlify.app/
+https://sanity-gatsby-blog-web-skwx3b17.netlify.app/
+https://ds-algo-official.netlify.app/
+https://random-list-of-embedable-content.vercel.app/
+https://ds-unit-5-lambda.netlify.app/
+https://www.youtube.com/embed/xGZSWvFess8
+https://bgoonz.blogspot.com/
+https://iframeshowcase.netlify.app/
+
+https://random-static-html-deploys.netlify.app/
+
+
+
+
+-->
