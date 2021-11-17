@@ -1,0 +1,535 @@
+<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">Async iteration and generators</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/async-iterators-generators"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Async iteration and generators"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Async iteration and generators"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/generators"><link rel="next" href="/modules"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><script>
+  async function* fetchCommits(repo) {
+    let url = `https://api.github.com/repos/${repo}/commits`;
+
+    while (url) {
+      const response = await fetch(url, {
+        headers: {'User-Agent': 'Our script'}, // github requires user-agent header
+      });
+
+      const body = await response.json(); // parses response as JSON (array of commits)
+
+      // the URL of the next page is in the headers, extract it
+      let nextPage = response.headers.get('Link').match(/<(.*?)>; rel="next"/);
+      nextPage = nextPage?.[1];
+
+      url = nextPage;
+
+      // yield commits one by one, when they finish - fetch a new page url
+      for(let commit of body) {
+        yield commit;
+      }
+    }
+  }
+</script>
+<meta property="og:title" content="Async iteration and generators"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/async-iterators-generators"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/async-iterators-generators"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/async-iterators-generators"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/async-iterators-generators"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/async-iterators-generators"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/async-iterators-generators"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/async-iterators-generators"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/async-iterators-generators"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/async-iterators-generators"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/async-iterators-generators"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/async-iterators-generators"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
+</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/async-iterators-generators">عربي</option><option value="https://javascript.info/async-iterators-generators" selected>English</option><option value="https://es.javascript.info/async-iterators-generators">Español</option><option value="https://fr.javascript.info/async-iterators-generators">Français</option><option value="https://id.javascript.info/async-iterators-generators">Indonesia</option><option value="https://it.javascript.info/async-iterators-generators">Italiano</option><option value="https://ja.javascript.info/async-iterators-generators">日本語</option><option value="https://ko.javascript.info/async-iterators-generators">한국어</option><option value="https://learn.javascript.ru/async-iterators-generators">Русский</option><option value="https://tr.javascript.info/async-iterators-generators">Türkçe</option><option value="https://zh.javascript.info/async-iterators-generators">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="84" max="92" data-tooltip="Lesson 84 of 92"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/js"><span>The JavaScript language</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/generators-iterators"><span>Generators, advanced iteration</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"The JavaScript language","item":"https://javascript.info/js"},{"@type":"ListItem","position":3,"name":"Generators, advanced iteration","item":"https://javascript.info/generators-iterators"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 11th April 2021"><div class="updated-at__content">11th April 2021</div></div></div><h1 class="main__header-title">Async iteration and generators</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Async iteration and generators"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Asynchronous iteration allow us to iterate over data that comes asynchronously, on-demand. Like, for instance, when we download something chunk-by-chunk over a network. And asynchronous generators make it even more convenient.</p>
+<p>Let’s see a simple example first, to grasp the syntax, and then review a real-life use case.</p>
+<h2><a class="main__anchor" name="recall-iterables" href="#recall-iterables">Recall iterables</a></h2><p>Let’s recall the topic about iterables.</p>
+<p>The idea is that we have an object, such as <code>range</code> here:</p>
+<div id="q6bghtlo1l" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5
+};</code></pre>
+        </div>
+      </div>
+      
+      </div><p>…And we’d like to use <code>for..of</code> loop on it, such as <code>for(value of range)</code>, to get values from <code>1</code> to <code>5</code>.</p>
+<p>In other words, we want to add an <em>iteration ability</em> to the object.</p>
+<p>That can be implemented using a special method with the name <code>Symbol.iterator</code>:</p>
+<ul>
+<li>This method is called in by the <code>for..of</code> construct when the loop is started, and it should return an object with the <code>next</code> method.</li>
+<li>For each iteration, the <code>next()</code> method is invoked for the next value.</li>
+<li>The <code>next()</code> should return a value in the form <code>{done: true/false, value:&lt;loop value&gt;}</code>, where <code>done:true</code> means the end of the loop.</li>
+</ul>
+<p>Here’s an implementation for the iterable <code>range</code>:</p>
+<div id="tso1mmiuuf" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:9,&quot;end&quot;:9},{&quot;start&quot;:4,&quot;end&quot;:4}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.iterator]() { // called once, in the beginning of for..of
+    return {
+      current: this.from,
+      last: this.to,
+
+      next() { // called every iteration, to get the next value
+        if (this.current &lt;= this.last) {
+          return { done: false, value: this.current++ };
+        } else {
+          return { done: true };
+        }
+      }
+    };
+  }
+};
+
+for(let value of range) {
+  alert(value); // 1 then 2, then 3, then 4, then 5
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>If anything is unclear, please visit the chapter <a href="/iterable">Iterables</a>, it gives all the details about regular iterables.</p>
+<h2><a class="main__anchor" name="async-iterables" href="#async-iterables">Async iterables</a></h2><p>Asynchronous iteration is needed when values come asynchronously: after <code>setTimeout</code> or another kind of delay.</p>
+<p>The most common case is that the object needs to make a network request to deliver the next value, we’ll see a real-life example of it a bit later.</p>
+<p>To make an object iterable asynchronously:</p>
+<ol>
+<li>Use <code>Symbol.asyncIterator</code> instead of <code>Symbol.iterator</code>.</li>
+<li>The <code>next()</code> method should return a promise (to be fulfilled with the next value).
+<ul>
+<li>The <code>async</code> keyword handles it, we can simply make <code>async next()</code>.</li>
+</ul>
+</li>
+<li>To iterate over such an object, we should use a <code>for await (let item of iterable)</code> loop.
+<ul>
+<li>Note the <code>await</code> word.</li>
+</ul>
+</li>
+</ol>
+<p>As a starting example, let’s make an iterable <code>range</code> object, similar like the one before, but now it will return values asynchronously, one per second.</p>
+<p>All we need to do is to perform a few replacements in the code above:</p>
+<div id="znvddxv85o" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:26,&quot;end&quot;:28},{&quot;start&quot;:11,&quot;end&quot;:12},{&quot;start&quot;:9,&quot;end&quot;:9},{&quot;start&quot;:4,&quot;end&quot;:4}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5,
+
+  [Symbol.asyncIterator]() { // (1)
+    return {
+      current: this.from,
+      last: this.to,
+
+      async next() { // (2)
+
+        // note: we can use &quot;await&quot; inside the async next:
+        await new Promise(resolve =&gt; setTimeout(resolve, 1000)); // (3)
+
+        if (this.current &lt;= this.last) {
+          return { done: false, value: this.current++ };
+        } else {
+          return { done: true };
+        }
+      }
+    };
+  }
+};
+
+(async () =&gt; {
+
+  for await (let value of range) { // (4)
+    alert(value); // 1,2,3,4,5
+  }
+
+})()</code></pre>
+        </div>
+      </div>
+      
+      </div><p>As we can see, the structure is similar to regular iterators:</p>
+<ol>
+<li>To make an object asynchronously iterable, it must have a method <code>Symbol.asyncIterator</code> <code>(1)</code>.</li>
+<li>This method must return the object with <code>next()</code> method returning a promise <code>(2)</code>.</li>
+<li>The <code>next()</code> method doesn’t have to be <code>async</code>, it may be a regular method returning a promise, but <code>async</code> allows us to use <code>await</code>, so that’s convenient. Here we just delay for a second <code>(3)</code>.</li>
+<li>To iterate, we use <code>for await(let value of range)</code> <code>(4)</code>, namely add “await” after “for”. It calls <code>range[Symbol.asyncIterator]()</code> once, and then its <code>next()</code> for values.</li>
+</ol>
+<p>Here’s a small table with the differences:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Iterators</th>
+<th>Async iterators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Object method to provide iterator</td>
+<td><code>Symbol.iterator</code></td>
+<td><code>Symbol.asyncIterator</code></td>
+</tr>
+<tr>
+<td><code>next()</code> return value is</td>
+<td>any value</td>
+<td><code>Promise</code></td>
+</tr>
+<tr>
+<td>to loop, use</td>
+<td><code>for..of</code></td>
+<td><code>for await..of</code></td>
+</tr>
+</tbody>
+</table>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">The spread syntax <code>...</code> doesn’t work asynchronously</span></div>
+            <div class="important__content"><p>Features that require regular, synchronous iterators, don’t work with asynchronous ones.</p>
+<p>For instance, a spread syntax won’t work:</p>
+<div id="jd09d6tpp2" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert( [...range] ); // Error, no Symbol.iterator</code></pre>
+        </div>
+      </div>
+      
+      </div><p>That’s natural, as it expects to find <code>Symbol.iterator</code>, not <code>Symbol.asyncIterator</code>.</p>
+<p>It’s also the case for <code>for..of</code>: the syntax without <code>await</code> needs <code>Symbol.iterator</code>.</p>
+</div></div>
+<h2><a class="main__anchor" name="recall-generators" href="#recall-generators">Recall generators</a></h2><p>Now let’s recall generators, as they allow to make iteration code much shorter. Most of the time, when we’d like to make an iterable, we’ll use generators.</p>
+<p>For sheer simplicity, omitting some important stuff, they are “functions that generate (yield) values”. They are explained in detail in the chapter <a href="/generators">Generators</a>.</p>
+<p>Generators are labelled with <code>function*</code> (note the star) and use <code>yield</code> to generate a value, then we can use <code>for..of</code> to loop over them.</p>
+<p>This example generates a sequence of values from <code>start</code> to <code>end</code>:</p>
+<div id="k8csurwxjo" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>function* generateSequence(start, end) {
+  for (let i = start; i &lt;= end; i++) {
+    yield i;
+  }
+}
+
+for(let value of generateSequence(1, 5)) {
+  alert(value); // 1, then 2, then 3, then 4, then 5
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>As we already know, to make an object iterable, we should add <code>Symbol.iterator</code> to it.</p>
+<div id="6o30rpf70e" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:3,&quot;end&quot;:5}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5,
+  [Symbol.iterator]() {
+    return &lt;object with next to make range iterable&gt;
+  }
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>A common practice for <code>Symbol.iterator</code> is to return a generator, it makes the code shorter, as you can see:</p>
+<div id="6ng1ilz0m6" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5,
+
+  *[Symbol.iterator]() { // a shorthand for [Symbol.iterator]: function*()
+    for(let value = this.from; value &lt;= this.to; value++) {
+      yield value;
+    }
+  }
+};
+
+for(let value of range) {
+  alert(value); // 1, then 2, then 3, then 4, then 5
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Please see the chapter <a href="/generators">Generators</a> if you’d like more details.</p>
+<p>In regular generators we can’t use <code>await</code>. All values must come synchronously, as required by the <code>for..of</code> construct.</p>
+<p>What if we’d like to generate values asynchronously? From network requests, for instance.</p>
+<p>Let’s switch to asynchronous generators to make it possible.</p>
+<h2><a class="main__anchor" name="async-generators-finally" href="#async-generators-finally">Async generators (finally)</a></h2><p>For most practical applications, when we’d like to make an object that asynchronously generates a sequence of values, we can use an asynchronous generator.</p>
+<p>The syntax is simple: prepend <code>function*</code> with <code>async</code>. That makes the generator asynchronous.</p>
+<p>And then use <code>for await (...)</code> to iterate over it, like this:</p>
+<div id="ue29e3igdh" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:15,&quot;cols&quot;:[{&quot;start&quot;:6,&quot;end&quot;:11}]},{&quot;start&quot;:4,&quot;end&quot;:5},{&quot;start&quot;:0,&quot;cols&quot;:[{&quot;start&quot;:0,&quot;end&quot;:5}]}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>async function* generateSequence(start, end) {
+
+  for (let i = start; i &lt;= end; i++) {
+
+    // Wow, can use await!
+    await new Promise(resolve =&gt; setTimeout(resolve, 1000));
+
+    yield i;
+  }
+
+}
+
+(async () =&gt; {
+
+  let generator = generateSequence(1, 5);
+  for await (let value of generator) {
+    alert(value); // 1, then 2, then 3, then 4, then 5 (with delay between)
+  }
+
+})();</code></pre>
+        </div>
+      </div>
+      
+      </div><p>As the generator is asynchronous, we can use <code>await</code> inside it, rely on promises, perform network requests and so on.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">Under-the-hood difference</span></div>
+            <div class="important__content"><p>Technically, if you’re an advanced reader who remembers the details about generators, there’s an internal difference.</p>
+<p>For async generators, the <code>generator.next()</code> method is asynchronous, it returns promises.</p>
+<p>In a regular generator we’d use <code>result = generator.next()</code> to get values. In an async generator, we should add <code>await</code>, like this:</p>
+<div id="11j81vmfbi" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>result = await generator.next(); // result = {value: ..., done: true/false}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>That’s why async generators work with <code>for await...of</code>.</p>
+</div></div>
+<h3><a class="main__anchor" name="async-iterable-range" href="#async-iterable-range">Async iterable range</a></h3><p>Regular generators can be used as <code>Symbol.iterator</code> to make the iteration code shorter.</p>
+<p>Similar to that, async generators can be used as <code>Symbol.asyncIterator</code> to implement the asynchronous iteration.</p>
+<p>For instance, we can make the <code>range</code> object generate values asynchronously, once per second, by replacing synchronous <code>Symbol.iterator</code> with asynchronous <code>Symbol.asyncIterator</code>:</p>
+<div id="bvtlgvxg3i" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:18,&quot;cols&quot;:[{&quot;start&quot;:6,&quot;end&quot;:11}]},{&quot;start&quot;:5,&quot;end&quot;:5}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>let range = {
+  from: 1,
+  to: 5,
+
+  // this line is same as [Symbol.asyncIterator]: async function*() {
+  async *[Symbol.asyncIterator]() {
+    for(let value = this.from; value &lt;= this.to; value++) {
+
+      // make a pause between values, wait for something
+      await new Promise(resolve =&gt; setTimeout(resolve, 1000));
+
+      yield value;
+    }
+  }
+};
+
+(async () =&gt; {
+
+  for await (let value of range) {
+    alert(value); // 1, then 2, then 3, then 4, then 5
+  }
+
+})();</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Now values come with a delay of 1 second between them.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">Please note:</span></div>
+            <div class="important__content"><p>Technically, we can add both <code>Symbol.iterator</code> and <code>Symbol.asyncIterator</code> to the object, so it’s both synchronously (<code>for..of</code>) and asynchronously (<code>for await..of</code>) iterable.</p>
+<p>In practice though, that would be a weird thing to do.</p>
+</div></div>
+<h2><a class="main__anchor" name="real-life-example-paginated-data" href="#real-life-example-paginated-data">Real-life example: paginated data</a></h2><p>So far we’ve seen basic examples, to gain understanding. Now let’s review a real-life use case.</p>
+<p>There are many online services that deliver paginated data. For instance, when we need a list of users, a request returns a pre-defined count (e.g. 100 users) – “one page”, and provides a URL to the next page.</p>
+<p>This pattern is very common. It’s not about users, but just about anything.</p>
+<p>For instance, GitHub allows us to retrieve commits in the same, paginated fashion:</p>
+<ul>
+<li>We should make a request to <code>fetch</code> in the form <code>https://api.github.com/repos/&lt;repo&gt;/commits</code>.</li>
+<li>It responds with a JSON of 30 commits, and also provides a link to the next page in the <code>Link</code> header.</li>
+<li>Then we can use that link for the next request, to get more commits, and so on.</li>
+</ul>
+<p>For our code, we’d like to have a simpler way to get commits.</p>
+<p>Let’s make a function <code>fetchCommits(repo)</code> that gets commits for us, making requests whenever needed. And let it care about all pagination stuff. For us it’ll be a simple async iteration <code>for await..of</code>.</p>
+<p>So the usage will be like this:</p>
+<div id="1mcb5dar7v" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>for await (let commit of fetchCommits(&quot;username/repository&quot;)) {
+  // process commit
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Here’s such function, implemented as async generator:</p>
+<div id="oukot900cb" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>async function* fetchCommits(repo) {
+  let url = `https://api.github.com/repos/${repo}/commits`;
+
+  while (url) {
+    const response = await fetch(url, { // (1)
+      headers: {'User-Agent': 'Our script'}, // github needs any user-agent header
+    });
+
+    const body = await response.json(); // (2) response is JSON (array of commits)
+
+    // (3) the URL of the next page is in the headers, extract it
+    let nextPage = response.headers.get('Link').match(/&lt;(.*?)&gt;; rel=&quot;next&quot;/);
+    nextPage = nextPage?.[1];
+
+    url = nextPage;
+
+    for(let commit of body) { // (4) yield commits one by one, until the page ends
+      yield commit;
+    }
+  }
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>More explanations about how it works:</p>
+<ol>
+<li>
+<p>We use the browser <a href="/fetch">fetch</a> method to download the commits.</p>
+<ul>
+<li>The initial URL is <code>https://api.github.com/repos/&lt;repo&gt;/commits</code>, and the next page will be in the <code>Link</code> header of the response.</li>
+<li>The <code>fetch</code> method allows us to supply authorization and other headers if needed – here GitHub requires <code>User-Agent</code>.</li>
+</ul>
+</li>
+<li>
+<p>The commits are returned in JSON format.</p>
+</li>
+<li>
+<p>We should get the next page URL from the <code>Link</code> header of the response. It has a special format, so we use a regular expression for that (we will learn this feature in <a href="/regular-expressions">Regular expressions</a>).</p>
+<ul>
+<li>The next page URL may look like <code>https://api.github.com/repositories/93253246/commits?page=2</code>. It’s generated by GitHub itself.</li>
+</ul>
+</li>
+<li>
+<p>Then we yield the received commits one by one, and when they finish, the next <code>while(url)</code> iteration will trigger, making one more request.</p>
+</li>
+</ol>
+<p>An example of use (shows commit authors in console):</p>
+<div id="m0so30s444" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>(async () =&gt; {
+
+  let count = 0;
+
+  for await (const commit of fetchCommits('javascript-tutorial/en.javascript.info')) {
+
+    console.log(commit.author.login);
+
+    if (++count == 100) { // let's stop at 100 commits
+      break;
+    }
+  }
+
+})();
+
+// Note: If you are running this in an external sandbox, you'll need to paste here the function fetchCommits described above</code></pre>
+        </div>
+      </div>
+      
+      </div><p>That’s just what we wanted.</p>
+<p>The internal mechanics of paginated requests is invisible from the outside. For us it’s just an async generator that returns commits.</p>
+<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Regular iterators and generators work fine with the data that doesn’t take time to generate.</p>
+<p>When we expect the data to come asynchronously, with delays, their async counterparts can be used, and <code>for await..of</code> instead of <code>for..of</code>.</p>
+<p>Syntax differences between async and regular iterators:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Iterable</th>
+<th>Async Iterable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method to provide iterator</td>
+<td><code>Symbol.iterator</code></td>
+<td><code>Symbol.asyncIterator</code></td>
+</tr>
+<tr>
+<td><code>next()</code> return value is</td>
+<td><code>{value:…, done: true/false}</code></td>
+<td><code>Promise</code> that resolves to <code>{value:…, done: true/false}</code></td>
+</tr>
+</tbody>
+</table>
+<p>Syntax differences between async and regular generators:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Generators</th>
+<th>Async generators</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Declaration</td>
+<td><code>function*</code></td>
+<td><code>async function*</code></td>
+</tr>
+<tr>
+<td><code>next()</code> return value is</td>
+<td><code>{value:…, done: true/false}</code></td>
+<td><code>Promise</code> that resolves to <code>{value:…, done: true/false}</code></td>
+</tr>
+</tbody>
+</table>
+<p>In web-development we often meet streams of data, when it flows chunk-by-chunk. For instance, downloading or uploading a big file.</p>
+<p>We can use async generators to process such data. It’s also noteworthy that in some environments, like in browsers, there’s also another API called Streams, that provides special interfaces to work with such streams, to transform the data and to pass it from one stream to another (e.g. download from one place and immediately send elsewhere).</p>
+</div></article></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/generators" data-tooltip="Generators"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/modules" data-tooltip="Modules"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/async-iterators-generators","identifier":"\/async-iterators-generators"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/generators-iterators">Generators, advanced iteration</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#recall-iterables">Recall iterables</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#async-iterables">Async iterables</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#recall-generators">Recall generators</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#async-generators-finally">Async generators (finally)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#real-life-example-paginated-data">Real-life example: paginated data</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Fasync-iterators-generators" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/12-generators-iterators/2-async-iterators-generators" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>

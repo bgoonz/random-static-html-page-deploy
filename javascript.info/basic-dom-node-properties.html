@@ -1,0 +1,799 @@
+<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">Node properties: type, tag and contents</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/basic-dom-node-properties"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Node properties: type, tag and contents"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Node properties: type, tag and contents"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/searching-elements-dom"><link rel="next" href="/dom-attributes-and-properties"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><meta property="og:title" content="Node properties: type, tag and contents"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/basic-dom-node-properties"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/basic-dom-node-properties"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
+</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/basic-dom-node-properties">عربي</option><option value="https://javascript.info/basic-dom-node-properties" selected>English</option><option value="https://es.javascript.info/basic-dom-node-properties">Español</option><option value="https://fr.javascript.info/basic-dom-node-properties">Français</option><option value="https://id.javascript.info/">Indonesia</option><option value="https://it.javascript.info/basic-dom-node-properties">Italiano</option><option value="https://ja.javascript.info/basic-dom-node-properties">日本語</option><option value="https://ko.javascript.info/basic-dom-node-properties">한국어</option><option value="https://learn.javascript.ru/basic-dom-node-properties">Русский</option><option value="https://tr.javascript.info/basic-dom-node-properties">Türkçe</option><option value="https://zh.javascript.info/basic-dom-node-properties">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="5" max="32" data-tooltip="Lesson 5 of 32"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/ui"><span>Browser: Document, Events, Interfaces</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/document"><span>Document</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"Browser: Document, Events, Interfaces","item":"https://javascript.info/ui"},{"@type":"ListItem","position":3,"name":"Document","item":"https://javascript.info/document"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 25th October 2021"><div class="updated-at__content">25th October 2021</div></div></div><h1 class="main__header-title">Node properties: type, tag and contents</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Node properties: type, tag and contents"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Let’s get a more in-depth look at DOM nodes.</p>
+<p>In this chapter we’ll see more into what they are and learn their most used properties.</p>
+<h2><a class="main__anchor" name="dom-node-classes" href="#dom-node-classes">DOM node classes</a></h2><p>Different DOM nodes may have different properties. For instance, an element node corresponding to tag <code>&lt;a&gt;</code> has link-related properties, and the one corresponding to <code>&lt;input&gt;</code> has input-related properties and so on. Text nodes are not the same as element nodes. But there are also common properties and methods between all of them, because all classes of DOM nodes form a single hierarchy.</p>
+<p>Each DOM node belongs to the corresponding built-in class.</p>
+<p>The root of the hierarchy is <a href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a>, that is inherited by  <a href="http://dom.spec.whatwg.org/#interface-node">Node</a>, and other DOM nodes inherit from it.</p>
+<p>Here’s the picture, explanations to follow:</p>
+<figure><div class="image" style="width:478px">
+      <div class="image__ratio" style="padding-top:76.15062761506276%"></div>
+      <object type="image/svg+xml" data="/article/basic-dom-node-properties/dom-class-hierarchy.svg" width="478" height="364" class="image__image">
+        <img src="/article/basic-dom-node-properties/dom-class-hierarchy.svg" alt="" width="478" height="364">
+      </object>
+      </div></figure><p>The classes are:</p>
+<ul>
+<li><a href="https://dom.spec.whatwg.org/#eventtarget">EventTarget</a> – is the root “abstract” class. Objects of that class are never created. It serves as a base, so that all DOM nodes support so-called “events”, we’ll study them later.</li>
+<li><a href="http://dom.spec.whatwg.org/#interface-node">Node</a> – is also an “abstract” class, serving as a base  for DOM nodes. It provides the core tree functionality: <code>parentNode</code>, <code>nextSibling</code>, <code>childNodes</code> and so on (they are getters). Objects of <code>Node</code> class are never created. But there are concrete node classes that inherit from it, namely: <code>Text</code> for text nodes, <code>Element</code> for element nodes and more exotic ones like <code>Comment</code> for comment nodes.</li>
+<li><a href="http://dom.spec.whatwg.org/#interface-element">Element</a> – is a base class for DOM elements. It provides element-level navigation like <code>nextElementSibling</code>, <code>children</code> and searching methods like <code>getElementsByTagName</code>, <code>querySelector</code>. A browser supports not only HTML, but also XML and SVG. The <code>Element</code> class serves as a base for more specific classes: <code>SVGElement</code>, <code>XMLElement</code> and <code>HTMLElement</code>.</li>
+<li><a href="https://html.spec.whatwg.org/multipage/dom.html#htmlelement">HTMLElement</a> – is finally the basic class for all HTML elements. It is inherited by concrete HTML elements:
+<ul>
+<li><a href="https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement">HTMLInputElement</a> – the class for <code>&lt;input&gt;</code> elements,</li>
+<li><a href="https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement">HTMLBodyElement</a> – the class for <code>&lt;body&gt;</code> elements,</li>
+<li><a href="https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement">HTMLAnchorElement</a> – the class for <code>&lt;a&gt;</code> elements,</li>
+<li>…and so on.</li>
+</ul>
+</li>
+</ul>
+<p>There are many other tags with their own classes that may specific properties and methods, while some elements, such as <code>&lt;span&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> do not have any specific properties, so they are instances of <code>HTMLElement</code> class.</p>
+<p>So, the full set of properties and methods of a given node comes as the result of the inheritance.</p>
+<p>For example, let’s consider the DOM object for an <code>&lt;input&gt;</code> element. It belongs to <a href="https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement">HTMLInputElement</a> class.</p>
+<p>It gets properties and methods as a superposition of (listed in inheritance order):</p>
+<ul>
+<li><code>HTMLInputElement</code> – this class provides input-specific properties,</li>
+<li><code>HTMLElement</code> – it provides common HTML element methods (and getters/setters),</li>
+<li><code>Element</code> – provides generic element methods,</li>
+<li><code>Node</code> – provides common DOM node properties,</li>
+<li><code>EventTarget</code> – gives the support for events (to be covered),</li>
+<li>…and finally it inherits from <code>Object</code>, so “plain object” methods like <code>hasOwnProperty</code> are also available.</li>
+</ul>
+<p>To see the DOM node class name, we can recall that an object usually has the <code>constructor</code> property. It references the class constructor, and <code>constructor.name</code> is its name:</p>
+<div id="m6ajajas2c" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert( document.body.constructor.name ); // HTMLBodyElement</code></pre>
+        </div>
+      </div>
+      
+      </div><p>…Or we can just <code>toString</code> it:</p>
+<div id="2d225nj0sf" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert( document.body ); // [object HTMLBodyElement]</code></pre>
+        </div>
+      </div>
+      
+      </div><p>We also can use <code>instanceof</code> to check the inheritance:</p>
+<div id="852645qwmr" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert( document.body instanceof HTMLBodyElement ); // true
+alert( document.body instanceof HTMLElement ); // true
+alert( document.body instanceof Element ); // true
+alert( document.body instanceof Node ); // true
+alert( document.body instanceof EventTarget ); // true</code></pre>
+        </div>
+      </div>
+      
+      </div><p>As we can see, DOM nodes are regular JavaScript objects. They use prototype-based classes for inheritance.</p>
+<p>That’s also easy to see by outputting an element with <code>console.dir(elem)</code> in a browser. There in the console you can see <code>HTMLElement.prototype</code>, <code>Element.prototype</code> and so on.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type"><code>console.dir(elem)</code> versus <code>console.log(elem)</code></span></div>
+            <div class="important__content"><p>Most browsers support two commands in their developer tools: <code>console.log</code> and <code>console.dir</code>. They output their arguments to the console. For JavaScript objects these commands usually do the same.</p>
+<p>But for DOM elements they are different:</p>
+<ul>
+<li><code>console.log(elem)</code> shows the element DOM tree.</li>
+<li><code>console.dir(elem)</code> shows the element as a DOM object, good to explore its properties.</li>
+</ul>
+<p>Try it on <code>document.body</code>.</p>
+</div></div>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">IDL in the spec</span></div>
+            <div class="important__content"><p>In the specification, DOM classes aren’t described by using JavaScript, but a special <a href="https://en.wikipedia.org/wiki/Interface_description_language">Interface description language</a> (IDL), that is usually easy to understand.</p>
+<p>In IDL all properties are prepended with their types. For instance, <code>DOMString</code>, <code>boolean</code> and so on.</p>
+<p>Here’s an excerpt from it, with comments:</p>
+<div id="rnc4wc3e9o" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:14,&quot;end&quot;:14},{&quot;start&quot;:11,&quot;end&quot;:12},{&quot;start&quot;:5,&quot;end&quot;:5},{&quot;start&quot;:1,&quot;end&quot;:1}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>// Define HTMLInputElement
+// The colon &quot;:&quot; means that HTMLInputElement inherits from HTMLElement
+interface HTMLInputElement: HTMLElement {
+  // here go properties and methods of &lt;input&gt; elements
+
+  // &quot;DOMString&quot; means that the value of a property is a string
+  attribute DOMString accept;
+  attribute DOMString alt;
+  attribute DOMString autocomplete;
+  attribute DOMString value;
+
+  // boolean value property (true/false)
+  attribute boolean autofocus;
+  ...
+  // now the method: &quot;void&quot; means that the method returns no value
+  void select();
+  ...
+}</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div>
+<h2><a class="main__anchor" name="the-nodetype-property" href="#the-nodetype-property">The “nodeType” property</a></h2><p>The <code>nodeType</code> property provides one more, “old-fashioned” way to get the “type” of a DOM node.</p>
+<p>It has a numeric value:</p>
+<ul>
+<li><code>elem.nodeType == 1</code> for element nodes,</li>
+<li><code>elem.nodeType == 3</code> for text nodes,</li>
+<li><code>elem.nodeType == 9</code> for the document object,</li>
+<li>there are few other values in <a href="https://dom.spec.whatwg.org/#node">the specification</a>.</li>
+</ul>
+<p>For instance:</p>
+<div id="8cutxayhqe" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;body&gt;
+  &lt;script&gt;
+  let elem = document.body;
+
+  // let's examine what it is?
+  alert(elem.nodeType); // 1 =&gt; element
+
+  // and the first child is...
+  alert(elem.firstChild.nodeType); // 3 =&gt; text
+
+  // for the document object, the type is 9
+  alert( document.nodeType ); // 9
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>In modern scripts, we can use <code>instanceof</code> and other class-based tests to see the node type, but sometimes <code>nodeType</code> may be simpler. We can only read <code>nodeType</code>, not change it.</p>
+<h2><a class="main__anchor" name="tag-nodename-and-tagname" href="#tag-nodename-and-tagname">Tag: nodeName and tagName</a></h2><p>Given a DOM node, we can read its tag name from <code>nodeName</code> or <code>tagName</code> properties:</p>
+<p>For instance:</p>
+<div id="7ckuwhgkty" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert( document.body.nodeName ); // BODY
+alert( document.body.tagName ); // BODY</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Is there any difference between <code>tagName</code> and <code>nodeName</code>?</p>
+<p>Sure, the difference is reflected in their names, but is indeed a bit subtle.</p>
+<ul>
+<li>The <code>tagName</code> property exists only for <code>Element</code> nodes.</li>
+<li>The <code>nodeName</code> is defined for any <code>Node</code>:
+<ul>
+<li>for elements it means the same as <code>tagName</code>.</li>
+<li>for other node types (text, comment, etc.) it has a string with the node type.</li>
+</ul>
+</li>
+</ul>
+<p>In other words, <code>tagName</code> is only supported by element nodes (as it originates from <code>Element</code> class), while <code>nodeName</code> can say something about other node types.</p>
+<p>For instance, let’s compare <code>tagName</code> and <code>nodeName</code> for the <code>document</code> and a comment node:</p>
+<div id="pohvwp8o3o" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;body&gt;&lt;!-- comment --&gt;
+
+  &lt;script&gt;
+    // for comment
+    alert( document.body.firstChild.tagName ); // undefined (not an element)
+    alert( document.body.firstChild.nodeName ); // #comment
+
+    // for document
+    alert( document.tagName ); // undefined (not an element)
+    alert( document.nodeName ); // #document
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>If we only deal with elements, then we can use both <code>tagName</code> and <code>nodeName</code> – there’s no difference.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">The tag name is always uppercase except in XML mode</span></div>
+            <div class="important__content"><p>The browser has two modes of processing documents: HTML and XML. Usually the HTML-mode is used for webpages. XML-mode is enabled when the browser receives an XML-document with the header: <code>Content-Type: application/xml+xhtml</code>.</p>
+<p>In HTML mode <code>tagName/nodeName</code> is always uppercased: it’s <code>BODY</code> either for <code>&lt;body&gt;</code> or <code>&lt;BoDy&gt;</code>.</p>
+<p>In XML mode the case is kept “as is”. Nowadays XML mode is rarely used.</p>
+</div></div>
+<h2><a class="main__anchor" name="innerhtml-the-contents" href="#innerhtml-the-contents">innerHTML: the contents</a></h2><p>The <a href="https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin">innerHTML</a> property allows to get the HTML inside the element as a string.</p>
+<p>We can also modify it. So it’s one of the most powerful ways to change the page.</p>
+<p>The example shows the contents of <code>document.body</code> and then replaces it completely:</p>
+<div id="881ww61xyt" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;body&gt;
+  &lt;p&gt;A paragraph&lt;/p&gt;
+  &lt;div&gt;A div&lt;/div&gt;
+
+  &lt;script&gt;
+    alert( document.body.innerHTML ); // read the current contents
+    document.body.innerHTML = 'The new BODY!'; // replace it
+  &lt;/script&gt;
+
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>We can try to insert invalid HTML, the browser will fix our errors:</p>
+<div id="u1lxosom0m" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;body&gt;
+
+  &lt;script&gt;
+    document.body.innerHTML = '&lt;b&gt;test'; // forgot to close the tag
+    alert( document.body.innerHTML ); // &lt;b&gt;test&lt;/b&gt; (fixed)
+  &lt;/script&gt;
+
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><div class="important important_smart">
+            <div class="important__header"><span class="important__type">Scripts don’t execute</span></div>
+            <div class="important__content"><p>If <code>innerHTML</code> inserts a <code>&lt;script&gt;</code> tag into the document – it becomes a part of HTML, but doesn’t execute.</p>
+</div></div>
+<h3><a class="main__anchor" name="beware-innerhtml-does-a-full-overwrite" href="#beware-innerhtml-does-a-full-overwrite">Beware: “innerHTML+=” does a full overwrite</a></h3><p>We can append HTML to an element by using <code>elem.innerHTML+=&quot;more html&quot;</code>.</p>
+<p>Like this:</p>
+<div id="dsiufhuk42" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>chatDiv.innerHTML += &quot;&lt;div&gt;Hello&lt;img src='smile.gif'/&gt; !&lt;/div&gt;&quot;;
+chatDiv.innerHTML += &quot;How goes?&quot;;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>But we should be very careful about doing it, because what’s going on is <em>not</em> an addition, but a full overwrite.</p>
+<p>Technically, these two lines do the same:</p>
+<div id="sxet26bhvr" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:2,&quot;end&quot;:2}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>elem.innerHTML += &quot;...&quot;;
+// is a shorter way to write:
+elem.innerHTML = elem.innerHTML + &quot;...&quot;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>In other words, <code>innerHTML+=</code> does this:</p>
+<ol>
+<li>The old contents is removed.</li>
+<li>The new <code>innerHTML</code> is written instead (a concatenation of the old and the new one).</li>
+</ol>
+<p><strong>As the content is “zeroed-out” and rewritten from the scratch, all images and other resources will be reloaded</strong>.</p>
+<p>In the <code>chatDiv</code> example above the line <code>chatDiv.innerHTML+=&quot;How goes?&quot;</code> re-creates the HTML content and reloads <code>smile.gif</code> (hope it’s cached). If <code>chatDiv</code> has a lot of other text and images, then the reload becomes clearly visible.</p>
+<p>There are other side-effects as well. For instance, if the existing text was selected with the mouse, then most browsers will remove the selection upon rewriting <code>innerHTML</code>. And if there was an <code>&lt;input&gt;</code> with a text entered by the visitor, then the text will be removed. And so on.</p>
+<p>Luckily, there are other ways to add HTML besides <code>innerHTML</code>, and we’ll study them soon.</p>
+<h2><a class="main__anchor" name="outerhtml-full-html-of-the-element" href="#outerhtml-full-html-of-the-element">outerHTML: full HTML of the element</a></h2><p>The <code>outerHTML</code> property contains the full HTML of the element. That’s like <code>innerHTML</code> plus the element itself.</p>
+<p>Here’s an example:</p>
+<div id="1zcp83a9ik" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div id=&quot;elem&quot;&gt;Hello &lt;b&gt;World&lt;/b&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  alert(elem.outerHTML); // &lt;div id=&quot;elem&quot;&gt;Hello &lt;b&gt;World&lt;/b&gt;&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p><strong>Beware: unlike <code>innerHTML</code>, writing to <code>outerHTML</code> does not change the element. Instead, it replaces it in the DOM.</strong></p>
+<p>Yeah, sounds strange, and strange it is, that’s why we make a separate note about it here. Take a look.</p>
+<p>Consider the example:</p>
+<div id="uv8d4zv019" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:8,&quot;end&quot;:8},{&quot;start&quot;:5,&quot;end&quot;:5}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div&gt;Hello, world!&lt;/div&gt;
+
+&lt;script&gt;
+  let div = document.querySelector('div');
+
+  // replace div.outerHTML with &lt;p&gt;...&lt;/p&gt;
+  div.outerHTML = '&lt;p&gt;A new element&lt;/p&gt;'; // (*)
+
+  // Wow! 'div' is still the same!
+  alert(div.outerHTML); // &lt;div&gt;Hello, world!&lt;/div&gt; (**)
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Looks really odd, right?</p>
+<p>In the line <code>(*)</code> we replaced <code>div</code> with <code>&lt;p&gt;A new element&lt;/p&gt;</code>. In the outer document (the DOM) we can see the new content instead of the <code>&lt;div&gt;</code>. But, as we can see in line <code>(**)</code>, the value of the old <code>div</code> variable hasn’t changed!</p>
+<p>The <code>outerHTML</code> assignment does not modify the DOM element (the object referenced by, in this case, the variable ‘div’), but removes it from the DOM and inserts the new HTML in its place.</p>
+<p>So what happened in <code>div.outerHTML=...</code> is:</p>
+<ul>
+<li><code>div</code> was removed from the document.</li>
+<li>Another piece of HTML <code>&lt;p&gt;A new element&lt;/p&gt;</code> was inserted in its place.</li>
+<li><code>div</code> still has its old value. The new HTML wasn’t saved to any variable.</li>
+</ul>
+<p>It’s so easy to make an error here: modify <code>div.outerHTML</code> and then continue to work with <code>div</code> as if it had the new content in it. But it doesn’t. Such thing is correct for <code>innerHTML</code>, but not for <code>outerHTML</code>.</p>
+<p>We can write to <code>elem.outerHTML</code>, but should keep in mind that it doesn’t change the element we’re writing to (‘elem’). It puts the new HTML in its place instead. We can get references to the new elements by querying the DOM.</p>
+<h2><a class="main__anchor" name="nodevalue-data-text-node-content" href="#nodevalue-data-text-node-content">nodeValue/data: text node content</a></h2><p>The <code>innerHTML</code> property is only valid for element nodes.</p>
+<p>Other node types, such as text nodes, have their counterpart: <code>nodeValue</code> and <code>data</code> properties. These two are almost the same for practical use, there are only minor specification differences. So we’ll use <code>data</code>, because it’s shorter.</p>
+<p>An example of reading the content of a text node and a comment:</p>
+<div id="3pjb5mp6kg" data-trusted="1" class="code-example" data-demo-height="50" data-highlight="[{&quot;start&quot;:8,&quot;end&quot;:8},{&quot;start&quot;:5,&quot;end&quot;:5}]">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;body&gt;
+  Hello
+  &lt;!-- Comment --&gt;
+  &lt;script&gt;
+    let text = document.body.firstChild;
+    alert(text.data); // Hello
+
+    let comment = text.nextSibling;
+    alert(comment.data); // Comment
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>For text nodes we can imagine a reason to read or modify them, but why comments?</p>
+<p>Sometimes developers embed information or template instructions into HTML in them, like this:</p>
+<div id="kkmiux66gs" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;!-- if isAdmin --&gt;
+  &lt;div&gt;Welcome, Admin!&lt;/div&gt;
+&lt;!-- /if --&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>…Then JavaScript can read it from <code>data</code> property and process embedded instructions.</p>
+<h2><a class="main__anchor" name="textcontent-pure-text" href="#textcontent-pure-text">textContent: pure text</a></h2><p>The <code>textContent</code> provides access to the <em>text</em> inside the element: only text, minus all <code>&lt;tags&gt;</code>.</p>
+<p>For instance:</p>
+<div id="w3adegvx94" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div id=&quot;news&quot;&gt;
+  &lt;h1&gt;Headline!&lt;/h1&gt;
+  &lt;p&gt;Martians attack people!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  // Headline! Martians attack people!
+  alert(news.textContent);
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>As we can see, only text is returned, as if all <code>&lt;tags&gt;</code> were cut out, but the text in them remained.</p>
+<p>In practice, reading such text is rarely needed.</p>
+<p><strong>Writing to <code>textContent</code> is much more useful, because it allows to write text the “safe way”.</strong></p>
+<p>Let’s say we have an arbitrary string, for instance entered by a user, and want to show it.</p>
+<ul>
+<li>With <code>innerHTML</code> we’ll have it inserted “as HTML”, with all HTML tags.</li>
+<li>With <code>textContent</code> we’ll have it inserted “as text”, all symbols are treated literally.</li>
+</ul>
+<p>Compare the two:</p>
+<div id="0v2uptic97" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div id=&quot;elem1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;elem2&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  let name = prompt(&quot;What's your name?&quot;, &quot;&lt;b&gt;Winnie-the-Pooh!&lt;/b&gt;&quot;);
+
+  elem1.innerHTML = name;
+  elem2.textContent = name;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><ol>
+<li>The first <code>&lt;div&gt;</code> gets the name “as HTML”: all tags become tags, so we see the bold name.</li>
+<li>The second <code>&lt;div&gt;</code> gets the name “as text”, so we literally see <code>&lt;b&gt;Winnie-the-Pooh!&lt;/b&gt;</code>.</li>
+</ol>
+<p>In most cases, we expect the text from a user, and want to treat it as text. We don’t want unexpected HTML in our site. An assignment to <code>textContent</code> does exactly that.</p>
+<h2><a class="main__anchor" name="the-hidden-property" href="#the-hidden-property">The “hidden” property</a></h2><p>The “hidden” attribute and the DOM property specifies whether the element is visible or not.</p>
+<p>We can use it in HTML or assign it using JavaScript, like this:</p>
+<div id="sdf6obgx47" data-trusted="1" class="code-example" data-demo-height="80">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div&gt;Both divs below are hidden&lt;/div&gt;
+
+&lt;div hidden&gt;With the attribute &quot;hidden&quot;&lt;/div&gt;
+
+&lt;div id=&quot;elem&quot;&gt;JavaScript assigned the property &quot;hidden&quot;&lt;/div&gt;
+
+&lt;script&gt;
+  elem.hidden = true;
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Technically, <code>hidden</code> works the same as <code>style=&quot;display:none&quot;</code>. But it’s shorter to write.</p>
+<p>Here’s a blinking element:</p>
+<div id="6ml0bip1je" data-trusted="1" class="code-example" data-demo-height="50">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;div id=&quot;elem&quot;&gt;A blinking element&lt;/div&gt;
+
+&lt;script&gt;
+  setInterval(() =&gt; elem.hidden = !elem.hidden, 1000);
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><h2><a class="main__anchor" name="more-properties" href="#more-properties">More properties</a></h2><p>DOM elements also have additional properties, in particular those that depend on the class:</p>
+<ul>
+<li><code>value</code> – the value for <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code> and <code>&lt;textarea&gt;</code> (<code>HTMLInputElement</code>, <code>HTMLSelectElement</code>…).</li>
+<li><code>href</code> – the “href” for <code>&lt;a href=&quot;...&quot;&gt;</code> (<code>HTMLAnchorElement</code>).</li>
+<li><code>id</code> – the value of “id” attribute, for all elements (<code>HTMLElement</code>).</li>
+<li>…and much more…</li>
+</ul>
+<p>For instance:</p>
+<div id="a0ouyho5j8" data-trusted="1" class="code-example" data-demo-height="80">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;input type=&quot;text&quot; id=&quot;elem&quot; value=&quot;value&quot;&gt;
+
+&lt;script&gt;
+  alert(elem.type); // &quot;text&quot;
+  alert(elem.id); // &quot;elem&quot;
+  alert(elem.value); // value
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Most standard HTML attributes have the corresponding DOM property, and we can access it like that.</p>
+<p>If we want to know the full list of supported properties for a given class, we can find them in the specification. For instance, <code>HTMLInputElement</code> is documented at <a href="https://html.spec.whatwg.org/#htmlinputelement">https://html.spec.whatwg.org/#htmlinputelement</a>.</p>
+<p>Or if we’d like to get them fast or are interested in a concrete browser specification – we can always output the element using <code>console.dir(elem)</code> and read the properties. Or explore “DOM properties” in the Elements tab of the browser developer tools.</p>
+<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Each DOM node belongs to a certain class. The classes form a hierarchy. The full set of properties and methods come as the result of inheritance.</p>
+<p>Main DOM node properties are:</p>
+<dl>
+<dt><code>nodeType</code></dt>
+<dd>We can use it to see if a node is a text or an element node. It has a numeric value: <code>1</code> for elements,<code>3</code> for text nodes, and a few others for other node types. Read-only.</dd>
+<dt><code>nodeName/tagName</code></dt>
+<dd>For elements, tag name (uppercased unless XML-mode). For non-element nodes <code>nodeName</code> describes what it is. Read-only.</dd>
+<dt><code>innerHTML</code></dt>
+<dd>The HTML content of the element. Can be modified.</dd>
+<dt><code>outerHTML</code></dt>
+<dd>The full HTML of the element. A write operation into <code>elem.outerHTML</code> does not touch <code>elem</code> itself. Instead it gets replaced with the new HTML in the outer context.</dd>
+<dt><code>nodeValue/data</code></dt>
+<dd>The content of a non-element node (text, comment). These two are almost the same, usually we use <code>data</code>. Can be modified.</dd>
+<dt><code>textContent</code></dt>
+<dd>The text inside the element: HTML minus all <code>&lt;tags&gt;</code>. Writing into it puts the text inside the element, with all special characters and tags treated exactly as text. Can safely insert user-generated text and protect from unwanted HTML insertions.</dd>
+<dt><code>hidden</code></dt>
+<dd>When set to <code>true</code>, does the same as CSS <code>display:none</code>.</dd>
+</dl>
+<p>DOM nodes also have other properties depending on their class. For instance, <code>&lt;input&gt;</code> elements (<code>HTMLInputElement</code>) support <code>value</code>, <code>type</code>, while <code>&lt;a&gt;</code> elements (<code>HTMLAnchorElement</code>) support <code>href</code> etc. Most standard HTML attributes have a corresponding DOM property.</p>
+<p>However, HTML attributes and DOM properties are not always the same, as we’ll see in the next chapter.</p>
+</div></article><div class="tasks formatted"><h2 class="tasks__title" id="tasks"><a class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon" href="#tasks">Tasks</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#count-descendants" name="count-descendants">Count descendants</a></h3><a class="task__open-link" href="/task/tree-info" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 5</span></div><div class="task__content"><div class="task__formatted"><p>There’s a tree structured as nested <code>ul/li</code>.</p>
+<p>Write the code that for each <code>&lt;li&gt;</code> shows:</p>
+<ol>
+<li>What’s the text inside it (without the subtree)</li>
+<li>The number of nested <code>&lt;li&gt;</code> – all descendants, including the deeply nested ones.</li>
+</ol>
+<p><a href="https://en.js.cx/task/tree-info/solution/" target="blank">Demo in new window</a></p><p><a href="https://plnkr.co/edit/KQWTwzSfogX1OLJV?p=preview" target="_blank" data-plunk-id="KQWTwzSfogX1OLJV">Open a sandbox for the task.</a></p></div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>Let’s make a loop over <code>&lt;li&gt;</code>:</p>
+<div id="zmnw0t1l5h" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>for (let li of document.querySelectorAll('li')) {
+  ...
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>In the loop we need to get the text inside every <code>li</code>.</p>
+<p>We can read the text from the first child node of <code>li</code>, that is the text node:</p>
+<div id="boypimn6mx" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>for (let li of document.querySelectorAll('li')) {
+  let title = li.firstChild.data;
+
+  // title is the text in &lt;li&gt; before any other nodes
+}</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Then we can get the number of descendants as <code>li.getElementsByTagName('li').length</code>.</p>
+<p><a href="https://plnkr.co/edit/JdHPZiU1xL70V3Qw?p=preview" target="_blank" data-plunk-id="JdHPZiU1xL70V3Qw">Open the solution in a sandbox.</a></p></div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#what-s-in-the-nodetype" name="what-s-in-the-nodetype">What's in the nodeType?</a></h3><a class="task__open-link" href="/task/lastchild-nodetype-inline" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 5</span></div><div class="task__content"><div class="task__formatted"><p>What does the script show?</p>
+<div id="ny3er22m9p" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;html&gt;
+
+&lt;body&gt;
+  &lt;script&gt;
+    alert(document.body.lastChild.nodeType);
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>There’s a catch here.</p>
+<p>At the time of <code>&lt;script&gt;</code> execution the last DOM node is exactly <code>&lt;script&gt;</code>, because the browser did not process the rest of the page yet.</p>
+<p>So the result is <code>1</code> (element node).</p>
+<div id="2yl6sdirmx" data-trusted="1" class="code-example" data-demo-height="60">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;html&gt;
+
+&lt;body&gt;
+  &lt;script&gt;
+    alert(document.body.lastChild.nodeType);
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div></div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#tag-in-comment" name="tag-in-comment">Tag in comment</a></h3><a class="task__open-link" href="/task/tag-in-comment" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 3</span></div><div class="task__content"><div class="task__formatted"><p>What does this code show?</p>
+<div id="q4kbgdf8uf" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;script&gt;
+  let body = document.body;
+
+  body.innerHTML = &quot;&lt;!--&quot; + body.tagName + &quot;--&gt;&quot;;
+
+  alert( body.firstChild.data ); // what's here?
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div></div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>The answer: <strong><code>BODY</code></strong>.</p>
+<div id="yxykgn9a9e" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;script&gt;
+  let body = document.body;
+
+  body.innerHTML = &quot;&lt;!--&quot; + body.tagName + &quot;--&gt;&quot;;
+
+  alert( body.firstChild.data ); // BODY
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+      
+      </div><p>What’s going on step by step:</p>
+<ol>
+<li>The content of <code>&lt;body&gt;</code> is replaced with the comment. The comment is <code>&lt;!--BODY--&gt;</code>, because <code>body.tagName == &quot;BODY&quot;</code>. As we remember, <code>tagName</code> is always uppercase in HTML.</li>
+<li>The comment is now the only child node, so we get it in <code>body.firstChild</code>.</li>
+<li>The <code>data</code> property of the comment is its contents (inside <code>&lt;!--...--&gt;</code>): <code>&quot;BODY&quot;</code>.</li>
+</ol>
+</div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#where-s-the-document-in-the-hierarchy" name="where-s-the-document-in-the-hierarchy">Where's the &quot;document&quot; in the hierarchy?</a></h3><a class="task__open-link" href="/task/where-document-in-hierarchy" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 4</span></div><div class="task__content"><div class="task__formatted"><p>Which class does the <code>document</code> belong to?</p>
+<p>What’s its place in the DOM hierarchy?</p>
+<p>Does it inherit from <code>Node</code> or <code>Element</code>, or maybe <code>HTMLElement</code>?</p>
+</div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>We can see which class it belongs by outputting it, like:</p>
+<div id="dpodnaohj6" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert(document); // [object HTMLDocument]</code></pre>
+        </div>
+      </div>
+      
+      </div><p>Or:</p>
+<div id="6avvzj2joh" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert(document.constructor.name); // HTMLDocument</code></pre>
+        </div>
+      </div>
+      
+      </div><p>So, <code>document</code> is an instance of <code>HTMLDocument</code> class.</p>
+<p>What’s its place in the hierarchy?</p>
+<p>Yeah, we could browse the specification, but it would be faster to figure out manually.</p>
+<p>Let’s traverse the prototype chain via <code>__proto__</code>.</p>
+<p>As we know, methods of a class are in the <code>prototype</code> of the constructor. For instance, <code>HTMLDocument.prototype</code> has methods for documents.</p>
+<p>Also, there’s a reference to the constructor function inside the <code>prototype</code>:</p>
+<div id="htep06m5d7" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert(HTMLDocument.prototype.constructor === HTMLDocument); // true</code></pre>
+        </div>
+      </div>
+      
+      </div><p>To get a name of the class as a string, we can use <code>constructor.name</code>. Let’s do it for the whole <code>document</code> prototype chain, till class <code>Node</code>:</p>
+<div id="uzvy19ochc" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>alert(HTMLDocument.prototype.constructor.name); // HTMLDocument
+alert(HTMLDocument.prototype.__proto__.constructor.name); // Document
+alert(HTMLDocument.prototype.__proto__.__proto__.constructor.name); // Node</code></pre>
+        </div>
+      </div>
+      
+      </div><p>That’s the hierarchy.</p>
+<p>We also could examine the object using <code>console.dir(document)</code> and see these names by opening <code>__proto__</code>. The console takes them from <code>constructor</code> internally.</p>
+</div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div></div></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/searching-elements-dom" data-tooltip="Searching: getElement*, querySelector*"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/dom-attributes-and-properties" data-tooltip="Attributes and properties"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/basic-dom-node-properties","identifier":"\/basic-dom-node-properties"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/document">Document</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#dom-node-classes">DOM node classes</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#the-nodetype-property">The “nodeType” property</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#tag-nodename-and-tagname">Tag: nodeName and tagName</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#innerhtml-the-contents">innerHTML: the contents</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#outerhtml-full-html-of-the-element">outerHTML: full HTML of the element</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#nodevalue-data-text-node-content">nodeValue/data: text node content</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#textcontent-pure-text">textContent: pure text</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#the-hidden-property">The “hidden” property</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#more-properties">More properties</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#tasks">Tasks (4)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/05-basic-dom-node-properties" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>

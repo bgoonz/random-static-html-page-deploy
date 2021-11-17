@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">Keyboard: keydown and keyup</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/keyboard-events"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Keyboard: keydown and keyup"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Keyboard: keydown and keyup"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/pointer-events"><link rel="next" href="/onscroll"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><meta property="og:title" content="Keyboard: keydown and keyup"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/keyboard-events"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/keyboard-events"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/keyboard-events"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/keyboard-events"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/keyboard-events"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/keyboard-events"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/keyboard-events"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
+</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/">عربي</option><option value="https://javascript.info/keyboard-events" selected>English</option><option value="https://es.javascript.info/">Español</option><option value="https://fr.javascript.info/keyboard-events">Français</option><option value="https://id.javascript.info/">Indonesia</option><option value="https://it.javascript.info/keyboard-events">Italiano</option><option value="https://ja.javascript.info/keyboard-events">日本語</option><option value="https://ko.javascript.info/">한국어</option><option value="https://learn.javascript.ru/keyboard-events">Русский</option><option value="https://tr.javascript.info/keyboard-events">Türkçe</option><option value="https://zh.javascript.info/keyboard-events">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="21" max="32" data-tooltip="Lesson 21 of 32"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/ui"><span>Browser: Document, Events, Interfaces</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/event-details"><span>UI Events</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"Browser: Document, Events, Interfaces","item":"https://javascript.info/ui"},{"@type":"ListItem","position":3,"name":"UI Events","item":"https://javascript.info/event-details"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 25th October 2021"><div class="updated-at__content">25th October 2021</div></div></div><h1 class="main__header-title">Keyboard: keydown and keyup</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Keyboard: keydown and keyup"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Before we get to keyboard, please note that on modern devices there are other ways to “input something”. For instance, people use speech recognition (especially on mobile devices) or copy/paste with the mouse.</p>
+<p>So if we want to track any input into an <code>&lt;input&gt;</code> field, then keyboard events are not enough. There’s another event named <code>input</code> to track changes of an <code>&lt;input&gt;</code> field, by any means. And it may be a better choice for such task. We’ll cover it later in the chapter <a href="/events-change-input">Events: change, input, cut, copy, paste</a>.</p>
+<p>Keyboard events should be used when we want to handle keyboard actions (virtual keyboard also counts). For instance, to react on arrow keys <kbd class="shortcut">Up</kbd> and <kbd class="shortcut">Down</kbd> or hotkeys (including combinations of keys).</p>
+<h2><a class="main__anchor" name="keyboard-test-stand" href="#keyboard-test-stand">Teststand</a></h2><p>To better understand keyboard events, you can use the teststand below.</p>
+<p>Try different key combinations in the text field.</p>
+<div class="code-tabs code-tabs_result_on"><div class="code-tabs__tools"><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_left" title="&amp;larr;" data-code-tabs-left="data-code-tabs-left"></button></div><div class="code-tabs__switches-wrap"><div class="code-tabs__switches" data-code-tabs-switches="data-code-tabs-switches"><div class="code-tabs__switches-items"><div class="code-tabs__switch code-tabs__switch_current">Result</div><div class="code-tabs__switch">script.js</div><div class="code-tabs__switch">style.css</div><div class="code-tabs__switch">index.html</div></div></div></div><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_right" title="&amp;rarr;" data-code-tabs-right="data-code-tabs-right"></button></div><div class="code-tabs__buttons"><a class="code-tabs__button code-tabs__button_external" target="_blank" title="open in a new window" href="/article/keyboard-events/keyboard-dump/"></a><a class="code-tabs__button code-tabs__button_edit" target="_blank" title="edit in the sandbox" href="https://plnkr.co/edit/svNVUxadu39knD75?p=preview"></a></div></div><div class="code-tabs__content" data-code-tabs-content="data-code-tabs-content" style="height:480px"><div class="code-tabs__section code-tabs__section_current"><iframe class="code-tabs__result" src="/article/keyboard-events/keyboard-dump/"></iframe></div><div class="code-tabs__section"><pre class="language-javascript line-numbers"><code>kinput.onkeydown = kinput.onkeyup = kinput.onkeypress = handle;
+
+let lastTime = Date.now();
+
+function handle(e) {
+  if (form.elements[e.type + 'Ignore'].checked) return;
+
+  area.scrollTop = 1e6;
+
+  let text = e.type +
+    ' key=' + e.key +
+    ' code=' + e.code +
+    (e.shiftKey ? ' shiftKey' : '') +
+    (e.ctrlKey ? ' ctrlKey' : '') +
+    (e.altKey ? ' altKey' : '') +
+    (e.metaKey ? ' metaKey' : '') +
+    (e.repeat ? ' (repeat)' : '') +
+    &quot;\n&quot;;
+
+  if (area.value &amp;&amp; Date.now() - lastTime &gt; 250) {
+    area.value += new Array(81).join('-') + '\n';
+  }
+  lastTime = Date.now();
+
+  area.value += text;
+
+  if (form.elements[e.type + 'Stop'].checked) {
+    e.preventDefault();
+  }
+}</code></pre></div><div class="code-tabs__section"><pre class="language-css line-numbers"><code>#kinput {
+  font-size: 150%;
+  box-sizing: border-box;
+  width: 95%;
+}
+
+#area {
+  width: 95%;
+  box-sizing: border-box;
+  height: 250px;
+  border: 1px solid black;
+  display: block;
+}
+
+form label {
+  display: inline;
+  white-space: nowrap;
+}</code></pre></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;form id=&quot;form&quot; onsubmit=&quot;return false&quot;&gt;
+
+    Prevent default for:
+    &lt;label&gt;
+      &lt;input type=&quot;checkbox&quot; name=&quot;keydownStop&quot; value=&quot;1&quot;&gt; keydown&lt;/label&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+    &lt;label&gt;
+      &lt;input type=&quot;checkbox&quot; name=&quot;keyupStop&quot; value=&quot;1&quot;&gt; keyup&lt;/label&gt;
+
+    &lt;p&gt;
+      Ignore:
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;keydownIgnore&quot; value=&quot;1&quot;&gt; keydown&lt;/label&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;keyupIgnore&quot; value=&quot;1&quot;&gt; keyup&lt;/label&gt;
+    &lt;/p&gt;
+
+    &lt;p&gt;Focus on the input field and press a key.&lt;/p&gt;
+
+    &lt;input type=&quot;text&quot; placeholder=&quot;Press keys here&quot; id=&quot;kinput&quot;&gt;
+
+    &lt;textarea id=&quot;area&quot;&gt;&lt;/textarea&gt;
+    &lt;input type=&quot;button&quot; value=&quot;Clear&quot; onclick=&quot;area.value = ''&quot; /&gt;
+  &lt;/form&gt;
+  &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div></div></div><h2><a class="main__anchor" name="keydown-and-keyup" href="#keydown-and-keyup">Keydown and keyup</a></h2><p>The <code>keydown</code> events happens when a key is pressed down, and then <code>keyup</code> – when it’s released.</p>
+<h3><a class="main__anchor" name="event-code-and-event-key" href="#event-code-and-event-key">event.code and event.key</a></h3><p>The <code>key</code> property of the event object allows to get the character, while the <code>code</code> property of the event object allows to get the “physical key code”.</p>
+<p>For instance, the same key <kbd class="shortcut">Z</kbd> can be pressed with or without <kbd class="shortcut">Shift</kbd>. That gives us two different characters: lowercase <code>z</code> and uppercase <code>Z</code>.</p>
+<p>The <code>event.key</code> is exactly the character, and it will be different. But <code>event.code</code> is the same:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th><code>event.key</code></th>
+<th><code>event.code</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd class="shortcut">Z</kbd></td>
+<td><code>z</code> (lowercase)</td>
+<td><code>KeyZ</code></td>
+</tr>
+<tr>
+<td><kbd class="shortcut">Shift<span class="shortcut__plus">+</span>Z</kbd></td>
+<td><code>Z</code> (uppercase)</td>
+<td><code>KeyZ</code></td>
+</tr>
+</tbody>
+</table>
+<p>If a user works with different languages, then switching to another language would make a totally different character instead of <code>&quot;Z&quot;</code>. That will become the value of <code>event.key</code>, while <code>event.code</code> is always the same: <code>&quot;KeyZ&quot;</code>.</p>
+<div class="important important_smart">
+            <div class="important__header"><span class="important__type">“KeyZ” and other key codes</span></div>
+            <div class="important__content"><p>Every key has the code that depends on its location on the keyboard. Key codes described in the <a href="https://www.w3.org/TR/uievents-code/">UI Events code specification</a>.</p>
+<p>For instance:</p>
+<ul>
+<li>Letter keys have codes <code>&quot;Key&lt;letter&gt;&quot;</code>: <code>&quot;KeyA&quot;</code>, <code>&quot;KeyB&quot;</code> etc.</li>
+<li>Digit keys have codes: <code>&quot;Digit&lt;number&gt;&quot;</code>: <code>&quot;Digit0&quot;</code>, <code>&quot;Digit1&quot;</code> etc.</li>
+<li>Special keys are coded by their names: <code>&quot;Enter&quot;</code>, <code>&quot;Backspace&quot;</code>, <code>&quot;Tab&quot;</code> etc.</li>
+</ul>
+<p>There are several widespread keyboard layouts, and the specification gives key codes for each of them.</p>
+<p>Read the <a href="https://www.w3.org/TR/uievents-code/#key-alphanumeric-section">alphanumeric section of the spec</a> for more codes, or just press a key in the <a href="#keyboard-test-stand">teststand</a> above.</p>
+</div></div>
+<div class="important important_warn">
+            <div class="important__header"><span class="important__type">Case matters: <code>&quot;KeyZ&quot;</code>, not <code>&quot;keyZ&quot;</code></span></div>
+            <div class="important__content"><p>Seems obvious, but people still make mistakes.</p>
+<p>Please evade mistypes: it’s <code>KeyZ</code>, not <code>keyZ</code>. The check like <code>event.code==&quot;keyZ&quot;</code> won’t work: the first letter of <code>&quot;Key&quot;</code> must be uppercase.</p>
+</div></div>
+<p>What if a key does not give any character? For instance, <kbd class="shortcut">Shift</kbd> or <kbd class="shortcut">F1</kbd> or others. For those keys, <code>event.key</code> is approximately the same as <code>event.code</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th><code>event.key</code></th>
+<th><code>event.code</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd class="shortcut">F1</kbd></td>
+<td><code>F1</code></td>
+<td><code>F1</code></td>
+</tr>
+<tr>
+<td><kbd class="shortcut">Backspace</kbd></td>
+<td><code>Backspace</code></td>
+<td><code>Backspace</code></td>
+</tr>
+<tr>
+<td><kbd class="shortcut">Shift</kbd></td>
+<td><code>Shift</code></td>
+<td><code>ShiftRight</code> or <code>ShiftLeft</code></td>
+</tr>
+</tbody>
+</table>
+<p>Please note that <code>event.code</code> specifies exactly which key is pressed. For instance, most keyboards have two <kbd class="shortcut">Shift</kbd> keys: on the left and on the right side. The <code>event.code</code> tells us exactly which one was pressed, and <code>event.key</code> is responsible for the “meaning” of the key: what it is (a “Shift”).</p>
+<p>Let’s say, we want to handle a hotkey: <kbd class="shortcut">Ctrl<span class="shortcut__plus">+</span>Z</kbd> (or <kbd class="shortcut">Cmd<span class="shortcut__plus">+</span>Z</kbd> for Mac). Most text editors hook the “Undo” action on it. We can set a listener on <code>keydown</code> and check which key is pressed.</p>
+<p>There’s a dilemma here: in such a listener, should we check the value of <code>event.key</code> or <code>event.code</code>?</p>
+<p>On one hand, the value of <code>event.key</code> is a character, it changes depending on the language. If the visitor has several languages in OS and switches between them, the same key gives different characters. So it makes sense to check <code>event.code</code>, it’s always the same.</p>
+<p>Like this:</p>
+<div id="gpu1duytzh" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>document.addEventListener('keydown', function(event) {
+  if (event.code == 'KeyZ' &amp;&amp; (event.ctrlKey || event.metaKey)) {
+    alert('Undo!')
+  }
+});</code></pre>
+        </div>
+      </div>
+      
+      </div><p>On the other hand, there’s a problem with <code>event.code</code>. For different keyboard layouts, the same key may have different characters.</p>
+<p>For example, here are US layout (“QWERTY”) and German layout (“QWERTZ”) under it (from Wikipedia):</p>
+<figure><div class="image" style="width:602px">
+      <div class="image__ratio" style="padding-top:33.5548172757475%"></div>
+      <object type="image/svg+xml" data="/article/keyboard-events/us-layout.svg" width="602" height="202" class="image__image">
+        <img src="/article/keyboard-events/us-layout.svg" alt="" width="602" height="202">
+      </object>
+      </div></figure><figure><div class="image" style="width:600px">
+      <div class="image__ratio" style="padding-top:33.33333333333333%"></div>
+      <object type="image/svg+xml" data="/article/keyboard-events/german-layout.svg" width="600" height="200" class="image__image">
+        <img src="/article/keyboard-events/german-layout.svg" alt="" width="600" height="200">
+      </object>
+      </div></figure><p>For the same key, US layout has “Z”, while German layout has “Y” (letters are swapped).</p>
+<p>Literally, <code>event.code</code> will equal <code>KeyZ</code> for people with German layout when they press <kbd class="shortcut">Y</kbd>.</p>
+<p>If we check <code>event.code == 'KeyZ'</code> in our code, then for people with German layout such test will pass when they press <kbd class="shortcut">Y</kbd>.</p>
+<p>That sounds really odd, but so it is. The <a href="https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system">specification</a> explicitly mentions such behavior.</p>
+<p>So, <code>event.code</code> may match a wrong character for unexpected layout. Same letters in different layouts may map to different physical keys, leading to different codes. Luckily, that happens only with several codes, e.g. <code>keyA</code>, <code>keyQ</code>, <code>keyZ</code> (as we’ve seen), and doesn’t happen with special keys such as <code>Shift</code>. You can find the list in the <a href="https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system">specification</a>.</p>
+<p>To reliably track layout-dependent characters, <code>event.key</code> may be a better way.</p>
+<p>On the other hand, <code>event.code</code> has the benefit of staying always the same, bound to the physical key location, even if the visitor changes languages. So hotkeys that rely on it work well even in case of a language switch.</p>
+<p>Do we want to handle layout-dependant keys? Then <code>event.key</code> is the way to go.</p>
+<p>Or we want a hotkey to work even after a language switch? Then <code>event.code</code> may be better.</p>
+<h2><a class="main__anchor" name="auto-repeat" href="#auto-repeat">Auto-repeat</a></h2><p>If a key is being pressed for a long enough time, it starts to “auto-repeat”: the <code>keydown</code> triggers again and again, and then when it’s released we finally get <code>keyup</code>. So it’s kind of normal to have many <code>keydown</code> and a single <code>keyup</code>.</p>
+<p>For events triggered by auto-repeat, the event object has <code>event.repeat</code> property set to <code>true</code>.</p>
+<h2><a class="main__anchor" name="default-actions" href="#default-actions">Default actions</a></h2><p>Default actions vary, as there are many possible things that may be initiated by the keyboard.</p>
+<p>For instance:</p>
+<ul>
+<li>A character appears on the screen (the most obvious outcome).</li>
+<li>A character is deleted (<kbd class="shortcut">Delete</kbd> key).</li>
+<li>The page is scrolled (<kbd class="shortcut">PageDown</kbd> key).</li>
+<li>The browser opens the “Save Page” dialog (<kbd class="shortcut">Ctrl<span class="shortcut__plus">+</span>S</kbd>)</li>
+<li>…and so on.</li>
+</ul>
+<p>Preventing the default action on <code>keydown</code> can cancel most of them, with the exception of OS-based special keys. For instance, on Windows <kbd class="shortcut">Alt<span class="shortcut__plus">+</span>F4</kbd> closes the current browser window. And there’s no way to stop it by preventing the default action in JavaScript.</p>
+<p>For instance, the <code>&lt;input&gt;</code> below expects a phone number, so it does not accept keys except digits, <code>+</code>, <code>()</code> or <code>-</code>:</p>
+<div id="krcfjbistq" data-trusted="1" class="code-example" data-demo-height="60" data-highlight="[{&quot;start&quot;:5,&quot;cols&quot;:[{&quot;start&quot;:7,&quot;end&quot;:50}]}]" data-autorun="true">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;script&gt;
+function checkPhoneKey(key) {
+  return (key &gt;= '0' &amp;&amp; key &lt;= '9') || ['+','(',')','-'].includes(key);
+}
+&lt;/script&gt;
+&lt;input onkeydown=&quot;return checkPhoneKey(event.key)&quot; placeholder=&quot;Phone, please&quot; type=&quot;tel&quot;&gt;</code></pre>
+        </div>
+      </div>
+      <div class="code-result code-example__result">
+          <iframe
+            class="code-result__iframe"
+            name="test-krcfjbistq"
+            style="height:60px"
+            src="about:blank"></iframe>
+        </div>
+      </div><p>The <code>onkeydown</code> handler here uses <code>checkPhoneKey</code> to check for the key pressed. If it’s valid (from <code>0..9</code> or one of <code>+-()</code>), then it returns <code>true</code>, otherwise <code>false</code>.</p>
+<p>As we know, the <code>false</code> value returned from the event handler, assigned using a DOM property or an attribute, such as above, prevents the default action, so nothing appears in the <code>&lt;input&gt;</code> for keys that don’t pass the test. (The <code>true</code> value returned doesn’t affect anything, only returning <code>false</code> matters)</p>
+<p>Please note that special keys, such as <kbd class="shortcut">Backspace</kbd>, <kbd class="shortcut">Left</kbd>, <kbd class="shortcut">Right</kbd>, do not work in the input. That’s a side-effect of the strict filter <code>checkPhoneKey</code>. These keys make it return <code>false</code>.</p>
+<p>Let’s relax the filter a little bit by allowing arrow keys <kbd class="shortcut">Left</kbd>, <kbd class="shortcut">Right</kbd> and <kbd class="shortcut">Delete</kbd>, <kbd class="shortcut">Backspace</kbd>:</p>
+<div id="sslkl74qjh" data-trusted="1" class="code-example" data-demo-height="60" data-highlight="[{&quot;start&quot;:3,&quot;cols&quot;:[{&quot;start&quot;:21,&quot;end&quot;:66}]}]" data-autorun="true">
+      <div class="codebox code-example__codebox">
+        
+        <div class="toolbar codebox__toolbar">
+          <div class="toolbar__tool">
+            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+          </div>
+          <div class="toolbar__tool">
+            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          </div>
+        </div>
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-markup"><code>&lt;script&gt;
+function checkPhoneKey(key) {
+  return (key &gt;= '0' &amp;&amp; key &lt;= '9') ||
+    ['+','(',')','-','ArrowLeft','ArrowRight','Delete','Backspace'].includes(key);
+}
+&lt;/script&gt;
+&lt;input onkeydown=&quot;return checkPhoneKey(event.key)&quot; placeholder=&quot;Phone, please&quot; type=&quot;tel&quot;&gt;</code></pre>
+        </div>
+      </div>
+      <div class="code-result code-example__result">
+          <iframe
+            class="code-result__iframe"
+            name="test-sslkl74qjh"
+            style="height:60px"
+            src="about:blank"></iframe>
+        </div>
+      </div><p>Now arrows and deletion works well.</p>
+<p>Even though we have the key filter, one still can enter anything using a mouse and right-click + Paste. Mobile devices provide other means to enter values. So the filter is not 100% reliable.</p>
+<p>The alternative approach would be to track the <code>oninput</code> event – it triggers <em>after</em> any modification. There we can check the new <code>input.value</code> and modify it/highlight the <code>&lt;input&gt;</code> when it’s invalid. Or we can use both event handlers together.</p>
+<h2><a class="main__anchor" name="legacy" href="#legacy">Legacy</a></h2><p>In the past, there was a <code>keypress</code> event, and also <code>keyCode</code>, <code>charCode</code>, <code>which</code> properties of the event object.</p>
+<p>There were so many browser incompatibilities while working with them, that developers of the specification had no way, other than deprecating all of them and creating new, modern events (described above in this chapter). The old code still works, as browsers keep supporting them, but there’s totally no need to use those any more.</p>
+<h2><a class="main__anchor" name="mobile-keyboards" href="#mobile-keyboards">Mobile Keyboards</a></h2><p>When using virtual/mobile keyboards, formally known as IME (Input-Method Editor), the W3C standard states that a KeyboardEvent’s <a href="https://www.w3.org/TR/uievents/#determine-keydown-keyup-keyCode"><code>e.keyCode</code> should be <code>229</code></a> and <a href="https://www.w3.org/TR/uievents-key/#key-attr-values"><code>e.key</code> should be <code>&quot;Unidentified&quot;</code></a>.</p>
+<p>While some of these keyboards might still use the right values for <code>e.key</code>, <code>e.code</code>, <code>e.keyCode</code>… when pressing certain keys such as arrows or backspace, there’s no guarantee, so your keyboard logic might not always work on mobile devices.</p>
+<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Pressing a key always generates a keyboard event, be it symbol keys or special keys like <kbd class="shortcut">Shift</kbd> or <kbd class="shortcut">Ctrl</kbd> and so on. The only exception is <kbd class="shortcut">Fn</kbd> key that sometimes presents on a laptop keyboard. There’s no keyboard event for it, because it’s often implemented on lower level than OS.</p>
+<p>Keyboard events:</p>
+<ul>
+<li><code>keydown</code> – on pressing the key (auto-repeats if the key is pressed for long),</li>
+<li><code>keyup</code> – on releasing the key.</li>
+</ul>
+<p>Main keyboard event properties:</p>
+<ul>
+<li><code>code</code> – the “key code” (<code>&quot;KeyA&quot;</code>, <code>&quot;ArrowLeft&quot;</code> and so on), specific to the physical location of the key on keyboard.</li>
+<li><code>key</code> – the character (<code>&quot;A&quot;</code>, <code>&quot;a&quot;</code> and so on), for non-character keys, such as <kbd class="shortcut">Esc</kbd>, usually has the same value  as <code>code</code>.</li>
+</ul>
+<p>In the past, keyboard events were sometimes used to track user input in form fields. That’s not reliable, because the input can come from various sources. We have <code>input</code> and <code>change</code> events to handle any input (covered later in the chapter <a href="/events-change-input">Events: change, input, cut, copy, paste</a>). They trigger after any kind of input, including copy-pasting or speech recognition.</p>
+<p>We should use keyboard events when we really want keyboard. For example, to react on hotkeys or special keys.</p>
+</div></article><div class="tasks formatted"><h2 class="tasks__title" id="tasks"><a class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon" href="#tasks">Tasks</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#extended-hotkeys" name="extended-hotkeys">Extended hotkeys</a></h3><a class="task__open-link" href="/task/check-sync-keydown" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 5</span></div><div class="task__content"><div class="task__formatted"><p>Create a function <code>runOnKeys(func, code1, code2, ... code_n)</code> that runs <code>func</code> on simultaneous pressing of keys with codes <code>code1</code>, <code>code2</code>, …, <code>code_n</code>.</p>
+<p>For instance, the code below shows <code>alert</code> when <code>&quot;Q&quot;</code> and <code>&quot;W&quot;</code> are pressed together (in any language, with or without CapsLock)</p>
+<div id="hae20oi42a" data-trusted="1" class="code-example">
+      <div class="codebox code-example__codebox">
+        
+        <div class="codebox__code" data-code="1">
+          <pre class="line-numbers language-javascript"><code>runOnKeys(
+  () =&gt; alert(&quot;Hello!&quot;),
+  &quot;KeyQ&quot;,
+  &quot;KeyW&quot;
+);</code></pre>
+        </div>
+      </div>
+      
+      </div><p><a href="https://en.js.cx/task/check-sync-keydown/solution/" target="blank">Demo in new window</a></p></div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>We should use two handlers: <code>document.onkeydown</code> and <code>document.onkeyup</code>.</p>
+<p>Let’s create a set <code>pressed = new Set()</code> to keep currently pressed keys.</p>
+<p>The first handler adds to it, while the second one removes from it. Every time on <code>keydown</code> we check if we have enough keys pressed, and run the function if it is so.</p>
+<p><a href="https://plnkr.co/edit/W0sa74x8GS59kXwb?p=preview" target="_blank" data-plunk-id="W0sa74x8GS59kXwb">Open the solution in a sandbox.</a></p></div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div></div></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/pointer-events" data-tooltip="Pointer events"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/onscroll" data-tooltip="Scrolling"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/keyboard-events","identifier":"\/keyboard-events"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/event-details">UI Events</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#keyboard-test-stand">Teststand</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#keydown-and-keyup">Keydown and keyup</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#auto-repeat">Auto-repeat</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#default-actions">Default actions</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#legacy">Legacy</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#mobile-keyboards">Mobile Keyboards</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#tasks">Tasks (1)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/3-event-details/7-keyboard-events" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>
