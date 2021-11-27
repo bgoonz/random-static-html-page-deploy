@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+ @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  min-height: 100vh;
+  background-color: #eee;
+  background-size: 10px 10px;
+  background-image: radial-gradient(circle at 50% 50%, #ddd, #ddd 1px, transparent 1px), radial-gradient(circle at 0 0, #ddd, #ddd 1px, transparent 1px), radial-gradient(circle at 0 100%, #ddd, #ddd 1px, transparent 1px), radial-gradient(circle at 100% 0, #ddd, #ddd 1px, transparent 1px), radial-gradient(circle at 100% 100%, #ddd, #ddd 1px, transparent 1px);
+  color: #333;
+}
+
+:root {
+  --clr-border: #333;
+  --AnimationLength: 0px;
+}
+
+.content {
+  width: 100%;
+  max-width: 960px;
+  padding: 2em 2em 10em;
+}
+
+h2 {
+  margin: 1em auto;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #aaa;
+          text-decoration-color: #aaa;
+}
+h2 span {
+  color: #777;
+}
+
+p {
+  margin: 2em auto;
+  font-weight: bold;
+}
+
+hr {
+  height: 3px;
+  border: none;
+  margin: 4em auto;
+  background-color: #aaa;
+}
+
+.boxes {
+  width: 100%;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 123px;
+  font-size: 2em;
+  padding: 0.5em;
+  line-height: 1;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-size: 3px 100%, 100% 3px, 3px 100%, 100% 3px;
+  background-repeat: no-repeat;
+}
+
+.box-a {
+  background-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(90deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(180deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(270deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px);
+  -o-border-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px);
+     border-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px);
+}
+
+.box-b {
+  background-image: repeating-linear-gradient(45deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(135deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(225deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(315deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px);
+}
+
+.box-c {
+  background-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 3px, transparent 3px, transparent 6px), repeating-linear-gradient(90deg, var(--clr-border), var(--clr-border) 3px, transparent 3px, transparent 6px), repeating-linear-gradient(180deg, var(--clr-border), var(--clr-border) 3px, transparent 3px, transparent 6px), repeating-linear-gradient(270deg, var(--clr-border), var(--clr-border) 3px, transparent 3px, transparent 6px);
+}
+
+.box-d {
+  background-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 30px, transparent 30px, transparent 36px), repeating-linear-gradient(90deg, var(--clr-border), var(--clr-border) 30px, transparent 30px, transparent 36px), repeating-linear-gradient(180deg, var(--clr-border), var(--clr-border) 30px, transparent 30px, transparent 36px), repeating-linear-gradient(270deg, var(--clr-border), var(--clr-border) 30px, transparent 30px, transparent 36px);
+}
+
+.box-e {
+  background-image: linear-gradient(0deg, var(--clr-border), var(--clr-border) 25%, transparent 25%, transparent 75%, var(--clr-border) 75%), linear-gradient(90deg, var(--clr-border), var(--clr-border) 25%, transparent 25%, transparent 75%, var(--clr-border) 75%), linear-gradient(180deg, var(--clr-border), var(--clr-border) 25%, transparent 25%, transparent 75%, var(--clr-border) 75%), linear-gradient(270deg, var(--clr-border), var(--clr-border) 25%, transparent 25%, transparent 75%, var(--clr-border) 75%);
+}
+
+.box-f {
+  background-image: linear-gradient(0deg, transparent 15%, var(--clr-border) 15%, var(--clr-border) 85%, transparent 85%), linear-gradient(90deg, transparent 15%, var(--clr-border) 15%, var(--clr-border) 85%, transparent 85%), linear-gradient(180deg, transparent 15%, var(--clr-border) 15%, var(--clr-border) 85%, transparent 85%), linear-gradient(270deg, transparent 15%, var(--clr-border) 15%, var(--clr-border) 85%, transparent 85%);
+}
+
+.box-g {
+  background-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 10px, transparent 20px, transparent 30px, var(--clr-border) 40px), repeating-linear-gradient(90deg, var(--clr-border), var(--clr-border) 10px, transparent 20px, transparent 30px, var(--clr-border) 40px), repeating-linear-gradient(180deg, var(--clr-border), var(--clr-border) 10px, transparent 20px, transparent 30px, var(--clr-border) 40px), repeating-linear-gradient(270deg, var(--clr-border), var(--clr-border) 10px, transparent 20px, transparent 30px, var(--clr-border) 40px);
+}
+
+.box-h {
+  background-image: repeating-linear-gradient(0deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(90deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(180deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(270deg, var(--clr-border), var(--clr-border) 10px, transparent 10px, transparent 20px);
+  background-size: 3px calc(100% + 20px), calc(100% + 20px) 3px, 3px calc(100% + 20px), calc(100% + 20px) 3px;
+  -webkit-animation: boxBorderAnimation 1s infinite linear;
+          animation: boxBorderAnimation 1s infinite linear;
+}
+@-webkit-keyframes boxBorderAnimation {
+  from {
+    background-position: 0 0, -20px 0, 100% -20px, 0 100%;
+  }
+  to {
+    background-position: 0 -20px, 0 0, 100% 0, -20px 100%;
+  }
+}
+@keyframes boxBorderAnimation {
+  from {
+    background-position: 0 0, -20px 0, 100% -20px, 0 100%;
+  }
+  to {
+    background-position: 0 -20px, 0 0, 100% 0, -20px 100%;
+  }
+}
+
+.generator {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3em;
+}
+@media (max-width: 768px) {
+  .generator {
+    grid-template-columns: 1fr;
+  }
+}
+
+form {
+  width: 100%;
+}
+form label {
+  display: block;
+  font-weight: bold;
+  width: 100%;
+}
+form label + label {
+  margin-top: 1.5em;
+}
+form .input {
+  display: block;
+  width: 100%;
+}
+
+.result {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  line-height: 1.2;
+  background-repeat: no-repeat;
+}
+.result span {
+  display: block;
+  padding-left: 4em;
+  text-indent: -2em;
+  margin: 0.5em auto;
+}
+@-webkit-keyframes borderAnimation {
+  from {
+    background-position: 0 0, var(--AnimationLength) 0, 100% var(--AnimationLength), 0 100%;
+  }
+  to {
+    background-position: 0 var(--AnimationLength), 0 0, 100% 0, var(--AnimationLength) 100%;
+  }
+}
+@keyframes borderAnimation {
+  from {
+    background-position: 0 0, var(--AnimationLength) 0, 100% var(--AnimationLength), 0 100%;
+  }
+  to {
+    background-position: 0 var(--AnimationLength), 0 0, 100% 0, var(--AnimationLength) 100%;
+  }
+}
+
+.twitterLink {
+  position: fixed;
+  bottom: 0.5em;
+  right: 0.5em;
+}
+.twitterLink img {
+  width: 2em;
+  filter: grayscale(100%);
+  transition: filter 0.25s;
+}
+.twitterLink img:hover {
+  filter: grayscale(0%);
+}
+ 
+  </style>
+</head>
+<body>
+  <div class="content">
+
+    <h2>Dashed border using <span>background-image</span> property</h2>
+    
+    <p>
+        Creating dashed borders with background-image is not a new concept. Many people use it because it allows full flexibility, and with a little creativity (and a few lines of code) it is possible to do cool things without it being too complicated.
+    </p>
+
+    <div class="boxes">
+        <div class="box box-a">Simple</div>
+        <div class="box box-b">Slanted</div>
+        <div class="box box-c">Dotted</div>
+        <div class="box box-d">Long</div>
+        <div class="box box-e">Cornered</div>
+        <div class="box box-f">Centered</div>
+        <div class="box box-g">Faded</div>
+        <div class="box box-h">Animated</div>
+    </div>
+
+    <hr>
+
+    <h2>Create your own <span>background-image</span> border</h2>
+    
+    <div class="generator">
+
+        <form>
+
+            <Label>
+                Border width
+                <input name="borderWidth" type="range" class="input" min="1" max="10" value="3">
+            </Label>
+
+            <Label>
+                Border color<br>
+                <input name="borderColor" type="color" class="input" value="#333333">
+            </Label>
+
+            <Label>
+                Dash length
+                <input name="dashLength" type="range" class="input" min="1" max="30" value="10">
+            </Label>
+
+            <Label>
+                Spacing
+                <input name="spacing" type="range" class="input" min="1" max="30" value="10">
+            </Label>
+
+            <Label>
+                Slanting angle
+                <input name="slanting" type="range" class="input" min="-60" max="60" value="0">
+            </Label>
+
+            <Label>
+                Fade
+                <input name="borderFade" type="range" class="input" min="0" max="100" value="0">
+            </Label>
+
+            <Label>
+                <input name="diraction" type="checkbox">
+                Flip diraction
+            </Label>
+
+            <Label>
+                Animation
+                <input name="animation" type="range" class="input" min="0" max="1" step="0.1" value="0">
+            </Label>
+
+        </form>
+
+        <div class="result"></div>
+
+    </div>
+</div>
+
+<a href="https://twitter.com/bgooonz" class="twitterLink" target="_blank">
+   <img src="https://assets.codepen.io/1948355/twitterLogo2.png" />
+</a>
+<script>
+function _(e, all=false) {
+    let divs = document.querySelectorAll(e);
+    if (all || (divs.length > 1)) { return divs; }
+    return divs[0];
+}
+
+_('input', true).forEach(element => {
+    element.addEventListener('input', drawBordr);
+});
+
+const resultDiv = _('.result');
+
+drawBordr();
+function drawBordr() {
+
+    let borderWidth = Number(_('[name="borderWidth"]').value);
+    let color1 = _('[name="borderColor"]').value;
+    let dashLength = Number(_('[name="dashLength"]').value);
+    let spacing = Number(_('[name="spacing"]').value);
+    let slanting = Number(_('[name="slanting"]').value);
+    let borderFade = 100 - Number(_('[name="borderFade"]').value);
+    let diraction = _('[name="diraction"]').checked;
+    let animation = Number(_('[name="animation"]').value);
+
+    let color2 = 'transparent';
+
+    const backgroundImage = `
+        repeating-linear-gradient(${slanting + (diraction ? 180 : 0) }deg, ${color1}, ${color1} ${Math.round(dashLength * borderFade) / 100}px, ${color2} ${dashLength}px, ${color2} ${dashLength + (Math.round(spacing * borderFade) / 100)}px, ${color1} ${dashLength + spacing}px),
+        repeating-linear-gradient(${slanting + (diraction ? 270 : 90)}deg, ${color1}, ${color1} ${Math.round(dashLength * borderFade) / 100}px, ${color2} ${dashLength}px, ${color2} ${dashLength + (Math.round(spacing * borderFade) / 100)}px, ${color1} ${dashLength + spacing}px),
+        repeating-linear-gradient(${slanting + (diraction ? 0 : 180) }deg, ${color1}, ${color1} ${Math.round(dashLength * borderFade) / 100}px, ${color2} ${dashLength}px, ${color2} ${dashLength + (Math.round(spacing * borderFade) / 100)}px, ${color1} ${dashLength + spacing}px),
+        repeating-linear-gradient(${slanting + (diraction ? 90 : 270)}deg, ${color1}, ${color1} ${Math.round(dashLength * borderFade) / 100}px, ${color2} ${dashLength}px, ${color2} ${dashLength + (Math.round(spacing * borderFade) / 100)}px, ${color1} ${dashLength + spacing}px)`;
+
+    const borderLengthPx = Math.round((dashLength + spacing) / Math.sin((90 - Math.abs(slanting)) * Math.PI / 180) * 100) / 100;
+    const borderLength = (animation > 0) ? `calc(100% + ${borderLengthPx}px)` : '100%';
+    const backgroundSize = `${borderWidth}px ${borderLength}, ${borderLength} ${borderWidth}px, ${borderWidth}px ${borderLength} , ${borderLength} ${borderWidth}px`;
+    const backgroundPosition = `0 0, 0 0, 100% 0, 0 100%`;
+
+    resultDiv.style.backgroundImage = backgroundImage;
+    resultDiv.style.backgroundSize = backgroundSize;
+    resultDiv.style.backgroundPosition = backgroundPosition;
+
+    const animationPropery = (animation > 0) ? `borderAnimation ${Math.round((1.1 - animation) * 10) / 10}s infinite linear${diraction ? ' reverse' : ''}` : 'unset';
+    resultDiv.style.animation = animationPropery;
+
+    let animationTxt = '';
+    if (animation > 0) {
+        document.documentElement.style.setProperty('--AnimationLength', `-${borderLengthPx}px`);
+
+        animationTxt = `
+                <span><b>animation:</b> ${animationPropery};</span>
+            }<br>
+            <br>
+            @keyframes <b>borderAnimation</b> {
+                <span>from { background-position:  0 0, -${borderLengthPx}px 0, 100% -${borderLengthPx}px, 0 100%; }</span>
+                <span>to { background-position:  0 -${borderLengthPx}px, 0 0, 100% 0, -${borderLengthPx}px 100%; }</span>
+        `;
+    }
+
+    resultDiv.style.padding = `calc(1em + ${borderWidth}px)`;
+    
+    resultDiv.innerHTML = `
+        <code>
+            .box {
+                <span><b>background-image:</b> ${backgroundImage};</span>
+                <span><b>background-size:</b> ${backgroundSize};</span>
+                <span><b>background-position:</b> ${backgroundPosition};</span>
+                <span><b>background-repeat:</b> no-repeat; </span>
+                ${animationTxt}
+            }
+        </code>
+    `;
+}
+</script>
+</body>
+</html>
