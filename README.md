@@ -1,5 +1,8 @@
 # A collection of many mini js/css/html projects
 
+
+![preview](https://github.com/bgoonz/random-static-html-page-deploy/blob/master/static.png?raw=true)
+
 ```
 .
 │── 3D Box
