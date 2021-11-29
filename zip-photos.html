@@ -1,0 +1,152 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  <style>
+      .gallery {
+        text-align: center;
+    }
+    .gallery>img {
+        width: 100px;
+        opacity: .8;
+    }
+    .gallery>img:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+    .imgContainer {
+        padding-top: 10px;
+    }
+
+    .thumb {
+        height: 110px;
+        width: 160px;
+        margin: 10px;
+        padding: 2px;
+        box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.6);
+        border: 2px solid white;
+    }
+
+    .thumb:hover {
+        box-shadow: 3px 3px 6px rgba(70, 70, 70, 0.8);
+        cursor: pointer;
+    }
+    .thumbChecked {
+        opacity: .8;
+        height: 110px;
+        width: 160px;
+        margin: 10px;
+        padding: 2px;
+        box-shadow: 2px 2px 4px rgba(70, 70, 70, 0.6);
+    }
+    .download {
+        margin-top: 20px;
+        display: none;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="gallery">
+
+    <div class="imgContainer">
+        <img class="thumb" src="https://i.imgur.com/emBm6jv.jpg">
+        <img class="thumb" src="https://i.imgur.com/l49aYS3.jpg">
+        <img class="thumb" src="https://i.imgur.com/a0bs8oJ.jpg">
+        <img class="thumb" src="https://i.imgur.com/PHYkTp9.jpg">
+        <img class="thumb" src="https://i.imgur.com/a7fJPfn.jpg">
+        <img class="thumb" src="https://i.imgur.com/WCzfMMt.jpg">
+        <img class="thumb" src="https://i.imgur.com/QCFXhpg.jpg">
+        <img class="thumb" src="https://i.imgur.com/esOG86I.jpg">
+        <img class="thumb" src="https://i.imgur.com/LW8EKdK.jpg">
+        <img class="thumb" src="https://i.imgur.com/ggECswm.jpg">
+        <img class="thumb" src="https://i.imgur.com/CHKrDLa.jpg">
+				<video src="https://i.imgur.com/JpljA8l.mp4" autoplay="" loop="" class="thumb" style="max-width: 100%; height: 110px;">
+					<source type="video/mp4" src="https://i.imgur.com/JpljA8l.mp4">
+				</video>
+    </div>
+    
+    <img class="download" src="https://maxcdn.icons8.com/app/uploads/2016/10/download1.png" onclick="generateZIP()" />
+    
+</div>
+
+
+
+<script>
+/*
+
+'use strict';
+var _ = require('lodash');
+
+function Person(cfg) {
+  this.names = [cfg.fname, cfg.lname];
+}
+Person.prototype.greet = function(title) {
+  title = title || "Mr";
+  var fullName = this.names
+    .map(function(n) {
+      n = n || ''
+      return _.upperFirst(n);
+    })
+    .join(" ");
+
+  console.log("Hello " + title + " " + fullName + "!");
+};
+Person.prototype.greetWithAllTitles = function() {
+  for (var i = 0; i < arguments.length; i++) {
+    var title = arguments[i];
+    this.greet(title);
+  }
+};
+
+module.exports = Person;
+*/
+const _ = require('lodash');
+
+function Person({fname, lname}) {
+  this.names = [fname, lname];
+}
+Person.prototype.greet = function(title = "Mr") {
+  const fullName = this.names
+    .map((n = '') => {
+    return _.upperFirst(n);
+  })
+    .join(" ");
+
+  console.log(`Hello ${title} ${fullName}!`);
+};
+Person.prototype.greetWithAllTitles = function(...args) {
+  for (let i = 0; i < args.length; i++) {
+    const title = args[i];
+    this.greet(title);
+  }
+};
+
+module.exports = Person;
+</script>
+</body>
+
+</html>
