@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fobject" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fobject" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -31,7 +26,7 @@ As we know from the chapter [Data types](/types), there are eight data types in 
 
 In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
 
-An object can be created with figure brackets `{…}` with an optional list of *properties*. A property is a “key: value” pair, where `key` is a string (also called a “property name”), and `value` can be anything.
+An object can be created with figure brackets `{…}` with an optional list of _properties_. A property is a “key: value” pair, where `key` is a string (also called a “property name”), and `value` can be anything.
 
 We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It’s easy to find a file by its name or add/remove a file.
 
@@ -44,7 +39,7 @@ An empty object (“empty cabinet”) can be created using one of two syntaxes:
 
 <figure><img src="/article/object/object-user-empty.svg" width="248" height="92" /></figure>
 
-Usually, the figure brackets `{...}` are used. That declaration is called an *object literal*.
+Usually, the figure brackets `{...}` are used. That declaration is called an _object literal_.
 
 ## <a href="#literals-and-properties" id="literals-and-properties" class="main__anchor">Literals and properties</a>
 
@@ -180,7 +175,7 @@ The dot notation cannot be used in a similar way:
 
 ### <a href="#computed-properties" id="computed-properties" class="main__anchor">Computed properties</a>
 
-We can use square brackets in an object literal, when creating an object. That’s called *computed properties*.
+We can use square brackets in an object literal, when creating an object. That’s called _computed properties_.
 
 For instance:
 
@@ -246,7 +241,7 @@ For instance:
     let user = makeUser("John", 30);
     alert(user.name); // John
 
-In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there’s a special *property value shorthand* to make it shorter.
+In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there’s a special _property value shorthand_ to make it shorter.
 
 Instead of `name:name` we can just write `name`, like this:
 
@@ -347,7 +342,7 @@ For instance:
     alert( "age" in user ); // true, user.age exists
     alert( "blabla" in user ); // false, user.blabla doesn't exist
 
-Please note that on the left side of `in` there must be a *property name*. That’s usually a quoted string.
+Please note that on the left side of `in` there must be a _property name_. That’s usually a quoted string.
 
 If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:
 
@@ -443,8 +438,8 @@ The object may be used to suggest a list of options to the user. If we’re maki
 
 But if we run the code, we see a totally different picture:
 
--   USA (1) goes first
--   then Switzerland (41) and so on.
+- USA (1) goes first
+- then Switzerland (41) and so on.
 
 The phone codes go in the ascending sorted order, because they are integers. So we see `1, 41, 44, 49`.
 
@@ -508,28 +503,28 @@ Objects are associative arrays with several special features.
 
 They store properties (key-value pairs), where:
 
--   Property keys must be strings or symbols (usually strings).
--   Values can be of any type.
+- Property keys must be strings or symbols (usually strings).
+- Values can be of any type.
 
 To access a property, we can use:
 
--   The dot notation: `obj.property`.
--   Square brackets notation `obj["property"]`. Square brackets allow to take the key from a variable, like `obj[varWithKey]`.
+- The dot notation: `obj.property`.
+- Square brackets notation `obj["property"]`. Square brackets allow to take the key from a variable, like `obj[varWithKey]`.
 
 Additional operators:
 
--   To delete a property: `delete obj.prop`.
--   To check if a property with the given key exists: `"key" in obj`.
--   To iterate over an object: `for (let key in obj)` loop.
+- To delete a property: `delete obj.prop`.
+- To check if a property with the given key exists: `"key" in obj`.
+- To iterate over an object: `for (let key in obj)` loop.
 
 What we’ve studied in this chapter is called a “plain object”, or just `Object`.
 
 There are many other kinds of objects in JavaScript:
 
--   `Array` to store ordered data collections,
--   `Date` to store the information about the date and time,
--   `Error` to store the information about an error.
--   …And so on.
+- `Array` to store ordered data collections,
+- `Date` to store the information about the date and time,
+- `Error` to store the information about an error.
+- …And so on.
 
 They have their special features that we’ll study later. Sometimes people say something like “Array type” or “Date type”, but formally they are not types of their own, but belong to a single “object” data type. And they extend it in various ways.
 
@@ -684,28 +679,28 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
+- <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
 
 #### Lesson navigation
 
--   <a href="#literals-and-properties" class="sidebar__link">Literals and properties</a>
--   <a href="#square-brackets" class="sidebar__link">Square brackets</a>
--   <a href="#property-value-shorthand" class="sidebar__link">Property value shorthand</a>
--   <a href="#property-names-limitations" class="sidebar__link">Property names limitations</a>
--   <a href="#property-existence-test-in-operator" class="sidebar__link">Property existence test, “in” operator</a>
--   <a href="#the-for-in-loop" class="sidebar__link">The “for…in” loop</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#literals-and-properties" class="sidebar__link">Literals and properties</a>
+- <a href="#square-brackets" class="sidebar__link">Square brackets</a>
+- <a href="#property-value-shorthand" class="sidebar__link">Property value shorthand</a>
+- <a href="#property-names-limitations" class="sidebar__link">Property names limitations</a>
+- <a href="#property-existence-test-in-operator" class="sidebar__link">Property existence test, “in” operator</a>
+- <a href="#the-for-in-loop" class="sidebar__link">The “for…in” loop</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -713,8 +708,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/04-object-basics/01-object" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

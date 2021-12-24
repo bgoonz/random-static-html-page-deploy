@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fonload-onerror" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fonload-onerror" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -31,8 +26,8 @@ The browser allows us to track the loading of external resources – scripts, if
 
 There are two events for it:
 
--   `onload` – successful load,
--   `onerror` – an error occurred.
+- `onload` – successful load,
+- `onerror` – an error occurred.
 
 ## <a href="#loading-a-script" id="loading-a-script" class="main__anchor">Loading a script</a>
 
@@ -125,8 +120,8 @@ For example:
 
 There are some notes though:
 
--   Most resources start loading when they are added to the document. But `<img>` is an exception. It starts loading when it gets a src `(*)`.
--   For `<iframe>`, the `iframe.onload` event triggers when the iframe loading finished, both for successful load and in case of an error.
+- Most resources start loading when they are added to the document. But `<img>` is an exception. It starts loading when it gets a src `(*)`.
+- For `<iframe>`, the `iframe.onload` event triggers when the iframe loading finished, both for successful load and in case of an error.
 
 That’s for historical reasons.
 
@@ -226,8 +221,8 @@ Now, assuming that the server provides an `Access-Control-Allow-Origin` header, 
 
 Images `<img>`, external styles, scripts and other resources provide `load` and `error` events to track their loading:
 
--   `load` triggers on a successful load,
--   `error` triggers on a failed load.
+- `load` triggers on a successful load,
+- `error` triggers on a failed load.
 
 The only exception is `<iframe>`: for historical reasons it always triggers `load`, for any load completion, even if the page is not found.
 
@@ -291,25 +286,25 @@ The algorithm:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/loading" class="sidebar__link">Document and resource loading</a>
+- <a href="/loading" class="sidebar__link">Document and resource loading</a>
 
 #### Lesson navigation
 
--   <a href="#loading-a-script" class="sidebar__link">Loading a script</a>
--   <a href="#other-resources" class="sidebar__link">Other resources</a>
--   <a href="#crossorigin-policy" class="sidebar__link">Crossorigin policy</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#loading-a-script" class="sidebar__link">Loading a script</a>
+- <a href="#other-resources" class="sidebar__link">Other resources</a>
+- <a href="#crossorigin-policy" class="sidebar__link">Crossorigin policy</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -317,8 +312,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/5-loading/03-onload-onerror" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>
