@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farray" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farray" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -29,7 +24,7 @@ Search
 
 Objects allow you to store keyed collections of values. That’s fine.
 
-But quite often we find that we need an *ordered collection*, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.
+But quite often we find that we need an _ordered collection_, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.
 
 It is not convenient to use an object here, because it provides no methods to manage the order of elements. We can’t insert a new property “between” the existing ones. Objects are just not meant for such use.
 
@@ -119,10 +114,10 @@ The “trailing comma” style makes it easier to insert/remove items, because a
 
 ## <a href="#methods-pop-push-shift-unshift" id="methods-pop-push-shift-unshift" class="main__anchor">Methods pop/push, shift/unshift</a>
 
-A [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:
+A [queue](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>) is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:
 
--   `push` appends an element to the end.
--   `shift` get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.
+- `push` appends an element to the end.
+- `shift` get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.
 
 <figure><img src="/article/array/queue.svg" width="187" height="108" /></figure>
 
@@ -130,12 +125,12 @@ Arrays support both operations.
 
 In practice we need it very often. For example, a queue of messages that need to be shown on-screen.
 
-There’s another use case for arrays – the data structure named [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)).
+There’s another use case for arrays – the data structure named [stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>).
 
 It supports two operations:
 
--   `push` adds an element to the end.
--   `pop` takes an element from the end.
+- `push` adds an element to the end.
+- `pop` takes an element from the end.
 
 So new elements are added or taken always from the “end”.
 
@@ -263,11 +258,11 @@ But the engine will see that we’re working with the array as with a regular ob
 
 The ways to misuse an array:
 
--   Add a non-numeric property like `arr.test = 5`.
--   Make holes, like: add `arr[0]` and then `arr[1000]` (and nothing between them).
--   Fill the array in the reverse order, like `arr[1000]`, `arr[999]` and so on.
+- Add a non-numeric property like `arr.test = 5`.
+- Make holes, like: add `arr[0]` and then `arr[1000]` (and nothing between them).
+- Fill the array in the reverse order, like `arr[1000]`, `arr[999]` and so on.
 
-Please think of arrays as special structures to work with the *ordered data*. They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object `{}`.
+Please think of arrays as special structures to work with the _ordered data_. They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object `{}`.
 
 ## <a href="#performance" id="performance" class="main__anchor">Performance</a>
 
@@ -348,9 +343,9 @@ Technically, because arrays are objects, it is also possible to use `for..in`:
 
 But that’s actually a bad idea. There are potential problems with it:
 
-1.  The loop `for..in` iterates over *all properties*, not only the numeric ones.
+1.  The loop `for..in` iterates over _all properties_, not only the numeric ones.
 
-    There are so-called “array-like” objects in the browser and in other environments, that *look like arrays*. That is, they have `length` and indexes properties, but they may also have other non-numeric properties and methods, which we usually don’t need. The `for..in` loop will list them though. So if we need to work with array-like objects, then these “extra” properties can become a problem.
+    There are so-called “array-like” objects in the browser and in other environments, that _look like arrays_. That is, they have `length` and indexes properties, but they may also have other non-numeric properties and methods, which we usually don’t need. The `for..in` loop will list them though. So if we need to work with array-like objects, then these “extra” properties can become a problem.
 
 2.  The `for..in` loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. Of course, it’s still very fast. The speedup may only matter in bottlenecks. But still we should be aware of the difference.
 
@@ -399,7 +394,7 @@ There is one more syntax to create an array:
 
 It’s rarely used, because square brackets `[]` are shorter. Also there’s a tricky feature with it.
 
-If `new Array` is called with a single argument which is a number, then it creates an array *without items, but with the given length*.
+If `new Array` is called with a single argument which is a number, then it creates an array _without items, but with the given length_.
 
 Let’s see how one can shoot themself in the foot:
 
@@ -476,9 +471,9 @@ This operator has no special treatment for arrays, it works with them as with an
 
 Let’s recall the rules:
 
--   Two objects are equal `==` only if they’re references to the same object.
--   If one of the arguments of `==` is an object, and the other one is a primitive, then the object gets converted to primitive, as explained in the chapter [Object to primitive conversion](/object-toprimitive).
--   …With an exception of `null` and `undefined` that equal `==` each other and nothing else.
+- Two objects are equal `==` only if they’re references to the same object.
+- If one of the arguments of `==` is an object, and the other one is a primitive, then the object gets converted to primitive, as explained in the chapter [Object to primitive conversion](/object-toprimitive).
+- …With an exception of `null` and `undefined` that equal `==` each other and nothing else.
 
 The strict comparison `===` is even simpler, as it doesn’t convert types.
 
@@ -526,32 +521,32 @@ That’s simple: don’t use the `==` operator. Instead, compare them item-by-it
 
 Array is a special kind of object, suited to storing and managing ordered data items.
 
--   The declaration:
+- The declaration:
 
-        // square brackets (usual)
-        let arr = [item1, item2...];
+      // square brackets (usual)
+      let arr = [item1, item2...];
 
-        // new Array (exceptionally rare)
-        let arr = new Array(item1, item2...);
+      // new Array (exceptionally rare)
+      let arr = new Array(item1, item2...);
 
-    The call to `new Array(number)` creates an array with the given length, but without elements.
+  The call to `new Array(number)` creates an array with the given length, but without elements.
 
--   The `length` property is the array length or, to be precise, its last numeric index plus one. It is auto-adjusted by array methods.
+- The `length` property is the array length or, to be precise, its last numeric index plus one. It is auto-adjusted by array methods.
 
--   If we shorten `length` manually, the array is truncated.
+- If we shorten `length` manually, the array is truncated.
 
 We can use an array as a deque with the following operations:
 
--   `push(...items)` adds `items` to the end.
--   `pop()` removes the element from the end and returns it.
--   `shift()` removes the element from the beginning and returns it.
--   `unshift(...items)` adds `items` to the beginning.
+- `push(...items)` adds `items` to the end.
+- `pop()` removes the element from the end and returns it.
+- `shift()` removes the element from the beginning and returns it.
+- `unshift(...items)` adds `items` to the beginning.
 
 To loop over the elements of the array:
 
--   `for (let i=0; i<arr.length; i++)` – works fastest, old-browser-compatible.
--   `for (let item of arr)` – the modern syntax for items only,
--   `for (let i in arr)` – never use.
+- `for (let i=0; i<arr.length; i++)` – works fastest, old-browser-compatible.
+- `for (let item of arr)` – the modern syntax for items only,
+- `for (let i in arr)` – never use.
 
 To compare arrays, don’t use the `==` operator (as well as `>`, `<` and others), as they have no special treatment for arrays. They handle them as any objects, and it’s not what we usually want.
 
@@ -674,9 +669,9 @@ The array has 3 values: initially it had two, plus the function.
 
 Write the function `sumInput()` that:
 
--   Asks the user for values using `prompt` and stores the values in the array.
--   Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
--   Calculates and returns the sum of array items.
+- Asks the user for values using `prompt` and stores the values in the array.
+- Finishes asking when the user enters a non-numeric value, an empty string, or presses “Cancel”.
+- Calculates and returns the sum of array items.
 
 P.S. A zero `0` is a valid number, please don’t stop the input on zero.
 
@@ -857,32 +852,32 @@ You can find more detail information about the algorithm here: [Maximum subarray
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-types" class="sidebar__link">Data types</a>
+- <a href="/data-types" class="sidebar__link">Data types</a>
 
 #### Lesson navigation
 
--   <a href="#declaration" class="sidebar__link">Declaration</a>
--   <a href="#methods-pop-push-shift-unshift" class="sidebar__link">Methods pop/push, shift/unshift</a>
--   <a href="#internals" class="sidebar__link">Internals</a>
--   <a href="#performance" class="sidebar__link">Performance</a>
--   <a href="#loops" class="sidebar__link">Loops</a>
--   <a href="#a-word-about-length" class="sidebar__link">A word about “length”</a>
--   <a href="#new-array" class="sidebar__link">new Array()</a>
--   <a href="#multidimensional-arrays" class="sidebar__link">Multidimensional arrays</a>
--   <a href="#tostring" class="sidebar__link">toString</a>
--   <a href="#don-t-compare-arrays-with" class="sidebar__link">Don’t compare arrays with ==</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#declaration" class="sidebar__link">Declaration</a>
+- <a href="#methods-pop-push-shift-unshift" class="sidebar__link">Methods pop/push, shift/unshift</a>
+- <a href="#internals" class="sidebar__link">Internals</a>
+- <a href="#performance" class="sidebar__link">Performance</a>
+- <a href="#loops" class="sidebar__link">Loops</a>
+- <a href="#a-word-about-length" class="sidebar__link">A word about “length”</a>
+- <a href="#new-array" class="sidebar__link">new Array()</a>
+- <a href="#multidimensional-arrays" class="sidebar__link">Multidimensional arrays</a>
+- <a href="#tostring" class="sidebar__link">toString</a>
+- <a href="#don-t-compare-arrays-with" class="sidebar__link">Don’t compare arrays with ==</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (5)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (5)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -890,8 +885,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/05-data-types/04-array" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

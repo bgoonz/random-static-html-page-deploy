@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fimport-export" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fimport-export" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -81,7 +76,7 @@ Here we first declare, and then export:
 
 …Or, technically we could put `export` above functions as well.
 
-## <a href="#import" id="import" class="main__anchor">Import *</a>
+## <a href="#import" id="import" class="main__anchor">Import \*</a>
 
 Usually, we put a list of what to import in curly braces `import {...}`, like this:
 
@@ -378,26 +373,26 @@ Here are all types of `export` that we covered in this and previous articles.
 
 You can check yourself by reading them and recalling what they mean:
 
--   Before declaration of a class/function/…:
-    -   `export [default] class/function/variable ...`
--   Standalone export:
-    -   `export {x [as y], ...}`.
--   Re-export:
-    -   `export {x [as y], ...} from "module"`
-    -   `export * from "module"` (doesn’t re-export default).
-    -   `export {default [as y]} from "module"` (re-export default).
+- Before declaration of a class/function/…:
+  - `export [default] class/function/variable ...`
+- Standalone export:
+  - `export {x [as y], ...}`.
+- Re-export:
+  - `export {x [as y], ...} from "module"`
+  - `export * from "module"` (doesn’t re-export default).
+  - `export {default [as y]} from "module"` (re-export default).
 
 Import:
 
--   Importing named exports:
-    -   `import {x [as y], ...} from "module"`
--   Importing the default export:
-    -   `import x from "module"`
-    -   `import {default as x} from "module"`
--   Import all:
-    -   `import * as obj from "module"`
--   Import the module (its code runs), but do not assign any of its exports to variables:
-    -   `import "module"`
+- Importing named exports:
+  - `import {x [as y], ...} from "module"`
+- Importing the default export:
+  - `import x from "module"`
+  - `import {default as x} from "module"`
+- Import all:
+  - `import * as obj from "module"`
+- Import the module (its code runs), but do not assign any of its exports to variables:
+  - `import "module"`
 
 We can put `import/export` statements at the top or at the bottom of a script, that doesn’t matter.
 
@@ -433,28 +428,28 @@ We’ll see dynamic imports in the next article.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/modules" class="sidebar__link">Modules</a>
+- <a href="/modules" class="sidebar__link">Modules</a>
 
 #### Lesson navigation
 
--   <a href="#export-before-declarations" class="sidebar__link">Export before declarations</a>
--   <a href="#export-apart-from-declarations" class="sidebar__link">Export apart from declarations</a>
--   <a href="#import" class="sidebar__link">Import *</a>
--   <a href="#import-as" class="sidebar__link">Import “as”</a>
--   <a href="#export-as" class="sidebar__link">Export “as”</a>
--   <a href="#export-default" class="sidebar__link">Export default</a>
--   <a href="#re-export" class="sidebar__link">Re-export</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#export-before-declarations" class="sidebar__link">Export before declarations</a>
+- <a href="#export-apart-from-declarations" class="sidebar__link">Export apart from declarations</a>
+- <a href="#import" class="sidebar__link">Import \*</a>
+- <a href="#import-as" class="sidebar__link">Import “as”</a>
+- <a href="#export-as" class="sidebar__link">Export “as”</a>
+- <a href="#export-default" class="sidebar__link">Export default</a>
+- <a href="#re-export" class="sidebar__link">Re-export</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -462,8 +457,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/13-modules/02-import-export" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

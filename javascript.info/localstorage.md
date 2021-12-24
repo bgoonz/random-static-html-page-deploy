@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Flocalstorage" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Flocalstorage" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/data-storage" class="breadcrumbs__link"><span>Storing data in the browser</span></a></span>
@@ -32,18 +27,18 @@ What’s interesting about them is that the data survives a page refresh (for `s
 
 We already have cookies. Why additional objects?
 
--   Unlike cookies, web storage objects are not sent to server with each request. Because of that, we can store much more. Most browsers allow at least 2 megabytes of data (or more) and have settings to configure that.
--   Also unlike cookies, the server can’t manipulate storage objects via HTTP headers. Everything’s done in JavaScript.
--   The storage is bound to the origin (domain/protocol/port triplet). That is, different protocols or subdomains infer different storage objects, they can’t access data from each other.
+- Unlike cookies, web storage objects are not sent to server with each request. Because of that, we can store much more. Most browsers allow at least 2 megabytes of data (or more) and have settings to configure that.
+- Also unlike cookies, the server can’t manipulate storage objects via HTTP headers. Everything’s done in JavaScript.
+- The storage is bound to the origin (domain/protocol/port triplet). That is, different protocols or subdomains infer different storage objects, they can’t access data from each other.
 
 Both storage objects provide same methods and properties:
 
--   `setItem(key, value)` – store key/value pair.
--   `getItem(key)` – get the value by key.
--   `removeItem(key)` – remove the key with its value.
--   `clear()` – delete everything.
--   `key(index)` – get the key on a given position.
--   `length` – the number of stored items.
+- `setItem(key, value)` – store key/value pair.
+- `getItem(key)` – get the value by key.
+- `removeItem(key)` – remove the key with its value.
+- `clear()` – delete everything.
+- `key(index)` – get the key on a given position.
+- `length` – the number of stored items.
 
 As you can see, it’s like a `Map` collection (`setItem/getItem/removeItem`), but also allows access by index with `key(index)`.
 
@@ -53,8 +48,8 @@ Let’s see how it works.
 
 The main features of `localStorage` are:
 
--   Shared between all tabs and windows from the same origin.
--   The data does not expire. It remains after the browser restart and even OS reboot.
+- Shared between all tabs and windows from the same origin.
+- The data does not expire. It remains after the browser restart and even OS reboot.
 
 For instance, if you run this code…
 
@@ -202,10 +197,10 @@ The `sessionStorage` object is used much less often than `localStorage`.
 
 Properties and methods are the same, but it’s much more limited:
 
--   The `sessionStorage` exists only within the current browser tab.
-    -   Another tab with the same page will have a different storage.
-    -   But it is shared between iframes in the same tab (assuming they come from the same origin).
--   The data survives page refresh, but not closing/opening the tab.
+- The `sessionStorage` exists only within the current browser tab.
+  - Another tab with the same page will have a different storage.
+  - But it is shared between iframes in the same tab (assuming they come from the same origin).
+- The data survives page refresh, but not closing/opening the tab.
 
 Let’s see that in action.
 
@@ -233,11 +228,11 @@ That’s exactly because `sessionStorage` is bound not only to the origin, but a
 
 When the data gets updated in `localStorage` or `sessionStorage`, [storage](https://www.w3.org/TR/webstorage/#the-storage-event) event triggers, with properties:
 
--   `key` – the key that was changed (`null` if `.clear()` is called).
--   `oldValue` – the old value (`null` if the key is newly added).
--   `newValue` – the new value (`null` if the key is removed).
--   `url` – the url of the document where the update happened.
--   `storageArea` – either `localStorage` or `sessionStorage` object where the update happened.
+- `key` – the key that was changed (`null` if `.clear()` is called).
+- `oldValue` – the old value (`null` if the key is newly added).
+- `newValue` – the new value (`null` if the key is removed).
+- `url` – the url of the document where the update happened.
+- `storageArea` – either `localStorage` or `sessionStorage` object where the update happened.
 
 The important thing is: the event triggers on all `window` objects where the storage is accessible, except the one that caused it.
 
@@ -273,29 +268,29 @@ Modern browsers also support [Broadcast channel API](https://developer.mozilla.o
 
 Web storage objects `localStorage` and `sessionStorage` allow to store key/value in the browser.
 
--   Both `key` and `value` must be strings.
--   The limit is 5mb+, depends on the browser.
--   They do not expire.
--   The data is bound to the origin (domain/port/protocol).
+- Both `key` and `value` must be strings.
+- The limit is 5mb+, depends on the browser.
+- They do not expire.
+- The data is bound to the origin (domain/port/protocol).
 
 <table><thead><tr class="header"><th><code>localStorage</code></th><th><code>sessionStorage</code></th></tr></thead><tbody><tr class="odd"><td>Shared between all tabs and windows with the same origin</td><td>Visible within a browser tab, including iframes from the same origin</td></tr><tr class="even"><td>Survives browser restart</td><td>Survives page refresh (but not tab close)</td></tr></tbody></table>
 
 API:
 
--   `setItem(key, value)` – store key/value pair.
--   `getItem(key)` – get the value by key.
--   `removeItem(key)` – remove the key with its value.
--   `clear()` – delete everything.
--   `key(index)` – get the key number `index`.
--   `length` – the number of stored items.
--   Use `Object.keys` to get all keys.
--   We access keys as object properties, in that case `storage` event isn’t triggered.
+- `setItem(key, value)` – store key/value pair.
+- `getItem(key)` – get the value by key.
+- `removeItem(key)` – remove the key with its value.
+- `clear()` – delete everything.
+- `key(index)` – get the key number `index`.
+- `length` – the number of stored items.
+- Use `Object.keys` to get all keys.
+- We access keys as object properties, in that case `storage` event isn’t triggered.
 
 Storage event:
 
--   Triggers on `setItem`, `removeItem`, `clear` calls.
--   Contains all the data about the operation (`key/oldValue/newValue`), the document `url` and the storage object `storageArea`.
--   Triggers on all `window` objects that have access to the storage except the one that generated it (within a tab for `sessionStorage`, globally for `localStorage`).
+- Triggers on `setItem`, `removeItem`, `clear` calls.
+- Contains all the data about the operation (`key/oldValue/newValue`), the document `url` and the storage object `storageArea`.
+- Triggers on all `window` objects that have access to the storage except the one that generated it (within a tab for `sessionStorage`, globally for `localStorage`).
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -308,8 +303,6 @@ Create a `textarea` field that “autosaves” its value on every change.
 So, if the user accidentally closes the page, and opens it again, he’ll find his unfinished input at place.
 
 Like this:
-
-  
 
 Clear
 
@@ -329,28 +322,28 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
+- <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
 
 #### Lesson navigation
 
--   <a href="#localstorage-demo" class="sidebar__link">localStorage demo</a>
--   <a href="#object-like-access" class="sidebar__link">Object-like access</a>
--   <a href="#looping-over-keys" class="sidebar__link">Looping over keys</a>
--   <a href="#strings-only" class="sidebar__link">Strings only</a>
--   <a href="#sessionstorage" class="sidebar__link">sessionStorage</a>
--   <a href="#storage-event" class="sidebar__link">Storage event</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#localstorage-demo" class="sidebar__link">localStorage demo</a>
+- <a href="#object-like-access" class="sidebar__link">Object-like access</a>
+- <a href="#looping-over-keys" class="sidebar__link">Looping over keys</a>
+- <a href="#strings-only" class="sidebar__link">Strings only</a>
+- <a href="#sessionstorage" class="sidebar__link">sessionStorage</a>
+- <a href="#storage-event" class="sidebar__link">Storage event</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -358,8 +351,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/6-data-storage/02-localstorage" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

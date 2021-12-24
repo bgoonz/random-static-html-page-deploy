@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farrow-functions" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -35,9 +30,9 @@ JavaScript is full of situations where we need to write a small function that’
 
 For instance:
 
--   `arr.forEach(func)` – `func` is executed by `forEach` for every array item.
--   `setTimeout(func)` – `func` is executed by the built-in scheduler.
--   …there are more.
+- `arr.forEach(func)` – `func` is executed by `forEach` for every array item.
+- `setTimeout(func)` – `func` is executed by the built-in scheduler.
+- …there are more.
 
 It’s in the very spirit of JavaScript to create a function and pass it somewhere.
 
@@ -100,8 +95,8 @@ Not having `this` naturally means another limitation: arrow functions can’t be
 
 There’s a subtle difference between an arrow function `=>` and a regular function called with `.bind(this)`:
 
--   `.bind(this)` creates a “bound version” of the function.
--   The arrow `=>` doesn’t create any binding. The function simply doesn’t have `this`. The lookup of `this` is made exactly the same way as a regular variable search: in the outer lexical environment.
+- `.bind(this)` creates a “bound version” of the function.
+- The arrow `=>` doesn’t create any binding. The function simply doesn’t have `this`. The lookup of `this` is made exactly the same way as a regular variable search: in the outer lexical environment.
 
 ## <a href="#arrows-have-no-arguments" id="arrows-have-no-arguments" class="main__anchor">Arrows have no “arguments”</a>
 
@@ -145,10 +140,10 @@ Here we had to create additional variables `args` and `ctx` so that the function
 
 Arrow functions:
 
--   Do not have `this`
--   Do not have `arguments`
--   Can’t be called with `new`
--   They also don’t have `super`, but we didn’t study it yet. We will on the chapter [Class inheritance](/class-inheritance)
+- Do not have `this`
+- Do not have `arguments`
+- Can’t be called with `new`
+- They also don’t have `super`, but we didn’t study it yet. We will on the chapter [Class inheritance](/class-inheritance)
 
 That’s because they are meant for short pieces of code that do not have their own “context”, but rather work in the current one. And they really shine in that use case.
 
@@ -162,23 +157,23 @@ That’s because they are meant for short pieces of code that do not have their 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
+- <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
 
 #### Lesson navigation
 
--   <a href="#arrow-functions-have-no-this" class="sidebar__link">Arrow functions have no “this”</a>
--   <a href="#arrows-have-no-arguments" class="sidebar__link">Arrows have no “arguments”</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#arrow-functions-have-no-this" class="sidebar__link">Arrow functions have no “this”</a>
+- <a href="#arrows-have-no-arguments" class="sidebar__link">Arrows have no “arguments”</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -186,8 +181,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/06-advanced-functions/12-arrow-functions" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

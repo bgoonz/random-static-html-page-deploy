@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -18,7 +14,6 @@ Search
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fintroduction-browser-events" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fintroduction-browser-events" class="share share_fb"></a>
 
-
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
 3.  <span id="breadcrumb-2"><a href="/events" class="breadcrumbs__link"><span>Introduction to Events</span></a></span>
@@ -27,40 +22,40 @@ Search
 
 # Introduction to browser events
 
-*An event* is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM).
+_An event_ is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM).
 
 Here’s a list of the most useful DOM events, just to take a look at:
 
 **Mouse events:**
 
--   `click` – when the mouse clicks on an element (touchscreen devices generate it on a tap).
--   `contextmenu` – when the mouse right-clicks on an element.
--   `mouseover` / `mouseout` – when the mouse cursor comes over / leaves an element.
--   `mousedown` / `mouseup` – when the mouse button is pressed / released over an element.
--   `mousemove` – when the mouse is moved.
+- `click` – when the mouse clicks on an element (touchscreen devices generate it on a tap).
+- `contextmenu` – when the mouse right-clicks on an element.
+- `mouseover` / `mouseout` – when the mouse cursor comes over / leaves an element.
+- `mousedown` / `mouseup` – when the mouse button is pressed / released over an element.
+- `mousemove` – when the mouse is moved.
 
 **Keyboard events:**
 
--   `keydown` and `keyup` – when a keyboard key is pressed and released.
+- `keydown` and `keyup` – when a keyboard key is pressed and released.
 
 **Form element events:**
 
--   `submit` – when the visitor submits a `<form>`.
--   `focus` – when the visitor focuses on an element, e.g. on an `<input>`.
+- `submit` – when the visitor submits a `<form>`.
+- `focus` – when the visitor focuses on an element, e.g. on an `<input>`.
 
 **Document events:**
 
--   `DOMContentLoaded` – when the HTML is loaded and processed, DOM is fully built.
+- `DOMContentLoaded` – when the HTML is loaded and processed, DOM is fully built.
 
 **CSS events:**
 
--   `transitionend` – when a CSS-animation finishes.
+- `transitionend` – when a CSS-animation finishes.
 
 There are many other events. We’ll get into more details of particular events in next chapters.
 
 ## <a href="#event-handlers" id="event-handlers" class="main__anchor">Event handlers</a>
 
-To react on events we can assign a *handler* – a function that runs in case of an event.
+To react on events we can assign a _handler_ – a function that runs in case of an event.
 
 Handlers are a way to run JavaScript code in case of user actions.
 
@@ -177,7 +172,7 @@ But be careful: the function should be assigned as `sayThanks`, not `sayThanks()
     // wrong
     button.onclick = sayThanks();
 
-If we add parentheses, then `sayThanks()` becomes a function call. So the last line actually takes the *result* of the function execution, that is `undefined` (as the function returns nothing), and assigns it to `onclick`. That doesn’t work.
+If we add parentheses, then `sayThanks()` becomes a function call. So the last line actually takes the _result_ of the function execution, that is `undefined` (as the function returns nothing), and assigns it to `onclick`. That doesn’t work.
 
 …On the other hand, in the markup we do need the parentheses:
 
@@ -234,9 +229,9 @@ The handler function.
 `options`  
 An additional optional object with properties:
 
--   `once`: if `true`, then the listener is automatically removed after it triggers.
--   `capture`: the phase where to handle the event, to be covered later in the chapter [Bubbling and capturing](/bubbling-and-capturing). For historical reasons, `options` can also be `false/true`, that’s the same as `{capture: false/true}`.
--   `passive`: if `true`, then the handler will not call `preventDefault()`, we’ll explain that later in [Browser default actions](/default-browser-action).
+- `once`: if `true`, then the listener is automatically removed after it triggers.
+- `capture`: the phase where to handle the event, to be covered later in the chapter [Bubbling and capturing](/bubbling-and-capturing). For historical reasons, `options` can also be `false/true`, that’s the same as `{capture: false/true}`.
+- `passive`: if `true`, then the handler will not call `preventDefault()`, we’ll explain that later in [Browser default actions](/default-browser-action).
 
 To remove the handler, use `removeEventListener`:
 
@@ -288,7 +283,7 @@ Multiple calls to `addEventListener` allow to add multiple handlers, like this:
       elem.addEventListener("click", handler2); // Thanks again!
     </script>
 
-As we can see in the example above, we can set handlers *both* using a DOM-property and `addEventListener`. But generally we use only one of these ways.
+As we can see in the example above, we can set handlers _both_ using a DOM-property and `addEventListener`. But generally we use only one of these ways.
 
 <span class="important__type">For some events, handlers only work with `addEventListener`</span>
 
@@ -312,7 +307,7 @@ So `addEventListener` is more universal. Although, such events are an exception 
 
 To properly handle an event we’d want to know more about what’s happened. Not just a “click” or a “keydown”, but what were the pointer coordinates? Which key was pressed? And so on.
 
-When an event happens, the browser creates an *event object*, puts details into it and passes it as an argument to the handler.
+When an event happens, the browser creates an _event object_, puts details into it and passes it as an argument to the handler.
 
 Here’s an example of getting pointer coordinates from the event object:
 
@@ -537,21 +532,21 @@ Move the ball across the field to a click. Like this:
 
 <a href="https://en.js.cx/task/move-ball-field/solution/" class="toolbar__button toolbar__button_external" title="open in new window"></a>
 
-Click on a field to move the ball there.  
+Click on a field to move the ball there.
 
 <img src="https://en.js.cx/clipart/ball.svg" id="ball" /> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 Requirements:
 
--   The ball center should come exactly under the pointer on click (if possible without crossing the field edge).
--   CSS-animation is welcome.
--   The ball must not cross field boundaries.
--   When the page is scrolled, nothing should break.
+- The ball center should come exactly under the pointer on click (if possible without crossing the field edge).
+- CSS-animation is welcome.
+- The ball must not cross field boundaries.
+- When the page is scrolled, nothing should break.
 
 Notes:
 
--   The code should also work with different ball and field sizes, not be bound to any fixed values.
--   Use properties `event.clientX/event.clientY` for click coordinates.
+- The code should also work with different ball and field sizes, not be bound to any fixed values.
+- Use properties `event.clientX/event.clientY` for click coordinates.
 
 [Open a sandbox for the task.](https://plnkr.co/edit/yi6xXY3XkYDiZbeD?p=preview)
 
@@ -614,9 +609,9 @@ Create a menu that opens/collapses on click:
 
 <span class="title">Sweeties (click me)!</span>
 
--   Cake
--   Donut
--   Honey
+- Cake
+- Donut
+- Honey
 
 P.S. HTML/CSS of the source document is to be modified.
 
@@ -742,16 +737,16 @@ Create a “carousel” – a ribbon of images that can be scrolled by clicking 
 
 ⇦
 
--   ![](https://en.js.cx/carousel/1.png)
--   ![](https://en.js.cx/carousel/2.png)
--   ![](https://en.js.cx/carousel/3.png)
--   ![](https://en.js.cx/carousel/4.png)
--   ![](https://en.js.cx/carousel/5.png)
--   ![](https://en.js.cx/carousel/6.png)
--   ![](https://en.js.cx/carousel/7.png)
--   ![](https://en.js.cx/carousel/8.png)
--   ![](https://en.js.cx/carousel/9.png)
--   ![](https://en.js.cx/carousel/10.png)
+- ![](https://en.js.cx/carousel/1.png)
+- ![](https://en.js.cx/carousel/2.png)
+- ![](https://en.js.cx/carousel/3.png)
+- ![](https://en.js.cx/carousel/4.png)
+- ![](https://en.js.cx/carousel/5.png)
+- ![](https://en.js.cx/carousel/6.png)
+- ![](https://en.js.cx/carousel/7.png)
+- ![](https://en.js.cx/carousel/8.png)
+- ![](https://en.js.cx/carousel/9.png)
+- ![](https://en.js.cx/carousel/10.png)
 
 ⇨
 
@@ -793,28 +788,28 @@ The whole carousel is a self-contained “graphical component” on the page, so
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/events" class="sidebar__link">Introduction to Events</a>
+- <a href="/events" class="sidebar__link">Introduction to Events</a>
 
 #### Lesson navigation
 
--   <a href="#event-handlers" class="sidebar__link">Event handlers</a>
--   <a href="#accessing-the-element-this" class="sidebar__link">Accessing the element: this</a>
--   <a href="#possible-mistakes" class="sidebar__link">Possible mistakes</a>
--   <a href="#addeventlistener" class="sidebar__link">addEventListener</a>
--   <a href="#event-object" class="sidebar__link">Event object</a>
--   <a href="#object-handlers-handleevent" class="sidebar__link">Object handlers: handleEvent</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#event-handlers" class="sidebar__link">Event handlers</a>
+- <a href="#accessing-the-element-this" class="sidebar__link">Accessing the element: this</a>
+- <a href="#possible-mistakes" class="sidebar__link">Possible mistakes</a>
+- <a href="#addeventlistener" class="sidebar__link">addEventListener</a>
+- <a href="#event-object" class="sidebar__link">Event object</a>
+- <a href="#object-handlers-handleevent" class="sidebar__link">Object handlers: handleEvent</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (7)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (7)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -822,8 +817,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/2-events/01-introduction-browser-events" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

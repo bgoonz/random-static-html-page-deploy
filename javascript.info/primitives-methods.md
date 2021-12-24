@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fprimitives-methods" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fprimitives-methods" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -33,13 +28,13 @@ Let’s look at the key distinctions between primitives and objects.
 
 A primitive
 
--   Is a value of a primitive type.
--   There are 7 primitive types: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` and `undefined`.
+- Is a value of a primitive type.
+- There are 7 primitive types: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` and `undefined`.
 
 An object
 
--   Is capable of storing multiple values as properties.
--   Can be created with `{}`, for instance: `{name: "John", age: 30}`. There are other kinds of objects in JavaScript: functions, for example, are objects.
+- Is capable of storing multiple values as properties.
+- Can be created with `{}`, for instance: `{name: "John", age: 30}`. There are other kinds of objects in JavaScript: functions, for example, are objects.
 
 One of the best things about objects is that we can store a function as one of its properties.
 
@@ -68,8 +63,8 @@ Objects are “heavier” than primitives. They require additional resources to 
 
 Here’s the paradox faced by the creator of JavaScript:
 
--   There are many things one would want to do with a primitive like a string or a number. It would be great to access them using methods.
--   Primitives must be as fast and lightweight as possible.
+- There are many things one would want to do with a primitive like a string or a number. It would be great to access them using methods.
+- Primitives must be as fast and lightweight as possible.
 
 The solution looks a little bit awkward, but here it is:
 
@@ -161,8 +156,8 @@ An attempt to access a property of such value would give the error:
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Primitives except `null` and `undefined` provide many helpful methods. We will study those in the upcoming chapters.
--   Formally, these methods work via temporary objects, but JavaScript engines are well tuned to optimize that internally, so they are not expensive to call.
+- Primitives except `null` and `undefined` provide many helpful methods. We will study those in the upcoming chapters.
+- Formally, these methods work via temporary objects, but JavaScript engines are well tuned to optimize that internally, so they are not expensive to call.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -221,23 +216,23 @@ They can’t store additional data.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-types" class="sidebar__link">Data types</a>
+- <a href="/data-types" class="sidebar__link">Data types</a>
 
 #### Lesson navigation
 
--   <a href="#a-primitive-as-an-object" class="sidebar__link">A primitive as an object</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#a-primitive-as-an-object" class="sidebar__link">A primitive as an object</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -245,8 +240,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/05-data-types/01-primitives-methods" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

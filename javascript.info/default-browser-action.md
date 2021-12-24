@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdefault-browser-action" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdefault-browser-action" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -31,9 +26,9 @@ Many events automatically lead to certain actions performed by the browser.
 
 For instance:
 
--   A click on a link – initiates navigation to its URL.
--   A click on a form submit button – initiates its submission to the server.
--   Pressing a mouse button over a text and moving it – selects the text.
+- A click on a link – initiates navigation to its URL.
+- A click on a form submit button – initiates its submission to the server.
+- Pressing a mouse button over a text and moving it – selects the text.
 
 If we handle an event in JavaScript, we may not want the corresponding browser action to happen, and want to implement another behavior instead.
 
@@ -41,8 +36,8 @@ If we handle an event in JavaScript, we may not want the corresponding browser a
 
 There are two ways to tell the browser we don’t want it to act:
 
--   The main way is to use the `event` object. There’s a method `event.preventDefault()`.
--   If the handler is assigned using `on<event>` (not by `addEventListener`), then returning `false` also works the same.
+- The main way is to use the `event` object. There’s a method `event.preventDefault()`.
+- If the handler is assigned using `on<event>` (not by `addEventListener`), then returning `false` also works the same.
 
 In this HTML a click on a link doesn’t lead to navigation, browser doesn’t do anything:
 
@@ -76,14 +71,14 @@ Here’s how it looks with some CSS:
 
 <a href="https://plnkr.co/edit/et0Ow67yDOD9JtOR?p=preview" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
--   [HTML](/html)
--   [JavaScript](/javascript)
--   [CSS](/css)
+- [HTML](/html)
+- [JavaScript](/javascript)
+- [CSS](/css)
 
 Menu items are implemented as HTML-links `<a>`, not buttons `<button>`. There are several reasons to do so, for instance:
 
--   Many people like to use “right click” – “open in a new window”. If we use `<button>` or `<span>`, that doesn’t work.
--   Search engines follow `<a href="...">` links while indexing.
+- Many people like to use “right click” – “open in a new window”. If we use `<button>` or `<span>`, that doesn’t work.
+- Search engines follow `<a href="...">` links while indexing.
 
 So we use `<a>` in the markup. But normally we intend to handle clicks in JavaScript. So we should prevent the default browser action.
 
@@ -247,12 +242,12 @@ But then each piece of code that wants a context menu should know about that obj
 
 There are many default browser actions:
 
--   `mousedown` – starts the selection (move the mouse to select).
--   `click` on `<input type="checkbox">` – checks/unchecks the `input`.
--   `submit` – clicking an `<input type="submit">` or hitting <span class="kbd shortcut">Enter</span> inside a form field causes this event to happen, and the browser submits the form after it.
--   `keydown` – pressing a key may lead to adding a character into a field, or other actions.
--   `contextmenu` – the event happens on a right-click, the action is to show the browser context menu.
--   …there are more…
+- `mousedown` – starts the selection (move the mouse to select).
+- `click` on `<input type="checkbox">` – checks/unchecks the `input`.
+- `submit` – clicking an `<input type="submit">` or hitting <span class="kbd shortcut">Enter</span> inside a form field causes this event to happen, and the browser submits the form after it.
+- `keydown` – pressing a key may lead to adding a character into a field, or other actions.
+- `contextmenu` – the event happens on a right-click, the action is to show the browser context menu.
+- …there are more…
 
 All the default actions can be prevented if we want to handle the event exclusively by JavaScript.
 
@@ -353,12 +348,12 @@ Like this:
 
 #contents
 
-How about to read [Wikipedia](https://wikipedia.org) or visit [*W3.org*](https://w3.org) and learn about modern standards?
+How about to read [Wikipedia](https://wikipedia.org) or visit [_W3.org_](https://w3.org) and learn about modern standards?
 
 Details:
 
--   HTML inside the element may be loaded or regenerated dynamically at any time, so we can’t find all links and put handlers on them. Use event delegation.
--   The content may have nested tags. Inside links too, like `<a href=".."><i>...</i></a>`.
+- HTML inside the element may be loaded or regenerated dynamically at any time, so we can’t find all links and put handlers on them. Use event delegation.
+- The content may have nested tags. Inside links too, like `<a href=".."><i>...</i></a>`.
 
 [Open a sandbox for the task.](https://plnkr.co/edit/2q3DhC51iVEYU3Ht?p=preview)
 
@@ -384,11 +379,11 @@ Like this:
 
 <img src="https://en.js.cx/gallery/img1-lg.jpg" id="largeImg" alt="Large image" />
 
--   [![](https://en.js.cx/gallery/img2-thumb.jpg)](https://en.js.cx/gallery/img2-lg.jpg "Image 2")
--   [![](https://en.js.cx/gallery/img3-thumb.jpg)](https://en.js.cx/gallery/img3-lg.jpg "Image 3")
--   [![](https://en.js.cx/gallery/img4-thumb.jpg)](https://en.js.cx/gallery/img4-lg.jpg "Image 4")
--   [![](https://en.js.cx/gallery/img5-thumb.jpg)](https://en.js.cx/gallery/img5-lg.jpg "Image 5")
--   [![](https://en.js.cx/gallery/img6-thumb.jpg)](https://en.js.cx/gallery/img6-lg.jpg "Image 6")
+- [![](https://en.js.cx/gallery/img2-thumb.jpg)](https://en.js.cx/gallery/img2-lg.jpg "Image 2")
+- [![](https://en.js.cx/gallery/img3-thumb.jpg)](https://en.js.cx/gallery/img3-lg.jpg "Image 3")
+- [![](https://en.js.cx/gallery/img4-thumb.jpg)](https://en.js.cx/gallery/img4-lg.jpg "Image 4")
+- [![](https://en.js.cx/gallery/img5-thumb.jpg)](https://en.js.cx/gallery/img5-lg.jpg "Image 5")
+- [![](https://en.js.cx/gallery/img6-thumb.jpg)](https://en.js.cx/gallery/img6-lg.jpg "Image 6")
 
 P.S. Use event delegation.
 
@@ -410,25 +405,25 @@ The solution is to assign the handler to the container and track clicks. If a cl
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/events" class="sidebar__link">Introduction to Events</a>
+- <a href="/events" class="sidebar__link">Introduction to Events</a>
 
 #### Lesson navigation
 
--   <a href="#preventing-browser-actions" class="sidebar__link">Preventing browser actions</a>
--   <a href="#the-passive-handler-option" class="sidebar__link">The “passive” handler option</a>
--   <a href="#event-defaultprevented" class="sidebar__link">event.defaultPrevented</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#preventing-browser-actions" class="sidebar__link">Preventing browser actions</a>
+- <a href="#the-passive-handler-option" class="sidebar__link">The “passive” handler option</a>
+- <a href="#event-defaultprevented" class="sidebar__link">event.defaultPrevented</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -436,8 +431,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/2-events/04-default-browser-action" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

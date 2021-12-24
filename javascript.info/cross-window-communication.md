@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcross-window-communication" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcross-window-communication" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/frames-and-windows" class="breadcrumbs__link"><span>Frames and windows</span></a></span>
@@ -36,21 +31,21 @@ Two URLs are said to have the “same origin” if they have the same protocol, 
 
 These URLs all share the same origin:
 
--   `http://site.com`
--   `http://site.com/`
--   `http://site.com/my/page.html`
+- `http://site.com`
+- `http://site.com/`
+- `http://site.com/my/page.html`
 
 These ones do not:
 
--   `http://www.site.com` (another domain: `www.` matters)
--   `http://site.org` (another domain: `.org` matters)
--   `https://site.com` (another protocol: `https`)
--   `http://site.com:8080` (another port: `8080`)
+- `http://www.site.com` (another domain: `www.` matters)
+- `http://site.org` (another domain: `.org` matters)
+- `https://site.com` (another protocol: `https`)
+- `http://site.com:8080` (another port: `8080`)
 
 The “Same Origin” policy states that:
 
--   if we have a reference to another window, e.g. a popup created by `window.open` or a window inside `<iframe>`, and that window comes from the same origin, then we have full access to that window.
--   otherwise, if it comes from another origin, then we can’t access the content of that window: variables, document, anything. The only exception is `location`: we can change it (thus redirecting the user). But we cannot *read* location (so we can’t see where the user is now, no information leak).
+- if we have a reference to another window, e.g. a popup created by `window.open` or a window inside `<iframe>`, and that window comes from the same origin, then we have full access to that window.
+- otherwise, if it comes from another origin, then we can’t access the content of that window: variables, document, anything. The only exception is `location`: we can change it (thus redirecting the user). But we cannot _read_ location (so we can’t see where the user is now, no information leak).
 
 ### <a href="#in-action-iframe" id="in-action-iframe" class="main__anchor">In action: iframe</a>
 
@@ -58,8 +53,8 @@ An `<iframe>` tag hosts a separate embedded window, with its own separate `docum
 
 We can access them using properties:
 
--   `iframe.contentWindow` to get the window inside the `<iframe>`.
--   `iframe.contentDocument` to get the document inside the `<iframe>`, shorthand for `iframe.contentWindow.document`.
+- `iframe.contentWindow` to get the window inside the `<iframe>`.
+- `iframe.contentDocument` to get the document inside the `<iframe>`, shorthand for `iframe.contentWindow.document`.
 
 When we access something inside the embedded window, the browser checks if the iframe has the same origin. If that’s not so then the access is denied (writing to `location` is an exception, it’s still permitted).
 
@@ -99,8 +94,8 @@ For instance, let’s try reading and writing to `<iframe>` from another origin:
 
 The code above shows errors for any operations except:
 
--   Getting the reference to the inner window `iframe.contentWindow` – that’s allowed.
--   Writing to `location`.
+- Getting the reference to the inner window `iframe.contentWindow` – that’s allowed.
+- Writing to `location`.
 
 Contrary to that, if the `<iframe>` has the same origin, we can do anything with it:
 
@@ -161,7 +156,7 @@ Here, look:
       };
     </script>
 
-We shouldn’t work with the document of a not-yet-loaded iframe, because that’s the *wrong document*. If we set any event handlers on it, they will be ignored.
+We shouldn’t work with the document of a not-yet-loaded iframe, because that’s the _wrong document_. If we set any event handlers on it, they will be ignored.
 
 How to detect the moment when the document is there?
 
@@ -193,8 +188,8 @@ We can try to catch the moment earlier using checks in `setInterval`:
 
 An alternative way to get a window object for `<iframe>` – is to get it from the named collection `window.frames`:
 
--   By number: `window.frames[0]` – the window object for the first frame in the document.
--   By name: `window.frames.iframeName` – the window object for the frame with `name="iframeName"`.
+- By number: `window.frames[0]` – the window object for the first frame in the document.
+- By name: `window.frames.iframeName` – the window object for the frame with `name="iframeName"`.
 
 For instance:
 
@@ -213,9 +208,9 @@ An iframe may have other iframes inside. The corresponding `window` objects form
 
 Navigation links are:
 
--   `window.frames` – the collection of “children” windows (for nested frames).
--   `window.parent` – the reference to the “parent” (outer) window.
--   `window.top` – the reference to the topmost parent window.
+- `window.frames` – the collection of “children” windows (for nested frames).
+- `window.parent` – the reference to the “parent” (outer) window.
+- `window.top` – the reference to the topmost parent window.
 
 For instance:
 
@@ -313,7 +308,7 @@ sandboxed.html
 
 <span class="important__type">Please note:</span>
 
-The purpose of the `"sandbox"` attribute is only to *add more* restrictions. It cannot remove them. In particular, it can’t relax same-origin restrictions if the iframe comes from another origin.
+The purpose of the `"sandbox"` attribute is only to _add more_ restrictions. It cannot remove them. In particular, it can’t relax same-origin restrictions if the iframe comes from another origin.
 
 ## <a href="#cross-window-messaging" id="cross-window-messaging" class="main__anchor">Cross-window messaging</a>
 
@@ -450,26 +445,26 @@ To call methods and access the content of another window, we should first have a
 
 For popups we have these references:
 
--   From the opener window: `window.open` – opens a new window and returns a reference to it,
--   From the popup: `window.opener` – is a reference to the opener window from a popup.
+- From the opener window: `window.open` – opens a new window and returns a reference to it,
+- From the popup: `window.opener` – is a reference to the opener window from a popup.
 
 For iframes, we can access parent/children windows using:
 
--   `window.frames` – a collection of nested window objects,
--   `window.parent`, `window.top` are the references to parent and top windows,
--   `iframe.contentWindow` is the window inside an `<iframe>` tag.
+- `window.frames` – a collection of nested window objects,
+- `window.parent`, `window.top` are the references to parent and top windows,
+- `iframe.contentWindow` is the window inside an `<iframe>` tag.
 
 If windows share the same origin (host, port, protocol), then windows can do whatever they want with each other.
 
 Otherwise, only possible actions are:
 
--   Change the `location` of another window (write-only access).
--   Post a message to it.
+- Change the `location` of another window (write-only access).
+- Post a message to it.
 
 Exceptions are:
 
--   Windows that share the same second-level domain: `a.site.com` and `b.site.com`. Then setting `document.domain='site.com'` in both of them puts them into the “same origin” state.
--   If an iframe has a `sandbox` attribute, it is forcefully put into the “different origin” state, unless the `allow-same-origin` is specified in the attribute value. That can be used to run untrusted code in iframes from the same site.
+- Windows that share the same second-level domain: `a.site.com` and `b.site.com`. Then setting `document.domain='site.com'` in both of them puts them into the “same origin” state.
+- If an iframe has a `sandbox` attribute, it is forcefully put into the “different origin” state, unless the `allow-same-origin` is specified in the attribute value. That can be used to run untrusted code in iframes from the same site.
 
 The `postMessage` interface allows two windows with any origins to talk:
 
@@ -479,9 +474,9 @@ The `postMessage` interface allows two windows with any origins to talk:
 
 3.  If it is so, then `targetWin` triggers the `message` event with special properties:
 
-    -   `origin` – the origin of the sender window (like `http://my.site.com`)
-    -   `source` – the reference to the sender window.
-    -   `data` – the data, any object in everywhere except IE that supports only strings.
+    - `origin` – the origin of the sender window (like `http://my.site.com`)
+    - `source` – the reference to the sender window.
+    - `data` – the data, any object in everywhere except IE that supports only strings.
 
     We should use `addEventListener` to set the handler for this event inside the target window.
 
@@ -495,27 +490,27 @@ The `postMessage` interface allows two windows with any origins to talk:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
+- <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
 
 #### Lesson navigation
 
--   <a href="#same-origin" class="sidebar__link">Same Origin</a>
--   <a href="#windows-on-subdomains-document-domain" class="sidebar__link">Windows on subdomains: document.domain</a>
--   <a href="#iframe-wrong-document-pitfall" class="sidebar__link">Iframe: wrong document pitfall</a>
--   <a href="#collection-window-frames" class="sidebar__link">Collection: window.frames</a>
--   <a href="#the-sandbox-iframe-attribute" class="sidebar__link">The “sandbox” iframe attribute</a>
--   <a href="#cross-window-messaging" class="sidebar__link">Cross-window messaging</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#same-origin" class="sidebar__link">Same Origin</a>
+- <a href="#windows-on-subdomains-document-domain" class="sidebar__link">Windows on subdomains: document.domain</a>
+- <a href="#iframe-wrong-document-pitfall" class="sidebar__link">Iframe: wrong document pitfall</a>
+- <a href="#collection-window-frames" class="sidebar__link">Collection: window.frames</a>
+- <a href="#the-sandbox-iframe-attribute" class="sidebar__link">The “sandbox” iframe attribute</a>
+- <a href="#cross-window-messaging" class="sidebar__link">Cross-window messaging</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -523,8 +518,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/3-frames-and-windows/03-cross-window-communication" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

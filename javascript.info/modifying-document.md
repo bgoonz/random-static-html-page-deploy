@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fmodifying-document" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fmodifying-document" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -58,12 +53,12 @@ That was the HTML example. Now let’s create the same `div` with JavaScript (as
 To create DOM nodes, there are two methods:
 
 `document.createElement(tag)`  
-Creates a new *element node* with the given tag:
+Creates a new _element node_ with the given tag:
 
     let div = document.createElement('div');
 
 `document.createTextNode(text)`  
-Creates a new *text node* with the given text:
+Creates a new _text node_ with the given text:
 
     let textNode = document.createTextNode('Here I am');
 
@@ -118,11 +113,11 @@ Here we called `append` on `document.body`, but we can call `append` method on a
 
 Here are more insertion methods, they specify different places where to insert:
 
--   `node.append(...nodes or strings)` – append nodes or strings *at the end* of `node`,
--   `node.prepend(...nodes or strings)` – insert nodes or strings *at the beginning* of `node`,
--   `node.before(...nodes or strings)` –- insert nodes or strings *before* `node`,
--   `node.after(...nodes or strings)` –- insert nodes or strings *after* `node`,
--   `node.replaceWith(...nodes or strings)` –- replaces `node` with the given nodes or strings.
+- `node.append(...nodes or strings)` – append nodes or strings _at the end_ of `node`,
+- `node.prepend(...nodes or strings)` – insert nodes or strings _at the beginning_ of `node`,
+- `node.before(...nodes or strings)` –- insert nodes or strings _before_ `node`,
+- `node.after(...nodes or strings)` –- insert nodes or strings _after_ `node`,
+- `node.replaceWith(...nodes or strings)` –- replaces `node` with the given nodes or strings.
 
 Arguments of these methods are an arbitrary list of DOM nodes to insert, or text strings (that become text nodes automatically).
 
@@ -202,10 +197,10 @@ For that we can use another, pretty versatile method: `elem.insertAdjacentHTML(w
 
 The first parameter is a code word, specifying where to insert relative to `elem`. Must be one of the following:
 
--   `"beforebegin"` – insert `html` immediately before `elem`,
--   `"afterbegin"` – insert `html` into `elem`, at the beginning,
--   `"beforeend"` – insert `html` into `elem`, at the end,
--   `"afterend"` – insert `html` immediately after `elem`.
+- `"beforebegin"` – insert `html` immediately before `elem`,
+- `"afterbegin"` – insert `html` into `elem`, at the beginning,
+- `"beforeend"` – insert `html` into `elem`, at the end,
+- `"afterend"` – insert `html` immediately after `elem`.
 
 The second parameter is an HTML string, that is inserted “as HTML”.
 
@@ -241,8 +236,8 @@ We can easily notice similarities between this and the previous picture. The ins
 
 The method has two brothers:
 
--   `elem.insertAdjacentText(where, text)` – the same syntax, but a string of `text` is inserted “as text” instead of HTML,
--   `elem.insertAdjacentElement(where, elem)` – the same syntax, but inserts an element.
+- `elem.insertAdjacentText(where, text)` – the same syntax, but a string of `text` is inserted “as text” instead of HTML,
+- `elem.insertAdjacentElement(where, elem)` – the same syntax, but inserts an element.
 
 They exist mainly to make the syntax “uniform”. In practice, only `insertAdjacentHTML` is used most of the time. Because for elements and text, we have methods `append/prepend/before/after` – they are shorter to write and can insert nodes/text pieces.
 
@@ -297,7 +292,7 @@ Let’s make our message disappear after a second:
       setTimeout(() => div.remove(), 1000);
     </script>
 
-Please note: if we want to *move* an element to another place – there’s no need to remove it from the old one.
+Please note: if we want to _move_ an element to another place – there’s no need to remove it from the old one.
 
 **All insertion methods automatically remove the node from the old place.**
 
@@ -318,11 +313,11 @@ For instance, let’s swap elements:
 
 How to insert one more similar message?
 
-We could make a function and put the code there. But the alternative way would be to *clone* the existing `div` and modify the text inside it (if needed).
+We could make a function and put the code there. But the alternative way would be to _clone_ the existing `div` and modify the text inside it (if needed).
 
 Sometimes when we have a big element, that may be faster and simpler.
 
--   The call `elem.cloneNode(true)` creates a “deep” clone of the element – with all attributes and subelements. If we call `elem.cloneNode(false)`, then the clone is made without child elements.
+- The call `elem.cloneNode(true)` creates a “deep” clone of the element – with all attributes and subelements. If we call `elem.cloneNode(false)`, then the clone is made without child elements.
 
 An example of copying the message:
 
@@ -544,52 +539,52 @@ That’s the downside.
 
 There’s an upside also. Technically, when `document.write` is called while the browser is reading (“parsing”) incoming HTML, and it writes something, the browser consumes it just as if it were initially there, in the HTML text.
 
-So it works blazingly fast, because there’s *no DOM modification* involved. It writes directly into the page text, while the DOM is not yet built.
+So it works blazingly fast, because there’s _no DOM modification_ involved. It writes directly into the page text, while the DOM is not yet built.
 
 So if we need to add a lot of text into HTML dynamically, and we’re at page loading phase, and the speed matters, it may help. But in practice these requirements rarely come together. And usually we can see this method in scripts just because they are old.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Methods to create new nodes:
+- Methods to create new nodes:
 
-    -   `document.createElement(tag)` – creates an element with the given tag,
-    -   `document.createTextNode(value)` – creates a text node (rarely used),
-    -   `elem.cloneNode(deep)` – clones the element, if `deep==true` then with all descendants.
+  - `document.createElement(tag)` – creates an element with the given tag,
+  - `document.createTextNode(value)` – creates a text node (rarely used),
+  - `elem.cloneNode(deep)` – clones the element, if `deep==true` then with all descendants.
 
--   Insertion and removal:
+- Insertion and removal:
 
-    -   `node.append(...nodes or strings)` – insert into `node`, at the end,
-    -   `node.prepend(...nodes or strings)` – insert into `node`, at the beginning,
-    -   `node.before(...nodes or strings)` –- insert right before `node`,
-    -   `node.after(...nodes or strings)` –- insert right after `node`,
-    -   `node.replaceWith(...nodes or strings)` –- replace `node`.
-    -   `node.remove()` –- remove the `node`.
+  - `node.append(...nodes or strings)` – insert into `node`, at the end,
+  - `node.prepend(...nodes or strings)` – insert into `node`, at the beginning,
+  - `node.before(...nodes or strings)` –- insert right before `node`,
+  - `node.after(...nodes or strings)` –- insert right after `node`,
+  - `node.replaceWith(...nodes or strings)` –- replace `node`.
+  - `node.remove()` –- remove the `node`.
 
-    Text strings are inserted “as text”.
+  Text strings are inserted “as text”.
 
--   There are also “old school” methods:
+- There are also “old school” methods:
 
-    -   `parent.appendChild(node)`
-    -   `parent.insertBefore(node, nextSibling)`
-    -   `parent.removeChild(node)`
-    -   `parent.replaceChild(newElem, node)`
+  - `parent.appendChild(node)`
+  - `parent.insertBefore(node, nextSibling)`
+  - `parent.removeChild(node)`
+  - `parent.replaceChild(newElem, node)`
 
-    All these methods return `node`.
+  All these methods return `node`.
 
--   Given some HTML in `html`, `elem.insertAdjacentHTML(where, html)` inserts it depending on the value of `where`:
+- Given some HTML in `html`, `elem.insertAdjacentHTML(where, html)` inserts it depending on the value of `where`:
 
-    -   `"beforebegin"` – insert `html` right before `elem`,
-    -   `"afterbegin"` – insert `html` into `elem`, at the beginning,
-    -   `"beforeend"` – insert `html` into `elem`, at the end,
-    -   `"afterend"` – insert `html` right after `elem`.
+  - `"beforebegin"` – insert `html` right before `elem`,
+  - `"afterbegin"` – insert `html` into `elem`, at the beginning,
+  - `"beforeend"` – insert `html` into `elem`, at the end,
+  - `"afterend"` – insert `html` right after `elem`.
 
-    Also there are similar methods, `elem.insertAdjacentText` and `elem.insertAdjacentElement`, that insert text strings and elements, but they are rarely used.
+  Also there are similar methods, `elem.insertAdjacentText` and `elem.insertAdjacentElement`, that insert text strings and elements, but they are rarely used.
 
--   To append HTML to the page before it has finished loading:
+- To append HTML to the page before it has finished loading:
 
-    -   `document.write(html)`
+  - `document.write(html)`
 
-    After the page is loaded such a call erases the document. Mostly seen in old scripts.
+  After the page is loaded such a call erases the document. Mostly seen in old scripts.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -655,7 +650,7 @@ Create a function `clear(elem)` that removes everything from the element.
 
 solution
 
-First, let’s see how *not* to do it:
+First, let’s see how _not_ to do it:
 
     function clear(elem) {
       for (let i=0; i < elem.childNodes.length; i++) {
@@ -715,7 +710,7 @@ solution
 
 The HTML in the task is incorrect. That’s the reason of the odd thing.
 
-The browser has to fix it automatically. But there may be no text inside the `<table>`: according to the spec only table-specific tags are allowed. So the browser shows `"aaa"` *before* the `<table>`.
+The browser has to fix it automatically. But there may be no text inside the `<table>`: according to the spec only table-specific tags are allowed. So the browser shows `"aaa"` _before_ the `<table>`.
 
 Now it’s obvious that when we remove the table, it remains.
 
@@ -814,22 +809,22 @@ Write the code that adds to each `<li>` the number of its descendants. Skip leav
 
 The result:
 
--   Animals
-    -   Mammals
-        -   Cows
-        -   Donkeys
-        -   Dogs
-        -   Tigers
-    -   Other
-        -   Snakes
-        -   Birds
-        -   Lizards
--   Fishes
-    -   Aquarium
-        -   Guppy
-        -   Angelfish
-    -   Sea
-        -   Sea trout
+- Animals
+  - Mammals
+    - Cows
+    - Donkeys
+    - Dogs
+    - Tigers
+  - Other
+    - Snakes
+    - Birds
+    - Lizards
+- Fishes
+  - Aquarium
+    - Guppy
+    - Angelfish
+  - Sea
+    - Sea trout
 
 [Open a sandbox for the task.](https://plnkr.co/edit/4lS7jYgTEE9tX3NU?p=preview)
 
@@ -1031,31 +1026,31 @@ P.S. In our case, there’s an explicit `<tbody>` in the table, but even if HTML
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/document" class="sidebar__link">Document</a>
+- <a href="/document" class="sidebar__link">Document</a>
 
 #### Lesson navigation
 
--   <a href="#example-show-a-message" class="sidebar__link">Example: show a message</a>
--   <a href="#creating-an-element" class="sidebar__link">Creating an element</a>
--   <a href="#insertion-methods" class="sidebar__link">Insertion methods</a>
--   <a href="#insertadjacenthtml-text-element" class="sidebar__link">insertAdjacentHTML/Text/Element</a>
--   <a href="#node-removal" class="sidebar__link">Node removal</a>
--   <a href="#cloning-nodes-clonenode" class="sidebar__link">Cloning nodes: cloneNode</a>
--   <a href="#document-fragment" class="sidebar__link">DocumentFragment</a>
--   <a href="#old-school-insert-remove-methods" class="sidebar__link">Old-school insert/remove methods</a>
--   <a href="#a-word-about-document-write" class="sidebar__link">A word about “document.write”</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#example-show-a-message" class="sidebar__link">Example: show a message</a>
+- <a href="#creating-an-element" class="sidebar__link">Creating an element</a>
+- <a href="#insertion-methods" class="sidebar__link">Insertion methods</a>
+- <a href="#insertadjacenthtml-text-element" class="sidebar__link">insertAdjacentHTML/Text/Element</a>
+- <a href="#node-removal" class="sidebar__link">Node removal</a>
+- <a href="#cloning-nodes-clonenode" class="sidebar__link">Cloning nodes: cloneNode</a>
+- <a href="#document-fragment" class="sidebar__link">DocumentFragment</a>
+- <a href="#old-school-insert-remove-methods" class="sidebar__link">Old-school insert/remove methods</a>
+- <a href="#a-word-about-document-write" class="sidebar__link">A word about “document.write”</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (10)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (10)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -1063,8 +1058,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/07-modifying-document" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

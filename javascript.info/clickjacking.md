@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -18,7 +14,6 @@ Search
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fclickjacking" class="share share_fb"></a>
 
-
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/frames-and-windows" class="breadcrumbs__link"><span>Frames and windows</span></a></span>
 
@@ -26,7 +21,7 @@ Search
 
 # The clickjacking attack
 
-The “clickjacking” attack allows an evil page to click on a “victim site” *on behalf of the visitor*.
+The “clickjacking” attack allows an evil page to click on a “victim site” _on behalf of the visitor_.
 
 Many sites were hacked this way, including Twitter, Facebook, Paypal and other sites. They have all been fixed, of course.
 
@@ -361,24 +356,24 @@ If you cannot enable it in your browser's preferences, you may have a better exp
 
 Please enable cookies in your browser preferences before signing in.
 
--   [About](/about)
--   [Help Center](//support.twitter.com)
--   [Blog](https://blog.twitter.com)
--   [Status](http://status.twitter.com)
--   [Jobs](https://about.twitter.com/careers)
--   [Terms](/tos)
--   [Privacy Policy](/privacy)
--   [Cookies](//support.twitter.com/articles/20170514)
--   [Ads info](//business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html)
--   [Brand](//about.twitter.com/press/brand-assets)
--   [Apps](https://about.twitter.com/products)
--   [Advertise](//ads.twitter.com/?ref=gl-tw-tw-twitter-advertise)
--   [Marketing](https://marketing.twitter.com)
--   [Businesses](https://business.twitter.com)
--   [Developers](//dev.twitter.com)
--   [Directory](/i/directory/profiles)
--   [Settings](/settings/personalization)
--   © 2021 Twitter
+- [About](/about)
+- [Help Center](//support.twitter.com)
+- [Blog](https://blog.twitter.com)
+- [Status](http://status.twitter.com)
+- [Jobs](https://about.twitter.com/careers)
+- [Terms](/tos)
+- [Privacy Policy](/privacy)
+- [Cookies](//support.twitter.com/articles/20170514)
+- [Ads info](//business.twitter.com/en/help/troubleshooting/how-twitter-ads-work.html)
+- [Brand](//about.twitter.com/press/brand-assets)
+- [Apps](https://about.twitter.com/products)
+- [Advertise](//ads.twitter.com/?ref=gl-tw-tw-twitter-advertise)
+- [Marketing](https://marketing.twitter.com)
+- [Businesses](https://business.twitter.com)
+- [Developers](//dev.twitter.com)
+- [Directory](/i/directory/profiles)
+- [Settings](/settings/personalization)
+- © 2021 Twitter
 
 <span class="message-text"></span> <a href="#" class="Icon Icon--close Icon--medium dismiss"><span class="visuallyhidden">Dismiss</span></a>
 
@@ -394,33 +389,34 @@ Please enable cookies in your browser preferences before signing in.
 
 ### Saved searches
 
--   <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span> <a href="" class="js-nav"></a>
+- <span class="Icon Icon--close" aria-hidden="true"><span class="visuallyhidden">Remove</span></span> <a href="" class="js-nav"></a>
 
--   <a href="" class="js-nav"></a>
-
-<!-- -->
-
--   <span class="js-nav"></span>
-    <span class="Icon Icon--follower Icon--small"></span> <span class="typeahead-in-conversation-text">In this conversation</span>
-
-    <span class="typeahead-user-item-info account-group"> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span> <span class="typeahead-social-context"></span>
--   <a href="" class="js-nav"></a>
+- <a href="" class="js-nav"></a>
 
 <!-- -->
 
--   <a href="" class="js-nav"></a>
+- <span class="js-nav"></span>
+  <span class="Icon Icon--follower Icon--small"></span> <span class="typeahead-in-conversation-text">In this conversation</span>
+
+  <span class="typeahead-user-item-info account-group"> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span> <span class="typeahead-social-context"></span>
+
+- <a href="" class="js-nav"></a>
+
+<!-- -->
+
+- <a href="" class="js-nav"></a>
 
 Suggested users
 
--   <span class="typeahead-user-item-info account-group"> <span class="select-status deselect-user js-deselect-user Icon Icon--check"></span> <span class="select-status select-disabled Icon Icon--unfollow"></span> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span>
--   
+- <span class="typeahead-user-item-info account-group"> <span class="select-status deselect-user js-deselect-user Icon Icon--check"></span> <span class="select-status select-disabled Icon Icon--unfollow"></span> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span>
+-
 
 <!-- -->
 
--   <span class="typeahead-user-item-info account-group"> <span class="select-status deselect-user js-deselect-user Icon Icon--check"></span> <span class="select-status select-disabled Icon Icon--unfollow"></span> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span>
--   
+- <span class="typeahead-user-item-info account-group"> <span class="select-status deselect-user js-deselect-user Icon Icon--check"></span> <span class="select-status select-disabled Icon Icon--unfollow"></span> <span class="fullname"></span><span class="UserBadges"><span class="Icon Icon--verified js-verified hidden"><span class="u-hiddenVisually">Verified account</span></span><span class="Icon Icon--protected js-protected hidden"><span class="u-hiddenVisually">Protected Tweets</span></span></span><span class="UserNameBreak"> </span><span class="username u-dir" dir="ltr">@</span> </span>
+-
 
--   
+-
 
 <span class="Icon Icon--close Icon--large"> <span class="visuallyhidden">Close</span> </span>
 
@@ -436,12 +432,12 @@ Block
 
 <span class="caret-outer"></span> <span class="caret-inner"></span>
 
--   ## Tweet with a location
+- ## Tweet with a location
 
-    You can add location information to your Tweets, such as your city or precise location, from the web and via third-party applications. You always have the option to delete your Tweet location history. [Learn more](http://support.twitter.com/forums/26810/entries/78525)
+  You can add location information to your Tweets, such as your city or precise location, from the web and via third-party applications. You always have the option to delete your Tweet location history. [Learn more](http://support.twitter.com/forums/26810/entries/78525)
 
-    Turn on
-    Not now
+  Turn on
+  Not now
 
 <span class="caret-outer"></span> <span class="caret-inner"></span>
 
@@ -459,25 +455,25 @@ Block
 
 List name
 
-------------------------------------------------------------------------
+---
 
 Description
 
 <span class="help-text">Under 100 characters, optional</span>
 
-------------------------------------------------------------------------
+---
 
 Privacy
 
 **Public** · Anyone can follow this list **Private** · Only you can access this list
 
-------------------------------------------------------------------------
+---
 
 Save list
 
 <span class="Icon Icon--close Icon--medium"> <span class="visuallyhidden">Close</span> </span>
 
-### 
+###
 
 <span class="spinner-bigger"></span>
 
@@ -721,8 +717,8 @@ From one perspective – the attack is “not deep”: all a hacker is doing is 
 
 The attack is quite dangerous, because when we engineer the UI we usually don’t anticipate that a hacker may click on behalf of the visitor. So vulnerabilities can be found in totally unexpected places.
 
--   It is recommended to use `X-Frame-Options: SAMEORIGIN` on pages (or whole websites) which are not intended to be viewed inside frames.
--   Use a covering `<div>` if we want to allow our pages to be shown in iframes, but still stay safe.
+- It is recommended to use `X-Frame-Options: SAMEORIGIN` on pages (or whole websites) which are not intended to be viewed inside frames.
+- Use a covering `<div>` if we want to allow our pages to be shown in iframes, but still stay safe.
 
 <a href="/cross-window-communication" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/binary" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -734,27 +730,27 @@ The attack is quite dangerous, because when we engineer the UI we usually don’
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
+- <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
 
 #### Lesson navigation
 
--   <a href="#the-idea" class="sidebar__link">The idea</a>
--   <a href="#the-demo" class="sidebar__link">The demo</a>
--   <a href="#old-school-defences-weak" class="sidebar__link">Old-school defences (weak)</a>
--   <a href="#x-frame-options" class="sidebar__link">X-Frame-Options</a>
--   <a href="#showing-with-disabled-functionality" class="sidebar__link">Showing with disabled functionality</a>
--   <a href="#samesite-cookie-attribute" class="sidebar__link">Samesite cookie attribute</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#the-idea" class="sidebar__link">The idea</a>
+- <a href="#the-demo" class="sidebar__link">The demo</a>
+- <a href="#old-school-defences-weak" class="sidebar__link">Old-school defences (weak)</a>
+- <a href="#x-frame-options" class="sidebar__link">X-Frame-Options</a>
+- <a href="#showing-with-disabled-functionality" class="sidebar__link">Showing with disabled functionality</a>
+- <a href="#samesite-cookie-attribute" class="sidebar__link">Samesite cookie attribute</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -762,8 +758,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/3-frames-and-windows/06-clickjacking" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fblob" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fblob" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/binary" class="breadcrumbs__link"><span>Binary data, files</span></a></span>
@@ -38,10 +33,10 @@ The constructor syntax is:
 
     new Blob(blobParts, options);
 
--   **`blobParts`** is an array of `Blob`/`BufferSource`/`String` values.
--   **`options`** optional object:
-    -   **`type`** – `Blob` type, usually MIME-type, e.g. `image/png`,
-    -   **`endings`** – whether to transform end-of-line to make the `Blob` correspond to current OS newlines (`\r\n` or `\n`). By default `"transparent"` (do nothing), but also can be `"native"` (transform).
+- **`blobParts`** is an array of `Blob`/`BufferSource`/`String` values.
+- **`options`** optional object:
+  - **`type`** – `Blob` type, usually MIME-type, e.g. `image/png`,
+  - **`endings`** – whether to transform end-of-line to make the `Blob` correspond to current OS newlines (`\r\n` or `\n`). By default `"transparent"` (do nothing), but also can be `"native"` (transform).
 
 For example:
 
@@ -58,9 +53,9 @@ We can extract `Blob` slices with:
 
     blob.slice([byteStart], [byteEnd], [contentType]);
 
--   **`byteStart`** – the starting byte, by default 0.
--   **`byteEnd`** – the last byte (exclusive, by default till the end).
--   **`contentType`** – the `type` of the new blob, by default the same as the source.
+- **`byteStart`** – the starting byte, by default 0.
+- **`byteEnd`** – the last byte (exclusive, by default till the end).
+- **`contentType`** – the `type` of the new blob, by default the same as the source.
 
 The arguments are similar to `array.slice`, negative numbers are allowed too.
 
@@ -171,13 +166,13 @@ Both ways of making a URL of a `Blob` are usable. But usually `URL.createObjectU
 
 URL.createObjectURL(blob)
 
--   We need to revoke them if care about memory.
--   Direct access to blob, no “encoding/decoding”
+- We need to revoke them if care about memory.
+- Direct access to blob, no “encoding/decoding”
 
 Blob to data url
 
--   No need to revoke anything.
--   Performance and memory losses on big `Blob` objects for encoding.
+- No need to revoke anything.
+- Performance and memory losses on big `Blob` objects for encoding.
 
 ## <a href="#image-to-blob" id="image-to-blob" class="main__anchor">Image to blob</a>
 
@@ -252,8 +247,8 @@ Methods that perform web-requests, such as [XMLHttpRequest](/xmlhttprequest), [f
 
 We can easily convert between `Blob` and low-level binary data types:
 
--   We can make a Blob from a typed array using `new Blob(...)` constructor.
--   We can get back `ArrayBuffer` from a Blob using `FileReader`, and then create a view over it for low-level binary processing.
+- We can make a Blob from a typed array using `new Blob(...)` constructor.
+- We can get back `ArrayBuffer` from a Blob using `FileReader`, and then create a view over it for low-level binary processing.
 
 <a href="/text-decoder" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/file" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -265,25 +260,25 @@ We can easily convert between `Blob` and low-level binary data types:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/binary" class="sidebar__link">Binary data, files</a>
+- <a href="/binary" class="sidebar__link">Binary data, files</a>
 
 #### Lesson navigation
 
--   <a href="#blob-as-url" class="sidebar__link">Blob as URL</a>
--   <a href="#blob-to-base64" class="sidebar__link">Blob to base64</a>
--   <a href="#image-to-blob" class="sidebar__link">Image to blob</a>
--   <a href="#from-blob-to-arraybuffer" class="sidebar__link">From Blob to ArrayBuffer</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#blob-as-url" class="sidebar__link">Blob as URL</a>
+- <a href="#blob-to-base64" class="sidebar__link">Blob to base64</a>
+- <a href="#image-to-blob" class="sidebar__link">Image to blob</a>
+- <a href="#from-blob-to-arraybuffer" class="sidebar__link">From Blob to ArrayBuffer</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -291,8 +286,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/4-binary/03-blob" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

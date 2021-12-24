@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdom-attributes-and-properties" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdom-attributes-and-properties" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -79,14 +74,14 @@ We can also modify built-in prototypes like `Element.prototype` and add new meth
 
 So, DOM properties and methods behave just like those of regular JavaScript objects:
 
--   They can have any value.
--   They are case-sensitive (write `elem.nodeType`, not `elem.NoDeTyPe`).
+- They can have any value.
+- They are case-sensitive (write `elem.nodeType`, not `elem.NoDeTyPe`).
 
 ## <a href="#html-attributes" id="html-attributes" class="main__anchor">HTML attributes</a>
 
-In HTML, tags may have attributes. When the browser parses the HTML to create DOM objects for tags, it recognizes *standard* attributes and creates DOM properties from them.
+In HTML, tags may have attributes. When the browser parses the HTML to create DOM objects for tags, it recognizes _standard_ attributes and creates DOM properties from them.
 
-So when an element has `id` or another *standard* attribute, the corresponding property gets created. But that doesn’t happen if the attribute is non-standard.
+So when an element has `id` or another _standard_ attribute, the corresponding property gets created. But that doesn’t happen if the attribute is non-standard.
 
 For instance:
 
@@ -122,10 +117,10 @@ So, if an attribute is non-standard, there won’t be a DOM-property for it. Is 
 
 Sure. All attributes are accessible by using the following methods:
 
--   `elem.hasAttribute(name)` – checks for existence.
--   `elem.getAttribute(name)` – gets the value.
--   `elem.setAttribute(name, value)` – sets the value.
--   `elem.removeAttribute(name)` – removes the attribute.
+- `elem.hasAttribute(name)` – checks for existence.
+- `elem.getAttribute(name)` – gets the value.
+- `elem.setAttribute(name, value)` – sets the value.
+- `elem.removeAttribute(name)` – removes the attribute.
 
 These methods operate exactly with what’s written in HTML.
 
@@ -145,8 +140,8 @@ Here’s a demo of reading a non-standard property:
 
 HTML attributes have the following features:
 
--   Their name is case-insensitive (`id` is same as `ID`).
--   Their values are always strings.
+- Their name is case-insensitive (`id` is same as `ID`).
+- Their values are always strings.
 
 Here’s an extended demo of working with attributes:
 
@@ -223,8 +218,8 @@ But there are exclusions, for instance `input.value` synchronizes only from attr
 
 In the example above:
 
--   Changing the attribute `value` updates the property.
--   But the property change does not affect the attribute.
+- Changing the attribute `value` updates the property.
+- But the property change does not affect the attribute.
 
 That “feature” may actually come in handy, because the user actions may lead to `value` changes, and then after them, if we want to recover the “original” value from HTML, it’s in the attribute.
 
@@ -262,7 +257,7 @@ There are other examples. The `style` attribute is a string, but the `style` pro
 
 Most properties are strings though.
 
-Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the `href` DOM property is always a *full* URL, even if the attribute contains a relative URL or just a `#hash`.
+Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the `href` DOM property is always a _full_ URL, even if the attribute contains a relative URL or just a `#hash`.
 
 Here’s an example:
 
@@ -413,8 +408,8 @@ Please note that we can not only read, but also modify data-attributes. Then CSS
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Attributes – is what’s written in HTML.
--   Properties – is what’s in DOM objects.
+- Attributes – is what’s written in HTML.
+- Properties – is what’s in DOM objects.
 
 A small comparison:
 
@@ -422,16 +417,16 @@ A small comparison:
 
 Methods to work with attributes are:
 
--   `elem.hasAttribute(name)` – to check for existence.
--   `elem.getAttribute(name)` – to get the value.
--   `elem.setAttribute(name, value)` – to set the value.
--   `elem.removeAttribute(name)` – to remove the attribute.
--   `elem.attributes` is a collection of all attributes.
+- `elem.hasAttribute(name)` – to check for existence.
+- `elem.getAttribute(name)` – to get the value.
+- `elem.setAttribute(name, value)` – to set the value.
+- `elem.removeAttribute(name)` – to remove the attribute.
+- `elem.attributes` is a collection of all attributes.
 
 For most situations using DOM properties is preferable. We should refer to attributes only when DOM properties do not suit us, when we need exactly attributes, for instance:
 
--   We need a non-standard attribute. But if it starts with `data-`, then we should use `dataset`.
--   We want to read the value “as written” in HTML. The value of the DOM property may be different, for instance the `href` property is always a full URL, and we may want to get the “original” value.
+- We need a non-standard attribute. But if it starts with `data-`, then we should use `dataset`.
+- We want to read the value “as written” in HTML. The value of the DOM property may be different, for instance the `href` property is always a full URL, and we may want to get the “original” value.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -493,8 +488,8 @@ Make all external links orange by altering their `style` property.
 
 A link is external if:
 
--   Its `href` has `://` in it
--   But doesn’t start with `http://internal.com`.
+- Its `href` has `://` in it
+- But doesn’t start with `http://internal.com`.
 
 Example:
 
@@ -522,12 +517,12 @@ The result should be:
 
 <span id="list">The list:</span>
 
--   <http://google.com>
--   [/tutorial.html](/tutorial)
--   [local/path](local/path)
--   <ftp://ftp.com/my.zip>
--   <http://nodejs.org>
--   <http://internal.com/test>
+- <http://google.com>
+- [/tutorial.html](/tutorial)
+- [local/path](local/path)
+- <ftp://ftp.com/my.zip>
+- <http://nodejs.org>
+- <http://internal.com/test>
 
 [Open a sandbox for the task.](https://plnkr.co/edit/P633iMGyfcQ6DCdF?p=preview)
 
@@ -575,27 +570,27 @@ Please note: we use `link.getAttribute('href')`. Not `link.href`, because we nee
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/document" class="sidebar__link">Document</a>
+- <a href="/document" class="sidebar__link">Document</a>
 
 #### Lesson navigation
 
--   <a href="#dom-properties" class="sidebar__link">DOM properties</a>
--   <a href="#html-attributes" class="sidebar__link">HTML attributes</a>
--   <a href="#property-attribute-synchronization" class="sidebar__link">Property-attribute synchronization</a>
--   <a href="#dom-properties-are-typed" class="sidebar__link">DOM properties are typed</a>
--   <a href="#non-standard-attributes-dataset" class="sidebar__link">Non-standard attributes, dataset</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#dom-properties" class="sidebar__link">DOM properties</a>
+- <a href="#html-attributes" class="sidebar__link">HTML attributes</a>
+- <a href="#property-attribute-synchronization" class="sidebar__link">Property-attribute synchronization</a>
+- <a href="#dom-properties-are-typed" class="sidebar__link">DOM properties are typed</a>
+- <a href="#non-standard-attributes-dataset" class="sidebar__link">Non-standard attributes, dataset</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (2)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (2)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -603,8 +598,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/06-dom-attributes-and-properties" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

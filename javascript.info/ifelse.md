@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fifelse" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fifelse" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -62,8 +57,8 @@ The `if (…)` statement evaluates the expression in its parentheses and convert
 
 Let’s recall the conversion rules from the chapter [Type Conversions](/type-conversions):
 
--   A number `0`, an empty string `""`, `null`, `undefined`, and `NaN` all become `false`. Because of that they are called “falsy” values.
--   Other values become `true`, so they are called “truthy”.
+- A number `0`, an empty string `""`, `null`, `undefined`, and `NaN` all become `false`. Because of that they are called “falsy” values.
+- Other values become `true`, so they are called “truthy”.
 
 So, the code under this condition would never execute:
 
@@ -335,9 +330,9 @@ solution
 
 Using `if..else`, write the code which gets a number via `prompt` and then shows in `alert`:
 
--   `1`, if the value is greater than zero,
--   `-1`, if less than zero,
--   `0`, if equals zero.
+- `1`, if the value is greater than zero,
+- `-1`, if less than zero,
+- `0`, if equals zero.
 
 In this task we assume that the input is always a number.
 
@@ -418,28 +413,28 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#the-if-statement" class="sidebar__link">The “if” statement</a>
--   <a href="#boolean-conversion" class="sidebar__link">Boolean conversion</a>
--   <a href="#the-else-clause" class="sidebar__link">The “else” clause</a>
--   <a href="#several-conditions-else-if" class="sidebar__link">Several conditions: “else if”</a>
--   <a href="#conditional-operator" class="sidebar__link">Conditional operator ‘?’</a>
--   <a href="#multiple" class="sidebar__link">Multiple ‘?’</a>
--   <a href="#non-traditional-use-of" class="sidebar__link">Non-traditional use of ‘?’</a>
+- <a href="#the-if-statement" class="sidebar__link">The “if” statement</a>
+- <a href="#boolean-conversion" class="sidebar__link">Boolean conversion</a>
+- <a href="#the-else-clause" class="sidebar__link">The “else” clause</a>
+- <a href="#several-conditions-else-if" class="sidebar__link">Several conditions: “else if”</a>
+- <a href="#conditional-operator" class="sidebar__link">Conditional operator ‘?’</a>
+- <a href="#multiple" class="sidebar__link">Multiple ‘?’</a>
+- <a href="#non-traditional-use-of" class="sidebar__link">Non-traditional use of ‘?’</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (5)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (5)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -447,8 +442,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/10-ifelse" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

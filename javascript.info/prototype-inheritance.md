@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fprototype-inheritance" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fprototype-inheritance" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -31,7 +26,7 @@ In programming, we often want to take something and extend it.
 
 For instance, we have a `user` object with its properties and methods, and want to make `admin` and `guest` as slightly modified variants of it. We’d like to reuse what we have in `user`, not copy/reimplement its methods, just build a new object on top of it.
 
-*Prototypal inheritance* is a language feature that helps in that.
+_Prototypal inheritance_ is a language feature that helps in that.
 
 ## <a href="#prototype" id="prototype" class="main__anchor">[[Prototype]]</a>
 
@@ -152,7 +147,7 @@ Also it may be obvious, but still: there can be only one `[[Prototype]]`. An obj
 
 It’s a common mistake of novice developers not to know the difference between these two.
 
-Please note that `__proto__` is *not the same* as the internal `[[Prototype]]` property. It’s a getter/setter for `[[Prototype]]`. Later we’ll see situations where it matters, for now let’s just keep it in mind, as we build our understanding of JavaScript language.
+Please note that `__proto__` is _not the same_ as the internal `[[Prototype]]` property. It’s a getter/setter for `[[Prototype]]`. Later we’ll see situations where it matters, for now let’s just keep it in mind, as we build our understanding of JavaScript language.
 
 The `__proto__` property is a bit outdated. It exists for historical reasons, modern JavaScript suggests that we should use `Object.getPrototypeOf/Object.setPrototypeOf` functions instead that get/set the prototype. We’ll also cover these functions later.
 
@@ -346,17 +341,17 @@ The answer is simple: it’s not enumerable. Just like all other properties of `
 
 Almost all other key/value-getting methods, such as `Object.keys`, `Object.values` and so on ignore inherited properties.
 
-They only operate on the object itself. Properties from the prototype are *not* taken into account.
+They only operate on the object itself. Properties from the prototype are _not_ taken into account.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   In JavaScript, all objects have a hidden `[[Prototype]]` property that’s either another object or `null`.
--   We can use `obj.__proto__` to access it (a historical getter/setter, there are other ways, to be covered soon).
--   The object referenced by `[[Prototype]]` is called a “prototype”.
--   If we want to read a property of `obj` or call a method, and it doesn’t exist, then JavaScript tries to find it in the prototype.
--   Write/delete operations act directly on the object, they don’t use the prototype (assuming it’s a data property, not a setter).
--   If we call `obj.method()`, and the `method` is taken from the prototype, `this` still references `obj`. So methods always work with the current object even if they are inherited.
--   The `for..in` loop iterates over both its own and its inherited properties. All other key/value-getting methods only operate on the object itself.
+- In JavaScript, all objects have a hidden `[[Prototype]]` property that’s either another object or `null`.
+- We can use `obj.__proto__` to access it (a historical getter/setter, there are other ways, to be covered soon).
+- The object referenced by `[[Prototype]]` is called a “prototype”.
+- If we want to read a property of `obj` or call a method, and it doesn’t exist, then JavaScript tries to find it in the prototype.
+- Write/delete operations act directly on the object, they don’t use the prototype (assuming it’s a data property, not a setter).
+- If we call `obj.method()`, and the `method` is taken from the prototype, `this` still references `obj`. So methods always work with the current object even if they are inherited.
+- The `for..in` loop iterates over both its own and its inherited properties. All other key/value-getting methods only operate on the object itself.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -541,7 +536,7 @@ Let’s look carefully at what’s going on in the call `speedy.eat("apple")`.
 
 3.  Then it follows the prototype chain and finds `stomach` in `hamster`.
 
-4.  Then it calls `push` on it, adding the food into *the stomach of the prototype*.
+4.  Then it calls `push` on it, adding the food into _the stomach of the prototype_.
 
 So all hamsters share a single stomach!
 
@@ -622,26 +617,26 @@ As a common solution, all properties that describe the state of a particular obj
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/prototypes" class="sidebar__link">Prototypes, inheritance</a>
+- <a href="/prototypes" class="sidebar__link">Prototypes, inheritance</a>
 
 #### Lesson navigation
 
--   <a href="#prototype" class="sidebar__link">[[Prototype]]</a>
--   <a href="#writing-doesn-t-use-prototype" class="sidebar__link">Writing doesn’t use prototype</a>
--   <a href="#the-value-of-this" class="sidebar__link">The value of “this”</a>
--   <a href="#for-in-loop" class="sidebar__link">for…in loop</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#prototype" class="sidebar__link">[[Prototype]]</a>
+- <a href="#writing-doesn-t-use-prototype" class="sidebar__link">Writing doesn’t use prototype</a>
+- <a href="#the-value-of-this" class="sidebar__link">The value of “this”</a>
+- <a href="#for-in-loop" class="sidebar__link">for…in loop</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -649,8 +644,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/08-prototypes/01-prototype-inheritance" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

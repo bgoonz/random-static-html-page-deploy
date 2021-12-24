@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -18,7 +14,6 @@ Search
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fiterable" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fiterable" class="share share_fb"></a>
 
-
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
 3.  <span id="breadcrumb-2"><a href="/data-types" class="breadcrumbs__link"><span>Data types</span></a></span>
@@ -27,7 +22,7 @@ Search
 
 # Iterables
 
-*Iterable* objects are a generalization of arrays. That’s a concept that allows us to make any object useable in a `for..of` loop.
+_Iterable_ objects are a generalization of arrays. That’s a concept that allows us to make any object useable in a `for..of` loop.
 
 Of course, Arrays are iterable. But there are many other built-in objects, that are iterable as well. For instance, strings are also iterable.
 
@@ -51,8 +46,8 @@ Like a `range` object that represents an interval of numbers:
 
 To make the `range` object iterable (and thus let `for..of` work) we need to add a method to the object named `Symbol.iterator` (a special built-in symbol just for that).
 
-1.  When `for..of` starts, it calls that method once (or errors if not found). The method must return an *iterator* – an object with the method `next`.
-2.  Onward, `for..of` works *only with that returned object*.
+1.  When `for..of` starts, it calls that method once (or errors if not found). The method must return an _iterator_ – an object with the method `next`.
+2.  Onward, `for..of` works _only with that returned object_.
 3.  When `for..of` wants the next value, it calls `next()` on that object.
 4.  The result of `next()` must have the form `{done: Boolean, value: any}`, where `done=true` means that the iteration is finished, otherwise `value` is the next value.
 
@@ -95,8 +90,8 @@ Here’s the full implementation for `range` with remarks:
 
 Please note the core feature of iterables: separation of concerns.
 
--   The `range` itself does not have the `next()` method.
--   Instead, another object, a so-called “iterator” is created by the call to `range[Symbol.iterator]()`, and its `next()` generates values for the iteration.
+- The `range` itself does not have the `next()` method.
+- Instead, another object, a so-called “iterator” is created by the call to `range[Symbol.iterator]()`, and its `next()` generates values for the iteration.
 
 So, the iterator object is separate from the object it iterates over.
 
@@ -197,8 +192,8 @@ That is rarely needed, but gives us more control over the process than `for..of`
 
 Two official terms look similar, but are very different. Please make sure you understand them well to avoid the confusion.
 
--   *Iterables* are objects that implement the `Symbol.iterator` method, as described above.
--   *Array-likes* are objects that have indexes and `length`, so they look like arrays.
+- _Iterables_ are objects that implement the `Symbol.iterator` method, as described above.
+- _Array-likes_ are objects that have indexes and `length`, so they look like arrays.
 
 When we use JavaScript for practical tasks in a browser or any other environment, we may meet objects that are iterables or array-likes, or both.
 
@@ -223,7 +218,7 @@ And here’s the object that is array-like, but not iterable:
     // Error (no Symbol.iterator)
     for (let item of arrayLike) {}
 
-Both iterables and array-likes are usually *not arrays*, they don’t have `push`, `pop` etc. That’s rather inconvenient if we have such an object and want to work with it as with an array. E.g. we would like to work with `range` using array methods. How to achieve that?
+Both iterables and array-likes are usually _not arrays_, they don’t have `push`, `pop` etc. That’s rather inconvenient if we have such an object and want to work with it as with an array. E.g. we would like to work with `range` using array methods. How to achieve that?
 
 ## <a href="#array-from" id="array-from" class="main__anchor">Array.from</a>
 
@@ -320,16 +315,16 @@ We can even build surrogate-aware `slice` on it:
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
-Objects that can be used in `for..of` are called *iterable*.
+Objects that can be used in `for..of` are called _iterable_.
 
--   Technically, iterables must implement the method named `Symbol.iterator`.
-    -   The result of `obj[Symbol.iterator]()` is called an *iterator*. It handles further iteration process.
-    -   An iterator must have the method named `next()` that returns an object `{done: Boolean, value: any}`, here `done:true` denotes the end of the iteration process, otherwise the `value` is the next value.
--   The `Symbol.iterator` method is called automatically by `for..of`, but we also can do it directly.
--   Built-in iterables like strings or arrays, also implement `Symbol.iterator`.
--   String iterator knows about surrogate pairs.
+- Technically, iterables must implement the method named `Symbol.iterator`.
+  - The result of `obj[Symbol.iterator]()` is called an _iterator_. It handles further iteration process.
+  - An iterator must have the method named `next()` that returns an object `{done: Boolean, value: any}`, here `done:true` denotes the end of the iteration process, otherwise the `value` is the next value.
+- The `Symbol.iterator` method is called automatically by `for..of`, but we also can do it directly.
+- Built-in iterables like strings or arrays, also implement `Symbol.iterator`.
+- String iterator knows about surrogate pairs.
 
-Objects that have indexed properties and `length` are called *array-like*. Such objects may also have other properties and methods, but lack the built-in methods of arrays.
+Objects that have indexed properties and `length` are called _array-like_. Such objects may also have other properties and methods, but lack the built-in methods of arrays.
 
 If we look inside the specification – we’ll see that most built-in methods assume that they work with iterables or array-likes instead of “real” arrays, because that’s more abstract.
 
@@ -345,26 +340,26 @@ If we look inside the specification – we’ll see that most built-in methods a
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-types" class="sidebar__link">Data types</a>
+- <a href="/data-types" class="sidebar__link">Data types</a>
 
 #### Lesson navigation
 
--   <a href="#symbol-iterator" class="sidebar__link">Symbol.iterator</a>
--   <a href="#string-is-iterable" class="sidebar__link">String is iterable</a>
--   <a href="#calling-an-iterator-explicitly" class="sidebar__link">Calling an iterator explicitly</a>
--   <a href="#array-like" class="sidebar__link">Iterables and array-likes</a>
--   <a href="#array-from" class="sidebar__link">Array.from</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#symbol-iterator" class="sidebar__link">Symbol.iterator</a>
+- <a href="#string-is-iterable" class="sidebar__link">String is iterable</a>
+- <a href="#calling-an-iterator-explicitly" class="sidebar__link">Calling an iterator explicitly</a>
+- <a href="#array-like" class="sidebar__link">Iterables and array-likes</a>
+- <a href="#array-from" class="sidebar__link">Array.from</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -372,8 +367,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/05-data-types/06-iterable" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

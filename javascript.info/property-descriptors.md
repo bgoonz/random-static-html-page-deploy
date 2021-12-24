@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fproperty-descriptors" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fproperty-descriptors" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,15 +32,15 @@ In this chapter we’ll study additional configuration options, and in the next 
 
 Object properties, besides a **`value`**, have three special attributes (so-called “flags”):
 
--   **`writable`** – if `true`, the value can be changed, otherwise it’s read-only.
--   **`enumerable`** – if `true`, then listed in loops, otherwise not listed.
--   **`configurable`** – if `true`, the property can be deleted and these attributes can be modified, otherwise not.
+- **`writable`** – if `true`, the value can be changed, otherwise it’s read-only.
+- **`enumerable`** – if `true`, then listed in loops, otherwise not listed.
+- **`configurable`** – if `true`, the property can be deleted and these attributes can be modified, otherwise not.
 
 We didn’t see them yet, because generally they do not show up. When we create a property “the usual way”, all of them are `true`. But we also can change them anytime.
 
 First, let’s see how to get those flags.
 
-The method [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) allows to query the *full* information about a property.
+The method [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor) allows to query the _full_ information about a property.
 
 The syntax is:
 
@@ -340,13 +335,13 @@ Normally when we clone an object, we use an assignment to copy properties, like 
 
 …But that does not copy flags. So if we want a “better” clone then `Object.defineProperties` is preferred.
 
-Another difference is that `for..in` ignores symbolic properties, but `Object.getOwnPropertyDescriptors` returns *all* property descriptors including symbolic ones.
+Another difference is that `for..in` ignores symbolic properties, but `Object.getOwnPropertyDescriptors` returns _all_ property descriptors including symbolic ones.
 
 ## <a href="#sealing-an-object-globally" id="sealing-an-object-globally" class="main__anchor">Sealing an object globally</a>
 
 Property descriptors work at the level of individual properties.
 
-There are also methods that limit access to the *whole* object:
+There are also methods that limit access to the _whole_ object:
 
 [Object.preventExtensions(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions)  
 Forbids the addition of new properties to the object.
@@ -380,27 +375,27 @@ These methods are rarely used in practice.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/object-properties" class="sidebar__link">Object properties configuration</a>
+- <a href="/object-properties" class="sidebar__link">Object properties configuration</a>
 
 #### Lesson navigation
 
--   <a href="#property-flags" class="sidebar__link">Property flags</a>
--   <a href="#non-writable" class="sidebar__link">Non-writable</a>
--   <a href="#non-enumerable" class="sidebar__link">Non-enumerable</a>
--   <a href="#non-configurable" class="sidebar__link">Non-configurable</a>
--   <a href="#object-defineproperties" class="sidebar__link">Object.defineProperties</a>
--   <a href="#object-getownpropertydescriptors" class="sidebar__link">Object.getOwnPropertyDescriptors</a>
--   <a href="#sealing-an-object-globally" class="sidebar__link">Sealing an object globally</a>
+- <a href="#property-flags" class="sidebar__link">Property flags</a>
+- <a href="#non-writable" class="sidebar__link">Non-writable</a>
+- <a href="#non-enumerable" class="sidebar__link">Non-enumerable</a>
+- <a href="#non-configurable" class="sidebar__link">Non-configurable</a>
+- <a href="#object-defineproperties" class="sidebar__link">Object.defineProperties</a>
+- <a href="#object-getownpropertydescriptors" class="sidebar__link">Object.getOwnPropertyDescriptors</a>
+- <a href="#sealing-an-object-globally" class="sidebar__link">Sealing an object globally</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -408,8 +403,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/07-object-properties/01-property-descriptors" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

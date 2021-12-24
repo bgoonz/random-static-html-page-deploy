@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffetch-api" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffetch-api" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/network" class="breadcrumbs__link"><span>Network requests</span></a></span>
@@ -101,14 +96,14 @@ Unlike the `referrer` option that allows to set the exact `Referer` value, `refe
 
 Possible values are described in the [Referrer Policy specification](https://w3c.github.io/webappsec-referrer-policy/):
 
--   **`"no-referrer-when-downgrade"`** – the default value: full `Referer` is always sent, unless we send a request from HTTPS to HTTP (to the less secure protocol).
--   **`"no-referrer"`** – never send `Referer`.
--   **`"origin"`** – only send the origin in `Referer`, not the full page URL, e.g. only `http://site.com` instead of `http://site.com/path`.
--   **`"origin-when-cross-origin"`** – send the full `Referer` to the same origin, but only the origin part for cross-origin requests (as above).
--   **`"same-origin"`** – send the full `Referer` to the same origin, but no `Referer` for cross-origin requests.
--   **`"strict-origin"`** – send only the origin, not the `Referer` for HTTPS→HTTP requests.
--   **`"strict-origin-when-cross-origin"`** – for same-origin send the full `Referer`, for cross-origin send only the origin, unless it’s HTTPS→HTTP request, then send nothing.
--   **`"unsafe-url"`** – always send the full url in `Referer`, even for HTTPS→HTTP requests.
+- **`"no-referrer-when-downgrade"`** – the default value: full `Referer` is always sent, unless we send a request from HTTPS to HTTP (to the less secure protocol).
+- **`"no-referrer"`** – never send `Referer`.
+- **`"origin"`** – only send the origin in `Referer`, not the full page URL, e.g. only `http://site.com` instead of `http://site.com/path`.
+- **`"origin-when-cross-origin"`** – send the full `Referer` to the same origin, but only the origin part for cross-origin requests (as above).
+- **`"same-origin"`** – send the full `Referer` to the same origin, but no `Referer` for cross-origin requests.
+- **`"strict-origin"`** – send only the origin, not the `Referer` for HTTPS→HTTP requests.
+- **`"strict-origin-when-cross-origin"`** – for same-origin send the full `Referer`, for cross-origin send only the origin, unless it’s HTTPS→HTTP request, then send nothing.
+- **`"unsafe-url"`** – always send the full url in `Referer`, even for HTTPS→HTTP requests.
 
 Here’s a table with all combinations:
 
@@ -141,9 +136,9 @@ In particular, it’s possible to set the default policy for the whole page usin
 
 The `mode` option is a safe-guard that prevents occasional cross-origin requests:
 
--   **`"cors"`** – the default, cross-origin requests are allowed, as described in [Fetch: Cross-Origin Requests](/fetch-crossorigin),
--   **`"same-origin"`** – cross-origin requests are forbidden,
--   **`"no-cors"`** – only safe cross-origin requests are allowed.
+- **`"cors"`** – the default, cross-origin requests are allowed, as described in [Fetch: Cross-Origin Requests](/fetch-crossorigin),
+- **`"same-origin"`** – cross-origin requests are forbidden,
+- **`"no-cors"`** – only safe cross-origin requests are allowed.
 
 This option may be useful when the URL for `fetch` comes from a 3rd-party, and we want a “power off switch” to limit cross-origin capabilities.
 
@@ -151,9 +146,9 @@ This option may be useful when the URL for `fetch` comes from a 3rd-party, and w
 
 The `credentials` option specifies whether `fetch` should send cookies and HTTP-Authorization headers with the request.
 
--   **`"same-origin"`** – the default, don’t send for cross-origin requests,
--   **`"include"`** – always send, requires `Access-Control-Allow-Credentials` from cross-origin server in order for JavaScript to access the response, that was covered in the chapter [Fetch: Cross-Origin Requests](/fetch-crossorigin),
--   **`"omit"`** – never send, even for same-origin requests.
+- **`"same-origin"`** – the default, don’t send for cross-origin requests,
+- **`"include"`** – always send, requires `Access-Control-Allow-Credentials` from cross-origin server in order for JavaScript to access the response, that was covered in the chapter [Fetch: Cross-Origin Requests](/fetch-crossorigin),
+- **`"omit"`** – never send, even for same-origin requests.
 
 ## <a href="#cache" id="cache" class="main__anchor">cache</a>
 
@@ -161,12 +156,12 @@ By default, `fetch` requests make use of standard HTTP-caching. That is, it resp
 
 The `cache` options allows to ignore HTTP-cache or fine-tune its usage:
 
--   **`"default"`** – `fetch` uses standard HTTP-cache rules and headers,
--   **`"no-store"`** – totally ignore HTTP-cache, this mode becomes the default if we set a header `If-Modified-Since`, `If-None-Match`, `If-Unmodified-Since`, `If-Match`, or `If-Range`,
--   **`"reload"`** – don’t take the result from HTTP-cache (if any), but populate the cache with the response (if the response headers permit this action),
--   **`"no-cache"`** – create a conditional request if there is a cached response, and a normal request otherwise. Populate HTTP-cache with the response,
--   **`"force-cache"`** – use a response from HTTP-cache, even if it’s stale. If there’s no response in HTTP-cache, make a regular HTTP-request, behave normally,
--   **`"only-if-cached"`** – use a response from HTTP-cache, even if it’s stale. If there’s no response in HTTP-cache, then error. Only works when `mode` is `"same-origin"`.
+- **`"default"`** – `fetch` uses standard HTTP-cache rules and headers,
+- **`"no-store"`** – totally ignore HTTP-cache, this mode becomes the default if we set a header `If-Modified-Since`, `If-None-Match`, `If-Unmodified-Since`, `If-Match`, or `If-Range`,
+- **`"reload"`** – don’t take the result from HTTP-cache (if any), but populate the cache with the response (if the response headers permit this action),
+- **`"no-cache"`** – create a conditional request if there is a cached response, and a normal request otherwise. Populate HTTP-cache with the response,
+- **`"force-cache"`** – use a response from HTTP-cache, even if it’s stale. If there’s no response in HTTP-cache, make a regular HTTP-request, behave normally,
+- **`"only-if-cached"`** – use a response from HTTP-cache, even if it’s stale. If there’s no response in HTTP-cache, then error. Only works when `mode` is `"same-origin"`.
 
 ## <a href="#redirect" id="redirect" class="main__anchor">redirect</a>
 
@@ -174,9 +169,9 @@ Normally, `fetch` transparently follows HTTP-redirects, like 301, 302 etc.
 
 The `redirect` option allows to change that:
 
--   **`"follow"`** – the default, follow HTTP-redirects,
--   **`"error"`** – error in case of HTTP-redirect,
--   **`"manual"`** – allows to process HTTP-redirects manually. In case of redirect, we’ll get a special response object, with `response.type="opaqueredirect"` and zeroed/empty status and most other properies.
+- **`"follow"`** – the default, follow HTTP-redirects,
+- **`"error"`** – error in case of HTTP-redirect,
+- **`"manual"`** – allows to process HTTP-redirects manually. In case of redirect, we’ll get a special response object, with `response.type="opaqueredirect"` and zeroed/empty status and most other properies.
 
 ## <a href="#integrity" id="integrity" class="main__anchor">integrity</a>
 
@@ -220,11 +215,11 @@ Normally, when a document is unloaded, all associated network requests are abort
 
 It has a few limitations:
 
--   We can’t send megabytes: the body limit for `keepalive` requests is 64KB.
-    -   If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won’t be a lot left for the last `onunload` request.
-    -   This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64KB.
--   We can’t handle the server response if the document is unloaded. So in our example `fetch` will succeed due to `keepalive`, but subsequent functions won’t work.
-    -   In most cases, such as sending out statistics, it’s not a problem, as the server just accepts the data and usually sends an empty response to such requests.
+- We can’t send megabytes: the body limit for `keepalive` requests is 64KB.
+  - If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won’t be a lot left for the last `onunload` request.
+  - This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64KB.
+- We can’t handle the server response if the document is unloaded. So in our example `fetch` will succeed due to `keepalive`, but subsequent functions won’t work.
+  - In most cases, such as sending out statistics, it’s not a problem, as the server just accepts the data and usually sends an empty response to such requests.
 
 <a href="/fetch-crossorigin" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/url" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -236,27 +231,27 @@ It has a few limitations:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/network" class="sidebar__link">Network requests</a>
+- <a href="/network" class="sidebar__link">Network requests</a>
 
 #### Lesson navigation
 
--   <a href="#referrer-referrerpolicy" class="sidebar__link">referrer, referrerPolicy</a>
--   <a href="#mode" class="sidebar__link">mode</a>
--   <a href="#credentials" class="sidebar__link">credentials</a>
--   <a href="#cache" class="sidebar__link">cache</a>
--   <a href="#redirect" class="sidebar__link">redirect</a>
--   <a href="#integrity" class="sidebar__link">integrity</a>
--   <a href="#keepalive" class="sidebar__link">keepalive</a>
+- <a href="#referrer-referrerpolicy" class="sidebar__link">referrer, referrerPolicy</a>
+- <a href="#mode" class="sidebar__link">mode</a>
+- <a href="#credentials" class="sidebar__link">credentials</a>
+- <a href="#cache" class="sidebar__link">cache</a>
+- <a href="#redirect" class="sidebar__link">redirect</a>
+- <a href="#integrity" class="sidebar__link">integrity</a>
+- <a href="#keepalive" class="sidebar__link">keepalive</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -264,8 +259,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/5-network/06-fetch-api" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

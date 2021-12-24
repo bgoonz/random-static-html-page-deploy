@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcomparison" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcomparison" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -31,10 +26,10 @@ We know many comparison operators from maths.
 
 In JavaScript they are written like this:
 
--   Greater/less than: `a > b`, `a < b`.
--   Greater/less than or equals: `a >= b`, `a <= b`.
--   Equals: `a == b`, please note the double equality sign `==` means the equality test, while a single one `a = b` means an assignment.
--   Not equals: In maths the notation is `≠`, but in JavaScript it’s written as `a != b`.
+- Greater/less than: `a > b`, `a < b`.
+- Greater/less than or equals: `a >= b`, `a <= b`.
+- Equals: `a == b`, please note the double equality sign `==` means the equality test, while a single one `a = b` means an assignment.
+- Not equals: In maths the notation is `≠`, but in JavaScript it’s written as `a != b`.
 
 In this article we’ll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.
 
@@ -44,8 +39,8 @@ At the end you’ll find a good recipe to avoid “JavaScript quirks”-related 
 
 All comparison operators return a boolean value:
 
--   `true` – means “yes”, “correct” or “the truth”.
--   `false` – means “no”, “wrong” or “not the truth”.
+- `true` – means “yes”, “correct” or “the truth”.
+- `false` – means “no”, “wrong” or “not the truth”.
 
 For example:
 
@@ -132,8 +127,8 @@ For example:
 
 It is possible that at the same time:
 
--   Two values are equal.
--   One of them is `true` as a boolean and the other one is `false` as a boolean.
+- Two values are equal.
+- One of them is `true` as a boolean and the other one is `false` as a boolean.
 
 For example:
 
@@ -250,23 +245,23 @@ Why does it dislike zero so much? Always false!
 
 We get these results because:
 
--   Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
--   The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
+- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
 
 ### <a href="#avoid-problems" id="avoid-problems" class="main__anchor">Avoid problems</a>
 
 Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there’s a solid way to avoid problems with them:
 
--   Treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
--   Don’t use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you’re really sure of what you’re doing. If a variable can have these values, check for them separately.
+- Treat any comparison with `undefined/null` except the strict equality `===` with exceptional care.
+- Don’t use comparisons `>= > < <=` with a variable which may be `null/undefined`, unless you’re really sure of what you’re doing. If a variable can have these values, check for them separately.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Comparison operators return a boolean value.
--   Strings are compared letter-by-letter in the “dictionary” order.
--   When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
--   The values `null` and `undefined` equal `==` each other and do not equal any other value.
--   Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
+- Comparison operators return a boolean value.
+- Strings are compared letter-by-letter in the “dictionary” order.
+- When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
+- The values `null` and `undefined` equal `==` each other and do not equal any other value.
+- Be careful when using comparisons like `>` or `<` with variables that can occasionally be `null/undefined`. Checking for `null/undefined` separately is a good idea.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -316,27 +311,27 @@ Some of the reasons:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#boolean-is-the-result" class="sidebar__link">Boolean is the result</a>
--   <a href="#string-comparison" class="sidebar__link">String comparison</a>
--   <a href="#comparison-of-different-types" class="sidebar__link">Comparison of different types</a>
--   <a href="#strict-equality" class="sidebar__link">Strict equality</a>
--   <a href="#comparison-with-null-and-undefined" class="sidebar__link">Comparison with null and undefined</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#boolean-is-the-result" class="sidebar__link">Boolean is the result</a>
+- <a href="#string-comparison" class="sidebar__link">String comparison</a>
+- <a href="#comparison-of-different-types" class="sidebar__link">Comparison of different types</a>
+- <a href="#strict-equality" class="sidebar__link">Strict equality</a>
+- <a href="#comparison-with-null-and-undefined" class="sidebar__link">Comparison with null and undefined</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -344,8 +339,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/09-comparison" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

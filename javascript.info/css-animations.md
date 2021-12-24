@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcss-animations" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcss-animations" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/animation" class="breadcrumbs__link"><span>Animation</span></a></span>
@@ -68,10 +63,10 @@ Click the button below to animate the background:
 
 There are 4 properties to describe CSS transitions:
 
--   `transition-property`
--   `transition-duration`
--   `transition-timing-function`
--   `transition-delay`
+- `transition-property`
+- `transition-duration`
+- `transition-timing-function`
+- `transition-delay`
 
 We’ll cover them in a moment, for now let’s note that the common `transition` property allows declaring them together in the order: `property duration timing-function delay`, as well as animating multiple properties at once.
 
@@ -110,7 +105,7 @@ In `transition-duration` we can specify how long the animation should take. The 
 
 ## <a href="#transition-delay" id="transition-delay" class="main__anchor">transition-delay</a>
 
-In `transition-delay` we can specify the delay *before* the animation. For instance, if `transition-delay` is `1s` and `transition-duration` is `2s`, then the animation starts 1 second after the property change and the total duration will be 2 seconds.
+In `transition-delay` we can specify the delay _before_ the animation. For instance, if `transition-delay` is `1s` and `transition-duration` is `2s`, then the animation starts 1 second after the property change and the total duration will be 2 seconds.
 
 Negative values are also possible. Then the animation is shown immediately, but the starting point of the animation will be after given value (time). For example, if `transition-delay` is `-1s` and `transition-duration` is `2s`, then animation starts from the halfway point and total duration will be 1 second.
 
@@ -263,8 +258,8 @@ The syntax for a Bezier curve in CSS: `cubic-bezier(x2, y2, x3, y3)`. Here we ne
 
 The timing function describes how fast the animation process goes.
 
--   The `x` axis is the time: `0` – the start, `1` – the end of `transition-duration`.
--   The `y` axis specifies the completion of the process: `0` – the starting value of the property, `1` – the final value.
+- The `x` axis is the time: `0` – the start, `1` – the end of `transition-duration`.
+- The `y` axis specifies the completion of the process: `0` – the starting value of the property, `1` – the final value.
 
 The simplest variant is when the animation goes uniformly, with the same linear speed. That can be specified by the curve `cubic-bezier(0, 0, 1, 1)`.
 
@@ -406,9 +401,9 @@ The property `left` should animate from `100px` to `400px`.
 
 But if you click the train, you’ll see that:
 
--   First, the train goes *back*: `left` becomes less than `100px`.
--   Then it goes forward, a little bit farther than `400px`.
--   And then back again – to `400px`.
+- First, the train goes _back_: `left` becomes less than `100px`.
+- Then it goes forward, a little bit farther than `400px`.
+- And then back again – to `400px`.
 
 Result
 
@@ -568,21 +563,21 @@ We can observe that during the animation: when we click on the digit it changes 
 
 The process is progressing like this:
 
--   `0s` – `-10%` (first change in the beginning of the 1st second, immediately)
--   `1s` – `-20%`
--   …
--   `8s` – `-80%`
--   (the last second shows the final value).
+- `0s` – `-10%` (first change in the beginning of the 1st second, immediately)
+- `1s` – `-20%`
+- …
+- `8s` – `-80%`
+- (the last second shows the final value).
 
 The alternative value `end` would mean that the change should be applied not in the beginning, but at the end of each second.
 
 So the process for `steps(9, end)` would go like this:
 
--   `0s` – `0` (during the first second nothing changes)
--   `1s` – `-10%` (first change at the end of the 1st second)
--   `2s` – `-20%`
--   …
--   `9s` – `-90%`
+- `0s` – `0` (during the first second nothing changes)
+- `1s` – `-10%` (first change at the end of the 1st second)
+- `2s` – `-20%`
+- …
+- `9s` – `-90%`
 
 Here’s `steps(9, end)` in action (note the pause between the first digit change):
 
@@ -639,8 +634,8 @@ index.html
 
 There are also shorthand values:
 
--   `step-start` – is the same as `steps(1, start)`. That is, the animation starts immediately and takes 1 step. So it starts and finishes immediately, as if there were no animation.
--   `step-end` – the same as `steps(1, end)`: make the animation in a single step at the end of `transition-duration`.
+- `step-start` – is the same as `steps(1, start)`. That is, the animation starts immediately and takes 1 step. So it starts and finishes immediately, as if there were no animation.
+- `step-end` – the same as `steps(1, end)`: make the animation in a single step at the end of `transition-duration`.
 
 These values are rarely used, because that’s not really animation, but rather a single-step change.
 
@@ -753,8 +748,8 @@ Animations of properties that skip the Layout step are faster. It’s even bette
 
 The `transform` property is a great choice, because:
 
--   CSS transforms affect the target element box as a whole (rotate, flip, stretch, shift it).
--   CSS transforms never affect neighbour elements.
+- CSS transforms affect the target element box as a whole (rotate, flip, stretch, shift it).
+- CSS transforms never affect neighbour elements.
 
 …So browsers apply `transform` “on top” of existing Layout and Paint calculations, in the Composite stage.
 
@@ -829,13 +824,13 @@ Limitations of CSS animations compared to JavaScript animations:
 
 Merits
 
--   Simple things done simply.
--   Fast and lightweight for CPU.
+- Simple things done simply.
+- Fast and lightweight for CPU.
 
 Demerits
 
--   JavaScript animations are flexible. They can implement any animation logic, like an “explosion” of an element.
--   Not just property changes. We can create new elements in JavaScript as part of the animation.
+- JavaScript animations are flexible. They can implement any animation logic, like an “explosion” of an element.
+- Not just property changes. We can create new elements in JavaScript as part of the animation.
 
 In early examples in this chapter, we animate `font-size`, `left`, `width`, `height`, etc. In real life projects, we should use `transform: scale()` and `transform: translate()` for better performance.
 
@@ -855,10 +850,10 @@ Show the animation like on the picture below (click the plane):
 
 <img src="https://en.js.cx/clipart/flyjet.jpg" id="flyjet" />
 
--   The picture grows on click from `40x24px` to `400x240px` (10 times larger).
--   The animation takes 3 seconds.
--   At the end output: “Done!”.
--   During the animation process, there may be more clicks on the plane. They shouldn’t “break” anything.
+- The picture grows on click from `40x24px` to `400x240px` (10 times larger).
+- The animation takes 3 seconds.
+- At the end output: “Done!”.
+- During the animation process, there may be more clicks on the plane. They shouldn’t “break” anything.
 
 [Open a sandbox for the task.](https://plnkr.co/edit/Lj9szlcP8lRxn5pC?p=preview)
 
@@ -916,8 +911,8 @@ The graph:
 
 Create a function `showCircle(cx, cy, radius)` that shows an animated growing circle.
 
--   `cx,cy` are window-relative coordinates of the center of the circle,
--   `radius` is the radius of the circle.
+- `cx,cy` are window-relative coordinates of the center of the circle,
+- `radius` is the radius of the circle.
 
 Click the button below to see how it should look like:
 
@@ -937,7 +932,7 @@ solution
 
 In the task [Animated circle](/task/animate-circle) an animated growing circle is shown.
 
-Now let’s say we need not just a circle, but to show a message inside it. The message should appear *after* the animation is complete (the circle is fully grown), otherwise it would look ugly.
+Now let’s say we need not just a circle, but to show a message inside it. The message should appear _after_ the animation is complete (the circle is fully grown), otherwise it would look ugly.
 
 In the solution of the task, the function `showCircle(cx, cy, radius)` draws the circle, but gives no way to track when it’s ready.
 
@@ -970,30 +965,30 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/animation" class="sidebar__link">Animation</a>
+- <a href="/animation" class="sidebar__link">Animation</a>
 
 #### Lesson navigation
 
--   <a href="#css-transition" class="sidebar__link">CSS transitions</a>
--   <a href="#transition-property" class="sidebar__link">transition-property</a>
--   <a href="#transition-duration" class="sidebar__link">transition-duration</a>
--   <a href="#transition-delay" class="sidebar__link">transition-delay</a>
--   <a href="#transition-timing-function" class="sidebar__link">transition-timing-function</a>
--   <a href="#event-transitionend" class="sidebar__link">Event transitionend</a>
--   <a href="#keyframes" class="sidebar__link">Keyframes</a>
--   <a href="#performance" class="sidebar__link">Performance</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#css-transition" class="sidebar__link">CSS transitions</a>
+- <a href="#transition-property" class="sidebar__link">transition-property</a>
+- <a href="#transition-duration" class="sidebar__link">transition-duration</a>
+- <a href="#transition-delay" class="sidebar__link">transition-delay</a>
+- <a href="#transition-timing-function" class="sidebar__link">transition-timing-function</a>
+- <a href="#event-transitionend" class="sidebar__link">Event transitionend</a>
+- <a href="#keyframes" class="sidebar__link">Keyframes</a>
+- <a href="#performance" class="sidebar__link">Performance</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -1001,8 +996,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/7-animation/2-css-animations" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

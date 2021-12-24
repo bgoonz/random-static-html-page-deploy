@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fgarbage-collection" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fgarbage-collection" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -33,7 +28,7 @@ What happens when something is not needed any more? How does the JavaScript engi
 
 ## <a href="#reachability" id="reachability" class="main__anchor">Reachability</a>
 
-The main concept of memory management in JavaScript is *reachability*.
+The main concept of memory management in JavaScript is _reachability_.
 
 Simply put, “reachable” values are those that are accessible or usable somehow. They are guaranteed to be stored in memory.
 
@@ -41,18 +36,18 @@ Simply put, “reachable” values are those that are accessible or usable someh
 
     For instance:
 
-    -   The currently executing function, its local variables and parameters.
-    -   Other functions on the current chain of nested calls, their local variables and parameters.
-    -   Global variables.
-    -   (there are some other, internal ones as well)
+    - The currently executing function, its local variables and parameters.
+    - Other functions on the current chain of nested calls, their local variables and parameters.
+    - Global variables.
+    - (there are some other, internal ones as well)
 
-    These values are called *roots*.
+    These values are called _roots_.
 
 2.  Any other value is considered reachable if it’s reachable from a root by a reference or by a chain of references.
 
-    For instance, if there’s an object in a global variable, and that object has a property referencing another object, *that* object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
+    For instance, if there’s an object in a global variable, and that object has a property referencing another object, _that_ object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
 
-There’s a background process in the JavaScript engine that is called [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)). It monitors all objects and removes those that have become unreachable.
+There’s a background process in the JavaScript engine that is called [garbage collector](<https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>). It monitors all objects and removes those that have become unreachable.
 
 ## <a href="#a-simple-example" id="a-simple-example" class="main__anchor">A simple example</a>
 
@@ -165,11 +160,11 @@ The basic garbage collection algorithm is called “mark-and-sweep”.
 
 The following “garbage collection” steps are regularly performed:
 
--   The garbage collector takes roots and “marks” (remembers) them.
--   Then it visits and “marks” all references from them.
--   Then it visits marked objects and marks *their* references. All visited objects are remembered, so as not to visit the same object twice in the future.
--   …And so on until every reachable (from the roots) references are visited.
--   All objects except marked ones are removed.
+- The garbage collector takes roots and “marks” (remembers) them.
+- Then it visits and “marks” all references from them.
+- Then it visits marked objects and marks _their_ references. All visited objects are remembered, so as not to visit the same object twice in the future.
+- …And so on until every reachable (from the roots) references are visited.
+- All objects except marked ones are removed.
 
 For instance, let our object structure look like this:
 
@@ -199,9 +194,9 @@ That’s the concept of how garbage collection works. JavaScript engines apply m
 
 Some of the optimizations:
 
--   **Generational collection** – objects are split into two sets: “new ones” and “old ones”. Many objects appear, do their job and die fast, they can be cleaned up aggressively. Those that survive for long enough, become “old” and are examined less often.
--   **Incremental collection** – if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine tries to split the garbage collection into pieces. Then the pieces are executed one by one, separately. That requires some extra bookkeeping between them to track changes, but we have many tiny delays instead of a big one.
--   **Idle-time collection** – the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
+- **Generational collection** – objects are split into two sets: “new ones” and “old ones”. Many objects appear, do their job and die fast, they can be cleaned up aggressively. Those that survive for long enough, become “old” and are examined less often.
+- **Incremental collection** – if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine tries to split the garbage collection into pieces. Then the pieces are executed one by one, separately. That requires some extra bookkeeping between them to track changes, but we have many tiny delays instead of a big one.
+- **Idle-time collection** – the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
 
 There exist other optimizations and flavours of garbage collection algorithms. As much as I’d like to describe them here, I have to hold off, because different engines implement different tweaks and techniques. And, what’s even more important, things change as engines develop, so studying deeper “in advance”, without a real need is probably not worth that. Unless, of course, it is a matter of pure interest, then there will be some links for you below.
 
@@ -209,9 +204,9 @@ There exist other optimizations and flavours of garbage collection algorithms. A
 
 The main things to know:
 
--   Garbage collection is performed automatically. We cannot force or prevent it.
--   Objects are retained in memory while they are reachable.
--   Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole.
+- Garbage collection is performed automatically. We cannot force or prevent it.
+- Objects are retained in memory while they are reachable.
+- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole.
 
 Modern engines implement advanced algorithms of garbage collection.
 
@@ -233,27 +228,27 @@ In-depth knowledge of engines is good when you need low-level optimizations. It 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
+- <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
 
 #### Lesson navigation
 
--   <a href="#reachability" class="sidebar__link">Reachability</a>
--   <a href="#a-simple-example" class="sidebar__link">A simple example</a>
--   <a href="#two-references" class="sidebar__link">Two references</a>
--   <a href="#interlinked-objects" class="sidebar__link">Interlinked objects</a>
--   <a href="#unreachable-island" class="sidebar__link">Unreachable island</a>
--   <a href="#internal-algorithms" class="sidebar__link">Internal algorithms</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#reachability" class="sidebar__link">Reachability</a>
+- <a href="#a-simple-example" class="sidebar__link">A simple example</a>
+- <a href="#two-references" class="sidebar__link">Two references</a>
+- <a href="#interlinked-objects" class="sidebar__link">Interlinked objects</a>
+- <a href="#unreachable-island" class="sidebar__link">Unreachable island</a>
+- <a href="#internal-algorithms" class="sidebar__link">Internal algorithms</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -261,8 +256,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/04-object-basics/03-garbage-collection" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

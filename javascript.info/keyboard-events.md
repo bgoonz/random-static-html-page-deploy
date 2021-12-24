@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fkeyboard-events" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -160,9 +155,9 @@ Every key has the code that depends on its location on the keyboard. Key codes d
 
 For instance:
 
--   Letter keys have codes `"Key<letter>"`: `"KeyA"`, `"KeyB"` etc.
--   Digit keys have codes: `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
--   Special keys are coded by their names: `"Enter"`, `"Backspace"`, `"Tab"` etc.
+- Letter keys have codes `"Key<letter>"`: `"KeyA"`, `"KeyB"` etc.
+- Digit keys have codes: `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
+- Special keys are coded by their names: `"Enter"`, `"Backspace"`, `"Tab"` etc.
 
 There are several widespread keyboard layouts, and the specification gives key codes for each of them.
 
@@ -236,11 +231,11 @@ Default actions vary, as there are many possible things that may be initiated by
 
 For instance:
 
--   A character appears on the screen (the most obvious outcome).
--   A character is deleted (<span class="kbd shortcut">Delete</span> key).
--   The page is scrolled (<span class="kbd shortcut">PageDown</span> key).
--   The browser opens the “Save Page” dialog (<span class="kbd shortcut">Ctrl<span class="shortcut__plus">+</span>S</span>)
--   …and so on.
+- A character appears on the screen (the most obvious outcome).
+- A character is deleted (<span class="kbd shortcut">Delete</span> key).
+- The page is scrolled (<span class="kbd shortcut">PageDown</span> key).
+- The browser opens the “Save Page” dialog (<span class="kbd shortcut">Ctrl<span class="shortcut__plus">+</span>S</span>)
+- …and so on.
 
 Preventing the default action on `keydown` can cancel most of them, with the exception of OS-based special keys. For instance, on Windows <span class="kbd shortcut">Alt<span class="shortcut__plus">+</span>F4</span> closes the current browser window. And there’s no way to stop it by preventing the default action in JavaScript.
 
@@ -281,7 +276,7 @@ Now arrows and deletion works well.
 
 Even though we have the key filter, one still can enter anything using a mouse and right-click + Paste. Mobile devices provide other means to enter values. So the filter is not 100% reliable.
 
-The alternative approach would be to track the `oninput` event – it triggers *after* any modification. There we can check the new `input.value` and modify it/highlight the `<input>` when it’s invalid. Or we can use both event handlers together.
+The alternative approach would be to track the `oninput` event – it triggers _after_ any modification. There we can check the new `input.value` and modify it/highlight the `<input>` when it’s invalid. Or we can use both event handlers together.
 
 ## <a href="#legacy" id="legacy" class="main__anchor">Legacy</a>
 
@@ -301,13 +296,13 @@ Pressing a key always generates a keyboard event, be it symbol keys or special k
 
 Keyboard events:
 
--   `keydown` – on pressing the key (auto-repeats if the key is pressed for long),
--   `keyup` – on releasing the key.
+- `keydown` – on pressing the key (auto-repeats if the key is pressed for long),
+- `keyup` – on releasing the key.
 
 Main keyboard event properties:
 
--   `code` – the “key code” (`"KeyA"`, `"ArrowLeft"` and so on), specific to the physical location of the key on keyboard.
--   `key` – the character (`"A"`, `"a"` and so on), for non-character keys, such as <span class="kbd shortcut">Esc</span>, usually has the same value as `code`.
+- `code` – the “key code” (`"KeyA"`, `"ArrowLeft"` and so on), specific to the physical location of the key on keyboard.
+- `key` – the character (`"A"`, `"a"` and so on), for non-character keys, such as <span class="kbd shortcut">Esc</span>, usually has the same value as `code`.
 
 In the past, keyboard events were sometimes used to track user input in form fields. That’s not reliable, because the input can come from various sources. We have `input` and `change` events to handle any input (covered later in the chapter [Events: change, input, cut, copy, paste](/events-change-input)). They trigger after any kind of input, including copy-pasting or speech recognition.
 
@@ -353,28 +348,28 @@ The first handler adds to it, while the second one removes from it. Every time o
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/event-details" class="sidebar__link">UI Events</a>
+- <a href="/event-details" class="sidebar__link">UI Events</a>
 
 #### Lesson navigation
 
--   <a href="#keyboard-test-stand" class="sidebar__link">Teststand</a>
--   <a href="#keydown-and-keyup" class="sidebar__link">Keydown and keyup</a>
--   <a href="#auto-repeat" class="sidebar__link">Auto-repeat</a>
--   <a href="#default-actions" class="sidebar__link">Default actions</a>
--   <a href="#legacy" class="sidebar__link">Legacy</a>
--   <a href="#mobile-keyboards" class="sidebar__link">Mobile Keyboards</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#keyboard-test-stand" class="sidebar__link">Teststand</a>
+- <a href="#keydown-and-keyup" class="sidebar__link">Keydown and keyup</a>
+- <a href="#auto-repeat" class="sidebar__link">Auto-repeat</a>
+- <a href="#default-actions" class="sidebar__link">Default actions</a>
+- <a href="#legacy" class="sidebar__link">Legacy</a>
+- <a href="#mobile-keyboards" class="sidebar__link">Mobile Keyboards</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -382,8 +377,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/3-event-details/7-keyboard-events" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

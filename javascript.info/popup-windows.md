@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fpopup-windows" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fpopup-windows" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/frames-and-windows" class="breadcrumbs__link"><span>Frames and windows</span></a></span>
@@ -101,16 +96,16 @@ The configuration string for the new window. It contains settings, delimited by 
 
 Settings for `params`:
 
--   Position:
-    -   `left/top` (numeric) – coordinates of the window top-left corner on the screen. There is a limitation: a new window cannot be positioned offscreen.
-    -   `width/height` (numeric) – width and height of a new window. There is a limit on minimal width/height, so it’s impossible to create an invisible window.
--   Window features:
-    -   `menubar` (yes/no) – shows or hides the browser menu on the new window.
-    -   `toolbar` (yes/no) – shows or hides the browser navigation bar (back, forward, reload etc) on the new window.
-    -   `location` (yes/no) – shows or hides the URL field in the new window. FF and IE don’t allow to hide it by default.
-    -   `status` (yes/no) – shows or hides the status bar. Again, most browsers force it to show.
-    -   `resizable` (yes/no) – allows to disable the resize for the new window. Not recommended.
-    -   `scrollbars` (yes/no) – allows to disable the scrollbars for the new window. Not recommended.
+- Position:
+  - `left/top` (numeric) – coordinates of the window top-left corner on the screen. There is a limitation: a new window cannot be positioned offscreen.
+  - `width/height` (numeric) – width and height of a new window. There is a limit on minimal width/height, so it’s impossible to create an invisible window.
+- Window features:
+  - `menubar` (yes/no) – shows or hides the browser menu on the new window.
+  - `toolbar` (yes/no) – shows or hides the browser navigation bar (back, forward, reload etc) on the new window.
+  - `location` (yes/no) – shows or hides the URL field in the new window. FF and IE don’t allow to hide it by default.
+  - `status` (yes/no) – shows or hides the status bar. Again, most browsers force it to show.
+  - `resizable` (yes/no) – allows to disable the resize for the new window. Not recommended.
+  - `scrollbars` (yes/no) – allows to disable the scrollbars for the new window. Not recommended.
 
 There is also a number of less supported browser-specific features, which are usually not used. Check [window.open in MDN](https://developer.mozilla.org/en/DOM/window.open) for examples.
 
@@ -144,10 +139,10 @@ Most browsers show the example above as required.
 
 Rules for omitted settings:
 
--   If there is no 3rd argument in the `open` call, or it is empty, then the default window parameters are used.
--   If there is a string of params, but some `yes/no` features are omitted, then the omitted features assumed to have `no` value. So if you specify params, make sure you explicitly set all required features to yes.
--   If there is no `left/top` in params, then the browser tries to open a new window near the last opened window.
--   If there is no `width/height`, then the new window will be the same size as the last opened.
+- If there is no 3rd argument in the `open` call, or it is empty, then the default window parameters are used.
+- If there is a string of params, but some `yes/no` features are omitted, then the omitted features assumed to have `no` value. So if you specify params, make sure you explicitly set all required features to yes.
+- If there is no `left/top` in params, then the browser tries to open a new window near the last opened window.
+- If there is no `width/height`, then the new window will be the same size as the last opened.
 
 ## <a href="#accessing-popup-from-window" id="accessing-popup-from-window" class="main__anchor">Accessing popup from window</a>
 
@@ -291,8 +286,8 @@ Still, there are some use cases when such calls do work and can be useful.
 
 For instance:
 
--   When we open a popup, it’s might be a good idea to run a `newWindow.focus()` on it. Just in case, for some OS/browser combinations it ensures that the user is in the new window now.
--   If we want to track when a visitor actually uses our web-app, we can track `window.onfocus/onblur`. That allows us to suspend/resume in-page activities, animations etc. But please note that the `blur` event means that the visitor switched out from the window, but they still may observe it. The window is in the background, but still may be visible.
+- When we open a popup, it’s might be a good idea to run a `newWindow.focus()` on it. Just in case, for some OS/browser combinations it ensures that the user is in the new window now.
+- If we want to track when a visitor actually uses our web-app, we can track `window.onfocus/onblur`. That allows us to suspend/resume in-page activities, animations etc. But please note that the `blur` event means that the visitor switched out from the window, but they still may observe it. The window is in the background, but still may be visible.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
@@ -300,16 +295,16 @@ Popup windows are used rarely, as there are alternatives: loading and displaying
 
 If we’re going to open a popup, a good practice is to inform the user about it. An “opening window” icon near a link or button would allow the visitor to survive the focus shift and keep both windows in mind.
 
--   A popup can be opened by the `open(url, name, params)` call. It returns the reference to the newly opened window.
--   Browsers block `open` calls from the code outside of user actions. Usually a notification appears, so that a user may allow them.
--   Browsers open a new tab by default, but if sizes are provided, then it’ll be a popup window.
--   The popup may access the opener window using the `window.opener` property.
--   The main window and the popup can freely read and modify each other if they have the same origin. Otherwise, they can change location of each other and [exchange messages](/cross-window-communication).
+- A popup can be opened by the `open(url, name, params)` call. It returns the reference to the newly opened window.
+- Browsers block `open` calls from the code outside of user actions. Usually a notification appears, so that a user may allow them.
+- Browsers open a new tab by default, but if sizes are provided, then it’ll be a popup window.
+- The popup may access the opener window using the `window.opener` property.
+- The main window and the popup can freely read and modify each other if they have the same origin. Otherwise, they can change location of each other and [exchange messages](/cross-window-communication).
 
 To close the popup: use `close()` call. Also the user may close them (just like any other windows). The `window.closed` is `true` after that.
 
--   Methods `focus()` and `blur()` allow to focus/unfocus a window. But they don’t work all the time.
--   Events `focus` and `blur` allow to track switching in and out of the window. But please note that a window may still be visible even in the background state, after `blur`.
+- Methods `focus()` and `blur()` allow to focus/unfocus a window. But they don’t work all the time.
+- Events `focus` and `blur` allow to track switching in and out of the window. But please note that a window may still be visible even in the background state, after `blur`.
 
 <a href="/frames-and-windows" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/cross-window-communication" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -321,30 +316,30 @@ To close the popup: use `close()` call. Also the user may close them (just like 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
+- <a href="/frames-and-windows" class="sidebar__link">Frames and windows</a>
 
 #### Lesson navigation
 
--   <a href="#popup-blocking" class="sidebar__link">Popup blocking</a>
--   <a href="#window-open" class="sidebar__link">window.open</a>
--   <a href="#example-a-minimalistic-window" class="sidebar__link">Example: a minimalistic window</a>
--   <a href="#accessing-popup-from-window" class="sidebar__link">Accessing popup from window</a>
--   <a href="#accessing-window-from-popup" class="sidebar__link">Accessing window from popup</a>
--   <a href="#closing-a-popup" class="sidebar__link">Closing a popup</a>
--   <a href="#moving-and-resizing" class="sidebar__link">Moving and resizing</a>
--   <a href="#scrolling-a-window" class="sidebar__link">Scrolling a window</a>
--   <a href="#focus-blur-on-a-window" class="sidebar__link">Focus/blur on a window</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#popup-blocking" class="sidebar__link">Popup blocking</a>
+- <a href="#window-open" class="sidebar__link">window.open</a>
+- <a href="#example-a-minimalistic-window" class="sidebar__link">Example: a minimalistic window</a>
+- <a href="#accessing-popup-from-window" class="sidebar__link">Accessing popup from window</a>
+- <a href="#accessing-window-from-popup" class="sidebar__link">Accessing window from popup</a>
+- <a href="#closing-a-popup" class="sidebar__link">Closing a popup</a>
+- <a href="#moving-and-resizing" class="sidebar__link">Moving and resizing</a>
+- <a href="#scrolling-a-window" class="sidebar__link">Scrolling a window</a>
+- <a href="#focus-blur-on-a-window" class="sidebar__link">Focus/blur on a window</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -352,8 +347,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/3-frames-and-windows/01-popup-windows" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

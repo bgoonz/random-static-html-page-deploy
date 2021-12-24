@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fproperty-accessors" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fproperty-accessors" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -29,9 +24,9 @@ Search
 
 There are two kinds of object properties.
 
-The first kind is *data properties*. We already know how to work with them. All properties that we’ve been using until now were data properties.
+The first kind is _data properties_. We already know how to work with them. All properties that we’ve been using until now were data properties.
 
-The second type of properties is something new. It’s *accessor properties*. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.
+The second type of properties is something new. It’s _accessor properties_. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.
 
 ## <a href="#getters-and-setters" id="getters-and-setters" class="main__anchor">Getters and setters</a>
 
@@ -73,7 +68,7 @@ Now we want to add a `fullName` property, that should be `"John Smith"`. Of cour
 
     alert(user.fullName); // John Smith
 
-From the outside, an accessor property looks like a regular one. That’s the idea of accessor properties. We don’t *call* `user.fullName` as a function, we *read* it normally: the getter runs behind the scenes.
+From the outside, an accessor property looks like a regular one. That’s the idea of accessor properties. We don’t _call_ `user.fullName` as a function, we _read_ it normally: the getter runs behind the scenes.
 
 As of now, `fullName` has only a getter. If we attempt to assign `user.fullName=`, there will be an error:
 
@@ -124,10 +119,10 @@ For accessor properties, there is no `value` or `writable`, but instead there ar
 
 That is, an accessor descriptor may have:
 
--   **`get`** – a function without arguments, that works when a property is read,
--   **`set`** – a function with one argument, that is called when the property is set,
--   **`enumerable`** – same as for data properties,
--   **`configurable`** – same as for data properties.
+- **`get`** – a function without arguments, that works when a property is read,
+- **`set`** – a function with one argument, that is called when the property is set,
+- **`enumerable`** – same as for data properties,
+- **`configurable`** – same as for data properties.
 
 For instance, to create an accessor `fullName` with `defineProperty`, we can pass a descriptor with `get` and `set`:
 
@@ -270,24 +265,24 @@ Now the old code works too and we’ve got a nice additional property.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/object-properties" class="sidebar__link">Object properties configuration</a>
+- <a href="/object-properties" class="sidebar__link">Object properties configuration</a>
 
 #### Lesson navigation
 
--   <a href="#getters-and-setters" class="sidebar__link">Getters and setters</a>
--   <a href="#accessor-descriptors" class="sidebar__link">Accessor descriptors</a>
--   <a href="#smarter-getters-setters" class="sidebar__link">Smarter getters/setters</a>
--   <a href="#using-for-compatibility" class="sidebar__link">Using for compatibility</a>
+- <a href="#getters-and-setters" class="sidebar__link">Getters and setters</a>
+- <a href="#accessor-descriptors" class="sidebar__link">Accessor descriptors</a>
+- <a href="#smarter-getters-setters" class="sidebar__link">Smarter getters/setters</a>
+- <a href="#using-for-compatibility" class="sidebar__link">Using for compatibility</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -295,8 +290,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/07-object-properties/02-property-accessors" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

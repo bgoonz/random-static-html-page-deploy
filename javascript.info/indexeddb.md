@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Findexeddb" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Findexeddb" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/data-storage" class="breadcrumbs__link"><span>Storing data in the browser</span></a></span>
@@ -28,10 +23,10 @@ Search
 
 IndexedDB is a database that is built into a browser, much more powerful than `localStorage`.
 
--   Stores almost any kind of values by keys, multiple key types.
--   Supports transactions for reliability.
--   Supports key range queries, indexes.
--   Can store much bigger volumes of data than `localStorage`.
+- Stores almost any kind of values by keys, multiple key types.
+- Supports transactions for reliability.
+- Supports key range queries, indexes.
+- Can store much bigger volumes of data than `localStorage`.
 
 That power is usually excessive for traditional client-server apps. IndexedDB is intended for offline apps, to be combined with ServiceWorkers and other technologies.
 
@@ -53,16 +48,16 @@ The syntax:
 
     let openRequest = indexedDB.open(name, version);
 
--   `name` – a string, the database name.
--   `version` – a positive integer version, by default `1` (explained below).
+- `name` – a string, the database name.
+- `version` – a positive integer version, by default `1` (explained below).
 
 We can have many databases with different names, but all of them exist within the current origin (domain/protocol/port). Different websites can’t access each other’s databases.
 
 The call returns `openRequest` object, we should listen to events on it:
 
--   `success`: database is ready, there’s the “database object” in `openRequest.result`, we should use it for further calls.
--   `error`: opening failed.
--   `upgradeneeded`: database is ready, but its version is outdated (see below).
+- `success`: database is ready, there’s the “database object” in `openRequest.result`, we should use it for further calls.
+- `error`: opening failed.
+- `upgradeneeded`: database is ready, but its version is outdated (see below).
 
 **IndexedDB has a built-in mechanism of “schema versioning”, absent in server-side databases.**
 
@@ -184,7 +179,7 @@ These update collisions happen rarely, but we should at least have some handling
 
 ## <a href="#object-store" id="object-store" class="main__anchor">Object store</a>
 
-To store something in IndexedDB, we need an *object store*.
+To store something in IndexedDB, we need an _object store_.
 
 An object store is a core concept of IndexedDB. Counterparts in other databases are called “tables” or “collections”. It’s where the data is stored. A database may have multiple stores: one for users, another one for goods, etc.
 
@@ -212,10 +207,10 @@ The syntax to create an object store:
 
 Please note, the operation is synchronous, no `await` needed.
 
--   `name` is the store name, e.g. `"books"` for books,
--   `keyOptions` is an optional object with one of two properties:
-    -   `keyPath` – a path to an object property that IndexedDB will use as the key, e.g. `id`.
-    -   `autoIncrement` – if `true`, then the key for a newly stored object is generated automatically, as an ever-incrementing number.
+- `name` is the store name, e.g. `"books"` for books,
+- `keyOptions` is an optional object with one of two properties:
+  - `keyPath` – a path to an object property that IndexedDB will use as the key, e.g. `id`.
+  - `autoIncrement` – if `true`, then the key for a newly stored object is generated automatically, as an ever-incrementing number.
 
 If we don’t supply `keyOptions`, then we’ll need to provide a key explicitly later, when storing an object.
 
@@ -271,10 +266,10 @@ To start a transaction:
 
     db.transaction(store[, type]);
 
--   `store` is a store name that the transaction is going to access, e.g. `"books"`. Can be an array of store names if we’re going to access multiple stores.
--   `type` – a transaction type, one of:
-    -   `readonly` – can only read, the default.
-    -   `readwrite` – can only read and write the data, but not create/remove/alter object stores.
+- `store` is a store name that the transaction is going to access, e.g. `"books"`. Can be an array of store names if we’re going to access multiple stores.
+- `type` – a transaction type, one of:
+  - `readonly` – can only read, the default.
+  - `readwrite` – can only read and write the data, but not create/remove/alter object stores.
 
 There’s also `versionchange` transaction type: such transactions can do everything, but we can’t create them manually. IndexedDB automatically creates a `versionchange` transaction when opening the database, for `updateneeded` handler. That’s why it’s a single place where we can update the database structure, create/remove object stores.
 
@@ -316,14 +311,14 @@ There were basically four steps:
 
 Object stores support two methods to store a value:
 
--   **put(value, \[key\])** Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there’s already a value with the same key, it will be replaced.
+- **put(value, \[key\])** Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there’s already a value with the same key, it will be replaced.
 
--   **add(value, \[key\])** Same as `put`, but if there’s already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
+- **add(value, \[key\])** Same as `put`, but if there’s already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
 
 Similar to opening a database, we can send a request: `books.add(book)`, and then wait for `success/error` events.
 
--   The `request.result` for `add` is the key of the new object.
--   The error is in `request.error` (if any).
+- The `request.result` for `add` is the key of the new object.
+- The error is in `request.error` (if any).
 
 ## <a href="#transactions-autocommit" id="transactions-autocommit" class="main__anchor">Transactions’ autocommit</a>
 
@@ -467,20 +462,20 @@ Searching methods support both exact key values and so-called “ranges of value
 
 `IDBKeyRange` objects are created using following calls:
 
--   `IDBKeyRange.lowerBound(lower, [open])` means: `≥lower` (or `>lower` if `open` is true)
--   `IDBKeyRange.upperBound(upper, [open])` means: `≤upper` (or `<upper` if `open` is true)
--   `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` means: between `lower` and `upper`. If the open flags is true, the corresponding key is not included in the range.
--   `IDBKeyRange.only(key)` – a range that consists of only one `key`, rarely used.
+- `IDBKeyRange.lowerBound(lower, [open])` means: `≥lower` (or `>lower` if `open` is true)
+- `IDBKeyRange.upperBound(upper, [open])` means: `≤upper` (or `<upper` if `open` is true)
+- `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` means: between `lower` and `upper`. If the open flags is true, the corresponding key is not included in the range.
+- `IDBKeyRange.only(key)` – a range that consists of only one `key`, rarely used.
 
 We’ll see practical examples of using them very soon.
 
 To perform the actual search, there are following methods. They accept a `query` argument that can be either an exact key or a key range:
 
--   `store.get(query)` – search for the first value by a key or a range.
--   `store.getAll([query], [count])` – search for all values, limit by `count` if given.
--   `store.getKey(query)` – search for the first key that satisfies the query, usually a range.
--   `store.getAllKeys([query], [count])` – search for all keys that satisfy the query, usually a range, up to `count` if given.
--   `store.count([query])` – get the total count of keys that satisfy the query, usually a range.
+- `store.get(query)` – search for the first value by a key or a range.
+- `store.getAll([query], [count])` – search for all values, limit by `count` if given.
+- `store.getKey(query)` – search for the first key that satisfies the query, usually a range.
+- `store.getAllKeys([query], [count])` – search for all keys that satisfy the query, usually a range, up to `count` if given.
+- `store.count([query])` – get the total count of keys that satisfy the query, usually a range.
 
 For instance, we have a lot of books in our store. Remember, the `id` field is the key, so all these methods can search by `id`.
 
@@ -517,11 +512,11 @@ The syntax:
 
     objectStore.createIndex(name, keyPath, [options]);
 
--   **`name`** – index name,
--   **`keyPath`** – path to the object field that the index should track (we’re going to search by that field),
--   **`option`** – an optional object with properties:
-    -   **`unique`** – if true, then there may be only one object in the store with the given value at the `keyPath`. The index will enforce that by generating an error if we try to add a duplicate.
-    -   **`multiEntry`** – only used if the value on `keyPath` is an array. In that case, by default, the index will treat the whole array as the key. But if `multiEntry` is true, then the index will keep a list of store objects for each value in that array. So array members become index keys.
+- **`name`** – index name,
+- **`keyPath`** – path to the object field that the index should track (we’re going to search by that field),
+- **`option`** – an optional object with properties:
+  - **`unique`** – if true, then there may be only one object in the store with the given value at the `keyPath`. The index will enforce that by generating an error if we try to add a duplicate.
+  - **`multiEntry`** – only used if the value on `keyPath` is an array. In that case, by default, the index will treat the whole array as the key. But if `multiEntry` is true, then the index will keep a list of store objects for each value in that array. So array members become index keys.
 
 In our example, we store books keyed by `id`.
 
@@ -535,9 +530,9 @@ First, we need to create an index. It must be done in `upgradeneeded`, just like
       let index = books.createIndex('price_idx', 'price');
     };
 
--   The index will track `price` field.
--   The price is not unique, there may be multiple books with the same price, so we don’t set `unique` option.
--   The price is not an array, so `multiEntry` flag is not applicable.
+- The index will track `price` field.
+- The price is not unique, there may be multiple books with the same price, so we don’t set `unique` option.
+- The price is not an array, so `multiEntry` flag is not applicable.
 
 Imagine that our `inventory` has 4 books. Here’s the picture that shows exactly what the `index` is:
 
@@ -574,7 +569,7 @@ Indexes are internally sorted by the tracked object field, `price` in our case. 
 
 The `delete` method looks up values to delete by a query, the call format is similar to `getAll`:
 
--   **`delete(query)`** – delete matching values by query.
+- **`delete(query)`** – delete matching values by query.
 
 For instance:
 
@@ -605,7 +600,7 @@ What to do?
 
 Cursors provide the means to work around that.
 
-**A *cursor* is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.**
+**A _cursor_ is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.**
 
 As an object store is sorted internally by key, a cursor walks the store in key order (ascending by default).
 
@@ -616,11 +611,11 @@ The syntax:
 
     // to get keys, not values (like getAllKeys): store.openKeyCursor
 
--   **`query`** is a key or a key range, same as for `getAll`.
--   **`direction`** is an optional argument, which order to use:
-    -   `"next"` – the default, the cursor walks up from the record with the lowest key.
-    -   `"prev"` – the reverse order: down from the record with the biggest key.
-    -   `"nextunique"`, `"prevunique"` – same as above, but skip records with the same key (only for cursors over indexes, e.g. for multiple books with price=5 only the first one will be returned).
+- **`query`** is a key or a key range, same as for `getAll`.
+- **`direction`** is an optional argument, which order to use:
+  - `"next"` – the default, the cursor walks up from the record with the lowest key.
+  - `"prev"` – the reverse order: down from the record with the biggest key.
+  - `"nextunique"`, `"prevunique"` – same as above, but skip records with the same key (only for cursors over indexes, e.g. for multiple books with price=5 only the first one will be returned).
 
 **The main difference of the cursor is that `request.onsuccess` triggers multiple times: once for each result.**
 
@@ -646,8 +641,8 @@ Here’s an example of how to use a cursor:
 
 The main cursor methods are:
 
--   `advance(count)` – advance the cursor `count` times, skipping values.
--   `continue([key])` – advance the cursor to the next value in range matching (or immediately after `key` if given).
+- `advance(count)` – advance the cursor `count` times, skipping values.
+- `continue([key])` – advance the cursor to the next value in range matching (or immediately after `key` if given).
 
 Whether there are more values matching the cursor or not – `onsuccess` gets called, and then in `result` we can get the cursor pointing to the next record, or `undefined`.
 
@@ -720,7 +715,7 @@ We can handle such errors like this:
 
 ### <a href="#inactive-transaction-pitfall" id="inactive-transaction-pitfall" class="main__anchor">“Inactive transaction” pitfall</a>
 
-As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a *macrotask* like `fetch` in the middle of a transaction, then the transaction won’t wait for it to finish. It just auto-commits. So the next request in it would fail.
+As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a _macrotask_ like `fetch` in the middle of a transaction, then the transaction won’t wait for it to finish. It just auto-commits. So the next request in it would fail.
 
 For a promise wrapper and `async/await` the situation is the same.
 
@@ -769,12 +764,12 @@ The basic usage can be described with a few phrases:
 
 1.  Get a promise wrapper like [idb](https://github.com/jakearchibald/idb).
 2.  Open a database: `idb.openDb(name, version, onupgradeneeded)`
-    -   Create object storages and indexes in `onupgradeneeded` handler or perform version update if needed.
+    - Create object storages and indexes in `onupgradeneeded` handler or perform version update if needed.
 3.  For requests:
-    -   Create transaction `db.transaction('books')` (readwrite if needed).
-    -   Get the object store `transaction.objectStore('books')`.
+    - Create transaction `db.transaction('books')` (readwrite if needed).
+    - Get the object store `transaction.objectStore('books')`.
 4.  Then, to search by a key, call methods on the object store directly.
-    -   To search by an object field, create an index.
+    - To search by an object field, create an index.
 5.  If the data does not fit in memory, use a cursor.
 
 Here’s a small demo app:
@@ -866,30 +861,30 @@ index.html
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
+- <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
 
 #### Lesson navigation
 
--   <a href="#open-database" class="sidebar__link">Open database</a>
--   <a href="#object-store" class="sidebar__link">Object store</a>
--   <a href="#transactions" class="sidebar__link">Transactions</a>
--   <a href="#transactions-autocommit" class="sidebar__link">Transactions’ autocommit</a>
--   <a href="#error-handling" class="sidebar__link">Error handling</a>
--   <a href="#searching" class="sidebar__link">Searching</a>
--   <a href="#deleting-from-store" class="sidebar__link">Deleting from store</a>
--   <a href="#cursors" class="sidebar__link">Cursors</a>
--   <a href="#promise-wrapper" class="sidebar__link">Promise wrapper</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#open-database" class="sidebar__link">Open database</a>
+- <a href="#object-store" class="sidebar__link">Object store</a>
+- <a href="#transactions" class="sidebar__link">Transactions</a>
+- <a href="#transactions-autocommit" class="sidebar__link">Transactions’ autocommit</a>
+- <a href="#error-handling" class="sidebar__link">Error handling</a>
+- <a href="#searching" class="sidebar__link">Searching</a>
+- <a href="#deleting-from-store" class="sidebar__link">Deleting from store</a>
+- <a href="#cursors" class="sidebar__link">Cursors</a>
+- <a href="#promise-wrapper" class="sidebar__link">Promise wrapper</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -897,8 +892,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/6-data-storage/03-indexeddb" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

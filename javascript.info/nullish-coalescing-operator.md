@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fnullish-coalescing-operator" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fnullish-coalescing-operator" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,8 +32,8 @@ As it treats `null` and `undefined` similarly, we’ll use a special term here, 
 
 The result of `a ?? b` is:
 
--   if `a` is defined, then `a`,
--   if `a` isn’t defined, then `b`.
+- if `a` is defined, then `a`,
+- if `a` isn’t defined, then `b`.
 
 In other words, `??` returns the first argument if it’s not `null/undefined`. Otherwise, the second one.
 
@@ -114,8 +109,8 @@ On the other hand, the nullish coalescing operator `??` was added to JavaScript 
 
 The important difference between them is that:
 
--   `||` returns the first *truthy* value.
--   `??` returns the first *defined* value.
+- `||` returns the first _truthy_ value.
+- `??` returns the first _defined_ value.
 
 In other words, `||` doesn’t distinguish between `false`, `0`, an empty string `""` and `null/undefined`. They are all the same – falsy values. If any of these is the first argument of `||`, then we’ll get the second argument as the result.
 
@@ -132,10 +127,10 @@ For example, consider this:
     alert(height || 100); // 100
     alert(height ?? 100); // 0
 
--   The `height || 100` checks `height` for being a falsy value, and it’s `0`, falsy indeed.
-    -   so the result of `||` is the second argument, `100`.
--   The `height ?? 100` checks `height` for being `null/undefined`, and it’s not,
-    -   so the result is `height` “as is”, that is `0`.
+- The `height || 100` checks `height` for being a falsy value, and it’s `0`, falsy indeed.
+  - so the result of `||` is the second argument, `100`.
+- The `height ?? 100` checks `height` for being `null/undefined`, and it’s not,
+  - so the result is `height` “as is”, that is `0`.
 
 In practice, the zero height is often a valid value, that shouldn’t be replaced with the default. So `??` does just the right thing.
 
@@ -193,16 +188,16 @@ Use explicit parentheses to work around it:
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   The nullish coalescing operator `??` provides a short way to choose the first “defined” value from a list.
+- The nullish coalescing operator `??` provides a short way to choose the first “defined” value from a list.
 
-    It’s used to assign default values to variables:
+  It’s used to assign default values to variables:
 
-        // set height=100, if height is null or undefined
-        height = height ?? 100;
+      // set height=100, if height is null or undefined
+      height = height ?? 100;
 
--   The operator `??` has a very low precedence, only a bit higher than `?` and `=`, so consider adding parentheses when using it in an expression.
+- The operator `??` has a very low precedence, only a bit higher than `?` and `=`, so consider adding parentheses when using it in an expression.
 
--   It’s forbidden to use it with `||` or `&&` without explicit parentheses.
+- It’s forbidden to use it with `||` or `&&` without explicit parentheses.
 
 <a href="/logical-operators" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/while-for" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -214,23 +209,23 @@ Use explicit parentheses to work around it:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#comparison-with" class="sidebar__link">Comparison with ||</a>
--   <a href="#precedence" class="sidebar__link">Precedence</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#comparison-with" class="sidebar__link">Comparison with ||</a>
+- <a href="#precedence" class="sidebar__link">Precedence</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -238,8 +233,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/12-nullish-coalescing-operator" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

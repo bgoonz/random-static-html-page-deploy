@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fonload-ondomcontentloaded" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fonload-ondomcontentloaded" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -29,16 +24,16 @@ Search
 
 The lifecycle of an HTML page has three important events:
 
--   `DOMContentLoaded` – the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures `<img>` and stylesheets may not yet have loaded.
--   `load` – not only HTML is loaded, but also all the external resources: images, styles etc.
--   `beforeunload/unload` – the user is leaving the page.
+- `DOMContentLoaded` – the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures `<img>` and stylesheets may not yet have loaded.
+- `load` – not only HTML is loaded, but also all the external resources: images, styles etc.
+- `beforeunload/unload` – the user is leaving the page.
 
 Each event may be useful:
 
--   `DOMContentLoaded` event – DOM is ready, so the handler can lookup DOM nodes, initialize the interface.
--   `load` event – external resources are loaded, so styles are applied, image sizes are known etc.
--   `beforeunload` event – the user is leaving: we can check if the user saved the changes and ask them whether they really want to leave.
--   `unload` – the user almost left, but we still can initiate some operations, such as sending out statistics.
+- `DOMContentLoaded` event – DOM is ready, so the handler can lookup DOM nodes, initialize the interface.
+- `load` event – external resources are loaded, so styles are applied, image sizes are known etc.
+- `beforeunload` event – the user is leaving: we can check if the user saved the changes and ask them whether they really want to leave.
+- `unload` – the user almost left, but we still can initiate some operations, such as sending out statistics.
 
 Let’s explore the details of these events.
 
@@ -178,9 +173,9 @@ Here’s how to use it:
       navigator.sendBeacon("/analytics", JSON.stringify(analyticsData));
     });
 
--   The request is sent as POST.
--   We can send not only a string, but also forms and other formats, as described in the chapter [Fetch](/fetch), but usually it’s a stringified object.
--   The data is limited by 64kb.
+- The request is sent as POST.
+- We can send not only a string, but also forms and other formats, as described in the chapter [Fetch](/fetch), but usually it’s a stringified object.
+- The data is limited by 64kb.
 
 When the `sendBeacon` request is finished, the browser probably has already left the document, so there’s no way to get server response (which is usually empty for analytics).
 
@@ -256,9 +251,9 @@ The `document.readyState` property tells us about the current loading state.
 
 There are 3 possible values:
 
--   `"loading"` – the document is loading.
--   `"interactive"` – the document was fully read.
--   `"complete"` – the document was fully read and all resources (like images) are loaded too.
+- `"loading"` – the document is loading.
+- `"interactive"` – the document was fully read.
+- `"complete"` – the document was fully read and all resources (like images) are loaded too.
 
 So we can check `document.readyState` and setup a handler or execute the code immediately if it’s ready.
 
@@ -322,23 +317,23 @@ The typical output:
 
 The numbers in square brackets denote the approximate time of when it happens. Events labeled with the same digit happen approximately at the same time (± a few ms).
 
--   `document.readyState` becomes `interactive` right before `DOMContentLoaded`. These two things actually mean the same.
--   `document.readyState` becomes `complete` when all resources (`iframe` and `img`) are loaded. Here we can see that it happens in about the same time as `img.onload` (`img` is the last resource) and `window.onload`. Switching to `complete` state means the same as `window.onload`. The difference is that `window.onload` always works after all other `load` handlers.
+- `document.readyState` becomes `interactive` right before `DOMContentLoaded`. These two things actually mean the same.
+- `document.readyState` becomes `complete` when all resources (`iframe` and `img`) are loaded. Here we can see that it happens in about the same time as `img.onload` (`img` is the last resource) and `window.onload`. Switching to `complete` state means the same as `window.onload`. The difference is that `window.onload` always works after all other `load` handlers.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
 Page load events:
 
--   The `DOMContentLoaded` event triggers on `document` when the DOM is ready. We can apply JavaScript to elements at this stage.
-    -   Script such as `<script>...</script>` or `<script src="..."></script>` block DOMContentLoaded, the browser waits for them to execute.
-    -   Images and other resources may also still continue loading.
--   The `load` event on `window` triggers when the page and all resources are loaded. We rarely use it, because there’s usually no need to wait for so long.
--   The `beforeunload` event on `window` triggers when the user wants to leave the page. If we cancel the event, browser asks whether the user really wants to leave (e.g we have unsaved changes).
--   The `unload` event on `window` triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it’s rarely used. We can send out a network request with `navigator.sendBeacon`.
--   `document.readyState` is the current state of the document, changes can be tracked in the `readystatechange` event:
-    -   `loading` – the document is loading.
-    -   `interactive` – the document is parsed, happens at about the same time as `DOMContentLoaded`, but before it.
-    -   `complete` – the document and resources are loaded, happens at about the same time as `window.onload`, but before it.
+- The `DOMContentLoaded` event triggers on `document` when the DOM is ready. We can apply JavaScript to elements at this stage.
+  - Script such as `<script>...</script>` or `<script src="..."></script>` block DOMContentLoaded, the browser waits for them to execute.
+  - Images and other resources may also still continue loading.
+- The `load` event on `window` triggers when the page and all resources are loaded. We rarely use it, because there’s usually no need to wait for so long.
+- The `beforeunload` event on `window` triggers when the user wants to leave the page. If we cancel the event, browser asks whether the user really wants to leave (e.g we have unsaved changes).
+- The `unload` event on `window` triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it’s rarely used. We can send out a network request with `navigator.sendBeacon`.
+- `document.readyState` is the current state of the document, changes can be tracked in the `readystatechange` event:
+  - `loading` – the document is loading.
+  - `interactive` – the document is parsed, happens at about the same time as `DOMContentLoaded`, but before it.
+  - `complete` – the document and resources are loaded, happens at about the same time as `window.onload`, but before it.
 
 <a href="/loading" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/script-async-defer" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -350,26 +345,26 @@ Page load events:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/loading" class="sidebar__link">Document and resource loading</a>
+- <a href="/loading" class="sidebar__link">Document and resource loading</a>
 
 #### Lesson navigation
 
--   <a href="#domcontentloaded" class="sidebar__link">DOMContentLoaded</a>
--   <a href="#window-onload" class="sidebar__link">window.onload</a>
--   <a href="#window-onunload" class="sidebar__link">window.onunload</a>
--   <a href="#window.onbeforeunload" class="sidebar__link">window.onbeforeunload</a>
--   <a href="#readystate" class="sidebar__link">readyState</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#domcontentloaded" class="sidebar__link">DOMContentLoaded</a>
+- <a href="#window-onload" class="sidebar__link">window.onload</a>
+- <a href="#window-onunload" class="sidebar__link">window.onunload</a>
+- <a href="#window.onbeforeunload" class="sidebar__link">window.onbeforeunload</a>
+- <a href="#readystate" class="sidebar__link">readyState</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -377,8 +372,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/5-loading/01-onload-ondomcontentloaded" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

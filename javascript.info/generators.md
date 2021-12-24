@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fgenerators" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fgenerators" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -69,8 +64,8 @@ The main method of a generator is `next()`. When called, it runs the execution u
 
 The result of `next()` is always an object with two properties:
 
--   `value`: the yielded value.
--   `done`: `true` if the function code has finished, otherwise `false`.
+- `value`: the yielded value.
+- `done`: `true` if the function code has finished, otherwise `false`.
 
 For instance, here we create the generator and get its first yielded value:
 
@@ -243,8 +238,8 @@ Here’s the same `range`, but much more compact:
 
 That works, because `range[Symbol.iterator]()` now returns a generator, and generator methods are exactly what `for..of` expects:
 
--   it has a `.next()` method
--   that returns values in the form `{value: ..., done: true/false}`
+- it has a `.next()` method
+- that returns values in the form `{value: ..., done: true/false}`
 
 That’s not a coincidence, of course. Generators were added to JavaScript language with iterators in mind, to implement them easily.
 
@@ -268,9 +263,9 @@ For instance, we have a function that generates a sequence of numbers:
 
 Now we’d like to reuse it to generate a more complex sequence:
 
--   first, digits `0..9` (with character codes 48…57),
--   followed by uppercase alphabet letters `A..Z` (character codes 65…90)
--   followed by lowercase alphabet letters `a..z` (character codes 97…122)
+- first, digits `0..9` (with character codes 48…57),
+- followed by uppercase alphabet letters `A..Z` (character codes 65…90)
+- followed by lowercase alphabet letters `a..z` (character codes 97…122)
 
 We can use this sequence e.g. to create passwords by selecting characters from it (could add syntax characters as well), but let’s generate it first.
 
@@ -309,7 +304,7 @@ The composed generator:
 
     alert(str); // 0..9A..Za..z
 
-The `yield*` directive *delegates* the execution to another generator. This term means that `yield* gen` iterates over the generator `gen` and transparently forwards its yields outside. As if the values were yielded by the outer generator.
+The `yield*` directive _delegates_ the execution to another generator. This term means that `yield* gen` iterates over the generator `gen` and transparently forwards its yields outside. As if the values were yielded by the outer generator.
 
 The result is the same as if we inlined the code from nested generators:
 
@@ -500,9 +495,9 @@ Often we don’t use it, as most of time we want to get all returning values, bu
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Generators are created by generator functions `function* f(…) {…}`.
--   Inside generators (only) there exists a `yield` operator.
--   The outer code and the generator may exchange results via `next/yield` calls.
+- Generators are created by generator functions `function* f(…) {…}`.
+- Inside generators (only) there exists a `yield` operator.
+- The outer code and the generator may exchange results via `next/yield` calls.
 
 In modern JavaScript, generators are rarely used. But sometimes they come in handy, because the ability of a function to exchange data with the calling code during the execution is quite unique. And, surely, they are great for making iterable objects.
 
@@ -604,29 +599,29 @@ That also works. But then we lose ability to iterate with `for..of` and to use g
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/generators-iterators" class="sidebar__link">Generators, advanced iteration</a>
+- <a href="/generators-iterators" class="sidebar__link">Generators, advanced iteration</a>
 
 #### Lesson navigation
 
--   <a href="#generator-functions" class="sidebar__link">Generator functions</a>
--   <a href="#generators-are-iterable" class="sidebar__link">Generators are iterable</a>
--   <a href="#using-generators-for-iterables" class="sidebar__link">Using generators for iterables</a>
--   <a href="#generator-composition" class="sidebar__link">Generator composition</a>
--   <a href="#yield-is-a-two-way-street" class="sidebar__link">“yield” is a two-way street</a>
--   <a href="#generator-throw" class="sidebar__link">generator.throw</a>
--   <a href="#generator-return" class="sidebar__link">generator.return</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#generator-functions" class="sidebar__link">Generator functions</a>
+- <a href="#generators-are-iterable" class="sidebar__link">Generators are iterable</a>
+- <a href="#using-generators-for-iterables" class="sidebar__link">Using generators for iterables</a>
+- <a href="#generator-composition" class="sidebar__link">Generator composition</a>
+- <a href="#yield-is-a-two-way-street" class="sidebar__link">“yield” is a two-way street</a>
+- <a href="#generator-throw" class="sidebar__link">generator.throw</a>
+- <a href="#generator-return" class="sidebar__link">generator.return</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -634,8 +629,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/12-generators-iterators/1-generators" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

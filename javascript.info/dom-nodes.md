@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdom-nodes" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdom-nodes" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -47,9 +42,9 @@ Running this code will make the `<body>` red for 3 seconds:
 
 Here we used `style.background` to change the background color of `document.body`, but there are many other properties, such as:
 
--   `innerHTML` – HTML contents of the node.
--   `offsetWidth` – the node width (in pixels)
--   …and so on.
+- `innerHTML` – HTML contents of the node.
+- `offsetWidth` – the node width (in pixels)
+- …and so on.
 
 Soon we’ll learn more ways to manipulate the DOM, but first we need to know about its structure.
 
@@ -77,16 +72,16 @@ On the picture above, you can click on element nodes and their children will ope
 
 Every tree node is an object.
 
-Tags are *element nodes* (or just elements) and form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
+Tags are _element nodes_ (or just elements) and form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
 
-The text inside elements forms *text nodes*, labelled as `#text`. A text node contains only a string. It may not have children and is always a leaf of the tree.
+The text inside elements forms _text nodes_, labelled as `#text`. A text node contains only a string. It may not have children and is always a leaf of the tree.
 
 For instance, the `<title>` tag has the text `"About elk"`.
 
 Please note the special characters in text nodes:
 
--   a newline: `↵` (in JavaScript known as `\n`)
--   a space: `␣`
+- a newline: `↵` (in JavaScript known as `\n`)
+- a space: `␣`
 
 Spaces and newlines are totally valid characters, like letters and digits. They form text nodes and become a part of the DOM. So, for instance, in the example above the `<head>` tag contains some spaces before `<title>`, and that text becomes a `#text` node (it contains a newline and some spaces only).
 
@@ -159,7 +154,7 @@ For example, comments:
     </body>
     </html>
 
-We can see here a new tree node type – *comment node*, labeled as `#comment`, between two text nodes.
+We can see here a new tree node type – _comment node_, labeled as `#comment`, between two text nodes.
 
 We may think – why is a comment added to the DOM? It doesn’t affect the visual representation in any way. But there’s a rule – if something’s in HTML, then it also must be in the DOM tree.
 
@@ -200,10 +195,10 @@ Another way to do it would be just right-clicking on a webpage and selecting “
 
 At the right part of the tools there are the following subtabs:
 
--   **Styles** – we can see CSS applied to the current element rule by rule, including built-in rules (gray). Almost everything can be edited in-place, including the dimensions/margins/paddings of the box below.
--   **Computed** – to see CSS applied to the element by property: for each property we can see a rule that gives it (including CSS inheritance and such).
--   **Event Listeners** – to see event listeners attached to DOM elements (we’ll cover them in the next part of the tutorial).
--   …and so on.
+- **Styles** – we can see CSS applied to the current element rule by rule, including built-in rules (gray). Almost everything can be edited in-place, including the dimensions/margins/paddings of the box below.
+- **Computed** – to see CSS applied to the element by property: for each property we can see a rule that gives it (including CSS inheritance and such).
+- **Event Listeners** – to see event listeners attached to DOM elements (we’ll cover them in the next part of the tutorial).
+- …and so on.
 
 The best way to study them is to click around. Most values are editable in-place.
 
@@ -238,9 +233,9 @@ The browser developer tools are a great help in development: we can explore the 
 
 An HTML/XML document is represented inside the browser as the DOM tree.
 
--   Tags become element nodes and form the structure.
--   Text becomes text nodes.
--   …etc, everything in HTML has its place in DOM, even comments.
+- Tags become element nodes and form the structure.
+- Text becomes text nodes.
+- …etc, everything in HTML has its place in DOM, even comments.
 
 We can use developer tools to inspect DOM and modify it manually.
 
@@ -258,26 +253,26 @@ DOM nodes have properties and methods that allow us to travel between them, modi
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/document" class="sidebar__link">Document</a>
+- <a href="/document" class="sidebar__link">Document</a>
 
 #### Lesson navigation
 
--   <a href="#an-example-of-the-dom" class="sidebar__link">An example of the DOM</a>
--   <a href="#autocorrection" class="sidebar__link">Autocorrection</a>
--   <a href="#other-node-types" class="sidebar__link">Other node types</a>
--   <a href="#see-it-for-yourself" class="sidebar__link">See it for yourself</a>
--   <a href="#interaction-with-console" class="sidebar__link">Interaction with console</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#an-example-of-the-dom" class="sidebar__link">An example of the DOM</a>
+- <a href="#autocorrection" class="sidebar__link">Autocorrection</a>
+- <a href="#other-node-types" class="sidebar__link">Other node types</a>
+- <a href="#see-it-for-yourself" class="sidebar__link">See it for yourself</a>
+- <a href="#interaction-with-console" class="sidebar__link">Interaction with console</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -285,8 +280,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/02-dom-nodes" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

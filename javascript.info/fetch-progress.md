@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -18,7 +14,6 @@ Search
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffetch-progress" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffetch-progress" class="share share_fb"></a>
 
-
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/network" class="breadcrumbs__link"><span>Network requests</span></a></span>
 
@@ -26,9 +21,9 @@ Search
 
 # Fetch: Download progress
 
-The `fetch` method allows to track *download* progress.
+The `fetch` method allows to track _download_ progress.
 
-Please note: there’s currently no way for `fetch` to track *upload* progress. For that purpose, please use [XMLHttpRequest](/xmlhttprequest), we’ll cover it later.
+Please note: there’s currently no way for `fetch` to track _upload_ progress. For that purpose, please use [XMLHttpRequest](/xmlhttprequest), we’ll cover it later.
 
 To track download progress, we can use `response.body` property. It’s a `ReadableStream` – a special object that provides body chunk-by-chunk, as it comes. Readable streams are described in the [Streams API](https://streams.spec.whatwg.org/#rs-class) specification.
 
@@ -54,8 +49,8 @@ Here’s the sketch of code that reads the response from `response.body`:
 
 The result of `await reader.read()` call is an object with two properties:
 
--   **`done`** – `true` when the reading is complete, otherwise `false`.
--   **`value`** – a typed array of bytes: `Uint8Array`.
+- **`done`** – `true` when the reading is complete, otherwise `false`.
+- **`value`** – a typed array of bytes: `Uint8Array`.
 
 <span class="important__type">Please note:</span>
 
@@ -139,7 +134,7 @@ Let’s explain that step-by-step:
 
 At the end we have the result (as a string or a blob, whatever is convenient), and progress-tracking in the process.
 
-Once again, please note, that’s not for *upload* progress (no way now with `fetch`), only for *download* progress.
+Once again, please note, that’s not for _upload_ progress (no way now with `fetch`), only for _download_ progress.
 
 Also, if the size is unknown, we should check `receivedLength` in the loop and break it once it reaches a certain limit. So that the `chunks` won’t overflow the memory.
 
@@ -153,17 +148,17 @@ Also, if the size is unknown, we should check `receivedLength` in the loop and b
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/network" class="sidebar__link">Network requests</a>
+- <a href="/network" class="sidebar__link">Network requests</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -171,8 +166,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/5-network/03-fetch-progress" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fmouse-events-basics" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fmouse-events-basics" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -89,9 +84,9 @@ Also there’s `event.buttons` property that has all currently pressed buttons a
 
 Old code may use `event.which` property that’s an old non-standard way of getting a button, with possible values:
 
--   `event.which == 1` – left button,
--   `event.which == 2` – middle button,
--   `event.which == 3` – right button.
+- `event.which == 1` – left button,
+- `event.which == 2` – middle button,
+- `event.which == 3` – right button.
 
 As of now, `event.which` is deprecated, we shouldn’t use it.
 
@@ -101,10 +96,10 @@ All mouse events include the information about pressed modifier keys.
 
 Event properties:
 
--   `shiftKey`: <span class="kbd shortcut">Shift</span>
--   `altKey`: <span class="kbd shortcut">Alt</span> (or <span class="kbd shortcut">Opt</span> for Mac)
--   `ctrlKey`: <span class="kbd shortcut">Ctrl</span>
--   `metaKey`: <span class="kbd shortcut">Cmd</span> for Mac
+- `shiftKey`: <span class="kbd shortcut">Shift</span>
+- `altKey`: <span class="kbd shortcut">Alt</span> (or <span class="kbd shortcut">Opt</span> for Mac)
+- `ctrlKey`: <span class="kbd shortcut">Ctrl</span>
+- `metaKey`: <span class="kbd shortcut">Cmd</span> for Mac
 
 They are `true` if the corresponding key was pressed during the event.
 
@@ -130,7 +125,7 @@ That is: where a Windows user presses <span class="kbd shortcut">Ctrl<span class
 
 So if we want to support combinations like <span class="kbd shortcut">Ctrl</span>+click, then for Mac it makes sense to use <span class="kbd shortcut">Cmd</span>+click. That’s more comfortable for Mac users.
 
-Even if we’d like to force Mac users to <span class="kbd shortcut">Ctrl</span>+click – that’s kind of difficult. The problem is: a left-click with <span class="kbd shortcut">Ctrl</span> is interpreted as a *right-click* on MacOS, and it generates the `contextmenu` event, not `click` like Windows/Linux.
+Even if we’d like to force Mac users to <span class="kbd shortcut">Ctrl</span>+click – that’s kind of difficult. The problem is: a left-click with <span class="kbd shortcut">Ctrl</span> is interpreted as a _right-click_ on MacOS, and it generates the `contextmenu` event, not `click` like Windows/Linux.
 
 So if we want users of all operating systems to feel comfortable, then together with `ctrlKey` we should check `metaKey`.
 
@@ -203,15 +198,15 @@ Surely the user has access to HTML-source of the page, and can take the content 
 
 Mouse events have the following properties:
 
--   Button: `button`.
+- Button: `button`.
 
--   Modifier keys (`true` if pressed): `altKey`, `ctrlKey`, `shiftKey` and `metaKey` (Mac).
+- Modifier keys (`true` if pressed): `altKey`, `ctrlKey`, `shiftKey` and `metaKey` (Mac).
 
-    -   If you want to handle <span class="kbd shortcut">Ctrl</span>, then don’t forget Mac users, they usually use <span class="kbd shortcut">Cmd</span>, so it’s better to check `if (e.metaKey || e.ctrlKey)`.
+  - If you want to handle <span class="kbd shortcut">Ctrl</span>, then don’t forget Mac users, they usually use <span class="kbd shortcut">Cmd</span>, so it’s better to check `if (e.metaKey || e.ctrlKey)`.
 
--   Window-relative coordinates: `clientX/clientY`.
+- Window-relative coordinates: `clientX/clientY`.
 
--   Document-relative coordinates: `pageX/pageY`.
+- Document-relative coordinates: `pageX/pageY`.
 
 The default browser action of `mousedown` is text selection, if it’s not good for the interface, then it should be prevented.
 
@@ -227,18 +222,18 @@ In the next chapter we’ll see more details about events that follow pointer mo
 
 Create a list where elements are selectable, like in file-managers.
 
--   A click on a list element selects only that element (adds the class `.selected`), deselects all others.
--   If a click is made with <span class="kbd shortcut">Ctrl</span> (<span class="kbd shortcut">Cmd</span> for Mac), then the selection is toggled on the element, but other elements are not modified.
+- A click on a list element selects only that element (adds the class `.selected`), deselects all others.
+- If a click is made with <span class="kbd shortcut">Ctrl</span> (<span class="kbd shortcut">Cmd</span> for Mac), then the selection is toggled on the element, but other elements are not modified.
 
 The demo:
 
-Click on a list item to select it.  
+Click on a list item to select it.
 
--   Christopher Robin
--   Winnie-the-Pooh
--   Tigger
--   Kanga
--   Rabbit. Just rabbit.
+- Christopher Robin
+- Winnie-the-Pooh
+- Tigger
+- Kanga
+- Rabbit. Just rabbit.
 
 P.S. For this task we can assume that list items are text-only. No nested tags.
 
@@ -260,28 +255,28 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/event-details" class="sidebar__link">UI Events</a>
+- <a href="/event-details" class="sidebar__link">UI Events</a>
 
 #### Lesson navigation
 
--   <a href="#mouse-event-types" class="sidebar__link">Mouse event types</a>
--   <a href="#events-order" class="sidebar__link">Events order</a>
--   <a href="#mouse-button" class="sidebar__link">Mouse button</a>
--   <a href="#modifiers-shift-alt-ctrl-and-meta" class="sidebar__link">Modifiers: shift, alt, ctrl and meta</a>
--   <a href="#coordinates-clientx-y-pagex-y" class="sidebar__link">Coordinates: clientX/Y, pageX/Y</a>
--   <a href="#preventing-selection-on-mousedown" class="sidebar__link">Preventing selection on mousedown</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#mouse-event-types" class="sidebar__link">Mouse event types</a>
+- <a href="#events-order" class="sidebar__link">Events order</a>
+- <a href="#mouse-button" class="sidebar__link">Mouse button</a>
+- <a href="#modifiers-shift-alt-ctrl-and-meta" class="sidebar__link">Modifiers: shift, alt, ctrl and meta</a>
+- <a href="#coordinates-clientx-y-pagex-y" class="sidebar__link">Coordinates: clientX/Y, pageX/Y</a>
+- <a href="#preventing-selection-on-mousedown" class="sidebar__link">Preventing selection on mousedown</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -289,8 +284,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/3-event-details/1-mouse-events-basics" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

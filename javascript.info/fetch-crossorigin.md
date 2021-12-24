@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffetch-crossorigin" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffetch-crossorigin" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/network" class="breadcrumbs__link"><span>Network requests</span></a></span>
@@ -42,7 +37,7 @@ For instance, let’s try fetching `http://example.com`:
 
 Fetch fails, as expected.
 
-The core concept here is *origin* – a domain/port/protocol triplet.
+The core concept here is _origin_ – a domain/port/protocol triplet.
 
 Cross-origin requests – those sent to another domain (even a subdomain) or protocol or port – require special headers from the remote side.
 
@@ -130,10 +125,10 @@ A request is safe if it satisfies two conditions:
 
 1.  [Safe method](https://fetch.spec.whatwg.org/#cors-safelisted-method): GET, POST or HEAD
 2.  [Safe headers](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) – the only allowed custom headers are:
-    -   `Accept`,
-    -   `Accept-Language`,
-    -   `Content-Language`,
-    -   `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+    - `Accept`,
+    - `Accept-Language`,
+    - `Content-Language`,
+    - `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
 
 Any other request is considered “unsafe”. For instance, a request with `PUT` method or with an `API-Key` HTTP-header does not fit the limitations.
 
@@ -181,12 +176,12 @@ Here’s an example of a permissive server response:
 
 For cross-origin request, by default JavaScript may only access so-called “safe” response headers:
 
--   `Cache-Control`
--   `Content-Language`
--   `Content-Type`
--   `Expires`
--   `Last-Modified`
--   `Pragma`
+- `Cache-Control`
+- `Content-Language`
+- `Content-Type`
+- `Expires`
+- `Last-Modified`
+- `Pragma`
 
 Accessing any other response header causes an error.
 
@@ -219,15 +214,15 @@ So, to avoid misunderstandings, any “unsafe” request – that couldn’t be 
 
 A preflight request uses the method `OPTIONS`, no body and two headers:
 
--   `Access-Control-Request-Method` header has the method of the unsafe request.
--   `Access-Control-Request-Headers` header provides a comma-separated list of its unsafe HTTP-headers.
+- `Access-Control-Request-Method` header has the method of the unsafe request.
+- `Access-Control-Request-Headers` header provides a comma-separated list of its unsafe HTTP-headers.
 
 If the server agrees to serve the requests, then it should respond with empty body, status 200 and headers:
 
--   `Access-Control-Allow-Origin` must be either `*` or the requesting origin, such as `https://javascript.info`, to allow it.
--   `Access-Control-Allow-Methods` must have the allowed method.
--   `Access-Control-Allow-Headers` must have a list of allowed headers.
--   Additionally, the header `Access-Control-Max-Age` may specify a number of seconds to cache the permissions. So the browser won’t have to send a preflight for subsequent requests that satisfy given permissions.
+- `Access-Control-Allow-Origin` must be either `*` or the requesting origin, such as `https://javascript.info`, to allow it.
+- `Access-Control-Allow-Methods` must have the allowed method.
+- `Access-Control-Allow-Headers` must have a list of allowed headers.
+- Additionally, the header `Access-Control-Max-Age` may specify a number of seconds to cache the permissions. So the browser won’t have to send a preflight for subsequent requests that satisfy given permissions.
 
 <figure><img src="/article/fetch-crossorigin/xhr-preflight.svg" width="620" height="633" /></figure>
 
@@ -243,9 +238,9 @@ Let’s see how it works step-by-step on the example of a cross-origin `PATCH` r
 
 There are three reasons why the request is unsafe (one is enough):
 
--   Method `PATCH`
--   `Content-Type` is not one of: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
--   “Unsafe” `API-Key` header.
+- Method `PATCH`
+- `Content-Type` is not one of: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
+- “Unsafe” `API-Key` header.
 
 ### <a href="#step-1-preflight-request" id="step-1-preflight-request" class="main__anchor">Step 1 (preflight request)</a>
 
@@ -257,20 +252,20 @@ Prior to sending such a request, the browser, on its own, sends a preflight requ
     Access-Control-Request-Method: PATCH
     Access-Control-Request-Headers: Content-Type,API-Key
 
--   Method: `OPTIONS`.
--   The path – exactly the same as the main request: `/service.json`.
--   Cross-origin special headers:
-    -   `Origin` – the source origin.
-    -   `Access-Control-Request-Method` – requested method.
-    -   `Access-Control-Request-Headers` – a comma-separated list of “unsafe” headers.
+- Method: `OPTIONS`.
+- The path – exactly the same as the main request: `/service.json`.
+- Cross-origin special headers:
+  - `Origin` – the source origin.
+  - `Access-Control-Request-Method` – requested method.
+  - `Access-Control-Request-Headers` – a comma-separated list of “unsafe” headers.
 
 ### <a href="#step-2-preflight-response" id="step-2-preflight-response" class="main__anchor">Step 2 (preflight response)</a>
 
 The server should respond with status 200 and the headers:
 
--   `Access-Control-Allow-Origin: https://javascript.info`
--   `Access-Control-Allow-Methods: PATCH`
--   `Access-Control-Allow-Headers: Content-Type,API-Key`.
+- `Access-Control-Allow-Origin: https://javascript.info`
+- `Access-Control-Allow-Methods: PATCH`
+- `Access-Control-Allow-Headers: Content-Type,API-Key`.
 
 That allows future communication, otherwise an error is triggered.
 
@@ -336,7 +331,7 @@ To send credentials in `fetch`, we need to add the option `credentials: "include
 
 Now `fetch` sends cookies originating from `another.com` with request to that site.
 
-If the server agrees to accept the request *with credentials*, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
+If the server agrees to accept the request _with credentials_, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
 
 For example:
 
@@ -352,12 +347,12 @@ From the browser point of view, there are two kinds of cross-origin requests: �
 
 “Safe” requests must satisfy the following conditions:
 
--   Method: GET, POST or HEAD.
--   Headers – we can set only:
-    -   `Accept`
-    -   `Accept-Language`
-    -   `Content-Language`
-    -   `Content-Type` to the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+- Method: GET, POST or HEAD.
+- Headers – we can set only:
+  - `Accept`
+  - `Accept-Language`
+  - `Content-Language`
+  - `Content-Type` to the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
 
 The essential difference is that safe requests were doable since ancient times using `<form>` or `<script>` tags, while unsafe were impossible for browsers for a long time.
 
@@ -365,25 +360,25 @@ So, the practical difference is that safe requests are sent right away, with the
 
 **For safe requests:**
 
--   → The browser sends the `Origin` header with the origin.
--   ← For requests without credentials (not sent by default), the server should set:
-    -   `Access-Control-Allow-Origin` to `*` or same value as `Origin`
--   ← For requests with credentials, the server should set:
-    -   `Access-Control-Allow-Origin` to same value as `Origin`
-    -   `Access-Control-Allow-Credentials` to `true`
+- → The browser sends the `Origin` header with the origin.
+- ← For requests without credentials (not sent by default), the server should set:
+  - `Access-Control-Allow-Origin` to `*` or same value as `Origin`
+- ← For requests with credentials, the server should set:
+  - `Access-Control-Allow-Origin` to same value as `Origin`
+  - `Access-Control-Allow-Credentials` to `true`
 
 Additionally, to grant JavaScript access to any response headers except `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` or `Pragma`, the server should list the allowed ones in `Access-Control-Expose-Headers` header.
 
 **For unsafe requests, a preliminary “preflight” request is issued before the requested one:**
 
--   → The browser sends an `OPTIONS` request to the same URL, with the headers:
-    -   `Access-Control-Request-Method` has requested method.
-    -   `Access-Control-Request-Headers` lists unsafe requested headers.
--   ← The server should respond with status 200 and the headers:
-    -   `Access-Control-Allow-Methods` with a list of allowed methods,
-    -   `Access-Control-Allow-Headers` with a list of allowed headers,
-    -   `Access-Control-Max-Age` with a number of seconds to cache the permissions.
--   Then the actual request is sent, and the previous “safe” scheme is applied.
+- → The browser sends an `OPTIONS` request to the same URL, with the headers:
+  - `Access-Control-Request-Method` has requested method.
+  - `Access-Control-Request-Headers` lists unsafe requested headers.
+- ← The server should respond with status 200 and the headers:
+  - `Access-Control-Allow-Methods` with a list of allowed methods,
+  - `Access-Control-Allow-Headers` with a list of allowed headers,
+  - `Access-Control-Max-Age` with a number of seconds to cache the permissions.
+- Then the actual request is sent, and the previous “safe” scheme is applied.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -434,28 +429,28 @@ Exactly because `Referer` is unreliable, `Origin` was invented. The browser guar
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/network" class="sidebar__link">Network requests</a>
+- <a href="/network" class="sidebar__link">Network requests</a>
 
 #### Lesson navigation
 
--   <a href="#why-is-cors-needed-a-brief-history" class="sidebar__link">Why is CORS needed? A brief history</a>
--   <a href="#safe-requests" class="sidebar__link">Safe requests</a>
--   <a href="#cors-for-safe-requests" class="sidebar__link">CORS for safe requests</a>
--   <a href="#response-headers" class="sidebar__link">Response headers</a>
--   <a href="#unsafe-requests" class="sidebar__link">“Unsafe” requests</a>
--   <a href="#credentials" class="sidebar__link">Credentials</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#why-is-cors-needed-a-brief-history" class="sidebar__link">Why is CORS needed? A brief history</a>
+- <a href="#safe-requests" class="sidebar__link">Safe requests</a>
+- <a href="#cors-for-safe-requests" class="sidebar__link">CORS for safe requests</a>
+- <a href="#response-headers" class="sidebar__link">Response headers</a>
+- <a href="#unsafe-requests" class="sidebar__link">“Unsafe” requests</a>
+- <a href="#credentials" class="sidebar__link">Credentials</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -463,8 +458,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/5-network/05-fetch-crossorigin" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

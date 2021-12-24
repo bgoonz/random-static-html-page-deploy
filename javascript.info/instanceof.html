@@ -1,96 +1,830 @@
-<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">Class checking: &quot;instanceof&quot;</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/instanceof"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Class checking: &quot;instanceof&quot;"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Class checking: &quot;instanceof&quot;"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/extend-natives"><link rel="next" href="/mixins"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><meta property="og:title" content="Class checking: &quot;instanceof&quot;"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/instanceof"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/instanceof"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/instanceof"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/instanceof"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/instanceof"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/instanceof"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/instanceof"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/instanceof"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/instanceof"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/instanceof"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/instanceof"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
-</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/instanceof">عربي</option><option value="https://javascript.info/instanceof" selected>English</option><option value="https://es.javascript.info/instanceof">Español</option><option value="https://fr.javascript.info/instanceof">Français</option><option value="https://id.javascript.info/instanceof">Indonesia</option><option value="https://it.javascript.info/instanceof">Italiano</option><option value="https://ja.javascript.info/instanceof">日本語</option><option value="https://ko.javascript.info/instanceof">한국어</option><option value="https://learn.javascript.ru/instanceof">Русский</option><option value="https://tr.javascript.info/instanceof">Türkçe</option><option value="https://zh.javascript.info/instanceof">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="71" max="92" data-tooltip="Lesson 71 of 92"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/js"><span>The JavaScript language</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/classes"><span>Classes</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"The JavaScript language","item":"https://javascript.info/js"},{"@type":"ListItem","position":3,"name":"Classes","item":"https://javascript.info/classes"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 11th October 2021"><div class="updated-at__content">11th October 2021</div></div></div><h1 class="main__header-title">Class checking: &quot;instanceof&quot;</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Class checking: &quot;instanceof&quot;"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>The <code>instanceof</code> operator allows to check whether an object belongs to a certain class. It also takes inheritance into account.</p>
-<p>Such a check may be necessary in many cases. For example, it can be used for building a <em>polymorphic</em> function, the one that treats arguments differently depending on their type.</p>
-<h2><a class="main__anchor" name="ref-instanceof" href="#ref-instanceof">The instanceof operator</a></h2><p>The syntax is:</p>
-<div id="5xnemenanj" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>obj instanceof Class</code></pre>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      window.currentUser = null;
+    </script>
+    <script>
+      window.rateUsdToNative = 1;
+    </script>
+    <title itemprop="name">Class checking: &quot;instanceof&quot;</title>
+    <link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script>
+      if (window.devicePixelRatio > 1)
+        document.cookie =
+          "pixelRatio=" +
+          window.devicePixelRatio +
+          ";path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT";
+    </script>
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="/img/favicon/apple-touch-icon-precomposed.png"
+    />
+    <link rel="canonical" href="https://javascript.info/instanceof" />
+    <meta name="msapplication-TileColor" content="#222A2C" />
+    <meta name="msapplication-TileImage" content="/img/favicon/tileicon.png" />
+    <link rel="icon" href="/img/favicon/favicon.png" />
+    <meta
+      itemprop="image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <meta property="og:title" content='Class checking: "instanceof"' />
+    <meta
+      property="og:image"
+      content="https://javascript.info/img/site_preview_en_1200x630.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="fb:admins" content="100001562528165" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content='Class checking: "instanceof"' />
+    <meta name="twitter:site" content="@iliakan" />
+    <meta name="twitter:creator" content="@iliakan" />
+    <meta
+      name="twitter:image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <link rel="prev" href="/extend-natives" />
+    <link rel="next" href="/mixins" />
+    <script>
+      window.GA_ID = "UA-2056213-15";
+    </script>
+    <script>
+      window.YANDEX_METRIKA_ID = 32184394;
+    </script>
+    <script>
+      (window.GoogleAnalyticsObject = "ga"),
+        (window.ga = function () {
+          window.ga.q.push(arguments);
+        }),
+        (window.ga.q = []),
+        (window.ga.l = Date.now()),
+        ga("create", GA_ID, "auto"),
+        window.GTM_ID && ga("require", GTM_ID),
+        window.currentUser
+          ? ga("set", "&uid", currentUser.id)
+          : ga("set", "anonymizeIp", !0),
+        window.addEventListener("error", function (e) {
+          var r = (e.filename || e.errorUrl) + ": " + (e.lineno || e.errorLine),
+            n = e.stack || (e.error && e.error.stack);
+          ga("send", "exception", {
+            exDescription: e.message + " " + r + " " + n,
+            exFatal: !0,
+          });
+        });
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script>
+      ga("send", "pageview");
+    </script>
+    <script>
+      (window.metrika = { reachGoal: function () {} }),
+        (window.yandex_metrika_callbacks = [
+          function () {
+            try {
+              (window.metrika = new Ya.Metrika({
+                id: YANDEX_METRIKA_ID,
+                webvisor: !0,
+                clickmap: !0,
+                params: { user: window.currentUser && window.currentUser.id },
+              })),
+                metrika.trackLinks({ delay: 150 }),
+                window.addEventListener("error", function (r) {
+                  window.metrika.reachGoal("JSERROR", {
+                    src:
+                      (r.filename || r.errorUrl) +
+                      ": " +
+                      (r.lineno || r.errorLine),
+                    stack: r.stack || (r.error && r.error.stack),
+                    message: r.message,
+                  });
+                });
+            } catch (r) {}
+          },
+        ]);
+    </script>
+    <script src="//mc.yandex.ru/metrika/watch.js" async></script>
+    <script>
+      window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";
+    </script>
+    <script src="/pack/init.51e39bc929812b94c4a8.js"></script>
+    <script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script>
+    <meta property="og:title" content='Class checking: "instanceof"' />
+    <meta property="og:type" content="article" />
+    <script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script>
+    <script src="/pack/footer.2786f555ff370bdde300.js" defer></script>
+  </head>
+  <body class="no-icons">
+    <script>
+      window.fontTest();
+    </script>
+    <div class="page-wrapper page-wrapper_sidebar_on">
+      <!--[if IE
+        ]><div style="color: red; text-align: center">
+          Sorry, Internet Explorer is not supported, please use a newer browser.
+        </div><!
+      [endif]-->
+      <div class="sitetoolbar sitetoolbar_tutorial">
+        <script>
+          window.langs = [
+            { code: "ar", name: "Arabic" },
+            { code: "az", name: "Azerbaijani" },
+            { code: "bg", name: "Bulgarian" },
+            { code: "bn", name: "Bengali" },
+            { code: "ca", name: "Catalan" },
+            { code: "cs", name: "Czech" },
+            { code: "da", name: "Danish" },
+            { code: "de", name: "German" },
+            { code: "el", name: "Greek" },
+            { code: "en", name: "English" },
+            { code: "es", name: "Spanish" },
+            { code: "fa", name: "Persian (Farsi)" },
+            { code: "fi", name: "Finnish" },
+            { code: "fr", name: "French" },
+            { code: "he", name: "Hebrew" },
+            { code: "hi", name: "Hindi" },
+            { code: "hr", name: "Croatian" },
+            { code: "hu", name: "Hungarian" },
+            { code: "hy", name: "Armenian" },
+            { code: "id", name: "Indonesian" },
+            { code: "it", name: "Italian" },
+            { code: "ja", name: "Japanese" },
+            { code: "ka", name: "Georgian" },
+            { code: "kk", name: "Kazakh" },
+            { code: "km", name: "Central Khmer" },
+            { code: "ko", name: "Korean" },
+            { code: "lt", name: "Lithuanian" },
+            { code: "me", name: "Montenegrin" },
+            { code: "ml", name: "Malayalam" },
+            { code: "my", name: "Burmese" },
+            { code: "nl", name: "Dutch" },
+            { code: "no", name: "Norvegian" },
+            { code: "pa", name: "Punjabi" },
+            { code: "pl", name: "Polish" },
+            { code: "pt", name: "Portuguese" },
+            { code: "ro", name: "Romanian" },
+            { code: "ru", name: "Russian" },
+            { code: "si", name: "Sinhala" },
+            { code: "sk", name: "Slovak" },
+            { code: "sl", name: "Slovenian" },
+            { code: "sq", name: "Albanian" },
+            { code: "sr", name: "Serbian" },
+            { code: "ta", name: "Tamil" },
+            { code: "te", name: "Telugu" },
+            { code: "test", name: "Test" },
+            { code: "th", name: "Thai" },
+            { code: "tk", name: "Turkmen" },
+            { code: "tr", name: "Turkish" },
+            { code: "uk", name: "Ukrainian" },
+            { code: "ur", name: "Urdu" },
+            { code: "uz", name: "Uzbek" },
+            { code: "v2", name: "v2" },
+            { code: "vi", name: "Vietnamese" },
+            { code: "zh-hant", name: "Chinese Traditional" },
+            { code: "zh", name: "Chinese" },
+          ];
+        </script>
+        <script>
+          window.lang = "en";
+        </script>
+        <script>
+          {
+            let t = navigator.languages || [];
+            t = t.map((t) => t.toLowerCase());
+            let o,
+              i,
+              n = [];
+            for (let o of window.langs)
+              for (let i of t)
+                if (i === o.code || i.startsWith(o.code + "-")) {
+                  n.push(o);
+                  break;
+                }
+            if ("en" === lang)
+              (o =
+                '\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    '),
+                (i = "notify-discord");
+            else if ("ru" != lang) {
+              n.find((t) => "en" == t.code) &&
+                ((o = `\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `),
+                (i = "notify-translate-tutorial-local"));
+            }
+            if (o) {
+              let t = `<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;
+              document.write(t), showTopNotification();
+            }
+          }
+        </script>
+        <div class="sitetoolbar__content">
+          <div class="sitetoolbar__lang-switcher">
+            <button class="sitetoolbar__dropdown-button" data-dropdown-toggler>
+              EN
+            </button>
+            <div class="sitetoolbar__dropdown-wrap">
+              <div class="sitetoolbar__dropdown-body">
+                <div class="sitetoolbar__lang-switcher-body">
+                  <div class="supported-langs supported-langs_toolbar">
+                    <div class="supported-langs__container">
+                      <ul class="supported-langs__list" style="height: 200px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ar.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">AR</span
+                            ><span class="supported-langs__title">عربي</span></a
+                          >
+                        </li>
+                        <li
+                          class="supported-langs__item supported-langs__item_current"
+                        >
+                          <a
+                            class="supported-langs__link"
+                            href="https://javascript.info/instanceof"
+                            ><span class="supported-langs__brief">EN</span
+                            ><span class="supported-langs__title"
+                              >English</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://es.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">ES</span
+                            ><span class="supported-langs__title"
+                              >Español</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://fr.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">FR</span
+                            ><span class="supported-langs__title"
+                              >Français</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://id.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">ID</span
+                            ><span class="supported-langs__title"
+                              >Indonesia</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://it.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">IT</span
+                            ><span class="supported-langs__title"
+                              >Italiano</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                      <ul class="supported-langs__list" style="height: 164px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ja.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">JA</span
+                            ><span class="supported-langs__title"
+                              >日本語</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ko.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">KO</span
+                            ><span class="supported-langs__title"
+                              >한국어</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://learn.javascript.ru/instanceof"
+                            ><span class="supported-langs__brief">RU</span
+                            ><span class="supported-langs__title"
+                              >Русский</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://tr.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">TR</span
+                            ><span class="supported-langs__title"
+                              >Türkçe</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://zh.javascript.info/instanceof"
+                            ><span class="supported-langs__brief">ZH</span
+                            ><span class="supported-langs__title"
+                              >简体中文</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="supported-langs__text">
+                      <p>
+                        We want to make this open-source project available for
+                        people all around the world.
+                      </p>
+                      <p>
+                        <a href="https://javascript.info/translate"
+                          >Help to translate</a
+                        >
+                        the content of this tutorial to your language!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sitetoolbar__logo-wrap">
+            <a class="sitetoolbar__link sitetoolbar__link_logo" href="/"
+              ><img
+                class="sitetoolbar__logo sitetoolbar__logo_normal"
+                src="/img/sitetoolbar__logo_en.svg"
+                width="200"
+                alt=""
+                role="presentation"
+              /><img
+                class="sitetoolbar__logo sitetoolbar__logo_small"
+                src="/img/sitetoolbar__logo_small_en.svg"
+                width="70"
+                alt=""
+                role="presentation"
+              />
+              <script>
+                Array.prototype.forEach.call(
+                  document.querySelectorAll("img.sitetoolbar__logo"),
+                  function (e) {
+                    let t = document.createElement("object");
+                    (t.type = "image/svg+xml"),
+                      (t.className = e.className),
+                      (t.style.cssText = "left:0;top:0;position:absolute"),
+                      (t.onload = function () {
+                        (t.onload = null), (e.style.visibility = "hidden");
+                      }),
+                      (t.data = e.src),
+                      e.parentNode.insertBefore(t, e);
+                  }
+                );
+              </script></a
+            >
+          </div>
+          <div class="sitetoolbar__nav-toggle-wrap">
+            <button class="sitetoolbar__nav-toggle" type="button"></button>
+          </div>
+          <nav class="sitetoolbar__sections">
+            <ul class="sitetoolbar__sections-list"></ul>
+          </nav>
+          <div class="sitetoolbar__book-wrap">
+            <a class="buy-book-button" href="/ebook"
+              ><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a
+            >
+          </div>
+          <div class="sitetoolbar__login-wrap">
+            <button
+              class="sitetoolbar__login sitetoolbar__login_unready"
+              data-action-login
+            ></button>
+          </div>
+          <div class="sitetoolbar__search-wrap">
+            <div class="sitetoolbar__search-content">
+              <form class="sitetoolbar__search" method="GET" action="/search">
+                <button
+                  class="sitetoolbar__search-toggle"
+                  type="button"
+                ></button>
+                <div class="sitetoolbar__search-input">
+                  <div class="text-input">
+                    <input
+                      class="text-input__control"
+                      name="query"
+                      placeholder="Search on Javascript.info"
+                      required="required"
+                      type="text"
+                    />
+                  </div>
+                  <button class="sitetoolbar__find" type="submit">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+        <div class="tablet-menu">
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <form class="tablet-menu-search" action="/search/">
+                <input
+                  class="tablet-menu-search__input"
+                  type="search"
+                  name="query"
+                  placeholder="Search in the tutorial"
+                  required="required"
+                /><button
+                  class="tablet-menu-search__button"
+                  type="submit"
+                  name="type"
+                  value="articles"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                ><span class="map__text">Tutorial map</span></a
+              >
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <div class="share-icons">
+                <span class="share-icons__title">Share</span
+                ><a
+                  class="share share_tw"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                  rel="nofollow"
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <select
+                class="tablet-menu__nav input-select input-select input-select_small"
+                onchange="if(this.value) window.location.href=this.value"
+              >
+                <option value="https://ar.javascript.info/instanceof">
+                  عربي
+                </option>
+                <option value="https://javascript.info/instanceof" selected>
+                  English
+                </option>
+                <option value="https://es.javascript.info/instanceof">
+                  Español
+                </option>
+                <option value="https://fr.javascript.info/instanceof">
+                  Français
+                </option>
+                <option value="https://id.javascript.info/instanceof">
+                  Indonesia
+                </option>
+                <option value="https://it.javascript.info/instanceof">
+                  Italiano
+                </option>
+                <option value="https://ja.javascript.info/instanceof">
+                  日本語
+                </option>
+                <option value="https://ko.javascript.info/instanceof">
+                  한국어
+                </option>
+                <option value="https://learn.javascript.ru/instanceof">
+                  Русский
+                </option>
+                <option value="https://tr.javascript.info/instanceof">
+                  Türkçe
+                </option>
+                <option value="https://zh.javascript.info/instanceof">
+                  简体中文
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <progress
+          class="tutorial-progress"
+          data-sticky
+          value="71"
+          max="92"
+          data-tooltip="Lesson 71 of 92"
+        ></progress>
       </div>
-      
-      </div><p>It returns <code>true</code> if <code>obj</code> belongs to the <code>Class</code> or a class inheriting from it.</p>
-<p>For instance:</p>
-<div id="ok2brqj62u" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:4,&quot;end&quot;:4}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>class Rabbit {}
+      <div class="page page_sidebar_on page_inner_padding">
+        <script>
+          if (localStorage.noSidebar) {
+            document.querySelector(".page").classList.remove("page_sidebar_on");
+            let e = document.querySelector(".page-wrapper");
+            e && e.classList.remove("page-wrapper_sidebar_on");
+          }
+          setTimeout(function () {
+            document
+              .querySelector(".page")
+              .classList.add("page_sidebar-animation-on");
+          });
+        </script>
+        <div class="page__inner">
+          <main class="main main_width-limit">
+            <header class="main__header">
+              <div class="main__header-inner">
+                <div class="main__header-group">
+                  <ol class="breadcrumbs">
+                    <li class="breadcrumbs__item breadcrumbs__item_home">
+                      <a class="breadcrumbs__link" href="/"
+                        ><span class="breadcrumbs__hidden-text"
+                          >Tutorial</span
+                        ></a
+                      >
+                    </li>
+                    <li class="breadcrumbs__item" id="breadcrumb-1">
+                      <a class="breadcrumbs__link" href="/js"
+                        ><span>The JavaScript language</span></a
+                      >
+                    </li>
+                    <li class="breadcrumbs__item" id="breadcrumb-2">
+                      <a class="breadcrumbs__link" href="/classes"
+                        ><span>Classes</span></a
+                      >
+                    </li>
+                    <script type="application/ld+json">
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Tutorial",
+                            "item": "https://javascript.info/"
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "The JavaScript language",
+                            "item": "https://javascript.info/js"
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": "Classes",
+                            "item": "https://javascript.info/classes"
+                          }
+                        ]
+                      }
+                    </script>
+                  </ol>
+                  <div
+                    class="updated-at"
+                    data-tooltip="Last updated at 11th October 2021"
+                  >
+                    <div class="updated-at__content">11th October 2021</div>
+                  </div>
+                </div>
+                <h1 class="main__header-title">
+                  Class checking: &quot;instanceof&quot;
+                </h1>
+              </div>
+            </header>
+            <div class="content">
+              <article
+                class="formatted"
+                itemscope
+                itemtype="http://schema.org/TechArticle"
+              >
+                <meta itemprop="name" content='Class checking: "instanceof"' />
+                <div
+                  itemprop="author"
+                  itemscope
+                  itemtype="http://schema.org/Person"
+                >
+                  <meta itemprop="email" content="iliakan@gmail.com" /><meta
+                    itemprop="name"
+                    content="Ilya Kantor"
+                  />
+                </div>
+                <div itemprop="articleBody">
+                  <p>
+                    The <code>instanceof</code> operator allows to check whether
+                    an object belongs to a certain class. It also takes
+                    inheritance into account.
+                  </p>
+                  <p>
+                    Such a check may be necessary in many cases. For example, it
+                    can be used for building a <em>polymorphic</em> function,
+                    the one that treats arguments differently depending on their
+                    type.
+                  </p>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="ref-instanceof"
+                      href="#ref-instanceof"
+                      >The instanceof operator</a
+                    >
+                  </h2>
+                  <p>The syntax is:</p>
+                  <div id="5xnemenanj" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>obj instanceof Class</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    It returns <code>true</code> if <code>obj</code> belongs to
+                    the <code>Class</code> or a class inheriting from it.
+                  </p>
+                  <p>For instance:</p>
+                  <div
+                    id="ok2brqj62u"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":4,"end":4}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>class Rabbit {}
 let rabbit = new Rabbit();
 
 // is it an object of Rabbit class?
 alert( rabbit instanceof Rabbit ); // true</code></pre>
-        </div>
-      </div>
-      
-      </div><p>It also works with constructor functions:</p>
-<div id="9jewj7mwsj" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:0,&quot;end&quot;:1}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>// instead of class
+                      </div>
+                    </div>
+                  </div>
+                  <p>It also works with constructor functions:</p>
+                  <div
+                    id="9jewj7mwsj"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":0,"end":1}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>// instead of class
 function Rabbit() {}
 
 alert( new Rabbit() instanceof Rabbit ); // true</code></pre>
-        </div>
-      </div>
-      
-      </div><p>…And with built-in classes like <code>Array</code>:</p>
-<div id="s65knbpkdt" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let arr = [1, 2, 3];
+                      </div>
+                    </div>
+                  </div>
+                  <p>…And with built-in classes like <code>Array</code>:</p>
+                  <div id="s65knbpkdt" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let arr = [1, 2, 3];
 alert( arr instanceof Array ); // true
 alert( arr instanceof Object ); // true</code></pre>
-        </div>
-      </div>
-      
-      </div><p>Please note that <code>arr</code> also belongs to the <code>Object</code> class. That’s because <code>Array</code> prototypically inherits from <code>Object</code>.</p>
-<p>Normally, <code>instanceof</code> examines the prototype chain for the check. We can also set a custom logic in the static method <code>Symbol.hasInstance</code>.</p>
-<p>The algorithm of <code>obj instanceof Class</code> works roughly as follows:</p>
-<ol>
-<li>
-<p>If there’s a static method <code>Symbol.hasInstance</code>, then just call it: <code>Class[Symbol.hasInstance](obj)</code>. It should return either <code>true</code> or <code>false</code>, and we’re done. That’s how we can customize the behavior of <code>instanceof</code>.</p>
-<p>For example:</p>
-<div id="eo2rlptmuv" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>// setup instanceOf check that assumes that
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Please note that <code>arr</code> also belongs to the
+                    <code>Object</code> class. That’s because
+                    <code>Array</code> prototypically inherits from
+                    <code>Object</code>.
+                  </p>
+                  <p>
+                    Normally, <code>instanceof</code> examines the prototype
+                    chain for the check. We can also set a custom logic in the
+                    static method <code>Symbol.hasInstance</code>.
+                  </p>
+                  <p>
+                    The algorithm of <code>obj instanceof Class</code> works
+                    roughly as follows:
+                  </p>
+                  <ol>
+                    <li>
+                      <p>
+                        If there’s a static method
+                        <code>Symbol.hasInstance</code>, then just call it:
+                        <code>Class[Symbol.hasInstance](obj)</code>. It should
+                        return either <code>true</code> or <code>false</code>,
+                        and we’re done. That’s how we can customize the behavior
+                        of <code>instanceof</code>.
+                      </p>
+                      <p>For example:</p>
+                      <div
+                        id="eo2rlptmuv"
+                        data-trusted="1"
+                        class="code-example"
+                      >
+                        <div class="codebox code-example__codebox">
+                          <div class="toolbar codebox__toolbar">
+                            <div class="toolbar__tool">
+                              <a
+                                href="#"
+                                title="run"
+                                data-action="run"
+                                class="toolbar__button toolbar__button_run"
+                              ></a>
+                            </div>
+                            <div class="toolbar__tool">
+                              <a
+                                href="#"
+                                title="open in sandbox"
+                                target="_blank"
+                                data-action="edit"
+                                class="toolbar__button toolbar__button_edit"
+                              ></a>
+                            </div>
+                          </div>
+                          <div class="codebox__code" data-code="1">
+                            <pre
+                              class="line-numbers language-javascript"
+                            ><code>// setup instanceOf check that assumes that
 // anything with canEat property is an animal
 class Animal {
   static [Symbol.hasInstance](obj) {
@@ -101,41 +835,77 @@ class Animal {
 let obj = { canEat: true };
 
 alert(obj instanceof Animal); // true: Animal[Symbol.hasInstance](obj) is called</code></pre>
-        </div>
-      </div>
-      
-      </div></li>
-<li>
-<p>Most classes do not have <code>Symbol.hasInstance</code>. In that case, the standard logic is used: <code>obj instanceOf Class</code> checks whether <code>Class.prototype</code> is equal to one of the prototypes in the <code>obj</code> prototype chain.</p>
-<p>In other words, compare one after another:</p>
-<div id="hxozo5ddfg" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>obj.__proto__ === Class.prototype?
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <p>
+                        Most classes do not have
+                        <code>Symbol.hasInstance</code>. In that case, the
+                        standard logic is used:
+                        <code>obj instanceOf Class</code> checks whether
+                        <code>Class.prototype</code> is equal to one of the
+                        prototypes in the <code>obj</code> prototype chain.
+                      </p>
+                      <p>In other words, compare one after another:</p>
+                      <div
+                        id="hxozo5ddfg"
+                        data-trusted="1"
+                        class="code-example"
+                      >
+                        <div class="codebox code-example__codebox">
+                          <div class="codebox__code" data-code="1">
+                            <pre
+                              class="line-numbers language-javascript"
+                            ><code>obj.__proto__ === Class.prototype?
 obj.__proto__.__proto__ === Class.prototype?
 obj.__proto__.__proto__.__proto__ === Class.prototype?
 ...
 // if any answer is true, return true
 // otherwise, if we reached the end of the chain, return false</code></pre>
-        </div>
-      </div>
-      
-      </div><p>In the example above <code>rabbit.__proto__ === Rabbit.prototype</code>, so that gives the answer immediately.</p>
-<p>In the case of an inheritance, the match will be at the second step:</p>
-<div id="gxch6pl0qd" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:7,&quot;end&quot;:7},{&quot;start&quot;:4,&quot;end&quot;:4}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>class Animal {}
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        In the example above
+                        <code>rabbit.__proto__ === Rabbit.prototype</code>, so
+                        that gives the answer immediately.
+                      </p>
+                      <p>
+                        In the case of an inheritance, the match will be at the
+                        second step:
+                      </p>
+                      <div
+                        id="gxch6pl0qd"
+                        data-trusted="1"
+                        class="code-example"
+                        data-highlight='[{"start":7,"end":7},{"start":4,"end":4}]'
+                      >
+                        <div class="codebox code-example__codebox">
+                          <div class="toolbar codebox__toolbar">
+                            <div class="toolbar__tool">
+                              <a
+                                href="#"
+                                title="run"
+                                data-action="run"
+                                class="toolbar__button toolbar__button_run"
+                              ></a>
+                            </div>
+                            <div class="toolbar__tool">
+                              <a
+                                href="#"
+                                title="open in sandbox"
+                                target="_blank"
+                                data-action="edit"
+                                class="toolbar__button toolbar__button_edit"
+                              ></a>
+                            </div>
+                          </div>
+                          <div class="codebox__code" data-code="1">
+                            <pre
+                              class="line-numbers language-javascript"
+                            ><code>class Animal {}
 class Rabbit extends Animal {}
 
 let rabbit = new Rabbit();
@@ -143,34 +913,90 @@ alert(rabbit instanceof Animal); // true
 
 // rabbit.__proto__ === Animal.prototype (no match)
 // rabbit.__proto__.__proto__ === Animal.prototype (match!)</code></pre>
-        </div>
-      </div>
-      
-      </div></li>
-</ol>
-<p>Here’s the illustration of what <code>rabbit instanceof Animal</code> compares with <code>Animal.prototype</code>:</p>
-<figure><div class="image" style="width:509px">
-      <div class="image__ratio" style="padding-top:85.46168958742632%"></div>
-      <object type="image/svg+xml" data="/article/instanceof/instanceof.svg" width="509" height="435" class="image__image">
-        <img src="/article/instanceof/instanceof.svg" alt="" width="509" height="435">
-      </object>
-      </div></figure><p>By the way, there’s also a method <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object/isPrototypeOf">objA.isPrototypeOf(objB)</a>, that returns <code>true</code> if <code>objA</code> is somewhere in the chain of prototypes for <code>objB</code>. So the test of <code>obj instanceof Class</code> can be rephrased as <code>Class.prototype.isPrototypeOf(obj)</code>.</p>
-<p>It’s funny, but the <code>Class</code> constructor itself does not participate in the check! Only the chain of prototypes and <code>Class.prototype</code> matters.</p>
-<p>That can lead to interesting consequences when a <code>prototype</code> property is changed after the object is created.</p>
-<p>Like here:</p>
-<div id="5oh4bp7fsw" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:7,&quot;end&quot;:7}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>function Rabbit() {}
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
+                  <p>
+                    Here’s the illustration of what
+                    <code>rabbit instanceof Animal</code> compares with
+                    <code>Animal.prototype</code>:
+                  </p>
+                  <figure>
+                    <div class="image" style="width: 509px">
+                      <div
+                        class="image__ratio"
+                        style="padding-top: 85.46168958742632%"
+                      ></div>
+                      <object
+                        type="image/svg+xml"
+                        data="/article/instanceof/instanceof.svg"
+                        width="509"
+                        height="435"
+                        class="image__image"
+                      >
+                        <img
+                          src="/article/instanceof/instanceof.svg"
+                          alt=""
+                          width="509"
+                          height="435"
+                        />
+                      </object>
+                    </div>
+                  </figure>
+                  <p>
+                    By the way, there’s also a method
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object/isPrototypeOf"
+                      >objA.isPrototypeOf(objB)</a
+                    >, that returns <code>true</code> if <code>objA</code> is
+                    somewhere in the chain of prototypes for <code>objB</code>.
+                    So the test of <code>obj instanceof Class</code> can be
+                    rephrased as
+                    <code>Class.prototype.isPrototypeOf(obj)</code>.
+                  </p>
+                  <p>
+                    It’s funny, but the <code>Class</code> constructor itself
+                    does not participate in the check! Only the chain of
+                    prototypes and <code>Class.prototype</code> matters.
+                  </p>
+                  <p>
+                    That can lead to interesting consequences when a
+                    <code>prototype</code> property is changed after the object
+                    is created.
+                  </p>
+                  <p>Like here:</p>
+                  <div
+                    id="5oh4bp7fsw"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":7,"end":7}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>function Rabbit() {}
 let rabbit = new Rabbit();
 
 // changed the prototype
@@ -178,175 +1004,388 @@ Rabbit.prototype = {};
 
 // ...not a rabbit any more!
 alert( rabbit instanceof Rabbit ); // false</code></pre>
-        </div>
-      </div>
-      
-      </div><h2><a class="main__anchor" name="bonus-object-prototype-tostring-for-the-type" href="#bonus-object-prototype-tostring-for-the-type">Bonus: Object.prototype.toString for the type</a></h2><p>We already know that plain objects are converted to string as <code>[object Object]</code>:</p>
-<div id="jm7z9xlz7o" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let obj = {};
+                      </div>
+                    </div>
+                  </div>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="bonus-object-prototype-tostring-for-the-type"
+                      href="#bonus-object-prototype-tostring-for-the-type"
+                      >Bonus: Object.prototype.toString for the type</a
+                    >
+                  </h2>
+                  <p>
+                    We already know that plain objects are converted to string
+                    as <code>[object Object]</code>:
+                  </p>
+                  <div id="jm7z9xlz7o" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let obj = {};
 
 alert(obj); // [object Object]
 alert(obj.toString()); // the same</code></pre>
-        </div>
-      </div>
-      
-      </div><p>That’s their implementation of <code>toString</code>. But there’s a hidden feature that makes <code>toString</code> actually much more powerful than that. We can use it as an extended <code>typeof</code> and an alternative for <code>instanceof</code>.</p>
-<p>Sounds strange? Indeed. Let’s demystify.</p>
-<p>By <a href="https://tc39.github.io/ecma262/#sec-object.prototype.tostring">specification</a>, the built-in <code>toString</code> can be extracted from the object and executed in the context of any other value. And its result depends on that value.</p>
-<ul>
-<li>For a number, it will be <code>[object Number]</code></li>
-<li>For a boolean, it will be <code>[object Boolean]</code></li>
-<li>For <code>null</code>: <code>[object Null]</code></li>
-<li>For <code>undefined</code>: <code>[object Undefined]</code></li>
-<li>For arrays: <code>[object Array]</code></li>
-<li>…etc (customizable).</li>
-</ul>
-<p>Let’s demonstrate:</p>
-<div id="m6fb4nwvtk" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:6,&quot;cols&quot;:[{&quot;start&quot;:46,&quot;end&quot;:51}]}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>// copy toString method into a variable for convenience
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    That’s their implementation of <code>toString</code>. But
+                    there’s a hidden feature that makes
+                    <code>toString</code> actually much more powerful than that.
+                    We can use it as an extended <code>typeof</code> and an
+                    alternative for <code>instanceof</code>.
+                  </p>
+                  <p>Sounds strange? Indeed. Let’s demystify.</p>
+                  <p>
+                    By
+                    <a
+                      href="https://tc39.github.io/ecma262/#sec-object.prototype.tostring"
+                      >specification</a
+                    >, the built-in <code>toString</code> can be extracted from
+                    the object and executed in the context of any other value.
+                    And its result depends on that value.
+                  </p>
+                  <ul>
+                    <li>
+                      For a number, it will be <code>[object Number]</code>
+                    </li>
+                    <li>
+                      For a boolean, it will be <code>[object Boolean]</code>
+                    </li>
+                    <li>For <code>null</code>: <code>[object Null]</code></li>
+                    <li>
+                      For <code>undefined</code>:
+                      <code>[object Undefined]</code>
+                    </li>
+                    <li>For arrays: <code>[object Array]</code></li>
+                    <li>…etc (customizable).</li>
+                  </ul>
+                  <p>Let’s demonstrate:</p>
+                  <div
+                    id="m6fb4nwvtk"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":6,"cols":[{"start":46,"end":51}]}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>// copy toString method into a variable for convenience
 let objectToString = Object.prototype.toString;
 
 // what type is this?
 let arr = [];
 
 alert( objectToString.call(arr) ); // [object Array]</code></pre>
-        </div>
-      </div>
-      
-      </div><p>Here we used <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function/call">call</a> as described in the chapter <a href="/call-apply-decorators">Decorators and forwarding, call/apply</a> to execute the function <code>objectToString</code> in the context <code>this=arr</code>.</p>
-<p>Internally, the <code>toString</code> algorithm examines <code>this</code> and returns the corresponding result. More examples:</p>
-<div id="5dtwkd5d38" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let s = Object.prototype.toString;
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Here we used
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function/call"
+                      >call</a
+                    >
+                    as described in the chapter
+                    <a href="/call-apply-decorators"
+                      >Decorators and forwarding, call/apply</a
+                    >
+                    to execute the function <code>objectToString</code> in the
+                    context <code>this=arr</code>.
+                  </p>
+                  <p>
+                    Internally, the <code>toString</code> algorithm examines
+                    <code>this</code> and returns the corresponding result. More
+                    examples:
+                  </p>
+                  <div id="5dtwkd5d38" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let s = Object.prototype.toString;
 
 alert( s.call(123) ); // [object Number]
 alert( s.call(null) ); // [object Null]
 alert( s.call(alert) ); // [object Function]</code></pre>
-        </div>
-      </div>
-      
-      </div><h3><a class="main__anchor" name="symbol-tostringtag" href="#symbol-tostringtag">Symbol.toStringTag</a></h3><p>The behavior of Object <code>toString</code> can be customized using a special object property <code>Symbol.toStringTag</code>.</p>
-<p>For instance:</p>
-<div id="onq8u1zxmd" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let user = {
+                      </div>
+                    </div>
+                  </div>
+                  <h3>
+                    <a
+                      class="main__anchor"
+                      name="symbol-tostringtag"
+                      href="#symbol-tostringtag"
+                      >Symbol.toStringTag</a
+                    >
+                  </h3>
+                  <p>
+                    The behavior of Object <code>toString</code> can be
+                    customized using a special object property
+                    <code>Symbol.toStringTag</code>.
+                  </p>
+                  <p>For instance:</p>
+                  <div id="onq8u1zxmd" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let user = {
   [Symbol.toStringTag]: &quot;User&quot;
 };
 
 alert( {}.toString.call(user) ); // [object User]</code></pre>
-        </div>
-      </div>
-      
-      </div><p>For most environment-specific objects, there is such a property. Here are some browser specific examples:</p>
-<div id="o795rl4tg3" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>// toStringTag for the environment-specific object and class:
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    For most environment-specific objects, there is such a
+                    property. Here are some browser specific examples:
+                  </p>
+                  <div id="o795rl4tg3" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>// toStringTag for the environment-specific object and class:
 alert( window[Symbol.toStringTag]); // Window
 alert( XMLHttpRequest.prototype[Symbol.toStringTag] ); // XMLHttpRequest
 
 alert( {}.toString.call(window) ); // [object Window]
 alert( {}.toString.call(new XMLHttpRequest()) ); // [object XMLHttpRequest]</code></pre>
-        </div>
-      </div>
-      
-      </div><p>As you can see, the result is exactly <code>Symbol.toStringTag</code> (if exists), wrapped into <code>[object ...]</code>.</p>
-<p>At the end we have “typeof on steroids” that not only works for primitive data types, but also for built-in objects and even can be customized.</p>
-<p>We can use <code>{}.toString.call</code> instead of <code>instanceof</code> for built-in objects when we want to get the type as a string rather than just to check.</p>
-<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Let’s summarize the type-checking methods that we know:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>works for</th>
-<th>returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>typeof</code></td>
-<td>primitives</td>
-<td>string</td>
-</tr>
-<tr>
-<td><code>{}.toString</code></td>
-<td>primitives, built-in objects, objects with <code>Symbol.toStringTag</code></td>
-<td>string</td>
-</tr>
-<tr>
-<td><code>instanceof</code></td>
-<td>objects</td>
-<td>true/false</td>
-</tr>
-</tbody>
-</table>
-<p>As we can see, <code>{}.toString</code> is technically a “more advanced” <code>typeof</code>.</p>
-<p>And <code>instanceof</code> operator really shines when we are working with a class hierarchy and want to check for the class taking into account inheritance.</p>
-</div></article><div class="tasks formatted"><h2 class="tasks__title" id="tasks"><a class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon" href="#tasks">Tasks</a></h2><div class="task tasks__task"><div class="task__header"><div class="task__title-wrap"><h3 class="task__title"><a class="main__anchor" href="#strange-instanceof" name="strange-instanceof">Strange instanceof</a></h3><a class="task__open-link" href="/task/strange-instanceof" target="_blank"></a></div><div class="task__header-note"><span class="task__importance" title="How important is the task, from 1 to 5">importance: 5</span></div><div class="task__content"><div class="task__formatted"><p>In the code below, why does <code>instanceof</code> return <code>true</code>? We can easily see that <code>a</code> is not created by <code>B()</code>.</p>
-<div id="chbk993uj4" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:7,&quot;end&quot;:7}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>function A() {}
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    As you can see, the result is exactly
+                    <code>Symbol.toStringTag</code> (if exists), wrapped into
+                    <code>[object ...]</code>.
+                  </p>
+                  <p>
+                    At the end we have “typeof on steroids” that not only works
+                    for primitive data types, but also for built-in objects and
+                    even can be customized.
+                  </p>
+                  <p>
+                    We can use <code>{}.toString.call</code> instead of
+                    <code>instanceof</code> for built-in objects when we want to
+                    get the type as a string rather than just to check.
+                  </p>
+                  <h2>
+                    <a class="main__anchor" name="summary" href="#summary"
+                      >Summary</a
+                    >
+                  </h2>
+                  <p>Let’s summarize the type-checking methods that we know:</p>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>works for</th>
+                        <th>returns</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>typeof</code></td>
+                        <td>primitives</td>
+                        <td>string</td>
+                      </tr>
+                      <tr>
+                        <td><code>{}.toString</code></td>
+                        <td>
+                          primitives, built-in objects, objects with
+                          <code>Symbol.toStringTag</code>
+                        </td>
+                        <td>string</td>
+                      </tr>
+                      <tr>
+                        <td><code>instanceof</code></td>
+                        <td>objects</td>
+                        <td>true/false</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>
+                    As we can see, <code>{}.toString</code> is technically a
+                    “more advanced” <code>typeof</code>.
+                  </p>
+                  <p>
+                    And <code>instanceof</code> operator really shines when we
+                    are working with a class hierarchy and want to check for the
+                    class taking into account inheritance.
+                  </p>
+                </div>
+              </article>
+              <div class="tasks formatted">
+                <h2 class="tasks__title" id="tasks">
+                  <a
+                    class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon"
+                    href="#tasks"
+                    >Tasks</a
+                  >
+                </h2>
+                <div class="task tasks__task">
+                  <div class="task__header">
+                    <div class="task__title-wrap">
+                      <h3 class="task__title">
+                        <a
+                          class="main__anchor"
+                          href="#strange-instanceof"
+                          name="strange-instanceof"
+                          >Strange instanceof</a
+                        >
+                      </h3>
+                      <a
+                        class="task__open-link"
+                        href="/task/strange-instanceof"
+                        target="_blank"
+                      ></a>
+                    </div>
+                    <div class="task__header-note">
+                      <span
+                        class="task__importance"
+                        title="How important is the task, from 1 to 5"
+                        >importance: 5</span
+                      >
+                    </div>
+                    <div class="task__content">
+                      <div class="task__formatted">
+                        <p>
+                          In the code below, why does
+                          <code>instanceof</code> return <code>true</code>? We
+                          can easily see that <code>a</code> is not created by
+                          <code>B()</code>.
+                        </p>
+                        <div
+                          id="chbk993uj4"
+                          data-trusted="1"
+                          class="code-example"
+                          data-highlight='[{"start":7,"end":7}]'
+                        >
+                          <div class="codebox code-example__codebox">
+                            <div class="toolbar codebox__toolbar">
+                              <div class="toolbar__tool">
+                                <a
+                                  href="#"
+                                  title="run"
+                                  data-action="run"
+                                  class="toolbar__button toolbar__button_run"
+                                ></a>
+                              </div>
+                              <div class="toolbar__tool">
+                                <a
+                                  href="#"
+                                  title="open in sandbox"
+                                  target="_blank"
+                                  data-action="edit"
+                                  class="toolbar__button toolbar__button_edit"
+                                ></a>
+                              </div>
+                            </div>
+                            <div class="codebox__code" data-code="1">
+                              <pre
+                                class="line-numbers language-javascript"
+                              ><code>function A() {}
 function B() {}
 
 A.prototype = B.prototype = {};
@@ -354,11 +1393,250 @@ A.prototype = B.prototype = {};
 let a = new A();
 
 alert( a instanceof B ); // true</code></pre>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="task__solution" type="button">
+                        solution
+                      </button>
+                      <div class="task__answer">
+                        <div class="task__answer-content">
+                          <div class="formatted">
+                            <p>Yeah, looks strange indeed.</p>
+                            <p>
+                              But <code>instanceof</code> does not care about
+                              the function, but rather about its
+                              <code>prototype</code>, that it matches against
+                              the prototype chain.
+                            </p>
+                            <p>
+                              And here <code>a.__proto__ == B.prototype</code>,
+                              so <code>instanceof</code> returns
+                              <code>true</code>.
+                            </p>
+                            <p>
+                              So, by the logic of <code>instanceof</code>, the
+                              <code>prototype</code> actually defines the type,
+                              not the constructor function.
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          class="close-button task__answer-close"
+                          type="button"
+                          title="close"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="page__nav-wrap">
+              <a
+                class="page__nav page__nav_prev"
+                href="/extend-natives"
+                data-tooltip="Extending built-in classes"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate"
+                  >Previous lesson</span
+                ></a
+              ><a
+                class="page__nav page__nav_next"
+                href="/mixins"
+                data-tooltip="Mixins"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate">Next lesson</span></a
+              >
+            </div>
+            <div class="article-tablet-foot tablet-only">
+              <div class="article-tablet-foot__layout">
+                <div class="share-icons">
+                  <span class="share-icons__title">Share</span
+                  ><a
+                    class="share share_tw"
+                    href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                    rel="nofollow"
+                  ></a
+                  ><a
+                    class="share share_fb"
+                    href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                    rel="nofollow"
+                  ></a>
+                </div>
+                <div class="article-tablet-foot__map">
+                  <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                    ><span class="map__text">Tutorial map</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="comments formatted" id="comments">
+              <div class="comments__header">
+                <h2 class="comments__header-title">
+                  <a href="#comments" name="comments">Comments</a>
+                </h2>
+                <div class="comments__read-before">
+                  <span class="comments__read-before-link"
+                    >read this before commenting…</span
+                  >
+                  <div class="comments__read-before-popup">
+                    <div class="comments__read-before-popup-i">
+                      <ul>
+                        <li>
+                          If you have suggestions what to improve - please
+                          <a
+                            href="https://github.com/javascript-tutorial/en.javascript.info/issues/new"
+                            >submit a GitHub issue</a
+                          >
+                          or a pull request instead of commenting.
+                        </li>
+                        <li>
+                          If you can't understand something in the article –
+                          please elaborate.
+                        </li>
+                        <li>
+                          To insert few words of code, use the
+                          <code>&lt;code&gt;</code> tag, for several lines –
+                          wrap them in <code>&lt;pre&gt;</code> tag, for more
+                          than 10 lines – use a sandbox (<a
+                            href="https://plnkr.co/edit/?p=preview"
+                            >plnkr</a
+                          >, <a href="https://jsbin.com">jsbin</a>,
+                          <a href="http://codepen.io">codepen</a>…)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="disqus_thread"></div>
+              <script>
+                var disqus_config = function () {
+                  if (!this.page) this.page = {};
+                  Object.assign(this.page, {
+                    url: "https:\/\/javascript.info\/instanceof",
+                    identifier: "\/instanceof",
+                  });
+                };
+              </script>
+              <script>
+                var disqus_shortname = "javascriptinfo";
+              </script>
+              <script>
+                var disqus_enabled = true;
+              </script>
+            </div>
+          </main>
+        </div>
+        <div class="sidebar page__sidebar sidebar sidebar_sticky-footer">
+          <button class="sidebar__toggle" data-sidebar-toggle></button
+          ><a
+            class="map"
+            href="/tutorial/map"
+            data-action="tutorial-map"
+            data-tooltip="Tutorial map"
+          ></a>
+          <div class="sidebar__inner">
+            <div class="sidebar__content">
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Chapter</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="/classes">Classes</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Lesson navigation</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#ref-instanceof"
+                        >The instanceof operator</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a
+                        class="sidebar__link"
+                        href="#bonus-object-prototype-tostring-for-the-type"
+                        >Bonus: Object.prototype.toString for the type</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#summary">Summary</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#tasks">Tasks (1)</a>
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#comments">Comments</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <div class="sidebar__section-title">Share</div>
+                <a
+                  class="share share_tw sidebar__share"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb sidebar__share"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Finstanceof"
+                  rel="nofollow"
+                ></a>
+              </div>
+              <div class="sidebar__section">
+                <a
+                  class="sidebar__link"
+                  href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/09-classes/06-instanceof"
+                  rel="nofollow"
+                  >Edit on GitHub</a
+                >
+              </div>
+              <div class="sidebar__section" id="sponsorBar">
+                <div class="sidebar__section-title" id="sponsorBarTitle"></div>
+                <div id="sponsorBarContent"></div>
+                <script>
+                  window.initSponsorBar();
+                </script>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      </div></div><button class="task__solution" type="button">solution</button><div class="task__answer"><div class="task__answer-content"><div class="formatted"><p>Yeah, looks strange indeed.</p>
-<p>But <code>instanceof</code> does not care about the function, but rather about its <code>prototype</code>, that it matches against the prototype chain.</p>
-<p>And here <code>a.__proto__ == B.prototype</code>, so <code>instanceof</code> returns <code>true</code>.</p>
-<p>So, by the logic of <code>instanceof</code>, the <code>prototype</code> actually defines the type, not the constructor function.</p>
-</div></div><button class="close-button task__answer-close" type="button" title="close"></button></div></div></div></div></div></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/extend-natives" data-tooltip="Extending built-in classes"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/mixins" data-tooltip="Mixins"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/instanceof","identifier":"\/instanceof"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/classes">Classes</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#ref-instanceof">The instanceof operator</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#bonus-object-prototype-tostring-for-the-type">Bonus: Object.prototype.toString for the type</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#tasks">Tasks (1)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Finstanceof" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/09-classes/06-instanceof" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>
+    </div>
+    <div class="page-footer">
+      <ul class="page-footer__list">
+        <li class="page-footer__item page-footer__item_copy">
+          ©&nbsp;2007—2021&nbsp; Ilya Kantor
+        </li>
+        <li class="page-footer__item page-footer__item_about">
+          <a class="page-footer__link" href="/about">about the project</a>
+        </li>
+        <li class="page-footer__item page-footer__item_contact">
+          <a class="page-footer__link" href="/about#contact-us">contact us</a>
+        </li>
+        <li class="page-footer__item page-footer__item_terms">
+          <a class="page-footer__link" href="/terms">terms of usage</a>
+        </li>
+        <li class="page-footer__item page-footer__item_privacy">
+          <a class="page-footer__link" href="/privacy">privacy policy</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

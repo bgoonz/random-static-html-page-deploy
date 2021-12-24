@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fbind" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fbind" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -322,9 +317,9 @@ Like this:
 
 The result of `partial(func[, arg1, arg2...])` call is a wrapper `(*)` that calls `func` with:
 
--   Same `this` as it gets (for `user.sayNow` call it’s `user`)
--   Then gives it `...argsBound` – arguments from the `partial` call (`"10:00"`)
--   Then gives it `...args` – arguments given to the wrapper (`"Hello"`)
+- Same `this` as it gets (for `user.sayNow` call it’s `user`)
+- Then gives it `...argsBound` – arguments from the `partial` call (`"10:00"`)
+- Then gives it `...args` – arguments given to the wrapper (`"Hello"`)
 
 So easy to do it with the spread syntax, right?
 
@@ -336,7 +331,7 @@ Method `func.bind(context, ...args)` returns a “bound variant” of function `
 
 Usually we apply `bind` to fix `this` for an object method, so that we can pass it somewhere. For example, to `setTimeout`.
 
-When we fix some arguments of an existing function, the resulting (less universal) function is called *partially applied* or *partial*.
+When we fix some arguments of an existing function, the resulting (less universal) function is called _partially applied_ or _partial_.
 
 Partials are convenient when we don’t want to repeat the same argument over and over again. Like if we have a `send(from, to)` function, and `from` should always be the same for our task, we can get a partial and go on with it.
 
@@ -528,7 +523,7 @@ An alternative solution could be:
 
 Usually that also works and looks good.
 
-It’s a bit less reliable though in more complex situations where `user` variable might change *after* `askPassword` is called, but *before* the visitor answers and calls `() => user.loginOk()`.
+It’s a bit less reliable though in more complex situations where `user` variable might change _after_ `askPassword` is called, but _before_ the visitor answers and calls `() => user.loginOk()`.
 
 ### <a href="#partial-application-for-login" id="partial-application-for-login" class="main__anchor">Partial application for login</a>
 
@@ -582,27 +577,27 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
+- <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
 
 #### Lesson navigation
 
--   <a href="#losing-this" class="sidebar__link">Losing “this”</a>
--   <a href="#solution-1-a-wrapper" class="sidebar__link">Solution 1: a wrapper</a>
--   <a href="#solution-2-bind" class="sidebar__link">Solution 2: bind</a>
--   <a href="#partial-functions" class="sidebar__link">Partial functions</a>
--   <a href="#going-partial-without-context" class="sidebar__link">Going partial without context</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#losing-this" class="sidebar__link">Losing “this”</a>
+- <a href="#solution-1-a-wrapper" class="sidebar__link">Solution 1: a wrapper</a>
+- <a href="#solution-2-bind" class="sidebar__link">Solution 2: bind</a>
+- <a href="#partial-functions" class="sidebar__link">Partial functions</a>
+- <a href="#going-partial-without-context" class="sidebar__link">Going partial without context</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (5)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (5)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -610,8 +605,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/06-advanced-functions/10-bind" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Flogical-operators" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Flogical-operators" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -68,7 +63,7 @@ For instance, the number `1` is treated as `true`, the number `0` as `false`:
       alert( 'truthy!' );
     }
 
-Most of the time, OR `||` is used in an `if` statement to test if *any* of the given conditions is `true`.
+Most of the time, OR `||` is used in an `if` statement to test if _any_ of the given conditions is `true`.
 
 For example:
 
@@ -107,9 +102,9 @@ Given multiple OR’ed values:
 
 The OR `||` operator does the following:
 
--   Evaluates operands from left to right.
--   For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
--   If all operands have been evaluated (i.e. all were `false`), returns the last operand.
+- Evaluates operands from left to right.
+- For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
+- If all operands have been evaluated (i.e. all were `false`), returns the last operand.
 
 A value is returned in its original form, without the conversion.
 
@@ -217,13 +212,13 @@ Given multiple AND’ed values:
 
 The AND `&&` operator does the following:
 
--   Evaluates operands from left to right.
--   For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
--   If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+- Evaluates operands from left to right.
+- For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
+- If all operands have been evaluated (i.e. all were truthy), returns the last operand.
 
 In other words, AND returns the first falsy value or the last value if none were found.
 
-The rules above are similar to OR. The difference is that AND returns the first *falsy* value while OR returns the first *truthy* one.
+The rules above are similar to OR. The difference is that AND returns the first _falsy_ value while OR returns the first _truthy_ one.
 
 Examples:
 
@@ -541,9 +536,9 @@ If the visitor enters `"Admin"`, then `prompt` for a password, if the input is a
 
 The password is checked as follows:
 
--   If it equals “TheMaster”, then show “Welcome!”,
--   Another string – show “Wrong password”,
--   For an empty string or cancelled input, show “Canceled”
+- If it equals “TheMaster”, then show “Welcome!”,
+- Another string – show “Wrong password”,
+- For an empty string or cancelled input, show “Canceled”
 
 The schema:
 
@@ -593,26 +588,26 @@ Note the vertical indents inside the `if` blocks. They are technically not requi
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#or" class="sidebar__link">|| (OR)</a>
--   <a href="#or-finds-the-first-truthy-value" class="sidebar__link">OR "||" finds the first truthy value</a>
--   <a href="#and" class="sidebar__link">&amp;&amp; (AND)</a>
--   <a href="#and-finds-the-first-falsy-value" class="sidebar__link">AND “&amp;&amp;” finds the first falsy value</a>
--   <a href="#not" class="sidebar__link">! (NOT)</a>
+- <a href="#or" class="sidebar__link">|| (OR)</a>
+- <a href="#or-finds-the-first-truthy-value" class="sidebar__link">OR "||" finds the first truthy value</a>
+- <a href="#and" class="sidebar__link">&amp;&amp; (AND)</a>
+- <a href="#and-finds-the-first-falsy-value" class="sidebar__link">AND “&amp;&amp;” finds the first falsy value</a>
+- <a href="#not" class="sidebar__link">! (NOT)</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (9)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (9)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -620,8 +615,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/11-logical-operators" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>
