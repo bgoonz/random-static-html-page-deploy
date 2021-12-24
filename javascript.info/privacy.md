@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fprivacy" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fprivacy" class="share share_fb"></a>
-
 
 # Privacy Policy
 
@@ -37,26 +32,26 @@ We collect personal information in the following ways:
 
 We gather information that you provide to us when you:
 
--   purchase products or services from us
--   subscribe to our newsletters and mailing lists
--   fill in forms, conduct searches, post content on the website, respond to surveys, or use any other features of our websites
--   make an inquiry, provide feedback, submit correspondence, or make a complaint over the phone, by email, on our websites or by post
--   register for, and update an online account with us (including if you access through Facebook, LinkedIn, Twitter, Google, or another provider)
--   enter into a contract with us
--   sign up for alerts or notifications on our websites, submit a job application, a CV, cover letter, or social media profile to a job vacancy, attend an interview, assessment, or meeting
--   ‘follow’, ‘like’, post to, or interact with, our social media accounts, including Facebook, LinkedIn, Twitter, Pinterest, Instagram, Google+, SnapChat and Slack.
+- purchase products or services from us
+- subscribe to our newsletters and mailing lists
+- fill in forms, conduct searches, post content on the website, respond to surveys, or use any other features of our websites
+- make an inquiry, provide feedback, submit correspondence, or make a complaint over the phone, by email, on our websites or by post
+- register for, and update an online account with us (including if you access through Facebook, LinkedIn, Twitter, Google, or another provider)
+- enter into a contract with us
+- sign up for alerts or notifications on our websites, submit a job application, a CV, cover letter, or social media profile to a job vacancy, attend an interview, assessment, or meeting
+- ‘follow’, ‘like’, post to, or interact with, our social media accounts, including Facebook, LinkedIn, Twitter, Pinterest, Instagram, Google+, SnapChat and Slack.
 
 The information you provide to us may include (depending on the circumstances):
 
--   Identity and contact data: title, names, addresses, email addresses, phone numbers or your signature.
--   Account profile data: a username/display name, password, user preferences, picture if you upload it, additional details that you enter and, if you sign up through a social media account, certain information about that account.
--   Limited payment details if you make a payment at our website. We use a secure third-party service, e.g. Stripe or Paypal for payments, so we do not get your credit card number, but we may have information like the last four digits, your name or the country of issue.
+- Identity and contact data: title, names, addresses, email addresses, phone numbers or your signature.
+- Account profile data: a username/display name, password, user preferences, picture if you upload it, additional details that you enter and, if you sign up through a social media account, certain information about that account.
+- Limited payment details if you make a payment at our website. We use a secure third-party service, e.g. Stripe or Paypal for payments, so we do not get your credit card number, but we may have information like the last four digits, your name or the country of issue.
 
 If you apply for employment:
 
--   Employment and background data, your academic and work history, qualifications, skills, projects and research that you are involved in, references, proof of your entitlement to work in the relevant country, your national security number, your passport or other identity document details, your current level of remuneration (including benefits), and any other such similar information that you may provide to us.
--   Visual and audio information about yourself: e.g. a photo or video footage, or sound recording.
--   Any other information that you choose to share with us: for example, any information that you provide via correspondence, when you fill out our survey(s), that you share via our website or social media accounts linked to our website, or any information that you choose to provide in person at events, meetings, or over the phone.
+- Employment and background data, your academic and work history, qualifications, skills, projects and research that you are involved in, references, proof of your entitlement to work in the relevant country, your national security number, your passport or other identity document details, your current level of remuneration (including benefits), and any other such similar information that you may provide to us.
+- Visual and audio information about yourself: e.g. a photo or video footage, or sound recording.
+- Any other information that you choose to share with us: for example, any information that you provide via correspondence, when you fill out our survey(s), that you share via our website or social media accounts linked to our website, or any information that you choose to provide in person at events, meetings, or over the phone.
 
 ### INFORMATION WE COLLECT THROUGH SERVER TECHNOLOGY
 
@@ -84,11 +79,11 @@ These so-called “special categories of data” include details about your race
 
 The reasons for collecting, storing and using this type of personal information:
 
--   you apply to work for us, where it is necessary to carry out our legal obligations or exercise rights in connection with employment
--   where it is necessary for reasons of substantial public interest
--   where it is necessary in relation to legal claims
--   where it is necessary to protect your interests (or someone else’s interests) and you are not capable of giving your consent
--   where you have already made the information public
+- you apply to work for us, where it is necessary to carry out our legal obligations or exercise rights in connection with employment
+- where it is necessary for reasons of substantial public interest
+- where it is necessary in relation to legal claims
+- where it is necessary to protect your interests (or someone else’s interests) and you are not capable of giving your consent
+- where you have already made the information public
 
 In limited circumstances, we may request your written consent to allow us to use certain particularly sensitive data. If we do so, we will provide you with full details of the information that we would like and the reason we need it, so that you can carefully consider whether you wish to consent.
 
@@ -98,34 +93,34 @@ In limited circumstances, we may request your written consent to allow us to use
 
 We use your information for the following purposes:
 
--   To provide access to our website in a manner convenient and optimal and with personalized content relevant to you (on the basis of our legitimate interest to ensure our website is presented in an effective and optimal manner).
--   To register and maintain your website account (on the basis of our terms of service).
--   To store your personal settings.
--   To process and fulfill your orders for products and services (on the basis of performing our contract with you).
--   To process and facilitate transactions and payments, and recover money owed to us (on the basis of performing our contract with you, and on the basis of our legitimate interest to recover debts due).
--   To monitor your account and use of services to ensure compliance with our end-user agreements and prevent and identify unlawful content use and violations (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
--   To enable you to communicate with other website users and clients (on the basis of your consent where we have requested it, or on the basis of performing our contract with you).
--   To manage our relationship with you, which will include notifying you about changes to our terms of service or privacy policy, and asking you to leave a review or take a survey (on the basis of performing our contract with you, to comply with our legal obligations, and our legitimate interest in keeping our records updated and study how our website and services are used).
--   To conduct business with you or your employer, including to contact you and manage and facilitate our business relationship with you and your employer (on the basis of performing our contract with you, and our legitimate interest in running our business).
--   To provide customer service and support, like dealing with inquiries or complaints about the website, which may include sharing your information with our website developer, IT support provider, and payment services provider as necessary (on the basis of performing our contract with you, our legitimate interest in providing the correct products and services to our website users, and to comply with our legal obligations).
--   To enable you to take part in prize drawings, competitions, and surveys (on the basis of performing our contract with you, and our legitimate interest in studying how our website and services are used, to develop them, and to grow our business).
--   To work with you and undertake projects with you, including to process any proposals that you submit to us (on the basis of our contract with you, and our legitimate interest in running our business).
--   For recruitment, including to process any job applications you submit to us, whether directly or via an agent or recruiter including sharing your information with our third party recruitment agencies (on the basis of our legitimate interest to recruit new employees or contractors).
--   To carry out marketing and let you know about our news, events, new website features products or services that we believe may interest you, including sharing your information with our marketing services providers (either on the basis of your consent where we have requested it, or our legitimate interests to provide you with marketing communications where we may lawfully do so).
--   To deliver relevant website content and advertisements to you and measure or understand the effectiveness of the advertising we serve to you (on the basis of our legitimate interests in studying how our website/services are used, to develop them, to grow our business and to inform our marketing strategy).
--   To interact with users on social media platforms (on the basis of our legitimate interest in promoting our brand and communicating with interested individuals).
--   To conduct data analytics to improve our website, products/services, marketing, customer relationships and experiences (on the basis of our legitimate interests in defining types of customers for our website and services, to keep our website updated and relevant, to develop our business, to provide the right kinds of products and services to our customers, and to inform our business and marketing strategy).
--   To make suggestions and recommendations by sharing your information with selected third parties such as sponsors and partners, so they can contact you about things that may interest you (either on the basis of your consent where we have requested it, or on the basis of our legitimate interest to share details of conference attendees with our co-presenters and sponsors).
--   To carry out marketing research and user testing to assess the levels of satisfaction of existing and proposed products and services (on the basis of our legitimate interest in carrying out research, providing the right kinds of products and services to our customers).
--   To protect, investigate, and deter against fraudulent, unauthorized, or illegal activity (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
--   To enable us to comply with our policies and procedures and enforce our legal rights, and to protect the rights, property or safety of our employees and share your information with our technical and legal advisors (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
+- To provide access to our website in a manner convenient and optimal and with personalized content relevant to you (on the basis of our legitimate interest to ensure our website is presented in an effective and optimal manner).
+- To register and maintain your website account (on the basis of our terms of service).
+- To store your personal settings.
+- To process and fulfill your orders for products and services (on the basis of performing our contract with you).
+- To process and facilitate transactions and payments, and recover money owed to us (on the basis of performing our contract with you, and on the basis of our legitimate interest to recover debts due).
+- To monitor your account and use of services to ensure compliance with our end-user agreements and prevent and identify unlawful content use and violations (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
+- To enable you to communicate with other website users and clients (on the basis of your consent where we have requested it, or on the basis of performing our contract with you).
+- To manage our relationship with you, which will include notifying you about changes to our terms of service or privacy policy, and asking you to leave a review or take a survey (on the basis of performing our contract with you, to comply with our legal obligations, and our legitimate interest in keeping our records updated and study how our website and services are used).
+- To conduct business with you or your employer, including to contact you and manage and facilitate our business relationship with you and your employer (on the basis of performing our contract with you, and our legitimate interest in running our business).
+- To provide customer service and support, like dealing with inquiries or complaints about the website, which may include sharing your information with our website developer, IT support provider, and payment services provider as necessary (on the basis of performing our contract with you, our legitimate interest in providing the correct products and services to our website users, and to comply with our legal obligations).
+- To enable you to take part in prize drawings, competitions, and surveys (on the basis of performing our contract with you, and our legitimate interest in studying how our website and services are used, to develop them, and to grow our business).
+- To work with you and undertake projects with you, including to process any proposals that you submit to us (on the basis of our contract with you, and our legitimate interest in running our business).
+- For recruitment, including to process any job applications you submit to us, whether directly or via an agent or recruiter including sharing your information with our third party recruitment agencies (on the basis of our legitimate interest to recruit new employees or contractors).
+- To carry out marketing and let you know about our news, events, new website features products or services that we believe may interest you, including sharing your information with our marketing services providers (either on the basis of your consent where we have requested it, or our legitimate interests to provide you with marketing communications where we may lawfully do so).
+- To deliver relevant website content and advertisements to you and measure or understand the effectiveness of the advertising we serve to you (on the basis of our legitimate interests in studying how our website/services are used, to develop them, to grow our business and to inform our marketing strategy).
+- To interact with users on social media platforms (on the basis of our legitimate interest in promoting our brand and communicating with interested individuals).
+- To conduct data analytics to improve our website, products/services, marketing, customer relationships and experiences (on the basis of our legitimate interests in defining types of customers for our website and services, to keep our website updated and relevant, to develop our business, to provide the right kinds of products and services to our customers, and to inform our business and marketing strategy).
+- To make suggestions and recommendations by sharing your information with selected third parties such as sponsors and partners, so they can contact you about things that may interest you (either on the basis of your consent where we have requested it, or on the basis of our legitimate interest to share details of conference attendees with our co-presenters and sponsors).
+- To carry out marketing research and user testing to assess the levels of satisfaction of existing and proposed products and services (on the basis of our legitimate interest in carrying out research, providing the right kinds of products and services to our customers).
+- To protect, investigate, and deter against fraudulent, unauthorized, or illegal activity (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
+- To enable us to comply with our policies and procedures and enforce our legal rights, and to protect the rights, property or safety of our employees and share your information with our technical and legal advisors (on the basis of our legitimate interests to operate a safe and lawful business, or where we have a legal obligation to do so).
 
 We will use your information for the purposes listed above either on the basis of:
 
--   your consent (where we request it)
--   performance of your contract with us and the provision of our services to you
--   where we need to comply with a legal or regulatory obligation
--   our legitimate interests or those of a third party (see section below for more information).
+- your consent (where we request it)
+- performance of your contract with us and the provision of our services to you
+- where we need to comply with a legal or regulatory obligation
+- our legitimate interests or those of a third party (see section below for more information).
 
 ### LEGITIMATE INTERESTS
 
@@ -143,13 +138,13 @@ If you have any concerns about our processing please refer to details of “Your
 
 We consider your personal information to be a vital part of our relationship with you and do not sell your personal information to third parties. There are, however, certain circumstances in which we may share your personal information with certain third parties, as follows:
 
--   Our service providers who are acting as processors and who assist us with our administrative or business functions, or in the provision of any of our products/services to you, for instance Paymentwall that accepts credit card payments, or Amazon services that processes email sending. These providers’ privacy policy is described in respective agreements.
--   Other website users and clients who use our websites and/or applications to communicate or otherwise interact with you.
--   Our partners who are involved in providing services to you.
--   Regulators and governmental bodies, authorities and regulators acting as processors or joint controllers who require reporting of processing activities in certain circumstances.
--   Marketing parties which are any selected third party that you consent to our sharing your information with for marketing purposes.
--   Any prospective buyer of our business or assets, only in the event that we wish to sell any part of our business or assets.
--   Other third parties including legal, professional or other advisors, regulatory authorities, courts, law enforcement agencies and government agencies) where necessary to enable us to enforce our legal rights, or to protect the rights, property or safety of our employees or where such disclosure may be permitted or required by law.
+- Our service providers who are acting as processors and who assist us with our administrative or business functions, or in the provision of any of our products/services to you, for instance Paymentwall that accepts credit card payments, or Amazon services that processes email sending. These providers’ privacy policy is described in respective agreements.
+- Other website users and clients who use our websites and/or applications to communicate or otherwise interact with you.
+- Our partners who are involved in providing services to you.
+- Regulators and governmental bodies, authorities and regulators acting as processors or joint controllers who require reporting of processing activities in certain circumstances.
+- Marketing parties which are any selected third party that you consent to our sharing your information with for marketing purposes.
+- Any prospective buyer of our business or assets, only in the event that we wish to sell any part of our business or assets.
+- Other third parties including legal, professional or other advisors, regulatory authorities, courts, law enforcement agencies and government agencies) where necessary to enable us to enforce our legal rights, or to protect the rights, property or safety of our employees or where such disclosure may be permitted or required by law.
 
 ## HOW WE LOOK AFTER YOUR PERSONAL INFORMATION AND HOW LONG WE KEEP IT
 
@@ -161,10 +156,10 @@ We also operate a policy of “privacy by design” by looking for opportunities
 
 The safeguards we use include:
 
--   ensuring the physical security of our offices, warehouses, or other sites
--   ensuring the physical and digital security of our equipment and devices by using appropriate password protection and encryption
--   using standard security protocols and mechanisms (such as secure socket layer (SSL) encryption) to transmit sensitive data such as credit card details
--   limiting access to your personal information to those who need to use it in the course of their work
+- ensuring the physical security of our offices, warehouses, or other sites
+- ensuring the physical and digital security of our equipment and devices by using appropriate password protection and encryption
+- using standard security protocols and mechanisms (such as secure socket layer (SSL) encryption) to transmit sensitive data such as credit card details
+- limiting access to your personal information to those who need to use it in the course of their work
 
 If you have any questions about the security of your personal information, please contact us using the methods outlined in the “Contact Us” section below.
 
@@ -176,12 +171,12 @@ We will keep your information for as long as is necessary to provide you with th
 
 You can also play a part in keeping your information safe by:
 
--   choosing a strong account password, changing it regularly, and using different passwords for different online accounts
--   keeping your login and password details confidential
--   logging out of the website and closing the browser each time you have finished using it, especially when using a shared computer
--   informing us if know or suspect that your account has been compromised, or if someone has accessed your account without your permission
--   keeping your devices protected by using the latest version of your operating system and maintaining any necessary anti-virus software
--   being vigilant to any fraudulent emails that may appear to be from us
+- choosing a strong account password, changing it regularly, and using different passwords for different online accounts
+- keeping your login and password details confidential
+- logging out of the website and closing the browser each time you have finished using it, especially when using a shared computer
+- informing us if know or suspect that your account has been compromised, or if someone has accessed your account without your permission
+- keeping your devices protected by using the latest version of your operating system and maintaining any necessary anti-virus software
+- being vigilant to any fraudulent emails that may appear to be from us
 
 ## INTERNATIONAL TRANSFERS OF YOUR INFORMATION
 
@@ -197,14 +192,14 @@ We will take all steps necessary to ensure that your information is adequately p
 
 You have certain rights in respect of the information that we hold about you, including:
 
--   the right to be informed of the ways in which we use your information, as we seek to do in this Privacy Policy
--   the right to ask us not to process your personal data for marketing purposes
--   the right to request access to the information that we hold about you
--   the right to request that we correct or rectify any information that we hold about you which is out of date or incorrect
--   the right to withdraw your consent for our use of your information in reliance of your consent (refer to sections above to see when we are relying on your consent), which you can do by contacting us using any of the details at the top of this Privacy Policy
--   the right to object to our using your information on the basis of our legitimate interests (refer to sections above to see when we are relying on our legitimate interests) (or those of a third party)) and there is something about your particular situation which makes you want to object to processing on this ground
--   the right to receive a copy of any information we hold about you (or request that we transfer this to another service provider) in a structured, commonly-used, machine readable format, in certain circumstances
--   in certain circumstances, the right to ask us to limit or cease processing or erase information we hold about you
+- the right to be informed of the ways in which we use your information, as we seek to do in this Privacy Policy
+- the right to ask us not to process your personal data for marketing purposes
+- the right to request access to the information that we hold about you
+- the right to request that we correct or rectify any information that we hold about you which is out of date or incorrect
+- the right to withdraw your consent for our use of your information in reliance of your consent (refer to sections above to see when we are relying on your consent), which you can do by contacting us using any of the details at the top of this Privacy Policy
+- the right to object to our using your information on the basis of our legitimate interests (refer to sections above to see when we are relying on our legitimate interests) (or those of a third party)) and there is something about your particular situation which makes you want to object to processing on this ground
+- the right to receive a copy of any information we hold about you (or request that we transfer this to another service provider) in a structured, commonly-used, machine readable format, in certain circumstances
+- in certain circumstances, the right to ask us to limit or cease processing or erase information we hold about you
 
 ### HOW TO EXERCISE YOUR RIGHTS
 
@@ -218,11 +213,11 @@ Please note that your objection to processing (or withdrawal of any previously g
 
 We may need to request specific information from you to help us confirm your identity and to enable you to exercise the rights set out above. This is a security measure to ensure that personal data is not disclosed to any person who has no right to receive it. We may also contact you to ask you for further information in relation to your request to speed up our response.
 
--   You will not have to pay a fee to exercise the rights set out above.
--   However, we may charge a reasonable fee if your request is clearly unfounded, repetitive or excessive.
--   Alternatively, we may refuse to comply with your request in these circumstances.
--   We will try to respond to all legitimate requests within one month.
--   Occasionally it may take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated.
+- You will not have to pay a fee to exercise the rights set out above.
+- However, we may charge a reasonable fee if your request is clearly unfounded, repetitive or excessive.
+- Alternatively, we may refuse to comply with your request in these circumstances.
+- We will try to respond to all legitimate requests within one month.
+- Occasionally it may take us longer than a month if your request is particularly complex or you have made a number of requests. In this case, we will notify you and keep you updated.
 
 ## CHILDREN’S PRIVACY
 
@@ -262,8 +257,8 @@ Email: <iliakan@javascript.info>.
 
 Phone: +79035419441.
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

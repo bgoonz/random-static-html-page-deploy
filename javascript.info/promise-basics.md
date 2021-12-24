@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fpromise-basics" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fpromise-basics" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,7 +32,7 @@ This is a real-life analogy for things we often have in programming:
 
 1.  A “producing code” that does something and takes time. For instance, some code that loads the data over a network. That’s a “singer”.
 2.  A “consuming code” that wants the result of the “producing code” once it’s ready. Many functions may need that result. These are the “fans”.
-3.  A *promise* is a special JavaScript object that links the “producing code” and the “consuming code” together. In terms of our analogy: this is the “subscription list”. The “producing code” takes whatever time it needs to produce the promised result, and the “promise” makes that result available to all of the subscribed code when it’s ready.
+3.  A _promise_ is a special JavaScript object that links the “producing code” and the “consuming code” together. In terms of our analogy: this is the “subscription list”. The “producing code” takes whatever time it needs to produce the promised result, and the “promise” makes that result available to all of the subscribed code when it’s ready.
 
 The analogy isn’t terribly accurate, because JavaScript promises are more complex than a simple subscription list: they have additional features and limitations. But it’s fine to begin with.
 
@@ -47,21 +42,21 @@ The constructor syntax for a promise object is:
       // executor (the producing code, "singer")
     });
 
-The function passed to `new Promise` is called the *executor*. When `new Promise` is created, the executor runs automatically. It contains the producing code which should eventually produce the result. In terms of the analogy above: the executor is the “singer”.
+The function passed to `new Promise` is called the _executor_. When `new Promise` is created, the executor runs automatically. It contains the producing code which should eventually produce the result. In terms of the analogy above: the executor is the “singer”.
 
 Its arguments `resolve` and `reject` are callbacks provided by JavaScript itself. Our code is only inside the executor.
 
 When the executor obtains the result, be it soon or late, doesn’t matter, it should call one of these callbacks:
 
--   `resolve(value)` — if the job is finished successfully, with result `value`.
--   `reject(error)` — if an error has occurred, `error` is the error object.
+- `resolve(value)` — if the job is finished successfully, with result `value`.
+- `reject(error)` — if an error has occurred, `error` is the error object.
 
 So to summarize: the executor runs automatically and attempts to perform a job. When it is finished with the attempt, it calls `resolve` if it was successful or `reject` if there was an error.
 
 The `promise` object returned by the `new Promise` constructor has these internal properties:
 
--   `state` — initially `"pending"`, then changes to either `"fulfilled"` when `resolve` is called or `"rejected"` when `reject` is called.
--   `result` — initially `undefined`, then changes to `value` when `resolve(value)` called or `error` when `reject(error)` is called.
+- `state` — initially `"pending"`, then changes to either `"fulfilled"` when `resolve` is called or `"rejected"` when `reject` is called.
+- `result` — initially `undefined`, then changes to `value` when `resolve(value)` called or `error` when `reject(error)` is called.
 
 So the executor eventually moves `promise` to one of these states:
 
@@ -436,23 +431,23 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/async" class="sidebar__link">Promises, async/await</a>
+- <a href="/async" class="sidebar__link">Promises, async/await</a>
 
 #### Lesson navigation
 
--   <a href="#consumers-then-catch-finally" class="sidebar__link">Consumers: then, catch, finally</a>
--   <a href="#loadscript" class="sidebar__link">Example: loadScript</a>
+- <a href="#consumers-then-catch-finally" class="sidebar__link">Consumers: then, catch, finally</a>
+- <a href="#loadscript" class="sidebar__link">Example: loadScript</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -460,8 +455,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/11-async/02-promise-basics" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

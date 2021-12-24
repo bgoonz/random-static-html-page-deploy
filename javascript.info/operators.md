@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Foperators" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Foperators" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -35,40 +30,40 @@ In this chapter, we’ll start with simple operators, then concentrate on JavaSc
 
 Before we move on, let’s grasp some common terminology.
 
--   *An operand* – is what operators are applied to. For instance, in the multiplication of `5 * 2` there are two operands: the left operand is `5` and the right operand is `2`. Sometimes, people call these “arguments” instead of “operands”.
+- _An operand_ – is what operators are applied to. For instance, in the multiplication of `5 * 2` there are two operands: the left operand is `5` and the right operand is `2`. Sometimes, people call these “arguments” instead of “operands”.
 
--   An operator is *unary* if it has a single operand. For example, the unary negation `-` reverses the sign of a number:
+- An operator is _unary_ if it has a single operand. For example, the unary negation `-` reverses the sign of a number:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let x = 1;
+      let x = 1;
 
-        x = -x;
-        alert( x ); // -1, unary negation was applied
+      x = -x;
+      alert( x ); // -1, unary negation was applied
 
--   An operator is *binary* if it has two operands. The same minus exists in binary form as well:
+- An operator is _binary_ if it has two operands. The same minus exists in binary form as well:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let x = 1, y = 3;
-        alert( y - x ); // 2, binary minus subtracts values
+      let x = 1, y = 3;
+      alert( y - x ); // 2, binary minus subtracts values
 
-    Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
+  Formally, in the examples above we have two different operators that share the same symbol: the negation operator, a unary operator that reverses the sign, and the subtraction operator, a binary operator that subtracts one number from another.
 
 ## <a href="#maths" id="maths" class="main__anchor">Maths</a>
 
 The following math operations are supported:
 
--   Addition `+`,
--   Subtraction `-`,
--   Multiplication `*`,
--   Division `/`,
--   Remainder `%`,
--   Exponentiation `**`.
+- Addition `+`,
+- Subtraction `-`,
+- Multiplication `*`,
+- Division `/`,
+- Remainder `%`,
+- Exponentiation `**`.
 
 The first four are straightforward, while `%` and `**` need a few words about them.
 
@@ -87,7 +82,7 @@ For instance:
     alert( 5 % 2 ); // 1, a remainder of 5 divided by 2
     alert( 8 % 3 ); // 2, a remainder of 8 divided by 3
 
-### <a href="#exponentiation" id="exponentiation" class="main__anchor">Exponentiation **</a>
+### <a href="#exponentiation" id="exponentiation" class="main__anchor">Exponentiation \*\*</a>
 
 The exponentiation operator `a ** b` raises `a` to the power of `b`.
 
@@ -222,13 +217,13 @@ If we want to treat them as numbers, we need to convert and then sum them:
 
 From a mathematician’s standpoint, the abundance of pluses may seem strange. But from a programmer’s standpoint, there’s nothing special: unary pluses are applied first, they convert strings to numbers, and then the binary plus sums them up.
 
-Why are unary pluses applied to values before the binary ones? As we’re going to see, that’s because of their *higher precedence*.
+Why are unary pluses applied to values before the binary ones? As we’re going to see, that’s because of their _higher precedence_.
 
 ## <a href="#operator-precedence" id="operator-precedence" class="main__anchor">Operator precedence</a>
 
-If an expression has more than one operator, the execution order is defined by their *precedence*, or, in other words, the default priority order of operators.
+If an expression has more than one operator, the execution order is defined by their _precedence_, or, in other words, the default priority order of operators.
 
-From school, we all know that the multiplication in the expression `1 + 2 * 2` should be calculated before the addition. That’s exactly the precedence thing. The multiplication is said to have *a higher precedence* than the addition.
+From school, we all know that the multiplication in the expression `1 + 2 * 2` should be calculated before the addition. That’s exactly the precedence thing. The multiplication is said to have _a higher precedence_ than the addition.
 
 Parentheses override any precedence, so if we’re not satisfied with the default order, we can use them to change it. For example, write `(1 + 2) * 2`.
 
@@ -256,7 +251,7 @@ The fact of `=` being an operator, not a “magical” language construct has an
 
 All operators in JavaScript return a value. That’s obvious for `+` and `-`, but also true for `=`.
 
-The call `x = value` writes the `value` into `x` *and then returns it*.
+The call `x = value` writes the `value` into `x` _and then returns it_.
 
 Here’s a demo that uses an assignment as part of a more complex expression:
 
@@ -346,25 +341,25 @@ Increasing or decreasing a number by one is among the most common numerical oper
 
 So, there are special operators for it:
 
--   **Increment** `++` increases a variable by 1:
+- **Increment** `++` increases a variable by 1:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let counter = 2;
-        counter++;        // works the same as counter = counter + 1, but is shorter
-        alert( counter ); // 3
+      let counter = 2;
+      counter++;        // works the same as counter = counter + 1, but is shorter
+      alert( counter ); // 3
 
--   **Decrement** `--` decreases a variable by 1:
+- **Decrement** `--` decreases a variable by 1:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let counter = 2;
-        counter--;        // works the same as counter = counter - 1, but is shorter
-        alert( counter ); // 1
+      let counter = 2;
+      counter--;        // works the same as counter = counter - 1, but is shorter
+      alert( counter ); // 1
 
 <span class="important__type">Important:</span>
 
@@ -372,8 +367,8 @@ Increment/decrement can only be applied to variables. Trying to use it on a valu
 
 The operators `++` and `--` can be placed either before or after a variable.
 
--   When the operator goes after the variable, it is in “postfix form”: `counter++`.
--   The “prefix form” is when the operator goes before the variable: `++counter`.
+- When the operator goes after the variable, it is in “postfix form”: `counter++`.
+- The “prefix form” is when the operator goes before the variable: `++counter`.
 
 Both of these statements do the same thing: increase `counter` by `1`.
 
@@ -392,7 +387,7 @@ To see the difference, here’s an example:
 
     alert(a); // 2
 
-In the line `(*)`, the *prefix* form `++counter` increments `counter` and returns the new value, `2`. So, the `alert` shows `2`.
+In the line `(*)`, the _prefix_ form `++counter` increments `counter` and returns the new value, `2`. So, the `alert` shows `2`.
 
 Now, let’s use the postfix form:
 
@@ -405,38 +400,38 @@ Now, let’s use the postfix form:
 
     alert(a); // 1
 
-In the line `(*)`, the *postfix* form `counter++` also increments `counter` but returns the *old* value (prior to increment). So, the `alert` shows `1`.
+In the line `(*)`, the _postfix_ form `counter++` also increments `counter` but returns the _old_ value (prior to increment). So, the `alert` shows `1`.
 
 To summarize:
 
--   If the result of increment/decrement is not used, there is no difference in which form to use:
+- If the result of increment/decrement is not used, there is no difference in which form to use:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let counter = 0;
-        counter++;
-        ++counter;
-        alert( counter ); // 2, the lines above did the same
+      let counter = 0;
+      counter++;
+      ++counter;
+      alert( counter ); // 2, the lines above did the same
 
--   If we’d like to increase a value *and* immediately use the result of the operator, we need the prefix form:
+- If we’d like to increase a value _and_ immediately use the result of the operator, we need the prefix form:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let counter = 0;
-        alert( ++counter ); // 1
+      let counter = 0;
+      alert( ++counter ); // 1
 
--   If we’d like to increment a value but use its previous value, we need the postfix form:
+- If we’d like to increment a value but use its previous value, we need the postfix form:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        let counter = 0;
-        alert( counter++ ); // 0
+      let counter = 0;
+      alert( counter++ ); // 0
 
 <span class="important__type">Increment/decrement among other operators</span>
 
@@ -482,13 +477,13 @@ These operators are not JavaScript-specific. They are supported in most programm
 
 The list of operators:
 
--   AND ( `&` )
--   OR ( `|` )
--   XOR ( `^` )
--   NOT ( `~` )
--   LEFT SHIFT ( `<<` )
--   RIGHT SHIFT ( `>>` )
--   ZERO-FILL RIGHT SHIFT ( `>>>` )
+- AND ( `&` )
+- OR ( `|` )
+- XOR ( `^` )
+- NOT ( `~` )
+- LEFT SHIFT ( `<<` )
+- RIGHT SHIFT ( `>>` )
+- ZERO-FILL RIGHT SHIFT ( `>>>` )
 
 These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won’t need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise) chapter on MDN when a need arises.
 
@@ -548,10 +543,10 @@ solution
 
 The answer is:
 
--   `a = 2`
--   `b = 2`
--   `c = 2`
--   `d = 1`
+- `a = 2`
+- `b = 2`
+- `c = 2`
+- `d = 1`
 
 <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
@@ -581,8 +576,8 @@ solution
 
 The answer is:
 
--   `a = 4` (multiplied by 2)
--   `x = 5` (calculated as 1 + 4)
+- `a = 4` (multiplied by 2)
+- `x = 5` (calculated as 1 + 4)
 
 ### <a href="#type-conversions" id="type-conversions" class="main__anchor">Type conversions</a>
 
@@ -706,31 +701,31 @@ Using both unary and binary `+` in the latest code. Looks funny, doesn’t it?
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#terms-unary-binary-operand" class="sidebar__link">Terms: “unary”, “binary”, “operand”</a>
--   <a href="#maths" class="sidebar__link">Maths</a>
--   <a href="#string-concatenation-with-binary" class="sidebar__link">String concatenation with binary +</a>
--   <a href="#numeric-conversion-unary" class="sidebar__link">Numeric conversion, unary +</a>
--   <a href="#operator-precedence" class="sidebar__link">Operator precedence</a>
--   <a href="#assignment" class="sidebar__link">Assignment</a>
--   <a href="#modify-in-place" class="sidebar__link">Modify-in-place</a>
--   <a href="#increment-decrement" class="sidebar__link">Increment/decrement</a>
--   <a href="#bitwise-operators" class="sidebar__link">Bitwise operators</a>
--   <a href="#comma" class="sidebar__link">Comma</a>
+- <a href="#terms-unary-binary-operand" class="sidebar__link">Terms: “unary”, “binary”, “operand”</a>
+- <a href="#maths" class="sidebar__link">Maths</a>
+- <a href="#string-concatenation-with-binary" class="sidebar__link">String concatenation with binary +</a>
+- <a href="#numeric-conversion-unary" class="sidebar__link">Numeric conversion, unary +</a>
+- <a href="#operator-precedence" class="sidebar__link">Operator precedence</a>
+- <a href="#assignment" class="sidebar__link">Assignment</a>
+- <a href="#modify-in-place" class="sidebar__link">Modify-in-place</a>
+- <a href="#increment-decrement" class="sidebar__link">Increment/decrement</a>
+- <a href="#bitwise-operators" class="sidebar__link">Bitwise operators</a>
+- <a href="#comma" class="sidebar__link">Comma</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -738,8 +733,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/08-operators" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fproxy" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fproxy" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,8 +32,8 @@ The syntax:
 
     let proxy = new Proxy(target, handler)
 
--   `target` – is an object to wrap, can be anything, including functions.
--   `handler` – proxy configuration: an object with “traps”, methods that intercept operations. – e.g. `get` trap for reading a property of `target`, `set` trap for writing a property into `target`, and so on.
+- `target` – is an object to wrap, can be anything, including functions.
+- `handler` – proxy configuration: an object with “traps”, methods that intercept operations. – e.g. `get` trap for reading a property of `target`, `set` trap for writing a property into `target`, and so on.
 
 For operations on `proxy`, if there’s a corresponding trap in `handler`, then it runs, and the proxy has a chance to handle it, otherwise the operation is performed on `target`.
 
@@ -88,13 +83,13 @@ JavaScript enforces some invariants – conditions that must be fulfilled by int
 
 Most of them are for return values:
 
--   `[[Set]]` must return `true` if the value was written successfully, otherwise `false`.
--   `[[Delete]]` must return `true` if the value was deleted successfully, otherwise `false`.
--   …and so on, we’ll see more in examples below.
+- `[[Set]]` must return `true` if the value was written successfully, otherwise `false`.
+- `[[Delete]]` must return `true` if the value was deleted successfully, otherwise `false`.
+- …and so on, we’ll see more in examples below.
 
 There are some other invariants, like:
 
--   `[[GetPrototypeOf]]`, applied to the proxy object must return the same value as `[[GetPrototypeOf]]` applied to the proxy object’s target object. In other words, reading prototype of a proxy must always return the prototype of the target object.
+- `[[GetPrototypeOf]]`, applied to the proxy object must return the same value as `[[GetPrototypeOf]]` applied to the proxy object’s target object. In other words, reading prototype of a proxy must always return the prototype of the target object.
 
 Traps can intercept these operations, but they must follow these rules.
 
@@ -110,9 +105,9 @@ To intercept reading, the `handler` should have a method `get(target, property, 
 
 It triggers when a property is read, with following arguments:
 
--   `target` – is the target object, the one passed as the first argument to `new Proxy`,
--   `property` – property name,
--   `receiver` – if the target property is a getter, then `receiver` is the object that’s going to be used as `this` in its call. Usually that’s the `proxy` object itself (or an object that inherits from it, if we inherit from proxy). Right now we don’t need this argument, so it will be explained in more detail later.
+- `target` – is the target object, the one passed as the first argument to `new Proxy`,
+- `property` – property name,
+- `receiver` – if the target property is a getter, then `receiver` is the object that’s going to be used as `this` in its call. Usually that’s the `proxy` object itself (or an object that inherits from it, if we inherit from proxy). Right now we don’t need this argument, so it will be explained in more detail later.
 
 Let’s use `get` to implement default values for an object.
 
@@ -202,10 +197,10 @@ The `set` trap triggers when a property is written.
 
 `set(target, property, value, receiver)`:
 
--   `target` – is the target object, the one passed as the first argument to `new Proxy`,
--   `property` – property name,
--   `value` – property value,
--   `receiver` – similar to `get` trap, matters only for setter properties.
+- `target` – is the target object, the one passed as the first argument to `new Proxy`,
+- `property` – property name,
+- `value` – property value,
+- `receiver` – similar to `get` trap, matters only for setter properties.
 
 The `set` trap should return `true` if setting is successful, and `false` otherwise (triggers `TypeError`).
 
@@ -256,10 +251,10 @@ If we forget to do it or return any falsy value, the operation triggers `TypeErr
 
 Such methods differ in details:
 
--   `Object.getOwnPropertyNames(obj)` returns non-symbol keys.
--   `Object.getOwnPropertySymbols(obj)` returns symbol keys.
--   `Object.keys/values()` returns non-symbol keys/values with `enumerable` flag (property flags were explained in the article [Property flags and descriptors](/property-descriptors)).
--   `for..in` loops over non-symbol keys with `enumerable` flag, and also prototype keys.
+- `Object.getOwnPropertyNames(obj)` returns non-symbol keys.
+- `Object.getOwnPropertySymbols(obj)` returns symbol keys.
+- `Object.keys/values()` returns non-symbol keys/values with `enumerable` flag (property flags were explained in the article [Property flags and descriptors](/property-descriptors)).
+- `for..in` loops over non-symbol keys with `enumerable` flag, and also prototype keys.
 
 …But all of them start with that list.
 
@@ -358,10 +353,10 @@ Let’s use proxies to prevent any access to properties starting with `_`.
 
 We’ll need the traps:
 
--   `get` to throw an error when reading such property,
--   `set` to throw an error when writing,
--   `deleteProperty` to throw an error when deleting,
--   `ownKeys` to exclude properties starting with `_` from `for..in` and methods like `Object.keys`.
+- `get` to throw an error when reading such property,
+- `set` to throw an error when writing,
+- `deleteProperty` to throw an error when deleting,
+- `ownKeys` to exclude properties starting with `_` from `for..in` and methods like `Object.keys`.
 
 Here’s the code:
 
@@ -474,8 +469,8 @@ The `has` trap intercepts `in` calls.
 
 `has(target, property)`
 
--   `target` – is the target object, passed as the first argument to `new Proxy`,
--   `property` – property name
+- `target` – is the target object, passed as the first argument to `new Proxy`,
+- `property` – property name
 
 Here’s the demo:
 
@@ -505,9 +500,9 @@ We can wrap a proxy around a function as well.
 
 The `apply(target, thisArg, args)` trap handles calling a proxy as function:
 
--   `target` is the target object (function is an object in JavaScript),
--   `thisArg` is the value of `this`.
--   `args` is a list of arguments.
+- `target` is the target object (function is an object in JavaScript),
+- `thisArg` is the value of `this`.
+- `args` is a list of arguments.
 
 For example, let’s recall `delay(f, ms)` decorator, that we did in the article [Decorators and forwarding, call/apply](/call-apply-decorators).
 
@@ -647,8 +642,8 @@ In this example, both traps `get` and `set` transparently (as if they didn’t e
 
 Here:
 
--   `Reflect.get` reads an object property.
--   `Reflect.set` writes an object property and returns `true` if successful, `false` otherwise.
+- `Reflect.get` reads an object property.
+- `Reflect.set` writes an object property and returns `true` if successful, `false` otherwise.
 
 That is, everything’s simple: if a trap wants to forward the call to the object, it’s enough to call `Reflect.<method>` with the same arguments.
 
@@ -923,7 +918,7 @@ So all operations and built-in classes that compare objects for equality will di
 
 ## <a href="#revocable-proxies" id="revocable-proxies" class="main__anchor">Revocable proxies</a>
 
-A *revocable* proxy is a proxy that can be disabled.
+A _revocable_ proxy is a proxy that can be disabled.
 
 Let’s say we have a resource, and would like to close access to it any moment.
 
@@ -988,8 +983,8 @@ We use `WeakMap` instead of `Map` here because it won’t block garbage collecti
 
 ## <a href="#references" id="references" class="main__anchor">References</a>
 
--   Specification: [Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots).
--   MDN: [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
+- Specification: [Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots).
+- MDN: [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy).
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
@@ -1007,10 +1002,10 @@ The syntax is:
 
 We can trap:
 
--   Reading (`get`), writing (`set`), deleting (`deleteProperty`) a property (even a non-existing one).
--   Calling a function (`apply` trap).
--   The `new` operator (`construct` trap).
--   Many other operations (the full list is at the beginning of the article and in the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)).
+- Reading (`get`), writing (`set`), deleting (`deleteProperty`) a property (even a non-existing one).
+- Calling a function (`apply` trap).
+- The `new` operator (`construct` trap).
+- Many other operations (the full list is at the beginning of the article and in the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)).
 
 That allows us to create “virtual” properties and methods, implement default values, observable objects, function decorators and so much more.
 
@@ -1020,10 +1015,10 @@ The [Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 
 Proxies have some limitations:
 
--   Built-in objects have “internal slots”, access to those can’t be proxied. See the workaround above.
--   The same holds true for private class fields, as they are internally implemented using slots. So proxied method calls must have the target object as `this` to access them.
--   Object equality tests `===` can’t be intercepted.
--   Performance: benchmarks depend on an engine, but generally accessing a property using a simplest proxy takes a few times longer. In practice that only matters for some “bottleneck” objects though.
+- Built-in objects have “internal slots”, access to those can’t be proxied. See the workaround above.
+- The same holds true for private class fields, as they are internally implemented using slots. So proxied method calls must have the target object as `this` to access them.
+- Object equality tests `===` can’t be intercepted.
+- Performance: benchmarks depend on an engine, but generally accessing a property using a simplest proxy takes a few times longer. In practice that only matters for some “bottleneck” objects though.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -1223,33 +1218,33 @@ The solution consists of two parts:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/js-misc" class="sidebar__link">Miscellaneous</a>
+- <a href="/js-misc" class="sidebar__link">Miscellaneous</a>
 
 #### Lesson navigation
 
--   <a href="#proxy" class="sidebar__link">Proxy</a>
--   <a href="#default-value-with-get-trap" class="sidebar__link">Default value with “get” trap</a>
--   <a href="#validation-with-set-trap" class="sidebar__link">Validation with “set” trap</a>
--   <a href="#iteration-with-ownkeys-and-getownpropertydescriptor" class="sidebar__link">Iteration with “ownKeys” and “getOwnPropertyDescriptor”</a>
--   <a href="#protected-properties-with-deleteproperty-and-other-traps" class="sidebar__link">Protected properties with “deleteProperty” and other traps</a>
--   <a href="#in-range-with-has-trap" class="sidebar__link">“In range” with “has” trap</a>
--   <a href="#proxy-apply" class="sidebar__link">Wrapping functions: "apply"</a>
--   <a href="#reflect" class="sidebar__link">Reflect</a>
--   <a href="#proxy-limitations" class="sidebar__link">Proxy limitations</a>
--   <a href="#revocable-proxies" class="sidebar__link">Revocable proxies</a>
--   <a href="#references" class="sidebar__link">References</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#proxy" class="sidebar__link">Proxy</a>
+- <a href="#default-value-with-get-trap" class="sidebar__link">Default value with “get” trap</a>
+- <a href="#validation-with-set-trap" class="sidebar__link">Validation with “set” trap</a>
+- <a href="#iteration-with-ownkeys-and-getownpropertydescriptor" class="sidebar__link">Iteration with “ownKeys” and “getOwnPropertyDescriptor”</a>
+- <a href="#protected-properties-with-deleteproperty-and-other-traps" class="sidebar__link">Protected properties with “deleteProperty” and other traps</a>
+- <a href="#in-range-with-has-trap" class="sidebar__link">“In range” with “has” trap</a>
+- <a href="#proxy-apply" class="sidebar__link">Wrapping functions: "apply"</a>
+- <a href="#reflect" class="sidebar__link">Reflect</a>
+- <a href="#proxy-limitations" class="sidebar__link">Proxy limitations</a>
+- <a href="#revocable-proxies" class="sidebar__link">Revocable proxies</a>
+- <a href="#references" class="sidebar__link">References</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -1257,8 +1252,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/99-js-misc/01-proxy" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>
