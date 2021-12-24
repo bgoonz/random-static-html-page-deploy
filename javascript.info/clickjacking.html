@@ -1,28 +1,695 @@
-<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">The clickjacking attack</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/clickjacking"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="The clickjacking attack"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="The clickjacking attack"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/cross-window-communication"><link rel="next" href="/binary"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><meta property="og:title" content="The clickjacking attack"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/clickjacking"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/clickjacking"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/clickjacking"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/clickjacking"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/clickjacking"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/clickjacking"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/clickjacking"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/clickjacking"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
-</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/">عربي</option><option value="https://javascript.info/clickjacking" selected>English</option><option value="https://es.javascript.info/clickjacking">Español</option><option value="https://fr.javascript.info/clickjacking">Français</option><option value="https://id.javascript.info/">Indonesia</option><option value="https://it.javascript.info/clickjacking">Italiano</option><option value="https://ja.javascript.info/clickjacking">日本語</option><option value="https://ko.javascript.info/">한국어</option><option value="https://learn.javascript.ru/clickjacking">Русский</option><option value="https://tr.javascript.info/clickjacking">Türkçe</option><option value="https://zh.javascript.info/clickjacking">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="3" max="3" data-tooltip="Lesson 3 of 3"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/frames-and-windows"><span>Frames and windows</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"Frames and windows","item":"https://javascript.info/frames-and-windows"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 29th June 2019"><div class="updated-at__content">29th June 2019</div></div></div><h1 class="main__header-title">The clickjacking attack</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="The clickjacking attack"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>The “clickjacking” attack allows an evil page to click on a “victim site” <em>on behalf of the visitor</em>.</p>
-<p>Many sites were hacked this way, including Twitter, Facebook, Paypal and other sites. They have all been fixed, of course.</p>
-<h2><a class="main__anchor" name="the-idea" href="#the-idea">The idea</a></h2><p>The idea is very simple.</p>
-<p>Here’s how clickjacking was done with Facebook:</p>
-<ol>
-<li>A visitor is lured to the evil page. It doesn’t matter how.</li>
-<li>The page has a harmless-looking link on it (like “get rich now” or “click here, very funny”).</li>
-<li>Over that link the evil page positions a transparent <code>&lt;iframe&gt;</code> with <code>src</code> from facebook.com, in such a way that the “Like” button is right above that link. Usually that’s done with <code>z-index</code>.</li>
-<li>In attempting to click the link, the visitor in fact clicks the button.</li>
-</ol>
-<h2><a class="main__anchor" name="the-demo" href="#the-demo">The demo</a></h2><p>Here’s how the evil page looks. To make things clear, the <code>&lt;iframe&gt;</code> is half-transparent (in real evil pages it’s fully transparent):</p>
-<div id="duk3cdstvr" data-trusted="1" class="code-example" data-demo-height="120" data-highlight="[{&quot;start&quot;:14,&quot;end&quot;:16},{&quot;start&quot;:6,&quot;end&quot;:6}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="show" data-action="run" class="toolbar__button toolbar__button_run"></a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      window.currentUser = null;
+    </script>
+    <script>
+      window.rateUsdToNative = 1;
+    </script>
+    <title itemprop="name">The clickjacking attack</title>
+    <link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script>
+      if (window.devicePixelRatio > 1)
+        document.cookie =
+          "pixelRatio=" +
+          window.devicePixelRatio +
+          ";path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT";
+    </script>
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="/img/favicon/apple-touch-icon-precomposed.png"
+    />
+    <link rel="canonical" href="https://javascript.info/clickjacking" />
+    <meta name="msapplication-TileColor" content="#222A2C" />
+    <meta name="msapplication-TileImage" content="/img/favicon/tileicon.png" />
+    <link rel="icon" href="/img/favicon/favicon.png" />
+    <meta
+      itemprop="image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <meta property="og:title" content="The clickjacking attack" />
+    <meta
+      property="og:image"
+      content="https://javascript.info/img/site_preview_en_1200x630.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="fb:admins" content="100001562528165" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="The clickjacking attack" />
+    <meta name="twitter:site" content="@iliakan" />
+    <meta name="twitter:creator" content="@iliakan" />
+    <meta
+      name="twitter:image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <link rel="prev" href="/cross-window-communication" />
+    <link rel="next" href="/binary" />
+    <script>
+      window.GA_ID = "UA-2056213-15";
+    </script>
+    <script>
+      window.YANDEX_METRIKA_ID = 32184394;
+    </script>
+    <script>
+      (window.GoogleAnalyticsObject = "ga"),
+        (window.ga = function () {
+          window.ga.q.push(arguments);
+        }),
+        (window.ga.q = []),
+        (window.ga.l = Date.now()),
+        ga("create", GA_ID, "auto"),
+        window.GTM_ID && ga("require", GTM_ID),
+        window.currentUser
+          ? ga("set", "&uid", currentUser.id)
+          : ga("set", "anonymizeIp", !0),
+        window.addEventListener("error", function (e) {
+          var r = (e.filename || e.errorUrl) + ": " + (e.lineno || e.errorLine),
+            n = e.stack || (e.error && e.error.stack);
+          ga("send", "exception", {
+            exDescription: e.message + " " + r + " " + n,
+            exFatal: !0,
+          });
+        });
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script>
+      ga("send", "pageview");
+    </script>
+    <script>
+      (window.metrika = { reachGoal: function () {} }),
+        (window.yandex_metrika_callbacks = [
+          function () {
+            try {
+              (window.metrika = new Ya.Metrika({
+                id: YANDEX_METRIKA_ID,
+                webvisor: !0,
+                clickmap: !0,
+                params: { user: window.currentUser && window.currentUser.id },
+              })),
+                metrika.trackLinks({ delay: 150 }),
+                window.addEventListener("error", function (r) {
+                  window.metrika.reachGoal("JSERROR", {
+                    src:
+                      (r.filename || r.errorUrl) +
+                      ": " +
+                      (r.lineno || r.errorLine),
+                    stack: r.stack || (r.error && r.error.stack),
+                    message: r.message,
+                  });
+                });
+            } catch (r) {}
+          },
+        ]);
+    </script>
+    <script src="//mc.yandex.ru/metrika/watch.js" async></script>
+    <script>
+      window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";
+    </script>
+    <script src="/pack/init.51e39bc929812b94c4a8.js"></script>
+    <script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script>
+    <meta property="og:title" content="The clickjacking attack" />
+    <meta property="og:type" content="article" />
+    <script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script>
+    <script src="/pack/footer.2786f555ff370bdde300.js" defer></script>
+  </head>
+  <body class="no-icons">
+    <script>
+      window.fontTest();
+    </script>
+    <div class="page-wrapper page-wrapper_sidebar_on">
+      <!--[if IE
+        ]><div style="color: red; text-align: center">
+          Sorry, Internet Explorer is not supported, please use a newer browser.
+        </div><!
+      [endif]-->
+      <div class="sitetoolbar sitetoolbar_tutorial">
+        <script>
+          window.langs = [
+            { code: "ar", name: "Arabic" },
+            { code: "az", name: "Azerbaijani" },
+            { code: "bg", name: "Bulgarian" },
+            { code: "bn", name: "Bengali" },
+            { code: "ca", name: "Catalan" },
+            { code: "cs", name: "Czech" },
+            { code: "da", name: "Danish" },
+            { code: "de", name: "German" },
+            { code: "el", name: "Greek" },
+            { code: "en", name: "English" },
+            { code: "es", name: "Spanish" },
+            { code: "fa", name: "Persian (Farsi)" },
+            { code: "fi", name: "Finnish" },
+            { code: "fr", name: "French" },
+            { code: "he", name: "Hebrew" },
+            { code: "hi", name: "Hindi" },
+            { code: "hr", name: "Croatian" },
+            { code: "hu", name: "Hungarian" },
+            { code: "hy", name: "Armenian" },
+            { code: "id", name: "Indonesian" },
+            { code: "it", name: "Italian" },
+            { code: "ja", name: "Japanese" },
+            { code: "ka", name: "Georgian" },
+            { code: "kk", name: "Kazakh" },
+            { code: "km", name: "Central Khmer" },
+            { code: "ko", name: "Korean" },
+            { code: "lt", name: "Lithuanian" },
+            { code: "me", name: "Montenegrin" },
+            { code: "ml", name: "Malayalam" },
+            { code: "my", name: "Burmese" },
+            { code: "nl", name: "Dutch" },
+            { code: "no", name: "Norvegian" },
+            { code: "pa", name: "Punjabi" },
+            { code: "pl", name: "Polish" },
+            { code: "pt", name: "Portuguese" },
+            { code: "ro", name: "Romanian" },
+            { code: "ru", name: "Russian" },
+            { code: "si", name: "Sinhala" },
+            { code: "sk", name: "Slovak" },
+            { code: "sl", name: "Slovenian" },
+            { code: "sq", name: "Albanian" },
+            { code: "sr", name: "Serbian" },
+            { code: "ta", name: "Tamil" },
+            { code: "te", name: "Telugu" },
+            { code: "test", name: "Test" },
+            { code: "th", name: "Thai" },
+            { code: "tk", name: "Turkmen" },
+            { code: "tr", name: "Turkish" },
+            { code: "uk", name: "Ukrainian" },
+            { code: "ur", name: "Urdu" },
+            { code: "uz", name: "Uzbek" },
+            { code: "v2", name: "v2" },
+            { code: "vi", name: "Vietnamese" },
+            { code: "zh-hant", name: "Chinese Traditional" },
+            { code: "zh", name: "Chinese" },
+          ];
+        </script>
+        <script>
+          window.lang = "en";
+        </script>
+        <script>
+          {
+            let t = navigator.languages || [];
+            t = t.map((t) => t.toLowerCase());
+            let o,
+              i,
+              n = [];
+            for (let o of window.langs)
+              for (let i of t)
+                if (i === o.code || i.startsWith(o.code + "-")) {
+                  n.push(o);
+                  break;
+                }
+            if ("en" === lang)
+              (o =
+                '\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    '),
+                (i = "notify-discord");
+            else if ("ru" != lang) {
+              n.find((t) => "en" == t.code) &&
+                ((o = `\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `),
+                (i = "notify-translate-tutorial-local"));
+            }
+            if (o) {
+              let t = `<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;
+              document.write(t), showTopNotification();
+            }
+          }
+        </script>
+        <div class="sitetoolbar__content">
+          <div class="sitetoolbar__lang-switcher">
+            <button class="sitetoolbar__dropdown-button" data-dropdown-toggler>
+              EN
+            </button>
+            <div class="sitetoolbar__dropdown-wrap">
+              <div class="sitetoolbar__dropdown-body">
+                <div class="sitetoolbar__lang-switcher-body">
+                  <div class="supported-langs supported-langs_toolbar">
+                    <div class="supported-langs__container">
+                      <ul class="supported-langs__list" style="height: 200px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ar.javascript.info/"
+                            ><span class="supported-langs__brief">AR</span
+                            ><span class="supported-langs__title">عربي</span></a
+                          >
+                        </li>
+                        <li
+                          class="supported-langs__item supported-langs__item_current"
+                        >
+                          <a
+                            class="supported-langs__link"
+                            href="https://javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">EN</span
+                            ><span class="supported-langs__title"
+                              >English</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://es.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">ES</span
+                            ><span class="supported-langs__title"
+                              >Español</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://fr.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">FR</span
+                            ><span class="supported-langs__title"
+                              >Français</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://id.javascript.info/"
+                            ><span class="supported-langs__brief">ID</span
+                            ><span class="supported-langs__title"
+                              >Indonesia</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://it.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">IT</span
+                            ><span class="supported-langs__title"
+                              >Italiano</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                      <ul class="supported-langs__list" style="height: 164px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ja.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">JA</span
+                            ><span class="supported-langs__title"
+                              >日本語</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ko.javascript.info/"
+                            ><span class="supported-langs__brief">KO</span
+                            ><span class="supported-langs__title"
+                              >한국어</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://learn.javascript.ru/clickjacking"
+                            ><span class="supported-langs__brief">RU</span
+                            ><span class="supported-langs__title"
+                              >Русский</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://tr.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">TR</span
+                            ><span class="supported-langs__title"
+                              >Türkçe</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://zh.javascript.info/clickjacking"
+                            ><span class="supported-langs__brief">ZH</span
+                            ><span class="supported-langs__title"
+                              >简体中文</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="supported-langs__text">
+                      <p>
+                        We want to make this open-source project available for
+                        people all around the world.
+                      </p>
+                      <p>
+                        <a href="https://javascript.info/translate"
+                          >Help to translate</a
+                        >
+                        the content of this tutorial to your language!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          <div class="sitetoolbar__logo-wrap">
+            <a class="sitetoolbar__link sitetoolbar__link_logo" href="/"
+              ><img
+                class="sitetoolbar__logo sitetoolbar__logo_normal"
+                src="/img/sitetoolbar__logo_en.svg"
+                width="200"
+                alt=""
+                role="presentation"
+              /><img
+                class="sitetoolbar__logo sitetoolbar__logo_small"
+                src="/img/sitetoolbar__logo_small_en.svg"
+                width="70"
+                alt=""
+                role="presentation"
+              />
+              <script>
+                Array.prototype.forEach.call(
+                  document.querySelectorAll("img.sitetoolbar__logo"),
+                  function (e) {
+                    let t = document.createElement("object");
+                    (t.type = "image/svg+xml"),
+                      (t.className = e.className),
+                      (t.style.cssText = "left:0;top:0;position:absolute"),
+                      (t.onload = function () {
+                        (t.onload = null), (e.style.visibility = "hidden");
+                      }),
+                      (t.data = e.src),
+                      e.parentNode.insertBefore(t, e);
+                  }
+                );
+              </script></a
+            >
+          </div>
+          <div class="sitetoolbar__nav-toggle-wrap">
+            <button class="sitetoolbar__nav-toggle" type="button"></button>
+          </div>
+          <nav class="sitetoolbar__sections">
+            <ul class="sitetoolbar__sections-list"></ul>
+          </nav>
+          <div class="sitetoolbar__book-wrap">
+            <a class="buy-book-button" href="/ebook"
+              ><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a
+            >
+          </div>
+          <div class="sitetoolbar__login-wrap">
+            <button
+              class="sitetoolbar__login sitetoolbar__login_unready"
+              data-action-login
+            ></button>
+          </div>
+          <div class="sitetoolbar__search-wrap">
+            <div class="sitetoolbar__search-content">
+              <form class="sitetoolbar__search" method="GET" action="/search">
+                <button
+                  class="sitetoolbar__search-toggle"
+                  type="button"
+                ></button>
+                <div class="sitetoolbar__search-input">
+                  <div class="text-input">
+                    <input
+                      class="text-input__control"
+                      name="query"
+                      placeholder="Search on Javascript.info"
+                      required="required"
+                      type="text"
+                    />
+                  </div>
+                  <button class="sitetoolbar__find" type="submit">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-markup"><code>&lt;style&gt;
+        <div class="tablet-menu">
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <form class="tablet-menu-search" action="/search/">
+                <input
+                  class="tablet-menu-search__input"
+                  type="search"
+                  name="query"
+                  placeholder="Search in the tutorial"
+                  required="required"
+                /><button
+                  class="tablet-menu-search__button"
+                  type="submit"
+                  name="type"
+                  value="articles"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                ><span class="map__text">Tutorial map</span></a
+              >
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <div class="share-icons">
+                <span class="share-icons__title">Share</span
+                ><a
+                  class="share share_tw"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                  rel="nofollow"
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <select
+                class="tablet-menu__nav input-select input-select input-select_small"
+                onchange="if(this.value) window.location.href=this.value"
+              >
+                <option value="https://ar.javascript.info/">عربي</option>
+                <option value="https://javascript.info/clickjacking" selected>
+                  English
+                </option>
+                <option value="https://es.javascript.info/clickjacking">
+                  Español
+                </option>
+                <option value="https://fr.javascript.info/clickjacking">
+                  Français
+                </option>
+                <option value="https://id.javascript.info/">Indonesia</option>
+                <option value="https://it.javascript.info/clickjacking">
+                  Italiano
+                </option>
+                <option value="https://ja.javascript.info/clickjacking">
+                  日本語
+                </option>
+                <option value="https://ko.javascript.info/">한국어</option>
+                <option value="https://learn.javascript.ru/clickjacking">
+                  Русский
+                </option>
+                <option value="https://tr.javascript.info/clickjacking">
+                  Türkçe
+                </option>
+                <option value="https://zh.javascript.info/clickjacking">
+                  简体中文
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <progress
+          class="tutorial-progress"
+          data-sticky
+          value="3"
+          max="3"
+          data-tooltip="Lesson 3 of 3"
+        ></progress>
+      </div>
+      <div class="page page_sidebar_on page_inner_padding">
+        <script>
+          if (localStorage.noSidebar) {
+            document.querySelector(".page").classList.remove("page_sidebar_on");
+            let e = document.querySelector(".page-wrapper");
+            e && e.classList.remove("page-wrapper_sidebar_on");
+          }
+          setTimeout(function () {
+            document
+              .querySelector(".page")
+              .classList.add("page_sidebar-animation-on");
+          });
+        </script>
+        <div class="page__inner">
+          <main class="main main_width-limit">
+            <header class="main__header">
+              <div class="main__header-inner">
+                <div class="main__header-group">
+                  <ol class="breadcrumbs">
+                    <li class="breadcrumbs__item breadcrumbs__item_home">
+                      <a class="breadcrumbs__link" href="/"
+                        ><span class="breadcrumbs__hidden-text"
+                          >Tutorial</span
+                        ></a
+                      >
+                    </li>
+                    <li class="breadcrumbs__item" id="breadcrumb-1">
+                      <a class="breadcrumbs__link" href="/frames-and-windows"
+                        ><span>Frames and windows</span></a
+                      >
+                    </li>
+                    <script type="application/ld+json">
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Tutorial",
+                            "item": "https://javascript.info/"
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Frames and windows",
+                            "item": "https://javascript.info/frames-and-windows"
+                          }
+                        ]
+                      }
+                    </script>
+                  </ol>
+                  <div
+                    class="updated-at"
+                    data-tooltip="Last updated at 29th June 2019"
+                  >
+                    <div class="updated-at__content">29th June 2019</div>
+                  </div>
+                </div>
+                <h1 class="main__header-title">The clickjacking attack</h1>
+              </div>
+            </header>
+            <div class="content">
+              <article
+                class="formatted"
+                itemscope
+                itemtype="http://schema.org/TechArticle"
+              >
+                <meta itemprop="name" content="The clickjacking attack" />
+                <div
+                  itemprop="author"
+                  itemscope
+                  itemtype="http://schema.org/Person"
+                >
+                  <meta itemprop="email" content="iliakan@gmail.com" /><meta
+                    itemprop="name"
+                    content="Ilya Kantor"
+                  />
+                </div>
+                <div itemprop="articleBody">
+                  <p>
+                    The “clickjacking” attack allows an evil page to click on a
+                    “victim site” <em>on behalf of the visitor</em>.
+                  </p>
+                  <p>
+                    Many sites were hacked this way, including Twitter,
+                    Facebook, Paypal and other sites. They have all been fixed,
+                    of course.
+                  </p>
+                  <h2>
+                    <a class="main__anchor" name="the-idea" href="#the-idea"
+                      >The idea</a
+                    >
+                  </h2>
+                  <p>The idea is very simple.</p>
+                  <p>Here’s how clickjacking was done with Facebook:</p>
+                  <ol>
+                    <li>
+                      A visitor is lured to the evil page. It doesn’t matter
+                      how.
+                    </li>
+                    <li>
+                      The page has a harmless-looking link on it (like “get rich
+                      now” or “click here, very funny”).
+                    </li>
+                    <li>
+                      Over that link the evil page positions a transparent
+                      <code>&lt;iframe&gt;</code> with <code>src</code> from
+                      facebook.com, in such a way that the “Like” button is
+                      right above that link. Usually that’s done with
+                      <code>z-index</code>.
+                    </li>
+                    <li>
+                      In attempting to click the link, the visitor in fact
+                      clicks the button.
+                    </li>
+                  </ol>
+                  <h2>
+                    <a class="main__anchor" name="the-demo" href="#the-demo"
+                      >The demo</a
+                    >
+                  </h2>
+                  <p>
+                    Here’s how the evil page looks. To make things clear, the
+                    <code>&lt;iframe&gt;</code> is half-transparent (in real
+                    evil pages it’s fully transparent):
+                  </p>
+                  <div
+                    id="duk3cdstvr"
+                    data-trusted="1"
+                    class="code-example"
+                    data-demo-height="120"
+                    data-highlight='[{"start":14,"end":16},{"start":6,"end":6}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="show"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-markup"
+                        ><code>&lt;style&gt;
 iframe { /* iframe from the victim site */
   width: 400px;
   height: 100px;
@@ -41,11 +708,74 @@ iframe { /* iframe from the victim site */
 &lt;button&gt;Click here!&lt;/button&gt;
 
 &lt;div&gt;...And you're cool (I'm a cool hacker actually)!&lt;/div&gt;</code></pre>
-        </div>
-      </div>
-      
-      </div><p>The full demo of the attack:</p>
-<div class="code-tabs code-tabs_result_on"><div class="code-tabs__tools"><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_left" title="&amp;larr;" data-code-tabs-left="data-code-tabs-left"></button></div><div class="code-tabs__switches-wrap"><div class="code-tabs__switches" data-code-tabs-switches="data-code-tabs-switches"><div class="code-tabs__switches-items"><div class="code-tabs__switch code-tabs__switch_current">Result</div><div class="code-tabs__switch">facebook.html</div><div class="code-tabs__switch">index.html</div></div></div></div><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_right" title="&amp;rarr;" data-code-tabs-right="data-code-tabs-right"></button></div><div class="code-tabs__buttons"><a class="code-tabs__button code-tabs__button_external" target="_blank" title="open in a new window" href="/article/clickjacking/clickjacking-visible/"></a><a class="code-tabs__button code-tabs__button_edit" target="_blank" title="edit in the sandbox" href="https://plnkr.co/edit/xQ6XQZLiF5crCD8f?p=preview"></a></div></div><div class="code-tabs__content" data-code-tabs-content="data-code-tabs-content" style="height:160px"><div class="code-tabs__section code-tabs__section_current"><iframe class="code-tabs__result" src="/article/clickjacking/clickjacking-visible/"></iframe></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!DOCTYPE HTML&gt;
+                      </div>
+                    </div>
+                  </div>
+                  <p>The full demo of the attack:</p>
+                  <div class="code-tabs code-tabs_result_on">
+                    <div class="code-tabs__tools">
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_left"
+                          title="&amp;larr;"
+                          data-code-tabs-left="data-code-tabs-left"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__switches-wrap">
+                        <div
+                          class="code-tabs__switches"
+                          data-code-tabs-switches="data-code-tabs-switches"
+                        >
+                          <div class="code-tabs__switches-items">
+                            <div
+                              class="code-tabs__switch code-tabs__switch_current"
+                            >
+                              Result
+                            </div>
+                            <div class="code-tabs__switch">facebook.html</div>
+                            <div class="code-tabs__switch">index.html</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_right"
+                          title="&amp;rarr;"
+                          data-code-tabs-right="data-code-tabs-right"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__buttons">
+                        <a
+                          class="code-tabs__button code-tabs__button_external"
+                          target="_blank"
+                          title="open in a new window"
+                          href="/article/clickjacking/clickjacking-visible/"
+                        ></a
+                        ><a
+                          class="code-tabs__button code-tabs__button_edit"
+                          target="_blank"
+                          title="edit in the sandbox"
+                          href="https://plnkr.co/edit/xQ6XQZLiF5crCD8f?p=preview"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="code-tabs__content"
+                      data-code-tabs-content="data-code-tabs-content"
+                      style="height: 160px"
+                    >
+                      <div
+                        class="code-tabs__section code-tabs__section_current"
+                      >
+                        <iframe
+                          class="code-tabs__result"
+                          src="/article/clickjacking/clickjacking-visible/"
+                        ></iframe>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 
 &lt;body style=&quot;margin:10px;padding:10px&quot;&gt;
@@ -54,7 +784,12 @@ iframe { /* iframe from the victim site */
 
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -85,10 +820,91 @@ iframe { /* iframe from the victim site */
   &lt;div&gt;...And you're cool (I'm a cool hacker actually)!&lt;/div&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div></div></div><p>Here we have a half-transparent <code>&lt;iframe src=&quot;facebook.html&quot;&gt;</code>, and in the example we can see it hovering over the button. A click on the button actually clicks on the iframe, but that’s not visible to the user, because the iframe is transparent.</p>
-<p>As a result, if the visitor is authorized on Facebook (“remember me” is usually turned on), then it adds a “Like”. On Twitter that would be a “Follow” button.</p>
-<p>Here’s the same example, but closer to reality, with <code>opacity:0</code> for <code>&lt;iframe&gt;</code>:</p>
-<div class="code-tabs code-tabs_result_on"><div class="code-tabs__tools"><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_left" title="&amp;larr;" data-code-tabs-left="data-code-tabs-left"></button></div><div class="code-tabs__switches-wrap"><div class="code-tabs__switches" data-code-tabs-switches="data-code-tabs-switches"><div class="code-tabs__switches-items"><div class="code-tabs__switch code-tabs__switch_current">Result</div><div class="code-tabs__switch">facebook.html</div><div class="code-tabs__switch">index.html</div></div></div></div><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_right" title="&amp;rarr;" data-code-tabs-right="data-code-tabs-right"></button></div><div class="code-tabs__buttons"><a class="code-tabs__button code-tabs__button_external" target="_blank" title="open in a new window" href="/article/clickjacking/clickjacking/"></a><a class="code-tabs__button code-tabs__button_edit" target="_blank" title="edit in the sandbox" href="https://plnkr.co/edit/l4BFtW1VNSKY2QMm?p=preview"></a></div></div><div class="code-tabs__content" data-code-tabs-content="data-code-tabs-content" style="height:160px"><div class="code-tabs__section code-tabs__section_current"><iframe class="code-tabs__result" src="/article/clickjacking/clickjacking/"></iframe></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!DOCTYPE HTML&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Here we have a half-transparent
+                    <code>&lt;iframe src=&quot;facebook.html&quot;&gt;</code>,
+                    and in the example we can see it hovering over the button. A
+                    click on the button actually clicks on the iframe, but
+                    that’s not visible to the user, because the iframe is
+                    transparent.
+                  </p>
+                  <p>
+                    As a result, if the visitor is authorized on Facebook
+                    (“remember me” is usually turned on), then it adds a “Like”.
+                    On Twitter that would be a “Follow” button.
+                  </p>
+                  <p>
+                    Here’s the same example, but closer to reality, with
+                    <code>opacity:0</code> for <code>&lt;iframe&gt;</code>:
+                  </p>
+                  <div class="code-tabs code-tabs_result_on">
+                    <div class="code-tabs__tools">
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_left"
+                          title="&amp;larr;"
+                          data-code-tabs-left="data-code-tabs-left"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__switches-wrap">
+                        <div
+                          class="code-tabs__switches"
+                          data-code-tabs-switches="data-code-tabs-switches"
+                        >
+                          <div class="code-tabs__switches-items">
+                            <div
+                              class="code-tabs__switch code-tabs__switch_current"
+                            >
+                              Result
+                            </div>
+                            <div class="code-tabs__switch">facebook.html</div>
+                            <div class="code-tabs__switch">index.html</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_right"
+                          title="&amp;rarr;"
+                          data-code-tabs-right="data-code-tabs-right"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__buttons">
+                        <a
+                          class="code-tabs__button code-tabs__button_external"
+                          target="_blank"
+                          title="open in a new window"
+                          href="/article/clickjacking/clickjacking/"
+                        ></a
+                        ><a
+                          class="code-tabs__button code-tabs__button_edit"
+                          target="_blank"
+                          title="edit in the sandbox"
+                          href="https://plnkr.co/edit/l4BFtW1VNSKY2QMm?p=preview"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="code-tabs__content"
+                      data-code-tabs-content="data-code-tabs-content"
+                      style="height: 160px"
+                    >
+                      <div
+                        class="code-tabs__section code-tabs__section_current"
+                      >
+                        <iframe
+                          class="code-tabs__result"
+                          src="/article/clickjacking/clickjacking/"
+                        ></iframe>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
 
 &lt;body style=&quot;margin:10px;padding:10px&quot;&gt;
@@ -97,7 +913,12 @@ iframe { /* iframe from the victim site */
 
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -128,44 +949,185 @@ iframe { /* iframe from the victim site */
   &lt;div&gt;...And you're cool (I'm a cool hacker actually)!&lt;/div&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div></div></div><p>All we need to attack – is to position the <code>&lt;iframe&gt;</code> on the evil page in such a way that the button is right over the link. So that when a user clicks the link, they actually click the button. That’s usually doable with CSS.</p>
-<div class="important important_smart">
-            <div class="important__header"><span class="important__type">Clickjacking is for clicks, not for keyboard</span></div>
-            <div class="important__content"><p>The attack only affects mouse actions (or similar, like taps on mobile).</p>
-<p>Keyboard input is much difficult to redirect. Technically, if we have a text field to hack, then we can position an iframe in such a way that text fields overlap each other. So when a visitor tries to focus on the input they see on the page, they actually focus on the input inside the iframe.</p>
-<p>But then there’s a problem. Everything that the visitor types will be hidden, because the iframe is not visible.</p>
-<p>People will usually stop typing when they can’t see their new characters printing on the screen.</p>
-</div></div>
-<h2><a class="main__anchor" name="old-school-defences-weak" href="#old-school-defences-weak">Old-school defences (weak)</a></h2><p>The oldest defence is a bit of JavaScript which forbids opening the page in a frame (so-called “framebusting”).</p>
-<p>That looks like this:</p>
-<div id="346zbzm9e2" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>if (top != window) {
+&lt;/html&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    All we need to attack – is to position the
+                    <code>&lt;iframe&gt;</code> on the evil page in such a way
+                    that the button is right over the link. So that when a user
+                    clicks the link, they actually click the button. That’s
+                    usually doable with CSS.
+                  </p>
+                  <div class="important important_smart">
+                    <div class="important__header">
+                      <span class="important__type"
+                        >Clickjacking is for clicks, not for keyboard</span
+                      >
+                    </div>
+                    <div class="important__content">
+                      <p>
+                        The attack only affects mouse actions (or similar, like
+                        taps on mobile).
+                      </p>
+                      <p>
+                        Keyboard input is much difficult to redirect.
+                        Technically, if we have a text field to hack, then we
+                        can position an iframe in such a way that text fields
+                        overlap each other. So when a visitor tries to focus on
+                        the input they see on the page, they actually focus on
+                        the input inside the iframe.
+                      </p>
+                      <p>
+                        But then there’s a problem. Everything that the visitor
+                        types will be hidden, because the iframe is not visible.
+                      </p>
+                      <p>
+                        People will usually stop typing when they can’t see
+                        their new characters printing on the screen.
+                      </p>
+                    </div>
+                  </div>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="old-school-defences-weak"
+                      href="#old-school-defences-weak"
+                      >Old-school defences (weak)</a
+                    >
+                  </h2>
+                  <p>
+                    The oldest defence is a bit of JavaScript which forbids
+                    opening the page in a frame (so-called “framebusting”).
+                  </p>
+                  <p>That looks like this:</p>
+                  <div id="346zbzm9e2" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>if (top != window) {
   top.location = window.location;
 }</code></pre>
-        </div>
-      </div>
-      
-      </div><p>That is: if the window finds out that it’s not on top, then it automatically makes itself the top.</p>
-<p>This not a reliable defence, because there are many ways to hack around it. Let’s cover a few.</p>
-<h3><a class="main__anchor" name="blocking-top-navigation" href="#blocking-top-navigation">Blocking top-navigation</a></h3><p>We can block the transition caused by changing <code>top.location</code> in  <a href="/onload-ondomcontentloaded#window.onbeforeunload">beforeunload</a> event handler.</p>
-<p>The top page (enclosing one, belonging to the hacker) sets a preventing handler to it, like this:</p>
-<div id="gmny35ftmf" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>window.onbeforeunload = function() {
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    That is: if the window finds out that it’s not on top, then
+                    it automatically makes itself the top.
+                  </p>
+                  <p>
+                    This not a reliable defence, because there are many ways to
+                    hack around it. Let’s cover a few.
+                  </p>
+                  <h3>
+                    <a
+                      class="main__anchor"
+                      name="blocking-top-navigation"
+                      href="#blocking-top-navigation"
+                      >Blocking top-navigation</a
+                    >
+                  </h3>
+                  <p>
+                    We can block the transition caused by changing
+                    <code>top.location</code> in
+                    <a href="/onload-ondomcontentloaded#window.onbeforeunload"
+                      >beforeunload</a
+                    >
+                    event handler.
+                  </p>
+                  <p>
+                    The top page (enclosing one, belonging to the hacker) sets a
+                    preventing handler to it, like this:
+                  </p>
+                  <div id="gmny35ftmf" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>window.onbeforeunload = function() {
   return false;
 };</code></pre>
-        </div>
-      </div>
-      
-      </div><p>When the <code>iframe</code> tries to change <code>top.location</code>, the visitor gets a message asking them whether they want to leave.</p>
-<p>In most cases the visitor would answer negatively because they don’t know about the iframe – all they can see is the top page, there’s no reason to leave. So <code>top.location</code> won’t change!</p>
-<p>In action:</p>
-<div class="code-tabs code-tabs_result_on"><div class="code-tabs__tools"><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_left" title="&amp;larr;" data-code-tabs-left="data-code-tabs-left"></button></div><div class="code-tabs__switches-wrap"><div class="code-tabs__switches" data-code-tabs-switches="data-code-tabs-switches"><div class="code-tabs__switches-items"><div class="code-tabs__switch code-tabs__switch_current">Result</div><div class="code-tabs__switch">iframe.html</div><div class="code-tabs__switch">index.html</div></div></div></div><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_right" title="&amp;rarr;" data-code-tabs-right="data-code-tabs-right"></button></div><div class="code-tabs__buttons"><a class="code-tabs__button code-tabs__button_external" target="_blank" title="open in a new window" href="/article/clickjacking/top-location/"></a><a class="code-tabs__button code-tabs__button_edit" target="_blank" title="edit in the sandbox" href="https://plnkr.co/edit/UMxYFoefqlhTMUbA?p=preview"></a></div></div><div class="code-tabs__content" data-code-tabs-content="data-code-tabs-content" style="height:200px"><div class="code-tabs__section code-tabs__section_current"><iframe class="code-tabs__result" src="/article/clickjacking/top-location/"></iframe></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    When the <code>iframe</code> tries to change
+                    <code>top.location</code>, the visitor gets a message asking
+                    them whether they want to leave.
+                  </p>
+                  <p>
+                    In most cases the visitor would answer negatively because
+                    they don’t know about the iframe – all they can see is the
+                    top page, there’s no reason to leave. So
+                    <code>top.location</code> won’t change!
+                  </p>
+                  <p>In action:</p>
+                  <div class="code-tabs code-tabs_result_on">
+                    <div class="code-tabs__tools">
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_left"
+                          title="&amp;larr;"
+                          data-code-tabs-left="data-code-tabs-left"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__switches-wrap">
+                        <div
+                          class="code-tabs__switches"
+                          data-code-tabs-switches="data-code-tabs-switches"
+                        >
+                          <div class="code-tabs__switches-items">
+                            <div
+                              class="code-tabs__switch code-tabs__switch_current"
+                            >
+                              Result
+                            </div>
+                            <div class="code-tabs__switch">iframe.html</div>
+                            <div class="code-tabs__switch">index.html</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_right"
+                          title="&amp;rarr;"
+                          data-code-tabs-right="data-code-tabs-right"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__buttons">
+                        <a
+                          class="code-tabs__button code-tabs__button_external"
+                          target="_blank"
+                          title="open in a new window"
+                          href="/article/clickjacking/top-location/"
+                        ></a
+                        ><a
+                          class="code-tabs__button code-tabs__button_edit"
+                          target="_blank"
+                          title="edit in the sandbox"
+                          href="https://plnkr.co/edit/UMxYFoefqlhTMUbA?p=preview"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="code-tabs__content"
+                      data-code-tabs-content="data-code-tabs-content"
+                      style="height: 200px"
+                    >
+                      <div
+                        class="code-tabs__section code-tabs__section_current"
+                      >
+                        <iframe
+                          class="code-tabs__result"
+                          src="/article/clickjacking/top-location/"
+                        ></iframe>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -182,7 +1144,12 @@ iframe { /* iframe from the victim site */
 
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -222,50 +1189,135 @@ iframe { /* iframe from the victim site */
   &lt;button onclick=&quot;attack()&quot;&gt;Add a &quot;protected&quot; iframe&lt;/button&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div></div></div><h3><a class="main__anchor" name="sandbox-attribute" href="#sandbox-attribute">Sandbox attribute</a></h3><p>One of the things restricted by the <code>sandbox</code> attribute is navigation. A sandboxed iframe may not change <code>top.location</code>.</p>
-<p>So we can add the iframe with <code>sandbox=&quot;allow-scripts allow-forms&quot;</code>. That would relax the restrictions, permitting scripts and forms. But we omit <code>allow-top-navigation</code> so that changing <code>top.location</code> is forbidden.</p>
-<p>Here’s the code:</p>
-<div id="mgavin8ycu" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:0,&quot;cols&quot;:[{&quot;start&quot;:8,&quot;end&quot;:43}]}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-markup"><code>&lt;iframe sandbox=&quot;allow-scripts allow-forms&quot; src=&quot;facebook.html&quot;&gt;&lt;/iframe&gt;</code></pre>
-        </div>
-      </div>
-      
-      </div><p>There are other ways to work around that simple protection too.</p>
-<h2><a class="main__anchor" name="x-frame-options" href="#x-frame-options">X-Frame-Options</a></h2><p>The server-side header <code>X-Frame-Options</code> can permit or forbid displaying the page inside a frame.</p>
-<p>It must be sent exactly as HTTP-header: the browser will ignore it if found in HTML <code>&lt;meta&gt;</code> tag. So, <code>&lt;meta http-equiv=&quot;X-Frame-Options&quot;...&gt;</code> won’t do anything.</p>
-<p>The header may have 3 values:</p>
-<dl>
-<dt><code>DENY</code></dt>
-<dd>Never ever show the page inside a frame.</dd>
-<dt><code>SAMEORIGIN</code></dt>
-<dd>Allow inside a frame if the parent document comes from the same origin.</dd>
-<dt><code>ALLOW-FROM domain</code></dt>
-<dd>Allow inside a frame if the parent document is from the given domain.</dd>
-</dl>
-<p>For instance, Twitter uses <code>X-Frame-Options: SAMEORIGIN</code>.</p>
-<p>Here’s the result:</p>
-<div id="fqubo9vsko" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-markup"><code>&lt;iframe src=&quot;https://twitter.com&quot;&gt;&lt;/iframe&gt;</code></pre>
-        </div>
-      </div>
-      
-      </div><!-- ebook: prerender/ chrome headless dies and timeouts on this iframe -->
-<iframe src="https://twitter.com"></iframe>
-<p>Depending on your browser, the <code>iframe</code> above is either empty or alerting you that the browser won’t permit that page to be navigating in this way.</p>
-<h2><a class="main__anchor" name="showing-with-disabled-functionality" href="#showing-with-disabled-functionality">Showing with disabled functionality</a></h2><p>The <code>X-Frame-Options</code> header has a side-effect. Other sites won’t be able to show our page in a frame, even if they have good reasons to do so.</p>
-<p>So there are other solutions… For instance, we can “cover” the page with a <code>&lt;div&gt;</code> with styles <code>height: 100%; width: 100%;</code>, so that it will intercept all clicks. That <code>&lt;div&gt;</code> is to be removed if <code>window == top</code> or if we figure out that we don’t need the protection.</p>
-<p>Something like this:</p>
-<div id="lvhokyxkn1" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-markup"><code>&lt;style&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <h3>
+                    <a
+                      class="main__anchor"
+                      name="sandbox-attribute"
+                      href="#sandbox-attribute"
+                      >Sandbox attribute</a
+                    >
+                  </h3>
+                  <p>
+                    One of the things restricted by the
+                    <code>sandbox</code> attribute is navigation. A sandboxed
+                    iframe may not change <code>top.location</code>.
+                  </p>
+                  <p>
+                    So we can add the iframe with
+                    <code>sandbox=&quot;allow-scripts allow-forms&quot;</code>.
+                    That would relax the restrictions, permitting scripts and
+                    forms. But we omit <code>allow-top-navigation</code> so that
+                    changing <code>top.location</code> is forbidden.
+                  </p>
+                  <p>Here’s the code:</p>
+                  <div
+                    id="mgavin8ycu"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":0,"cols":[{"start":8,"end":43}]}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-markup"
+                        ><code>&lt;iframe sandbox=&quot;allow-scripts allow-forms&quot; src=&quot;facebook.html&quot;&gt;&lt;/iframe&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    There are other ways to work around that simple protection
+                    too.
+                  </p>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="x-frame-options"
+                      href="#x-frame-options"
+                      >X-Frame-Options</a
+                    >
+                  </h2>
+                  <p>
+                    The server-side header <code>X-Frame-Options</code> can
+                    permit or forbid displaying the page inside a frame.
+                  </p>
+                  <p>
+                    It must be sent exactly as HTTP-header: the browser will
+                    ignore it if found in HTML <code>&lt;meta&gt;</code> tag.
+                    So,
+                    <code
+                      >&lt;meta
+                      http-equiv=&quot;X-Frame-Options&quot;...&gt;</code
+                    >
+                    won’t do anything.
+                  </p>
+                  <p>The header may have 3 values:</p>
+                  <dl>
+                    <dt><code>DENY</code></dt>
+                    <dd>Never ever show the page inside a frame.</dd>
+                    <dt><code>SAMEORIGIN</code></dt>
+                    <dd>
+                      Allow inside a frame if the parent document comes from the
+                      same origin.
+                    </dd>
+                    <dt><code>ALLOW-FROM domain</code></dt>
+                    <dd>
+                      Allow inside a frame if the parent document is from the
+                      given domain.
+                    </dd>
+                  </dl>
+                  <p>
+                    For instance, Twitter uses
+                    <code>X-Frame-Options: SAMEORIGIN</code>.
+                  </p>
+                  <p>Here’s the result:</p>
+                  <div id="fqubo9vsko" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-markup"
+                        ><code>&lt;iframe src=&quot;https://twitter.com&quot;&gt;&lt;/iframe&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ebook: prerender/ chrome headless dies and timeouts on this iframe -->
+                  <iframe src="https://twitter.com"></iframe>
+                  <p>
+                    Depending on your browser, the <code>iframe</code> above is
+                    either empty or alerting you that the browser won’t permit
+                    that page to be navigating in this way.
+                  </p>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="showing-with-disabled-functionality"
+                      href="#showing-with-disabled-functionality"
+                      >Showing with disabled functionality</a
+                    >
+                  </h2>
+                  <p>
+                    The <code>X-Frame-Options</code> header has a side-effect.
+                    Other sites won’t be able to show our page in a frame, even
+                    if they have good reasons to do so.
+                  </p>
+                  <p>
+                    So there are other solutions… For instance, we can “cover”
+                    the page with a <code>&lt;div&gt;</code> with styles
+                    <code>height: 100%; width: 100%;</code>, so that it will
+                    intercept all clicks. That <code>&lt;div&gt;</code> is to be
+                    removed if <code>window == top</code> or if we figure out
+                    that we don’t need the protection.
+                  </p>
+                  <p>Something like this:</p>
+                  <div id="lvhokyxkn1" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-markup"
+                        ><code>&lt;style&gt;
   #protector {
     height: 100%;
     width: 100%;
@@ -287,11 +1339,74 @@ iframe { /* iframe from the victim site */
     protector.remove();
   }
 &lt;/script&gt;</code></pre>
-        </div>
-      </div>
-      
-      </div><p>The demo:</p>
-<div class="code-tabs code-tabs_result_on"><div class="code-tabs__tools"><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_left" title="&amp;larr;" data-code-tabs-left="data-code-tabs-left"></button></div><div class="code-tabs__switches-wrap"><div class="code-tabs__switches" data-code-tabs-switches="data-code-tabs-switches"><div class="code-tabs__switches-items"><div class="code-tabs__switch code-tabs__switch_current">Result</div><div class="code-tabs__switch">iframe.html</div><div class="code-tabs__switch">index.html</div></div></div></div><div class="code-tabs__scroll-wrap"><button class="code-tabs__scroll-button code-tabs__scroll-button_right" title="&amp;rarr;" data-code-tabs-right="data-code-tabs-right"></button></div><div class="code-tabs__buttons"><a class="code-tabs__button code-tabs__button_external" target="_blank" title="open in a new window" href="/article/clickjacking/protector/"></a><a class="code-tabs__button code-tabs__button_edit" target="_blank" title="edit in the sandbox" href="https://plnkr.co/edit/COt3mNoUc7sWmzRM?p=preview"></a></div></div><div class="code-tabs__content" data-code-tabs-content="data-code-tabs-content" style="height:200px"><div class="code-tabs__section code-tabs__section_current"><iframe class="code-tabs__result" src="/article/clickjacking/protector/"></iframe></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+                      </div>
+                    </div>
+                  </div>
+                  <p>The demo:</p>
+                  <div class="code-tabs code-tabs_result_on">
+                    <div class="code-tabs__tools">
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_left"
+                          title="&amp;larr;"
+                          data-code-tabs-left="data-code-tabs-left"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__switches-wrap">
+                        <div
+                          class="code-tabs__switches"
+                          data-code-tabs-switches="data-code-tabs-switches"
+                        >
+                          <div class="code-tabs__switches-items">
+                            <div
+                              class="code-tabs__switch code-tabs__switch_current"
+                            >
+                              Result
+                            </div>
+                            <div class="code-tabs__switch">iframe.html</div>
+                            <div class="code-tabs__switch">index.html</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="code-tabs__scroll-wrap">
+                        <button
+                          class="code-tabs__scroll-button code-tabs__scroll-button_right"
+                          title="&amp;rarr;"
+                          data-code-tabs-right="data-code-tabs-right"
+                        ></button>
+                      </div>
+                      <div class="code-tabs__buttons">
+                        <a
+                          class="code-tabs__button code-tabs__button_external"
+                          target="_blank"
+                          title="open in a new window"
+                          href="/article/clickjacking/protector/"
+                        ></a
+                        ><a
+                          class="code-tabs__button code-tabs__button_edit"
+                          target="_blank"
+                          title="edit in the sandbox"
+                          href="https://plnkr.co/edit/COt3mNoUc7sWmzRM?p=preview"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="code-tabs__content"
+                      data-code-tabs-content="data-code-tabs-content"
+                      style="height: 200px"
+                    >
+                      <div
+                        class="code-tabs__section code-tabs__section_current"
+                      >
+                        <iframe
+                          class="code-tabs__result"
+                          src="/article/clickjacking/protector/"
+                        ></iframe>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -331,7 +1446,12 @@ iframe { /* iframe from the victim site */
   &lt;button onclick=&quot;alert(1)&quot;&gt;Click wouldn't work in that case&lt;/button&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div><div class="code-tabs__section"><pre class="language-markup line-numbers"><code>&lt;!doctype html&gt;
+&lt;/html&gt;</code></pre>
+                      </div>
+                      <div class="code-tabs__section">
+                        <pre
+                          class="language-markup line-numbers"
+                        ><code>&lt;!doctype html&gt;
 &lt;html&gt;
 
 &lt;head&gt;
@@ -342,26 +1462,322 @@ iframe { /* iframe from the victim site */
   &lt;iframe src=&quot;iframe.html&quot;&gt;&lt;/iframe&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</code></pre></div></div></div><h2><a class="main__anchor" name="samesite-cookie-attribute" href="#samesite-cookie-attribute">Samesite cookie attribute</a></h2><p>The <code>samesite</code> cookie attribute can also prevent clickjacking attacks.</p>
-<p>A cookie with such attribute is only sent to a website if it’s opened directly, not via a frame, or otherwise. More information in the chapter <a href="/cookie#samesite">Cookies, document.cookie</a>.</p>
-<p>If the site, such as Facebook, had <code>samesite</code> attribute on its authentication cookie, like this:</p>
-<div id="lc3nflyv65" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-none"><code>Set-Cookie: authorization=secret; samesite</code></pre>
+&lt;/html&gt;</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="samesite-cookie-attribute"
+                      href="#samesite-cookie-attribute"
+                      >Samesite cookie attribute</a
+                    >
+                  </h2>
+                  <p>
+                    The <code>samesite</code> cookie attribute can also prevent
+                    clickjacking attacks.
+                  </p>
+                  <p>
+                    A cookie with such attribute is only sent to a website if
+                    it’s opened directly, not via a frame, or otherwise. More
+                    information in the chapter
+                    <a href="/cookie#samesite">Cookies, document.cookie</a>.
+                  </p>
+                  <p>
+                    If the site, such as Facebook, had
+                    <code>samesite</code> attribute on its authentication
+                    cookie, like this:
+                  </p>
+                  <div id="lc3nflyv65" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-none"
+                        ><code>Set-Cookie: authorization=secret; samesite</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    …Then such cookie wouldn’t be sent when Facebook is open in
+                    iframe from another site. So the attack would fail.
+                  </p>
+                  <p>
+                    The <code>samesite</code> cookie attribute will not have an
+                    effect when cookies are not used. This may allow other
+                    websites to easily show our public, unauthenticated pages in
+                    iframes.
+                  </p>
+                  <p>
+                    However, this may also allow clickjacking attacks to work in
+                    a few limited cases. An anonymous polling website that
+                    prevents duplicate voting by checking IP addresses, for
+                    example, would still be vulnerable to clickjacking because
+                    it does not authenticate users using cookies.
+                  </p>
+                  <h2>
+                    <a class="main__anchor" name="summary" href="#summary"
+                      >Summary</a
+                    >
+                  </h2>
+                  <p>
+                    Clickjacking is a way to “trick” users into clicking on a
+                    victim site without even knowing what’s happening. That’s
+                    dangerous if there are important click-activated actions.
+                  </p>
+                  <p>
+                    A hacker can post a link to their evil page in a message, or
+                    lure visitors to their page by some other means. There are
+                    many variations.
+                  </p>
+                  <p>
+                    From one perspective – the attack is “not deep”: all a
+                    hacker is doing is intercepting a single click. But from
+                    another perspective, if the hacker knows that after the
+                    click another control will appear, then they may use cunning
+                    messages to coerce the user into clicking on them as well.
+                  </p>
+                  <p>
+                    The attack is quite dangerous, because when we engineer the
+                    UI we usually don’t anticipate that a hacker may click on
+                    behalf of the visitor. So vulnerabilities can be found in
+                    totally unexpected places.
+                  </p>
+                  <ul>
+                    <li>
+                      It is recommended to use
+                      <code>X-Frame-Options: SAMEORIGIN</code> on pages (or
+                      whole websites) which are not intended to be viewed inside
+                      frames.
+                    </li>
+                    <li>
+                      Use a covering <code>&lt;div&gt;</code> if we want to
+                      allow our pages to be shown in iframes, but still stay
+                      safe.
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+            <div class="page__nav-wrap">
+              <a
+                class="page__nav page__nav_prev"
+                href="/cross-window-communication"
+                data-tooltip="Cross-window communication"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate"
+                  >Previous lesson</span
+                ></a
+              ><a
+                class="page__nav page__nav_next"
+                href="/binary"
+                data-tooltip="Binary data, files"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate">Next lesson</span></a
+              >
+            </div>
+            <div class="article-tablet-foot tablet-only">
+              <div class="article-tablet-foot__layout">
+                <div class="share-icons">
+                  <span class="share-icons__title">Share</span
+                  ><a
+                    class="share share_tw"
+                    href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                    rel="nofollow"
+                  ></a
+                  ><a
+                    class="share share_fb"
+                    href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                    rel="nofollow"
+                  ></a>
+                </div>
+                <div class="article-tablet-foot__map">
+                  <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                    ><span class="map__text">Tutorial map</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="comments formatted" id="comments">
+              <div class="comments__header">
+                <h2 class="comments__header-title">
+                  <a href="#comments" name="comments">Comments</a>
+                </h2>
+                <div class="comments__read-before">
+                  <span class="comments__read-before-link"
+                    >read this before commenting…</span
+                  >
+                  <div class="comments__read-before-popup">
+                    <div class="comments__read-before-popup-i">
+                      <ul>
+                        <li>
+                          If you have suggestions what to improve - please
+                          <a
+                            href="https://github.com/javascript-tutorial/en.javascript.info/issues/new"
+                            >submit a GitHub issue</a
+                          >
+                          or a pull request instead of commenting.
+                        </li>
+                        <li>
+                          If you can't understand something in the article –
+                          please elaborate.
+                        </li>
+                        <li>
+                          To insert few words of code, use the
+                          <code>&lt;code&gt;</code> tag, for several lines –
+                          wrap them in <code>&lt;pre&gt;</code> tag, for more
+                          than 10 lines – use a sandbox (<a
+                            href="https://plnkr.co/edit/?p=preview"
+                            >plnkr</a
+                          >, <a href="https://jsbin.com">jsbin</a>,
+                          <a href="http://codepen.io">codepen</a>…)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="disqus_thread"></div>
+              <script>
+                var disqus_config = function () {
+                  if (!this.page) this.page = {};
+                  Object.assign(this.page, {
+                    url: "https:\/\/javascript.info\/clickjacking",
+                    identifier: "\/clickjacking",
+                  });
+                };
+              </script>
+              <script>
+                var disqus_shortname = "javascriptinfo";
+              </script>
+              <script>
+                var disqus_enabled = true;
+              </script>
+            </div>
+          </main>
+        </div>
+        <div class="sidebar page__sidebar sidebar sidebar_sticky-footer">
+          <button class="sidebar__toggle" data-sidebar-toggle></button
+          ><a
+            class="map"
+            href="/tutorial/map"
+            data-action="tutorial-map"
+            data-tooltip="Tutorial map"
+          ></a>
+          <div class="sidebar__inner">
+            <div class="sidebar__content">
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Chapter</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="/frames-and-windows"
+                        >Frames and windows</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Lesson navigation</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#the-idea">The idea</a>
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#the-demo">The demo</a>
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#old-school-defences-weak"
+                        >Old-school defences (weak)</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#x-frame-options"
+                        >X-Frame-Options</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a
+                        class="sidebar__link"
+                        href="#showing-with-disabled-functionality"
+                        >Showing with disabled functionality</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#samesite-cookie-attribute"
+                        >Samesite cookie attribute</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#summary">Summary</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#comments">Comments</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <div class="sidebar__section-title">Share</div>
+                <a
+                  class="share share_tw sidebar__share"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb sidebar__share"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Fclickjacking"
+                  rel="nofollow"
+                ></a>
+              </div>
+              <div class="sidebar__section">
+                <a
+                  class="sidebar__link"
+                  href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/3-frames-and-windows/06-clickjacking"
+                  rel="nofollow"
+                  >Edit on GitHub</a
+                >
+              </div>
+              <div class="sidebar__section" id="sponsorBar">
+                <div class="sidebar__section-title" id="sponsorBarTitle"></div>
+                <div id="sponsorBarContent"></div>
+                <script>
+                  window.initSponsorBar();
+                </script>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      </div><p>…Then such cookie wouldn’t be sent when Facebook is open in iframe from another site. So the attack would fail.</p>
-<p>The <code>samesite</code> cookie attribute will not have an effect when cookies are not used. This may allow other websites to easily show our public, unauthenticated pages in iframes.</p>
-<p>However, this may also allow clickjacking attacks to work in a few limited cases. An anonymous polling website that prevents duplicate voting by checking IP addresses, for example, would still be vulnerable to clickjacking because it does not authenticate users using cookies.</p>
-<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Clickjacking is a way to “trick” users into clicking on a victim site without even knowing what’s happening. That’s dangerous if there are important click-activated actions.</p>
-<p>A hacker can post a link to their evil page in a message, or lure visitors to their page by some other means. There are many variations.</p>
-<p>From one perspective – the attack is “not deep”: all a hacker is doing is intercepting a single click. But from another perspective, if the hacker knows that after the click another control will appear, then they may use cunning messages to coerce the user into clicking on them as well.</p>
-<p>The attack is quite dangerous, because when we engineer the UI we usually don’t anticipate that a hacker may click on behalf of the visitor. So vulnerabilities can be found in totally unexpected places.</p>
-<ul>
-<li>It is recommended to use <code>X-Frame-Options: SAMEORIGIN</code> on pages (or whole websites) which are not intended to be viewed inside frames.</li>
-<li>Use a covering <code>&lt;div&gt;</code> if we want to allow our pages to be shown in iframes, but still stay safe.</li>
-</ul>
-</div></article></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/cross-window-communication" data-tooltip="Cross-window communication"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/binary" data-tooltip="Binary data, files"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/clickjacking","identifier":"\/clickjacking"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/frames-and-windows">Frames and windows</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#the-idea">The idea</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#the-demo">The demo</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#old-school-defences-weak">Old-school defences (weak)</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#x-frame-options">X-Frame-Options</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#showing-with-disabled-functionality">Showing with disabled functionality</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#samesite-cookie-attribute">Samesite cookie attribute</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Fclickjacking" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/3-frames-and-windows/06-clickjacking" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>
+    </div>
+    <div class="page-footer">
+      <ul class="page-footer__list">
+        <li class="page-footer__item page-footer__item_copy">
+          ©&nbsp;2007—2021&nbsp; Ilya Kantor
+        </li>
+        <li class="page-footer__item page-footer__item_about">
+          <a class="page-footer__link" href="/about">about the project</a>
+        </li>
+        <li class="page-footer__item page-footer__item_contact">
+          <a class="page-footer__link" href="/about#contact-us">contact us</a>
+        </li>
+        <li class="page-footer__item page-footer__item_terms">
+          <a class="page-footer__link" href="/terms">terms of usage</a>
+        </li>
+        <li class="page-footer__item page-footer__item_privacy">
+          <a class="page-footer__link" href="/privacy">privacy policy</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

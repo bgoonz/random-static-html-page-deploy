@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcomments" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcomments" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -83,7 +78,7 @@ The better variant, with a factored out function `isPrime`:
       return true;
     }
 
-Now we can understand the code easily. The function itself becomes the comment. Such code is called *self-descriptive*.
+Now we can understand the code easily. The function itself becomes the comment. Such code is called _self-descriptive_.
 
 ### <a href="#recipe-create-functions" id="recipe-create-functions" class="main__anchor">Recipe: create functions</a>
 
@@ -159,7 +154,7 @@ By the way, many editors like [WebStorm](https://www.jetbrains.com/webstorm/) ca
 Also, there are tools like [JSDoc 3](https://github.com/jsdoc3/jsdoc) that can generate HTML-documentation from the comments. You can read more information about JSDoc at <http://usejsdoc.org/>.
 
 Why is the task solved this way?  
-What’s written is important. But what’s *not* written may be even more important to understand what’s going on. Why is the task solved exactly this way? The code gives no answer.
+What’s written is important. But what’s _not_ written may be even more important to understand what’s going on. Why is the task solved exactly this way? The code gives no answer.
 
 If there are many ways to solve the task, why this one? Especially when it’s not the most obvious one.
 
@@ -182,14 +177,14 @@ Good comments allow us to maintain the code well, come back to it after a delay 
 
 **Comment this:**
 
--   Overall architecture, high-level view.
--   Function usage.
--   Important solutions, especially when not immediately obvious.
+- Overall architecture, high-level view.
+- Function usage.
+- Important solutions, especially when not immediately obvious.
 
 **Avoid comments:**
 
--   That tell “how code works” and “what it does”.
--   Put them in only if it’s impossible to make the code so simple and self-descriptive that it doesn’t require them.
+- That tell “how code works” and “what it does”.
+- Put them in only if it’s impossible to make the code so simple and self-descriptive that it doesn’t require them.
 
 Comments are also used for auto-documenting tools like JSDoc3: they read them and generate HTML-docs (or docs in another format).
 
@@ -203,23 +198,23 @@ Comments are also used for auto-documenting tools like JSDoc3: they read them an
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/code-quality" class="sidebar__link">Code quality</a>
+- <a href="/code-quality" class="sidebar__link">Code quality</a>
 
 #### Lesson navigation
 
--   <a href="#bad-comments" class="sidebar__link">Bad comments</a>
--   <a href="#good-comments" class="sidebar__link">Good comments</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#bad-comments" class="sidebar__link">Bad comments</a>
+- <a href="#good-comments" class="sidebar__link">Good comments</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -227,8 +222,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/03-code-quality/03-comments" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

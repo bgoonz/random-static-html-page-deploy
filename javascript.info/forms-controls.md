@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fforms-controls" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fforms-controls" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -41,12 +36,12 @@ Special properties and events for forms `<form>` and controls: `<input>`, `<sele
 
 #### Sibling chapters
 
--   <a href="/document" class="sidebar__link">Document</a>
--   <a href="/events" class="sidebar__link">Introduction to Events</a>
--   <a href="/event-details" class="sidebar__link">UI Events</a>
--   <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
--   <a href="/loading" class="sidebar__link">Document and resource loading</a>
--   <a href="/ui-misc" class="sidebar__link">Miscellaneous</a>
+- <a href="/document" class="sidebar__link">Document</a>
+- <a href="/events" class="sidebar__link">Introduction to Events</a>
+- <a href="/event-details" class="sidebar__link">UI Events</a>
+- <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
+- <a href="/loading" class="sidebar__link">Document and resource loading</a>
+- <a href="/ui-misc" class="sidebar__link">Miscellaneous</a>
 
 Share
 
@@ -54,8 +49,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/4-forms-controls" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

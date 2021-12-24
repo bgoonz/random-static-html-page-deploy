@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fmixins" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fmixins" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,7 +32,7 @@ There’s a concept that can help here, called “mixins”.
 
 As defined in Wikipedia, a [mixin](https://en.wikipedia.org/wiki/Mixin) is a class containing methods that can be used by other classes without a need to inherit from it.
 
-In other words, a *mixin* provides methods that implement a certain behavior, but we do not use it alone, we use it to add the behavior to other classes.
+In other words, a _mixin_ provides methods that implement a certain behavior, but we do not use it alone, we use it to add the behavior to other classes.
 
 ## <a href="#a-mixin-example" id="a-mixin-example" class="main__anchor">A mixin example</a>
 
@@ -134,9 +129,9 @@ Now let’s make a mixin for real life.
 
 An important feature of many browser objects (for instance) is that they can generate events. Events are a great way to “broadcast information” to anyone who wants it. So let’s make a mixin that allows us to easily add event-related functions to any class/object.
 
--   The mixin will provide a method `.trigger(name, [...data])` to “generate an event” when something important happens to it. The `name` argument is a name of the event, optionally followed by additional arguments with event data.
--   Also the method `.on(name, handler)` that adds `handler` function as the listener to events with the given name. It will be called when an event with the given `name` triggers, and get the arguments from the `.trigger` call.
--   …And the method `.off(name, handler)` that removes the `handler` listener.
+- The mixin will provide a method `.trigger(name, [...data])` to “generate an event” when something important happens to it. The `name` argument is a name of the event, optionally followed by additional arguments with event data.
+- Also the method `.on(name, handler)` that adds `handler` function as the listener to events with the given name. It will be called when an event with the given `name` triggers, and get the arguments from the `.trigger` call.
+- …And the method `.off(name, handler)` that removes the `handler` listener.
 
 After adding the mixin, an object `user` will be able to generate an event `"login"` when the visitor logs in. And another object, say, `calendar` may want to listen for such events to load the calendar for the logged-in person.
 
@@ -189,9 +184,9 @@ Here’s the code:
       }
     };
 
--   `.on(eventName, handler)` – assigns function `handler` to run when the event with that name occurs. Technically, there’s an `_eventHandlers` property that stores an array of handlers for each event name, and it just adds it to the list.
--   `.off(eventName, handler)` – removes the function from the handlers list.
--   `.trigger(eventName, ...args)` – generates the event: all handlers from `_eventHandlers[eventName]` are called, with a list of arguments `...args`.
+- `.on(eventName, handler)` – assigns function `handler` to run when the event with that name occurs. Technically, there’s an `_eventHandlers` property that stores an array of handlers for each event name, and it just adds it to the list.
+- `.off(eventName, handler)` – removes the function from the handlers list.
+- `.trigger(eventName, ...args)` – generates the event: all handlers from `_eventHandlers[eventName]` are called, with a list of arguments `...args`.
 
 Usage:
 
@@ -223,7 +218,7 @@ And `eventMixin` mixin makes it easy to add such behavior to as many classes as 
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
-*Mixin* – is a generic object-oriented programming term: a class that contains methods for other classes.
+_Mixin_ – is a generic object-oriented programming term: a class that contains methods for other classes.
 
 Some other languages allow multiple inheritance. JavaScript does not support multiple inheritance, but mixins can be implemented by copying methods into prototype.
 
@@ -241,23 +236,23 @@ Mixins may become a point of conflict if they accidentally overwrite existing cl
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/classes" class="sidebar__link">Classes</a>
+- <a href="/classes" class="sidebar__link">Classes</a>
 
 #### Lesson navigation
 
--   <a href="#a-mixin-example" class="sidebar__link">A mixin example</a>
--   <a href="#eventmixin" class="sidebar__link">EventMixin</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#a-mixin-example" class="sidebar__link">A mixin example</a>
+- <a href="#eventmixin" class="sidebar__link">EventMixin</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -265,8 +260,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/09-classes/07-mixins" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

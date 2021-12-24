@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffunction-basics" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffunction-basics" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,7 +32,7 @@ We’ve already seen examples of built-in functions, like `alert(message)`, `pro
 
 ## <a href="#function-declaration" id="function-declaration" class="main__anchor">Function Declaration</a>
 
-To create a function we can use a *function declaration*.
+To create a function we can use a _function declaration_.
 
 It looks like this:
 
@@ -45,7 +40,7 @@ It looks like this:
       alert( 'Hello everyone!' );
     }
 
-The `function` keyword goes first, then goes the *name of the function*, then a list of *parameters* between the parentheses (comma-separated, empty in the example above, we’ll see examples later) and finally the code of the function, also named “the function body”, between curly braces.
+The `function` keyword goes first, then goes the _name of the function_, then a list of _parameters_ between the parentheses (comma-separated, empty in the example above, we’ll see examples later) and finally the code of the function, also named “the function body”, between curly braces.
 
     function name(parameter1, parameter2, ... parameterN) {
       ...body...
@@ -134,7 +129,7 @@ For instance:
 
 The outer variable is only used if there’s no local one.
 
-If a same-named variable is declared inside the function then it *shadows* the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
+If a same-named variable is declared inside the function then it _shadows_ the outer one. For instance, in the code below the function uses the local `userName`. The outer one is ignored:
 
 <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
@@ -156,7 +151,7 @@ If a same-named variable is declared inside the function then it *shadows* the o
 
 <span class="important__type">Global variables</span>
 
-Variables declared outside of any function, such as the outer `userName` in the code above, are called *global*.
+Variables declared outside of any function, such as the outer `userName` in the code above, are called _global_.
 
 Global variables are visible from any function (unless shadowed by locals).
 
@@ -201,12 +196,12 @@ Here’s one more example: we have a variable `from` and pass it to the function
     // the value of "from" is the same, the function modified a local copy
     alert( from ); // Ann
 
-When a value is passed as a function parameter, it’s also called an *argument*.
+When a value is passed as a function parameter, it’s also called an _argument_.
 
 In other words, to put these terms straight:
 
--   A parameter is the variable listed inside the parentheses in the function declaration (it’s a declaration time term)
--   An argument is the value that is passed to the function when it is called (it’s a call time term).
+- A parameter is the variable listed inside the parentheses in the function declaration (it’s a declaration time term)
+- An argument is the value that is passed to the function when it is called (it’s a call time term).
 
 We declare functions listing their parameters, then call them passing arguments.
 
@@ -414,10 +409,10 @@ For instance, functions that start with `"show"` usually show something.
 
 Function starting with…
 
--   `"get…"` – return a value,
--   `"calc…"` – calculate something,
--   `"create…"` – create something,
--   `"check…"` – check something and return a boolean, etc.
+- `"get…"` – return a value,
+- `"calc…"` – calculate something,
+- `"create…"` – create something,
+- `"check…"` – check something and return a boolean, etc.
 
 Examples of such names:
 
@@ -437,15 +432,15 @@ Two independent actions usually deserve two functions, even if they are usually 
 
 A few examples of breaking this rule:
 
--   `getAge` – would be bad if it shows an `alert` with the age (should only get).
--   `createForm` – would be bad if it modifies the document, adding a form to it (should only create it and return).
--   `checkPermission` – would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
+- `getAge` – would be bad if it shows an `alert` with the age (should only get).
+- `createForm` – would be bad if it modifies the document, adding a form to it (should only create it and return).
+- `checkPermission` – would be bad if it displays the `access granted/denied` message (should only perform the check and return the result).
 
 These examples assume common meanings of prefixes. You and your team are free to agree on other meanings, but usually they’re not much different. In any case, you should have a firm understanding of what a prefix means, what a prefixed function can and cannot do. All same-prefixed functions should obey the rules. And the team should share the knowledge.
 
 <span class="important__type">Ultrashort function names</span>
 
-Functions that are used *very often* sometimes have ultrashort names.
+Functions that are used _very often_ sometimes have ultrashort names.
 
 For example, the [jQuery](http://jquery.com) framework defines a function with `$`. The [Lodash](http://lodash.com/) library has its core function named `_`.
 
@@ -490,7 +485,7 @@ The second variant uses an additional function `isPrime(n)` to test for primalit
       return true;
     }
 
-The second variant is easier to understand, isn’t it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as *self-describing*.
+The second variant is easier to understand, isn’t it? Instead of the code piece we see a name of the action (`isPrime`). Sometimes people refer to such code as _self-describing_.
 
 So, functions can be created even if we don’t intend to reuse them. They structure the code and make it readable.
 
@@ -502,9 +497,9 @@ A function declaration looks like this:
       /* code */
     }
 
--   Values passed to a function as parameters are copied to its local variables.
--   A function may access outer variables. But it works only from inside out. The code outside of the function doesn’t see its local variables.
--   A function can return a value. If it doesn’t, then its result is `undefined`.
+- Values passed to a function as parameters are copied to its local variables.
+- A function may access outer variables. But it works only from inside out. The code outside of the function doesn’t see its local variables.
+- A function can return a value. If it doesn’t, then its result is `undefined`.
 
 To make the code clean and easy to understand, it’s recommended to use mainly local variables and parameters in the function, not outer variables.
 
@@ -512,9 +507,9 @@ It is always easier to understand a function which gets parameters, works with t
 
 Function naming:
 
--   A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
--   A function is an action, so function names are usually verbal.
--   There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
+- A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
+- A function is an action, so function names are usually verbal.
+- There exist many well-known function prefixes like `create…`, `show…`, `get…`, `check…` and so on. Use them to hint what a function does.
 
 Functions are the main building blocks of scripts. Now we’ve covered the basics, so we actually can start creating and using them. But that’s only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
 
@@ -683,30 +678,30 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
+- <a href="/first-steps" class="sidebar__link">JavaScript Fundamentals</a>
 
 #### Lesson navigation
 
--   <a href="#function-declaration" class="sidebar__link">Function Declaration</a>
--   <a href="#local-variables" class="sidebar__link">Local variables</a>
--   <a href="#outer-variables" class="sidebar__link">Outer variables</a>
--   <a href="#parameters" class="sidebar__link">Parameters</a>
--   <a href="#default-values" class="sidebar__link">Default values</a>
--   <a href="#returning-a-value" class="sidebar__link">Returning a value</a>
--   <a href="#function-naming" class="sidebar__link">Naming a function</a>
--   <a href="#functions-comments" class="sidebar__link">Functions == Comments</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#function-declaration" class="sidebar__link">Function Declaration</a>
+- <a href="#local-variables" class="sidebar__link">Local variables</a>
+- <a href="#outer-variables" class="sidebar__link">Outer variables</a>
+- <a href="#parameters" class="sidebar__link">Parameters</a>
+- <a href="#default-values" class="sidebar__link">Default values</a>
+- <a href="#returning-a-value" class="sidebar__link">Returning a value</a>
+- <a href="#function-naming" class="sidebar__link">Naming a function</a>
+- <a href="#functions-comments" class="sidebar__link">Functions == Comments</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -714,8 +709,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/02-first-steps/15-function-basics" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

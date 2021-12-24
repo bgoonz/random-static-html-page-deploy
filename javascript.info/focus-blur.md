@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffocus-blur" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffocus-blur" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -45,8 +40,8 @@ Let’s use them for validation of an input field.
 
 In the example below:
 
--   The `blur` handler checks if the field has an email entered, and if not – shows an error.
--   The `focus` handler hides the error message (on `blur` it will be checked again):
+- The `blur` handler checks if the field has an email entered, and if not – shows an error.
+- The `focus` handler hides the error message (on `blur` it will be checked again):
 
 <a href="#" class="toolbar__button toolbar__button_run" title="show"></a>
 
@@ -116,7 +111,7 @@ It works in all browsers except Firefox ([bug](https://bugzilla.mozilla.org/show
 
 If we enter something into the input and then try to use <span class="kbd shortcut">Tab</span> or click away from the `<input>`, then `onblur` returns the focus back.
 
-Please note that we can’t “prevent losing focus” by calling `event.preventDefault()` in `onblur`, because `onblur` works *after* the element lost the focus.
+Please note that we can’t “prevent losing focus” by calling `event.preventDefault()` in `onblur`, because `onblur` works _after_ the element lost the focus.
 
 <span class="important__type">JavaScript-initiated focus loss</span>
 
@@ -124,8 +119,8 @@ A focus loss can occur for many reasons.
 
 One of them is when the visitor clicks somewhere else. But also JavaScript itself may cause it, for instance:
 
--   An `alert` moves focus to itself, so it causes the focus loss at the element (`blur` event), and when the `alert` is dismissed, the focus comes back (`focus` event).
--   If an element is removed from DOM, then it also causes the focus loss. If it is reinserted later, then the focus doesn’t return.
+- An `alert` moves focus to itself, so it causes the focus loss at the element (`blur` event), and when the `alert` is dismissed, the focus comes back (`focus` event).
+- If an element is removed from DOM, then it also causes the focus loss. If it is reinserted later, then the focus doesn’t return.
 
 These features sometimes cause `focus/blur` handlers to misbehave – to trigger when they are not needed.
 
@@ -151,11 +146,11 @@ Elements without matching `tabindex` are switched in the document source order (
 
 There are two special values:
 
--   `tabindex="0"` puts an element among those without `tabindex`. That is, when we switch elements, elements with `tabindex=0` go after elements with `tabindex ≥ 1`.
+- `tabindex="0"` puts an element among those without `tabindex`. That is, when we switch elements, elements with `tabindex=0` go after elements with `tabindex ≥ 1`.
 
-    Usually it’s used to make an element focusable, but keep the default switching order. To make an element a part of the form on par with `<input>`.
+  Usually it’s used to make an element focusable, but keep the default switching order. To make an element a part of the form on par with `<input>`.
 
--   `tabindex="-1"` allows only programmatic focusing on an element. The <span class="kbd shortcut">Tab</span> key ignores such elements, but method `elem.focus()` works.
+- `tabindex="-1"` allows only programmatic focusing on an element. The <span class="kbd shortcut">Tab</span> key ignores such elements, but method `elem.focus()` works.
 
 For instance, here’s a list. Click the first item and press <span class="kbd shortcut">Tab</span>:
 
@@ -237,8 +232,8 @@ Events `focus` and `blur` trigger on an element focusing/losing focus.
 
 Their specials are:
 
--   They do not bubble. Can use capturing state instead or `focusin/focusout`.
--   Most elements do not support focus by default. Use `tabindex` to make anything focusable.
+- They do not bubble. Can use capturing state instead or `focusin/focusout`.
+- Most elements do not support focus by default. Use `tabindex` to make anything focusable.
 
 The current focused element is available as `document.activeElement`.
 
@@ -272,10 +267,10 @@ solution
 
 Make table cells editable on click.
 
--   On click – the cell should become “editable” (textarea appears inside), we can change HTML. There should be no resize, all geometry should remain the same.
--   Buttons OK and CANCEL appear below the cell to finish/cancel the editing.
--   Only one cell may be editable at a moment. While a `<td>` is in “edit mode”, clicks on other cells are ignored.
--   The table may have many cells. Use event delegation.
+- On click – the cell should become “editable” (textarea appears inside), we can change HTML. There should be no resize, all geometry should remain the same.
+- Buttons OK and CANCEL appear below the cell to finish/cancel the editing.
+- Only one cell may be editable at a moment. While a `<td>` is in “edit mode”, clicks on other cells are ignored.
+- The table may have many cells. Use event delegation.
 
 The demo:
 
@@ -357,26 +352,26 @@ P.S. We also can replace `mouse.onclick` with `mouse.onfocus`.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
+- <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
 
 #### Lesson navigation
 
--   <a href="#events-focus-blur" class="sidebar__link">Events focus/blur</a>
--   <a href="#methods-focus-blur" class="sidebar__link">Methods focus/blur</a>
--   <a href="#allow-focusing-on-any-element-tabindex" class="sidebar__link">Allow focusing on any element: tabindex</a>
--   <a href="#delegation-focusin-focusout" class="sidebar__link">Delegation: focusin/focusout</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#events-focus-blur" class="sidebar__link">Events focus/blur</a>
+- <a href="#methods-focus-blur" class="sidebar__link">Methods focus/blur</a>
+- <a href="#allow-focusing-on-any-element-tabindex" class="sidebar__link">Allow focusing on any element: tabindex</a>
+- <a href="#delegation-focusin-focusout" class="sidebar__link">Delegation: focusin/focusout</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -384,8 +379,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/4-forms-controls/2-focus-blur" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

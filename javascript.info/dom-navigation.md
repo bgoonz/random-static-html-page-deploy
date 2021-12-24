@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdom-navigation" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdom-navigation" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -87,8 +82,8 @@ In the DOM, the `null` value means “doesn’t exist” or “no such node”.
 
 There are two terms that we’ll use from now on:
 
--   **Child nodes (or children)** – elements that are direct children. In other words, they are nested exactly in the given one. For instance, `<head>` and `<body>` are children of `<html>` element.
--   **Descendants** – all elements that are nested in the given one, including children, their children and so on.
+- **Child nodes (or children)** – elements that are direct children. In other words, they are nested exactly in the given one. For instance, `<head>` and `<body>` are children of `<html>` element.
+- **Descendants** – all elements that are nested in the given one, including children, their children and so on.
 
 For instance, here `<body>` has children `<div>` and `<ul>` (and few blank text nodes):
 
@@ -150,14 +145,14 @@ There’s also a special function `elem.hasChildNodes()` to check whether there 
 
 ### <a href="#dom-collections" id="dom-collections" class="main__anchor">DOM collections</a>
 
-As we can see, `childNodes` looks like an array. But actually it’s not an array, but rather a *collection* – a special array-like iterable object.
+As we can see, `childNodes` looks like an array. But actually it’s not an array, but rather a _collection_ – a special array-like iterable object.
 
 There are two important consequences:
 
 1.  We can use `for..of` to iterate over it:
 
     for (let node of document.body.childNodes) {
-      alert(node); // shows all nodes from the collection
+    alert(node); // shows all nodes from the collection
     }
 
 That’s because it’s iterable (provides the `Symbol.iterator` property, as required).
@@ -180,7 +175,7 @@ The first thing is nice. The second is tolerable, because we can use `Array.from
 
 <span class="important__type">DOM collections are read-only</span>
 
-DOM collections, and even more – *all* navigation properties listed in this chapter are read-only.
+DOM collections, and even more – _all_ navigation properties listed in this chapter are read-only.
 
 We can’t replace a child by something else by assigning `childNodes[i] = ...`.
 
@@ -188,7 +183,7 @@ Changing DOM needs other methods. We will see them in the next chapter.
 
 <span class="important__type">DOM collections are live</span>
 
-Almost all DOM collections with minor exceptions are *live*. In other words, they reflect the current state of DOM.
+Almost all DOM collections with minor exceptions are _live_. In other words, they reflect the current state of DOM.
 
 If we keep a reference to `elem.childNodes`, and add/remove nodes into DOM, then they appear in the collection automatically.
 
@@ -211,7 +206,7 @@ Please, don’t. The `for..in` loop iterates over all enumerable properties. And
 
 ## <a href="#siblings-and-the-parent" id="siblings-and-the-parent" class="main__anchor">Siblings and the parent</a>
 
-*Siblings* are nodes that are children of the same parent.
+_Siblings_ are nodes that are children of the same parent.
 
 For instance, here `<head>` and `<body>` are siblings:
 
@@ -219,8 +214,8 @@ For instance, here `<head>` and `<body>` are siblings:
       <head>...</head><body>...</body>
     </html>
 
--   `<body>` is said to be the “next” or “right” sibling of `<head>`,
--   `<head>` is said to be the “previous” or “left” sibling of `<body>`.
+- `<body>` is said to be the “next” or “right” sibling of `<head>`,
+- `<head>` is said to be the “previous” or “left” sibling of `<body>`.
 
 The next sibling is in `nextSibling` property, and the previous one – in `previousSibling`.
 
@@ -243,22 +238,22 @@ For example:
 
 ## <a href="#element-only-navigation" id="element-only-navigation" class="main__anchor">Element-only navigation</a>
 
-Navigation properties listed above refer to *all* nodes. For instance, in `childNodes` we can see both text nodes, element nodes, and even comment nodes if they exist.
+Navigation properties listed above refer to _all_ nodes. For instance, in `childNodes` we can see both text nodes, element nodes, and even comment nodes if they exist.
 
 But for many tasks we don’t want text or comment nodes. We want to manipulate element nodes that represent tags and form the structure of the page.
 
-So let’s see more navigation links that only take *element nodes* into account:
+So let’s see more navigation links that only take _element nodes_ into account:
 
 <figure><img src="/article/dom-navigation/dom-links-elements.svg" width="440" height="316" /></figure>
 
 The links are similar to those given above, just with `Element` word inside:
 
--   `children` – only those children that are element nodes.
--   `firstElementChild`, `lastElementChild` – first and last element children.
--   `previousElementSibling`, `nextElementSibling` – neighbor elements.
--   `parentElement` – parent element.
+- `children` – only those children that are element nodes.
+- `firstElementChild`, `lastElementChild` – first and last element children.
+- `previousElementSibling`, `nextElementSibling` – neighbor elements.
+- `parentElement` – parent element.
 
-<span class="important__type">Why `parentElement`? Can the parent be *not* an element?</span>
+<span class="important__type">Why `parentElement`? Can the parent be _not_ an element?</span>
 
 The `parentElement` property returns the “element” parent, while `parentNode` returns “any node” parent. These properties are usually the same: they both get the parent.
 
@@ -314,23 +309,23 @@ Tables are a great example of that, and represent a particularly important case:
 
 **The `<table>`** element supports (in addition to the given above) these properties:
 
--   `table.rows` – the collection of `<tr>` elements of the table.
--   `table.caption/tHead/tFoot` – references to elements `<caption>`, `<thead>`, `<tfoot>`.
--   `table.tBodies` – the collection of `<tbody>` elements (can be many according to the standard, but there will always be at least one – even if it is not in the source HTML, the browser will put it in the DOM).
+- `table.rows` – the collection of `<tr>` elements of the table.
+- `table.caption/tHead/tFoot` – references to elements `<caption>`, `<thead>`, `<tfoot>`.
+- `table.tBodies` – the collection of `<tbody>` elements (can be many according to the standard, but there will always be at least one – even if it is not in the source HTML, the browser will put it in the DOM).
 
 **`<thead>`, `<tfoot>`, `<tbody>`** elements provide the `rows` property:
 
--   `tbody.rows` – the collection of `<tr>` inside.
+- `tbody.rows` – the collection of `<tr>` inside.
 
 **`<tr>`:**
 
--   `tr.cells` – the collection of `<td>` and `<th>` cells inside the given `<tr>`.
--   `tr.sectionRowIndex` – the position (index) of the given `<tr>` inside the enclosing `<thead>/<tbody>/<tfoot>`.
--   `tr.rowIndex` – the number of the `<tr>` in the table as a whole (including all table rows).
+- `tr.cells` – the collection of `<td>` and `<th>` cells inside the given `<tr>`.
+- `tr.sectionRowIndex` – the position (index) of the given `<tr>` inside the enclosing `<thead>/<tbody>/<tfoot>`.
+- `tr.rowIndex` – the number of the `<tr>` in the table as a whole (including all table rows).
 
 **`<td>` and `<th>`:**
 
--   `td.cellIndex` – the number of the cell inside the enclosing `<tr>`.
+- `td.cellIndex` – the number of the cell inside the enclosing `<tr>`.
 
 An example of usage:
 
@@ -363,8 +358,8 @@ Given a DOM node, we can go to its immediate neighbors using navigation properti
 
 There are two main sets of them:
 
--   For all nodes: `parentNode`, `childNodes`, `firstChild`, `lastChild`, `previousSibling`, `nextSibling`.
--   For element nodes only: `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `previousElementSibling`, `nextElementSibling`.
+- For all nodes: `parentNode`, `childNodes`, `firstChild`, `lastChild`, `previousSibling`, `nextSibling`.
+- For element nodes only: `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `previousElementSibling`, `nextElementSibling`.
 
 Some types of DOM elements, e.g. tables, provide additional properties and collections to access their content.
 
@@ -390,9 +385,9 @@ Look at this page:
 
 For each of the following, give at least one way of how to access them:
 
--   The `<div>` DOM node?
--   The `<ul>` DOM node?
--   The second `<li>` (with Pete)?
+- The `<div>` DOM node?
+- The `<ul>` DOM node?
+- The second `<li>` (with Pete)?
 
 solution
 
@@ -425,13 +420,13 @@ The second `<li>` (with Pete):
 
 If `elem` – is an arbitrary DOM element node…
 
--   Is it true that `elem.lastChild.nextSibling` is always `null`?
--   Is it true that `elem.children[0].previousSibling` is always `null` ?
+- Is it true that `elem.lastChild.nextSibling` is always `null`?
+- Is it true that `elem.children[0].previousSibling` is always `null` ?
 
 solution
 
 1.  Yes, true. The element `elem.lastChild` is always the last one, it has no `nextSibling`.
-2.  No, wrong, because `elem.children[0]` is the first child *among elements*. But there may exist non-element nodes before it. So `previousSibling` may be a text node.
+2.  No, wrong, because `elem.children[0]` is the first child _among elements_. But there may exist non-element nodes before it. So `previousSibling` may be a text node.
 
 Please note: for both cases if there are no children, then there will be an error.
 
@@ -472,27 +467,27 @@ We’ll be using `rows` and `cells` properties to access diagonal table cells.
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/document" class="sidebar__link">Document</a>
+- <a href="/document" class="sidebar__link">Document</a>
 
 #### Lesson navigation
 
--   <a href="#on-top-documentelement-and-body" class="sidebar__link">On top: documentElement and body</a>
--   <a href="#children-childnodes-firstchild-lastchild" class="sidebar__link">Children: childNodes, firstChild, lastChild</a>
--   <a href="#siblings-and-the-parent" class="sidebar__link">Siblings and the parent</a>
--   <a href="#element-only-navigation" class="sidebar__link">Element-only navigation</a>
--   <a href="#dom-navigation-tables" class="sidebar__link">More links: tables</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#on-top-documentelement-and-body" class="sidebar__link">On top: documentElement and body</a>
+- <a href="#children-childnodes-firstchild-lastchild" class="sidebar__link">Children: childNodes, firstChild, lastChild</a>
+- <a href="#siblings-and-the-parent" class="sidebar__link">Siblings and the parent</a>
+- <a href="#element-only-navigation" class="sidebar__link">Element-only navigation</a>
+- <a href="#dom-navigation-tables" class="sidebar__link">More links: tables</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -500,8 +495,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/03-dom-navigation" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcookie" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcookie" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/data-storage" class="breadcrumbs__link"><span>Storing data in the browser</span></a></span>
@@ -94,8 +89,8 @@ Technically, name and value can have any characters. To keep the valid formattin
 
 There are few limitations:
 
--   The `name=value` pair, after `encodeURIComponent`, should not exceed 4KB. So we can’t store anything huge in a cookie.
--   The total number of cookies per domain is limited to around 20+, the exact limit depends on the browser.
+- The `name=value` pair, after `encodeURIComponent`, should not exceed 4KB. So we can’t store anything huge in a cookie.
+- The total number of cookies per domain is limited to around 20+, the exact limit depends on the browser.
 
 Cookies have several options, many of them are important and should be set.
 
@@ -109,7 +104,7 @@ The options are listed after `key=value`, delimited by `;`, like this:
 
 ## <a href="#path" id="path" class="main__anchor">path</a>
 
--   **`path=/mypath`**
+- **`path=/mypath`**
 
 The url path prefix must be absolute. It makes the cookie accessible for pages under that path. By default, it’s the current path.
 
@@ -119,7 +114,7 @@ Usually, we should set `path` to the root: `path=/` to make the cookie accessibl
 
 ## <a href="#domain" id="domain" class="main__anchor">domain</a>
 
--   **`domain=site.com`**
+- **`domain=site.com`**
 
 A domain defines where the cookie is accessible. In practice though, there are limitations. We can’t set any domain.
 
@@ -158,7 +153,7 @@ By default, if a cookie doesn’t have one of these options, it disappears when 
 
 To let cookies survive a browser close, we can set either the `expires` or `max-age` option.
 
--   **`expires=Tue, 19 Jan 2038 03:14:07 GMT`**
+- **`expires=Tue, 19 Jan 2038 03:14:07 GMT`**
 
 The cookie expiration date defines the time, when the browser will automatically delete it.
 
@@ -171,7 +166,7 @@ The date must be exactly in this format, in the GMT timezone. We can use `date.t
 
 If we set `expires` to a date in the past, the cookie is deleted.
 
--   **`max-age=3600`**
+- **`max-age=3600`**
 
 Is an alternative to `expires` and specifies the cookie’s expiration in seconds from the current moment.
 
@@ -185,7 +180,7 @@ If set to zero or a negative value, the cookie is deleted:
 
 ## <a href="#secure" id="secure" class="main__anchor">secure</a>
 
--   **`secure`**
+- **`secure`**
 
 The cookie should be transferred only over HTTPS.
 
@@ -227,7 +222,7 @@ The cookie `samesite` option provides another way to protect from such attacks, 
 
 It has two possible values:
 
--   **`samesite=strict` (same as `samesite` without value)**
+- **`samesite=strict` (same as `samesite` without value)**
 
 A cookie with `samesite=strict` is never sent if the user comes from outside the same site.
 
@@ -243,7 +238,7 @@ When a user follows a legitimate link to `bank.com`, like from their own notes, 
 
 We could work around that by using two cookies: one for “general recognition”, only for the purposes of saying: “Hello, John”, and the other one for data-changing operations with `samesite=strict`. Then, a person coming from outside of the site will see a welcome, but payments must be initiated from the bank’s website, for the second cookie to be sent.
 
--   **`samesite=lax`**
+- **`samesite=lax`**
 
 A more relaxed approach that also protects from XSRF and doesn’t break the user experience.
 
@@ -269,7 +264,7 @@ Overall, `samesite` is a great option.
 
 There’s a drawback:
 
--   `samesite` is ignored (not supported) by very old browsers, year 2017 or so.
+- `samesite` is ignored (not supported) by very old browsers, year 2017 or so.
 
 **So if we solely rely on `samesite` to provide protection, then old browsers will be vulnerable.**
 
@@ -392,8 +387,8 @@ Naturally, some people don’t like being tracked, so browsers allow to disable 
 
 Also, some modern browsers employ special policies for such cookies:
 
--   Safari does not allow third-party cookies at all.
--   Firefox comes with a “black list” of third-party domains where it blocks third-party cookies.
+- Safari does not allow third-party cookies at all.
+- Firefox comes with a “black list” of third-party domains where it blocks third-party cookies.
 
 <span class="important__type">Please note:</span>
 
@@ -429,22 +424,22 @@ GDPR is not only about cookies, it’s about other privacy-related issues too, b
 
 `document.cookie` provides access to cookies
 
--   write operations modify only cookies mentioned in it.
--   name/value must be encoded.
--   one cookie must not exceed 4KB, 20+ cookies per site (depends on the browser).
+- write operations modify only cookies mentioned in it.
+- name/value must be encoded.
+- one cookie must not exceed 4KB, 20+ cookies per site (depends on the browser).
 
 Cookie options:
 
--   `path=/`, by default current path, makes the cookie visible only under that path.
--   `domain=site.com`, by default a cookie is visible on the current domain only. If the domain is set explicitly, the cookie becomes visible on subdomains.
--   `expires` or `max-age` sets the cookie expiration time. Without them the cookie dies when the browser is closed.
--   `secure` makes the cookie HTTPS-only.
--   `samesite` forbids the browser to send the cookie with requests coming from outside the site. This helps to prevent XSRF attacks.
+- `path=/`, by default current path, makes the cookie visible only under that path.
+- `domain=site.com`, by default a cookie is visible on the current domain only. If the domain is set explicitly, the cookie becomes visible on subdomains.
+- `expires` or `max-age` sets the cookie expiration time. Without them the cookie dies when the browser is closed.
+- `secure` makes the cookie HTTPS-only.
+- `samesite` forbids the browser to send the cookie with requests coming from outside the site. This helps to prevent XSRF attacks.
 
 Additionally:
 
--   Third-party cookies may be forbidden by the browser, e.g. Safari does that by default.
--   When setting a tracking cookie for EU citizens, GDPR requires to ask for permission.
+- Third-party cookies may be forbidden by the browser, e.g. Safari does that by default.
+- When setting a tracking cookie for EU citizens, GDPR requires to ask for permission.
 
 <a href="/data-storage" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/localstorage" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -456,32 +451,32 @@ Additionally:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
+- <a href="/data-storage" class="sidebar__link">Storing data in the browser</a>
 
 #### Lesson navigation
 
--   <a href="#reading-from-document-cookie" class="sidebar__link">Reading from document.cookie</a>
--   <a href="#writing-to-document-cookie" class="sidebar__link">Writing to document.cookie</a>
--   <a href="#path" class="sidebar__link">path</a>
--   <a href="#domain" class="sidebar__link">domain</a>
--   <a href="#expires-max-age" class="sidebar__link">expires, max-age</a>
--   <a href="#secure" class="sidebar__link">secure</a>
--   <a href="#samesite" class="sidebar__link">samesite</a>
--   <a href="#httponly" class="sidebar__link">httpOnly</a>
--   <a href="#appendix-cookie-functions" class="sidebar__link">Appendix: Cookie functions</a>
--   <a href="#appendix-third-party-cookies" class="sidebar__link">Appendix: Third-party cookies</a>
--   <a href="#appendix-gdpr" class="sidebar__link">Appendix: GDPR</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#reading-from-document-cookie" class="sidebar__link">Reading from document.cookie</a>
+- <a href="#writing-to-document-cookie" class="sidebar__link">Writing to document.cookie</a>
+- <a href="#path" class="sidebar__link">path</a>
+- <a href="#domain" class="sidebar__link">domain</a>
+- <a href="#expires-max-age" class="sidebar__link">expires, max-age</a>
+- <a href="#secure" class="sidebar__link">secure</a>
+- <a href="#samesite" class="sidebar__link">samesite</a>
+- <a href="#httponly" class="sidebar__link">httpOnly</a>
+- <a href="#appendix-cookie-functions" class="sidebar__link">Appendix: Cookie functions</a>
+- <a href="#appendix-third-party-cookies" class="sidebar__link">Appendix: Third-party cookies</a>
+- <a href="#appendix-gdpr" class="sidebar__link">Appendix: GDPR</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -489,8 +484,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/6-data-storage/01-cookie" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

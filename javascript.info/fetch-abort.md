@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffetch-abort" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffetch-abort" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/network" class="breadcrumbs__link"><span>Network requests</span></a></span>
@@ -40,13 +35,13 @@ Create a controller:
 
 A controller is an extremely simple object.
 
--   It has a single method `abort()`,
--   And a single property `signal` that allows to set event listeners on it.
+- It has a single method `abort()`,
+- And a single property `signal` that allows to set event listeners on it.
 
 When `abort()` is called:
 
--   `controller.signal` emits the `"abort"` event.
--   `controller.signal.aborted` property becomes `true`.
+- `controller.signal` emits the `"abort"` event.
+- `controller.signal.aborted` property becomes `true`.
 
 Generally, we have two parties in the process:
 
@@ -164,9 +159,9 @@ We just need to listen to its `abort` event in our tasks:
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   `AbortController` is a simple object that generates an `abort` event on it’s `signal` property when the `abort()` method is called (and also sets `signal.aborted` to `true`).
--   `fetch` integrates with it: we pass the `signal` property as the option, and then `fetch` listens to it, so it’s possible to abort the `fetch`.
--   We can use `AbortController` in our code. The "call `abort()`" → “listen to `abort` event” interaction is simple and universal. We can use it even without `fetch`.
+- `AbortController` is a simple object that generates an `abort` event on it’s `signal` property when the `abort()` method is called (and also sets `signal.aborted` to `true`).
+- `fetch` integrates with it: we pass the `signal` property as the option, and then `fetch` listens to it, so it’s possible to abort the `fetch`.
+- We can use `AbortController` in our code. The "call `abort()`" → “listen to `abort` event” interaction is simple and universal. We can use it even without `fetch`.
 
 <a href="/fetch-progress" class="page__nav page__nav_prev"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a href="/fetch-crossorigin" class="page__nav page__nav_next"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a>
 
@@ -178,24 +173,24 @@ We just need to listen to its `abort` event in our tasks:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/network" class="sidebar__link">Network requests</a>
+- <a href="/network" class="sidebar__link">Network requests</a>
 
 #### Lesson navigation
 
--   <a href="#the-abortcontroller-object" class="sidebar__link">The AbortController object</a>
--   <a href="#using-with-fetch" class="sidebar__link">Using with fetch</a>
--   <a href="#abortcontroller-is-scalable" class="sidebar__link">AbortController is scalable</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#the-abortcontroller-object" class="sidebar__link">The AbortController object</a>
+- <a href="#using-with-fetch" class="sidebar__link">Using with fetch</a>
+- <a href="#abortcontroller-is-scalable" class="sidebar__link">AbortController is scalable</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -203,8 +198,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/5-network/04-fetch-abort" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

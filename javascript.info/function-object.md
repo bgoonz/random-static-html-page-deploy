@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffunction-object" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffunction-object" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -136,8 +131,8 @@ For instance, in the code below the `ask` function accepts a `question` to ask a
 
 Once a user provides their answer, the function calls the handlers. We can pass two kinds of handlers:
 
--   A zero-argument function, which is only called when the user gives a positive answer.
--   A function with arguments, which is called in either case and returns an answer.
+- A zero-argument function, which is only called when the user gives a positive answer.
+- A function with arguments, which is called in either case and returns an answer.
 
 To call `handler` the right way, we examine the `handler.length` property.
 
@@ -164,7 +159,7 @@ The idea is that we have a simple, no-arguments handler syntax for positive case
     // for negative answer, only the second one
     ask("Question?", () => alert('You said yes'), result => alert(result));
 
-This is a particular case of so-called [polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) – treating arguments differently depending on their type or, in our case depending on the `length`. The idea does have a use in JavaScript libraries.
+This is a particular case of so-called [polymorphism](<https://en.wikipedia.org/wiki/Polymorphism_(computer_science)>) – treating arguments differently depending on their type or, in our case depending on the `length`. The idea does have a use in JavaScript libraries.
 
 ## <a href="#custom-properties" id="custom-properties" class="main__anchor">Custom properties</a>
 
@@ -191,7 +186,7 @@ Here we add the `counter` property to track the total calls count:
 
 <span class="important__type">A property is not a variable</span>
 
-A property assigned to a function like `sayHi.counter = 0` does *not* define a local variable `counter` inside it. In other words, a property `counter` and a variable `let counter` are two unrelated things.
+A property assigned to a function like `sayHi.counter = 0` does _not_ define a local variable `counter` inside it. In other words, a property `counter` and a variable `let counter` are two unrelated things.
 
 We can treat a function as an object, store properties in it, but that has no effect on its execution. Variables are not function properties and vice versa. These are just parallel worlds.
 
@@ -374,8 +369,8 @@ Functions are objects.
 
 Here we covered their properties:
 
--   `name` – the function name. Usually taken from the function definition, but if there’s none, JavaScript tries to guess it from the context (e.g. an assignment).
--   `length` – the number of arguments in the function definition. Rest parameters are not counted.
+- `name` – the function name. Usually taken from the function definition, but if there’s none, JavaScript tries to guess it from the context (e.g. an assignment).
+- `length` – the number of arguments in the function definition. Rest parameters are not counted.
 
 If the function is declared as a Function Expression (not in the main code flow), and it carries the name, then it is called a Named Function Expression. The name can be used inside to reference itself, for recursive calls or such.
 
@@ -395,9 +390,9 @@ So, a function can do a useful job by itself and also carry a bunch of other fun
 
 Modify the code of `makeCounter()` so that the counter can also decrease and set the number:
 
--   `counter()` should return the next number (as before).
--   `counter.set(value)` should set the counter to `value`.
--   `counter.decrease()` should decrease the counter by 1.
+- `counter()` should return the next number (as before).
+- `counter.set(value)` should set the counter to `value`.
+- `counter.decrease()` should decrease the counter by 1.
 
 See the sandbox code for the complete usage example.
 
@@ -445,7 +440,7 @@ P.S. Hint: you may need to setup custom object to primitive conversion for your 
 
 solution
 
-1.  For the whole thing to work *anyhow*, the result of `sum` must be function.
+1.  For the whole thing to work _anyhow_, the result of `sum` must be function.
 2.  That function must keep in memory the current value between calls.
 3.  According to the task, the function must become the number when used in `==`. Functions are objects, so the conversion happens as described in the chapter [Object to primitive conversion](/object-toprimitive), and we can provide our own method that returns the number.
 
@@ -510,26 +505,26 @@ This `f` will be used in the next call, again return itself, as many times as ne
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
+- <a href="/advanced-functions" class="sidebar__link">Advanced working with functions</a>
 
 #### Lesson navigation
 
--   <a href="#the-name-property" class="sidebar__link">The “name” property</a>
--   <a href="#the-length-property" class="sidebar__link">The “length” property</a>
--   <a href="#custom-properties" class="sidebar__link">Custom properties</a>
--   <a href="#named-function-expression" class="sidebar__link">Named Function Expression</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#the-name-property" class="sidebar__link">The “name” property</a>
+- <a href="#the-length-property" class="sidebar__link">The “length” property</a>
+- <a href="#custom-properties" class="sidebar__link">Custom properties</a>
+- <a href="#named-function-expression" class="sidebar__link">Named Function Expression</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (2)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (2)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -537,8 +532,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/06-advanced-functions/06-function-object" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

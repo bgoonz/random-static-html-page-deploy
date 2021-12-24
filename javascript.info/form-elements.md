@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fform-elements" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fform-elements" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -35,7 +30,7 @@ Working with forms will be much more convenient when we learn them.
 
 Document forms are members of the special collection `document.forms`.
 
-That’s a so-called *“named collection”*: it’s both named and ordered. We can use both the name or the number in the document to get the form.
+That’s a so-called _“named collection”_: it’s both named and ordered. We can use both the name or the number in the document to get the form.
 
     document.forms.my; // the form with name="my"
     document.forms[0]; // the first form in the document
@@ -65,7 +60,7 @@ For instance:
 
 There may be multiple elements with the same name. This is typical with radio buttons and checkboxes.
 
-In that case, `form.elements[name]` is a *collection*. For instance:
+In that case, `form.elements[name]` is a _collection_. For instance:
 
 <a href="#" class="toolbar__button toolbar__button_run" title="show"></a>
 
@@ -200,8 +195,8 @@ It stores only the HTML that was initially on the page, not the current value.
 A `<select>` element has 3 important properties:
 
 1.  `select.options` – the collection of `<option>` subelements,
-2.  `select.value` – the *value* of the currently selected `<option>`,
-3.  `select.selectedIndex` – the *number* of the currently selected `<option>`.
+2.  `select.value` – the _value_ of the currently selected `<option>`,
+3.  `select.selectedIndex` – the _number_ of the currently selected `<option>`.
 
 They provide three different ways of setting a value for a `<select>`:
 
@@ -264,14 +259,14 @@ In the [specification](https://html.spec.whatwg.org/multipage/forms.html#the-opt
 
 This syntax is optional. We can use `document.createElement('option')` and set attributes manually. Still, it may be shorter, so here are the parameters:
 
--   `text` – the text inside the option,
--   `value` – the option value,
--   `defaultSelected` – if `true`, then `selected` HTML-attribute is created,
--   `selected` – if `true`, then the option is selected.
+- `text` – the text inside the option,
+- `value` – the option value,
+- `defaultSelected` – if `true`, then `selected` HTML-attribute is created,
+- `selected` – if `true`, then the option is selected.
 
 The difference between `defaultSelected` and `selected` is that `defaultSelected` sets the HTML-attribute (that we can get using `option.getAttribute('selected')`, while `selected` sets whether the option is selected or not.
 
-In practice, one should usually set *both* values to `true` or `false`. (Or, simply omit them; both default to `false`.)
+In practice, one should usually set _both_ values to `true` or `false`. (Or, simply omit them; both default to `false`.)
 
 For instance, here’s a new “unselected” option:
 
@@ -295,7 +290,7 @@ Text content of the option (seen by the visitor).
 
 ## <a href="#references" id="references" class="main__anchor">References</a>
 
--   Specification: <https://html.spec.whatwg.org/multipage/forms.html>.
+- Specification: <https://html.spec.whatwg.org/multipage/forms.html>.
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
@@ -377,26 +372,26 @@ The solution, step by step:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
+- <a href="/forms-controls" class="sidebar__link">Forms, controls</a>
 
 #### Lesson navigation
 
--   <a href="#navigation-form-and-elements" class="sidebar__link">Navigation: form and elements</a>
--   <a href="#backreference-element-form" class="sidebar__link">Backreference: element.form</a>
--   <a href="#form-elements" class="sidebar__link">Form elements</a>
--   <a href="#references" class="sidebar__link">References</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#navigation-form-and-elements" class="sidebar__link">Navigation: form and elements</a>
+- <a href="#backreference-element-form" class="sidebar__link">Backreference: element.form</a>
+- <a href="#form-elements" class="sidebar__link">Form elements</a>
+- <a href="#references" class="sidebar__link">References</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -404,8 +399,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/4-forms-controls/1-form-elements" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

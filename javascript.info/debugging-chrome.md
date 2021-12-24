@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdebugging-chrome" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdebugging-chrome" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -37,9 +32,9 @@ We’ll be using Chrome here, because it has enough features, most other browser
 
 Your Chrome version may look a little bit different, but it still should be obvious what’s there.
 
--   Open the [example page](/article/debugging-chrome/debugging/index.html) in Chrome.
--   Turn on developer tools with <span class="kbd shortcut">F12</span> (Mac: <span class="kbd shortcut">Cmd<span class="shortcut__plus">+</span>Opt<span class="shortcut__plus">+</span>I</span>).
--   Select the `Sources` panel.
+- Open the [example page](/article/debugging-chrome/debugging/index.html) in Chrome.
+- Turn on developer tools with <span class="kbd shortcut">F12</span> (Mac: <span class="kbd shortcut">Cmd<span class="shortcut__plus">+</span>Opt<span class="shortcut__plus">+</span>I</span>).
+- Select the `Sources` panel.
 
 Here’s what you should see if you are doing it for the first time:
 
@@ -79,20 +74,20 @@ It should look like this (blue is where you should click):
 
 <figure><img src="/article/debugging-chrome/chrome-sources-breakpoint.svg" width="697" height="244" /></figure>
 
-A *breakpoint* is a point of code where the debugger will automatically pause the JavaScript execution.
+A _breakpoint_ is a point of code where the debugger will automatically pause the JavaScript execution.
 
 While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.
 
 We can always find a list of breakpoints in the right panel. That’s useful when we have many breakpoints in various files. It allows us to:
 
--   Quickly jump to the breakpoint in the code (by clicking on it in the right panel).
--   Temporarily disable the breakpoint by unchecking it.
--   Remove the breakpoint by right-clicking and selecting Remove.
--   …And so on.
+- Quickly jump to the breakpoint in the code (by clicking on it in the right panel).
+- Temporarily disable the breakpoint by unchecking it.
+- Remove the breakpoint by right-clicking and selecting Remove.
+- …And so on.
 
 <span class="important__type">Conditional breakpoints</span>
 
-*Right click* on the line number allows to create a *conditional* breakpoint. It only triggers when the given expression is truthy.
+_Right click_ on the line number allows to create a _conditional_ breakpoint. It only triggers when the given expression is truthy.
 
 That’s handy when we need to stop only for a certain variable value or for certain function parameters.
 
@@ -140,7 +135,7 @@ Please open the informational dropdowns to the right (labeled with arrows). They
 
 ## <a href="#tracing-the-execution" id="tracing-the-execution" class="main__anchor">Tracing the execution</a>
 
-Now it’s time to *trace* the script.
+Now it’s time to _trace_ the script.
 
 There are buttons for it at the top of the right panel. Let’s engage them.
 
@@ -158,7 +153,7 @@ Run the next statement. If we click it now, `alert` will be shown.
 
 Clicking this again and again will step through all script statements one by one.
 
-<span class="devtools" style="background-position:-62px -192px"></span> – “Step over”: run the next command, but *don’t go into a function*, hotkey <span class="kbd shortcut">F10</span>.  
+<span class="devtools" style="background-position:-62px -192px"></span> – “Step over”: run the next command, but _don’t go into a function_, hotkey <span class="kbd shortcut">F10</span>.  
 Similar to the previous “Step” command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
 
 The “Step” command goes into it and pauses the execution at its first line, while “Step over” executes the nested function call invisibly, skipping the function internals.
@@ -232,28 +227,28 @@ Oh, and also you can click at various places of dev tools and just see what’s 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/code-quality" class="sidebar__link">Code quality</a>
+- <a href="/code-quality" class="sidebar__link">Code quality</a>
 
 #### Lesson navigation
 
--   <a href="#the-sources-panel" class="sidebar__link">The “Sources” panel</a>
--   <a href="#console" class="sidebar__link">Console</a>
--   <a href="#breakpoints" class="sidebar__link">Breakpoints</a>
--   <a href="#debugger-command" class="sidebar__link">Debugger command</a>
--   <a href="#pause-and-look-around" class="sidebar__link">Pause and look around</a>
--   <a href="#tracing-the-execution" class="sidebar__link">Tracing the execution</a>
--   <a href="#logging" class="sidebar__link">Logging</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#the-sources-panel" class="sidebar__link">The “Sources” panel</a>
+- <a href="#console" class="sidebar__link">Console</a>
+- <a href="#breakpoints" class="sidebar__link">Breakpoints</a>
+- <a href="#debugger-command" class="sidebar__link">Debugger command</a>
+- <a href="#pause-and-look-around" class="sidebar__link">Pause and look around</a>
+- <a href="#tracing-the-execution" class="sidebar__link">Tracing the execution</a>
+- <a href="#logging" class="sidebar__link">Logging</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -261,8 +256,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/03-code-quality/01-debugging-chrome" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

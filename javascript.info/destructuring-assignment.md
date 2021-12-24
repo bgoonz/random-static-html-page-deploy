@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fdestructuring-assignment" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fdestructuring-assignment" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -29,12 +24,12 @@ Search
 
 The two most used data structures in JavaScript are `Object` and `Array`.
 
--   Objects allow us to create a single entity that stores data items by key.
--   Arrays allow us to gather data items into an ordered list.
+- Objects allow us to create a single entity that stores data items by key.
+- Arrays allow us to gather data items into an ordered list.
 
 Although, when we pass those to a function, it may need not an object/array as a whole. It may need individual pieces.
 
-*Destructuring assignment* is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables, as sometimes that’s more convenient.
+_Destructuring assignment_ is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables, as sometimes that’s more convenient.
 
 Destructuring also works great with complex functions that have a lot of parameters, default values, and so on. Soon we’ll see that.
 
@@ -591,23 +586,23 @@ In the code above, the whole arguments object is `{}` by default, so there’s a
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Destructuring assignment allows for instantly mapping an object or array onto many variables.
+- Destructuring assignment allows for instantly mapping an object or array onto many variables.
 
--   The full object syntax:
+- The full object syntax:
 
-        let {prop : varName = default, ...rest} = object
+      let {prop : varName = default, ...rest} = object
 
-    This means that property `prop` should go into the variable `varName` and, if no such property exists, then the `default` value should be used.
+  This means that property `prop` should go into the variable `varName` and, if no such property exists, then the `default` value should be used.
 
-    Object properties that have no mapping are copied to the `rest` object.
+  Object properties that have no mapping are copied to the `rest` object.
 
--   The full array syntax:
+- The full array syntax:
 
-        let [item1 = default, item2, ...rest] = array
+      let [item1 = default, item2, ...rest] = array
 
-    The first item goes to `item1`; the second goes into `item2`, all the rest makes the array `rest`.
+  The first item goes to `item1`; the second goes into `item2`, all the rest makes the array `rest`.
 
--   It’s possible to extract data from nested arrays/objects, for that the left side must have the same structure as the right one.
+- It’s possible to extract data from nested arrays/objects, for that the left side must have the same structure as the right one.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -626,9 +621,9 @@ We have an object:
 
 Write the destructuring assignment that reads:
 
--   `name` property into the variable `name`.
--   `years` property into the variable `age`.
--   `isAdmin` property into the variable `isAdmin` (false, if no such property)
+- `name` property into the variable `name`.
+- `years` property into the variable `age`.
+- `isAdmin` property into the variable `isAdmin` (false, if no such property)
 
 Here’s an example of the values after your assignment:
 
@@ -674,8 +669,8 @@ There is a `salaries` object:
 
 Create the function `topSalary(salaries)` that returns the name of the top-paid person.
 
--   If `salaries` is empty, it should return `null`.
--   If there are multiple top-paid persons, return any of them.
+- If `salaries` is empty, it should return `null`.
+- If there are multiple top-paid persons, return any of them.
 
 P.S. Use `Object.entries` and destructuring to iterate over key/value pairs.
 
@@ -710,26 +705,26 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-types" class="sidebar__link">Data types</a>
+- <a href="/data-types" class="sidebar__link">Data types</a>
 
 #### Lesson navigation
 
--   <a href="#array-destructuring" class="sidebar__link">Array destructuring</a>
--   <a href="#object-destructuring" class="sidebar__link">Object destructuring</a>
--   <a href="#nested-destructuring" class="sidebar__link">Nested destructuring</a>
--   <a href="#smart-function-parameters" class="sidebar__link">Smart function parameters</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#array-destructuring" class="sidebar__link">Array destructuring</a>
+- <a href="#object-destructuring" class="sidebar__link">Object destructuring</a>
+- <a href="#nested-destructuring" class="sidebar__link">Nested destructuring</a>
+- <a href="#smart-function-parameters" class="sidebar__link">Smart function parameters</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (2)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (2)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -737,8 +732,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/05-data-types/10-destructuring-assignment" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

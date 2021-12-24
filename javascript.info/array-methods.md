@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farray-methods" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farray-methods" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -33,10 +28,10 @@ Arrays provide a lot of methods. To make things easier, in this chapter they are
 
 We already know methods that add and remove items from the beginning or the end:
 
--   `arr.push(...items)` – adds items to the end,
--   `arr.pop()` – extracts an item from the end,
--   `arr.shift()` – extracts an item from the beginning,
--   `arr.unshift(...items)` – adds items to the beginning.
+- `arr.push(...items)` – adds items to the end,
+- `arr.pop()` – extracts an item from the end,
+- `arr.shift()` – extracts an item from the beginning,
+- `arr.unshift(...items)` – adds items to the beginning.
 
 Here are a few others.
 
@@ -275,9 +270,9 @@ Now let’s cover methods that search in an array.
 
 The methods [arr.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf), [arr.lastIndexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf) and [arr.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) have the same syntax and do essentially the same as their string counterparts, but operate on items instead of characters:
 
--   `arr.indexOf(item, from)` – looks for `item` starting from index `from`, and returns the index where it was found, otherwise `-1`.
--   `arr.lastIndexOf(item, from)` – same, but looks for from right to left.
--   `arr.includes(item, from)` – looks for `item` starting from index `from`, returns `true` if found.
+- `arr.indexOf(item, from)` – looks for `item` starting from index `from`, and returns the index where it was found, otherwise `-1`.
+- `arr.lastIndexOf(item, from)` – same, but looks for from right to left.
+- `arr.includes(item, from)` – looks for `item` starting from index `from`, returns `true` if found.
 
 For instance:
 
@@ -322,9 +317,9 @@ The syntax is:
 
 The function is called for elements of the array, one after another:
 
--   `item` is the element.
--   `index` is its index.
--   `array` is the array itself.
+- `item` is the element.
+- `index` is its index.
+- `array` is the array itself.
 
 If it returns `true`, the search is stopped, the `item` is returned. If nothing found, `undefined` is returned.
 
@@ -407,7 +402,7 @@ For instance, here we transform each element into its length:
 
 ### <a href="#sort-fn" id="sort-fn" class="main__anchor">sort(fn)</a>
 
-The call to [arr.sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) sorts the array *in place*, changing its element order.
+The call to [arr.sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) sorts the array _in place_, changing its element order.
 
 It also returns the sorted array, but the returned value is usually ignored, as `arr` itself is modified.
 
@@ -462,7 +457,7 @@ For instance, to sort as numbers:
 
 Now it works as intended.
 
-Let’s step aside and think what’s happening. The `arr` can be array of anything, right? It may contain numbers or strings or objects or whatever. We have a set of *some items*. To sort it, we need an *ordering function* that knows how to compare its elements. The default is a string order.
+Let’s step aside and think what’s happening. The `arr` can be array of anything, right? It may contain numbers or strings or objects or whatever. We have a set of _some items_. To sort it, we need an _ordering function_ that knows how to compare its elements. The default is a string order.
 
 The `arr.sort(fn)` method implements a generic sorting algorithm. We don’t need to care how it internally works (an optimized [quicksort](https://en.wikipedia.org/wiki/Quicksort) or [Timsort](https://en.wikipedia.org/wiki/Timsort) most of the time). It will walk the array, compare its elements using the provided function and reorder them, all we need is to provide the `fn` which does the comparison.
 
@@ -612,10 +607,10 @@ The function is applied to all array elements one after another and “carries o
 
 Arguments:
 
--   `accumulator` – is the result of the previous function call, equals `initial` the first time (if `initial` is provided).
--   `item` – is the current array item.
--   `index` – is its position.
--   `array` – is the array.
+- `accumulator` – is the result of the previous function call, equals `initial` the first time (if `initial` is provided).
+- `item` – is the current array item.
+- `index` – is its position.
+- `array` – is the array.
 
 As function is applied, the result of the previous function call is passed to the next one as the first argument.
 
@@ -765,66 +760,66 @@ A call to `users.filter(army.canJoin, army)` can be replaced with `users.filter(
 
 A cheat sheet of array methods:
 
--   To add/remove elements:
+- To add/remove elements:
 
-    -   `push(...items)` – adds items to the end,
-    -   `pop()` – extracts an item from the end,
-    -   `shift()` – extracts an item from the beginning,
-    -   `unshift(...items)` – adds items to the beginning.
-    -   `splice(pos, deleteCount, ...items)` – at index `pos` deletes `deleteCount` elements and inserts `items`.
-    -   `slice(start, end)` – creates a new array, copies elements from index `start` till `end` (not inclusive) into it.
-    -   `concat(...items)` – returns a new array: copies all members of the current one and adds `items` to it. If any of `items` is an array, then its elements are taken.
+  - `push(...items)` – adds items to the end,
+  - `pop()` – extracts an item from the end,
+  - `shift()` – extracts an item from the beginning,
+  - `unshift(...items)` – adds items to the beginning.
+  - `splice(pos, deleteCount, ...items)` – at index `pos` deletes `deleteCount` elements and inserts `items`.
+  - `slice(start, end)` – creates a new array, copies elements from index `start` till `end` (not inclusive) into it.
+  - `concat(...items)` – returns a new array: copies all members of the current one and adds `items` to it. If any of `items` is an array, then its elements are taken.
 
--   To search among elements:
+- To search among elements:
 
-    -   `indexOf/lastIndexOf(item, pos)` – look for `item` starting from position `pos`, return the index or `-1` if not found.
-    -   `includes(value)` – returns `true` if the array has `value`, otherwise `false`.
-    -   `find/filter(func)` – filter elements through the function, return first/all values that make it return `true`.
-    -   `findIndex` is like `find`, but returns the index instead of a value.
+  - `indexOf/lastIndexOf(item, pos)` – look for `item` starting from position `pos`, return the index or `-1` if not found.
+  - `includes(value)` – returns `true` if the array has `value`, otherwise `false`.
+  - `find/filter(func)` – filter elements through the function, return first/all values that make it return `true`.
+  - `findIndex` is like `find`, but returns the index instead of a value.
 
--   To iterate over elements:
+- To iterate over elements:
 
-    -   `forEach(func)` – calls `func` for every element, does not return anything.
+  - `forEach(func)` – calls `func` for every element, does not return anything.
 
--   To transform the array:
+- To transform the array:
 
-    -   `map(func)` – creates a new array from results of calling `func` for every element.
-    -   `sort(func)` – sorts the array in-place, then returns it.
-    -   `reverse()` – reverses the array in-place, then returns it.
-    -   `split/join` – convert a string to array and back.
-    -   `reduce/reduceRight(func, initial)` – calculate a single value over the array by calling `func` for each element and passing an intermediate result between the calls.
+  - `map(func)` – creates a new array from results of calling `func` for every element.
+  - `sort(func)` – sorts the array in-place, then returns it.
+  - `reverse()` – reverses the array in-place, then returns it.
+  - `split/join` – convert a string to array and back.
+  - `reduce/reduceRight(func, initial)` – calculate a single value over the array by calling `func` for each element and passing an intermediate result between the calls.
 
--   Additionally:
+- Additionally:
 
-    -   `Array.isArray(arr)` checks `arr` for being an array.
+  - `Array.isArray(arr)` checks `arr` for being an array.
 
 Please note that methods `sort`, `reverse` and `splice` modify the array itself.
 
 These methods are the most used ones, they cover 99% of use cases. But there are few others:
 
--   [arr.some(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)/[arr.every(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) check the array.
+- [arr.some(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)/[arr.every(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) check the array.
 
-    The function `fn` is called on each element of the array similar to `map`. If any/all results are `true`, returns `true`, otherwise `false`.
+  The function `fn` is called on each element of the array similar to `map`. If any/all results are `true`, returns `true`, otherwise `false`.
 
-    These methods behave sort of like `||` and `&&` operators: if `fn` returns a truthy value, `arr.some()` immediately returns `true` and stops iterating over the rest of items; if `fn` returns a falsy value, `arr.every()` immediately returns `false` and stops iterating over the rest of items as well.
+  These methods behave sort of like `||` and `&&` operators: if `fn` returns a truthy value, `arr.some()` immediately returns `true` and stops iterating over the rest of items; if `fn` returns a falsy value, `arr.every()` immediately returns `false` and stops iterating over the rest of items as well.
 
-    We can use `every` to compare arrays:
+  We can use `every` to compare arrays:
 
-    <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
+  <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
-    <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
+  <a href="#" class="toolbar__button toolbar__button_edit" title="open in sandbox"></a>
 
-        function arraysEqual(arr1, arr2) {
-          return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
-        }
+      function arraysEqual(arr1, arr2) {
+        return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
+      }
 
-        alert( arraysEqual([1, 2], [1, 2])); // true
+      alert( arraysEqual([1, 2], [1, 2])); // true
 
--   [arr.fill(value, start, end)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill) – fills the array with repeating `value` from index `start` to `end`.
+- [arr.fill(value, start, end)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill) – fills the array with repeating `value` from index `start` to `end`.
 
--   [arr.copyWithin(target, start, end)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin) – copies its elements from position `start` till position `end` into *itself*, at position `target` (overwrites existing).
+- [arr.copyWithin(target, start, end)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin) – copies its elements from position `start` till position `end` into _itself_, at position `target` (overwrites existing).
 
--   [arr.flat(depth)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)/[arr.flatMap(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap) create a new flat array from a multidimensional array.
+- [arr.flat(depth)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)/[arr.flatMap(fn)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap) create a new flat array from a multidimensional array.
 
 For the full list, see the [manual](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
@@ -1052,42 +1047,43 @@ The task consists of two parts.
         let result = powerCalc.calculate("2 ** 3");
         alert( result ); // 8
 
--   No parentheses or complex expressions in this task.
--   The numbers and the operator are delimited with exactly one space.
--   There may be error handling if you’d like to add it.
+- No parentheses or complex expressions in this task.
+- The numbers and the operator are delimited with exactly one space.
+- There may be error handling if you’d like to add it.
 
 [Open a sandbox with tests.](https://plnkr.co/edit/BSCbgSlVjg02a3OU?p=preview)
 
 solution
 
--   Please note how methods are stored. They are simply added to `this.methods` property.
--   All tests and numeric conversions are done in the `calculate` method. In future it may be extended to support more complex expressions.
+- Please note how methods are stored. They are simply added to `this.methods` property.
+- All tests and numeric conversions are done in the `calculate` method. In future it may be extended to support more complex expressions.
 
-    function Calculator() {
+  function Calculator() {
 
-      this.methods = {
-        "-": (a, b) => a - b,
-        "+": (a, b) => a + b
-      };
+  this.methods = {
+  "-": (a, b) => a - b,
+  "+": (a, b) => a + b
+  };
 
-      this.calculate = function(str) {
+  this.calculate = function(str) {
 
-        let split = str.split(' '),
-          a = +split[0],
-          op = split[1],
-          b = +split[2];
+      let split = str.split(' '),
+        a = +split[0],
+        op = split[1],
+        b = +split[2];
 
-        if (!this.methods[op] || isNaN(a) || isNaN(b)) {
-          return NaN;
-        }
+      if (!this.methods[op] || isNaN(a) || isNaN(b)) {
+        return NaN;
+      }
 
-        return this.methods[op](a, b);
-      };
+      return this.methods[op](a, b);
 
-      this.addMethod = function(name, func) {
-        this.methods[name] = func;
-      };
-    }
+  };
+
+  this.addMethod = function(name, func) {
+  this.methods[name] = func;
+  };
+  }
 
 [Open the solution with tests in a sandbox.](https://plnkr.co/edit/DfKe17tsPxFwhF7z?p=preview)
 
@@ -1472,8 +1468,8 @@ solution
 
 Let’s walk the array items:
 
--   For each item we’ll check if the resulting array already has that item.
--   If it is so, then ignore, otherwise add to results.
+- For each item we’ll check if the resulting array already has that item.
+- If it is so, then ignore, otherwise add to results.
 
 <a href="#" class="toolbar__button toolbar__button_run" title="run"></a>
 
@@ -1574,28 +1570,28 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/data-types" class="sidebar__link">Data types</a>
+- <a href="/data-types" class="sidebar__link">Data types</a>
 
 #### Lesson navigation
 
--   <a href="#add-remove-items" class="sidebar__link">Add/remove items</a>
--   <a href="#iterate-foreach" class="sidebar__link">Iterate: forEach</a>
--   <a href="#searching-in-array" class="sidebar__link">Searching in array</a>
--   <a href="#transform-an-array" class="sidebar__link">Transform an array</a>
--   <a href="#array-isarray" class="sidebar__link">Array.isArray</a>
--   <a href="#most-methods-support-thisarg" class="sidebar__link">Most methods support “thisArg”</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#add-remove-items" class="sidebar__link">Add/remove items</a>
+- <a href="#iterate-foreach" class="sidebar__link">Iterate: forEach</a>
+- <a href="#searching-in-array" class="sidebar__link">Searching in array</a>
+- <a href="#transform-an-array" class="sidebar__link">Transform an array</a>
+- <a href="#array-isarray" class="sidebar__link">Array.isArray</a>
+- <a href="#most-methods-support-thisarg" class="sidebar__link">Most methods support “thisArg”</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (13)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (13)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -1603,8 +1599,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/05-data-types/05-array-methods" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -18,7 +14,6 @@ Search
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fevent-delegation" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fevent-delegation" class="share share_fb"></a>
 
-
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
 3.  <span id="breadcrumb-2"><a href="/events" class="breadcrumbs__link"><span>Introduction to Events</span></a></span>
@@ -27,7 +22,7 @@ Search
 
 # Event delegation
 
-Capturing and bubbling allow us to implement one of most powerful event handling patterns called *event delegation*.
+Capturing and bubbling allow us to implement one of most powerful event handling patterns called _event delegation_.
 
 The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
@@ -148,7 +143,7 @@ Explanations:
 
 1.  The method `elem.closest(selector)` returns the nearest ancestor that matches the selector. In our case we look for `<td>` on the way up from the source element.
 2.  If `event.target` is not inside any `<td>`, then the call returns immediately, as there’s nothing to do.
-3.  In case of nested tables, `event.target` may be a `<td>`, but lying outside of the current table. So we check if that’s actually *our table’s* `<td>`.
+3.  In case of nested tables, `event.target` may be a `<td>`, but lying outside of the current table. So we check if that’s actually _our table’s_ `<td>`.
 4.  And, if it’s so, then highlight it.
 
 As the result, we have a fast, efficient highlighting code, that doesn’t care about the total number of `<td>` in the table.
@@ -209,14 +204,14 @@ Please note that `this.onClick` is bound to `this` in `(*)`. That’s important,
 
 So, what advantages does delegation give us here?
 
--   We don’t need to write the code to assign a handler to each button. Just make a method and put it in the markup.
--   The HTML structure is flexible, we can add/remove buttons at any time.
+- We don’t need to write the code to assign a handler to each button. Just make a method and put it in the markup.
+- The HTML structure is flexible, we can add/remove buttons at any time.
 
 We could also use classes `.action-save`, `.action-load`, but an attribute `data-action` is better semantically. And we can use it in CSS rules too.
 
 ## <a href="#the-behavior-pattern" id="the-behavior-pattern" class="main__anchor">The “behavior” pattern</a>
 
-We can also use event delegation to add “behaviors” to elements *declaratively*, with special attributes and classes.
+We can also use event delegation to add “behaviors” to elements _declaratively_, with special attributes and classes.
 
 The pattern has two parts:
 
@@ -303,14 +298,14 @@ The algorithm:
 
 Benefits:
 
--   Simplifies initialization and saves memory: no need to add many handlers.
--   Less code: when adding or removing elements, no need to add/remove handlers.
--   DOM modifications: we can mass add/remove elements with `innerHTML` and the like.
+- Simplifies initialization and saves memory: no need to add many handlers.
+- Less code: when adding or removing elements, no need to add/remove handlers.
+- DOM modifications: we can mass add/remove elements with `innerHTML` and the like.
 
 The delegation has its limitations of course:
 
--   First, the event must be bubbling. Some events do not bubble. Also, low-level handlers should not use `event.stopPropagation()`.
--   Second, the delegation may add CPU load, because the container-level handler reacts on events in any place of the container, no matter whether they interest us or not. But usually the load is negligible, so we don’t take it into account.
+- First, the event must be bubbling. Some events do not bubble. Also, low-level handlers should not use `event.stopPropagation()`.
+- Second, the delegation may add CPU load, because the container-level handler reacts on events in any place of the container, no matter whether they interest us or not. But usually the load is negligible, so we don’t take it into account.
 
 ## <a href="#tasks" class="tasks__title-anchor main__anchor main__anchor main__anchor_noicon">Tasks</a>
 
@@ -358,27 +353,27 @@ solution
 
 Create a tree that shows/hides node children on click:
 
--   Animals
-    -   Mammals
-        -   Cows
-        -   Donkeys
-        -   Dogs
-        -   Tigers
-    -   Other
-        -   Snakes
-        -   Birds
-        -   Lizards
--   Fishes
-    -   Aquarium
-        -   Guppy
-        -   Angelfish
-    -   Sea
-        -   Sea trout
+- Animals
+  - Mammals
+    - Cows
+    - Donkeys
+    - Dogs
+    - Tigers
+  - Other
+    - Snakes
+    - Birds
+    - Lizards
+- Fishes
+  - Aquarium
+    - Guppy
+    - Angelfish
+  - Sea
+    - Sea trout
 
 Requirements:
 
--   Only one event handler (use delegation)
--   A click outside the node title (on an empty space) should not do anything.
+- Only one event handler (use delegation)
+- A click outside the node title (on an empty space) should not do anything.
 
 [Open a sandbox for the task.](https://plnkr.co/edit/zQFuLhTPX4lkrokp?p=preview)
 
@@ -468,15 +463,15 @@ In this task we assume that all elements with `data-tooltip` have only text insi
 
 Details:
 
--   The distance between the element and the tooltip should be `5px`.
--   The tooltip should be centered relative to the element, if possible.
--   The tooltip should not cross window edges. Normally it should be above the element, but if the element is at the page top and there’s no space for the tooltip, then below it.
--   The tooltip content is given in the `data-tooltip` attribute. It can be arbitrary HTML.
+- The distance between the element and the tooltip should be `5px`.
+- The tooltip should be centered relative to the element, if possible.
+- The tooltip should not cross window edges. Normally it should be above the element, but if the element is at the page top and there’s no space for the tooltip, then below it.
+- The tooltip content is given in the `data-tooltip` attribute. It can be arbitrary HTML.
 
 You’ll need two events here:
 
--   `mouseover` triggers when a pointer comes over an element.
--   `mouseout` triggers when a pointer leaves an element.
+- `mouseover` triggers when a pointer comes over an element.
+- `mouseout` triggers when a pointer leaves an element.
 
 Please use event delegation: set up two handlers on `document` to track all “overs” and “outs” from elements with `data-tooltip` and manage tooltips from there.
 
@@ -500,24 +495,24 @@ solution
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/events" class="sidebar__link">Introduction to Events</a>
+- <a href="/events" class="sidebar__link">Introduction to Events</a>
 
 #### Lesson navigation
 
--   <a href="#delegation-example-actions-in-markup" class="sidebar__link">Delegation example: actions in markup</a>
--   <a href="#the-behavior-pattern" class="sidebar__link">The “behavior” pattern</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#delegation-example-actions-in-markup" class="sidebar__link">Delegation example: actions in markup</a>
+- <a href="#the-behavior-pattern" class="sidebar__link">The “behavior” pattern</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -525,8 +520,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/2-events/03-event-delegation" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

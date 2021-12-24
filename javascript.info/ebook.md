@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Febook" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Febook" class="share share_fb"></a>
-
 
 # Buy EPUB/PDF for offline reading
 
@@ -75,18 +70,18 @@ The download link will be sent to this address after payment.
 
 ## Select the payment method, please
 
--   ### Stripe
+- ### Stripe
 
-    <span class="pay-method__cards"><img src="/pay-methods/cards/visa.svg" class="pay-method__card" alt="visa" /><img src="/pay-methods/cards/mastercard.svg" class="pay-method__card" alt="mastercard" /><img src="/pay-methods/cards/diners.svg" class="pay-method__card" alt="diners" /><img src="/pay-methods/cards/amex.svg" class="pay-method__card" alt="amex" /><img src="/pay-methods/cards/unionpay.svg" class="pay-method__card" alt="unionpay" /><img src="/pay-methods/cards/jcb.svg" class="pay-method__card" alt="jcb" /></span>
+  <span class="pay-method__cards"><img src="/pay-methods/cards/visa.svg" class="pay-method__card" alt="visa" /><img src="/pay-methods/cards/mastercard.svg" class="pay-method__card" alt="mastercard" /><img src="/pay-methods/cards/diners.svg" class="pay-method__card" alt="diners" /><img src="/pay-methods/cards/amex.svg" class="pay-method__card" alt="amex" /><img src="/pay-methods/cards/unionpay.svg" class="pay-method__card" alt="unionpay" /><img src="/pay-methods/cards/jcb.svg" class="pay-method__card" alt="jcb" /></span>
 
--   <img src="/pay-methods/pay-paypal.svg" class="pay-method__logo" alt="Paypal" />
+- <img src="/pay-methods/pay-paypal.svg" class="pay-method__logo" alt="Paypal" />
 
 <span class="button__text">Continue</span>
 
 By pressing the button 'Continue' you agree to our [terms](/terms) and [privacy policy](/privacy).
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

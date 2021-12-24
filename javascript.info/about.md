@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fabout" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fabout" class="share share_fb"></a>
-
 
 # About the project
 
@@ -43,26 +38,26 @@ We want to make this open-source project available for people all around the wor
 
 ## The team
 
--   <a href="https://javascript.info/profile/ilya-kantor" class="about-team__member-upic"><img src="/team/iliakan.jpg" class="about-team__member-photo" alt="Photo" /></a>
-    <a href="https://javascript.info/profile/ilya-kantor" class="about-team__member-name">Ilya Kantor</a>
-    Author, trainer, JS-developer
--   <a href="https://www.linkedin.com/in/amaxcz/" class="about-team__member-upic"><img src="/team/amax.jpg" class="about-team__member-photo" alt="Photo" /></a>
-    <a href="https://www.linkedin.com/in/amaxcz/" class="about-team__member-name">Alexey Maximov</a>
-    System Administrator
--   <a href="https://javascript.info/profile/artem-beztsenniy" class="about-team__member-upic"><img src="/team/bezart.jpg" class="about-team__member-photo" alt="Photo" /></a>
-    <a href="https://javascript.info/profile/artem-beztsenniy" class="about-team__member-name">Artem Beztsinniy</a>
-    Designer
--   <a href="https://javascript.info/profile/sergey-zelenov" class="about-team__member-upic"><img src="/team/sergey.jpg" class="about-team__member-photo" alt="Photo" /></a>
-    <a href="https://javascript.info/profile/sergey-zelenov" class="about-team__member-name">Sergey Zelenov</a>
-    JS-developer, teacher
--   <a href="https://twitter.com/stevermeister" class="about-team__member-upic"><img src="/team/stepan.jpg" class="about-team__member-photo" alt="Photo" /></a>
-    <a href="https://twitter.com/stevermeister" class="about-team__member-name">Stepan Suvorov</a>
-    Angular trainer
+- <a href="https://javascript.info/profile/ilya-kantor" class="about-team__member-upic"><img src="/team/iliakan.jpg" class="about-team__member-photo" alt="Photo" /></a>
+  <a href="https://javascript.info/profile/ilya-kantor" class="about-team__member-name">Ilya Kantor</a>
+  Author, trainer, JS-developer
+- <a href="https://www.linkedin.com/in/amaxcz/" class="about-team__member-upic"><img src="/team/amax.jpg" class="about-team__member-photo" alt="Photo" /></a>
+  <a href="https://www.linkedin.com/in/amaxcz/" class="about-team__member-name">Alexey Maximov</a>
+  System Administrator
+- <a href="https://javascript.info/profile/artem-beztsenniy" class="about-team__member-upic"><img src="/team/bezart.jpg" class="about-team__member-photo" alt="Photo" /></a>
+  <a href="https://javascript.info/profile/artem-beztsenniy" class="about-team__member-name">Artem Beztsinniy</a>
+  Designer
+- <a href="https://javascript.info/profile/sergey-zelenov" class="about-team__member-upic"><img src="/team/sergey.jpg" class="about-team__member-photo" alt="Photo" /></a>
+  <a href="https://javascript.info/profile/sergey-zelenov" class="about-team__member-name">Sergey Zelenov</a>
+  JS-developer, teacher
+- <a href="https://twitter.com/stevermeister" class="about-team__member-upic"><img src="/team/stepan.jpg" class="about-team__member-photo" alt="Photo" /></a>
+  <a href="https://twitter.com/stevermeister" class="about-team__member-name">Stepan Suvorov</a>
+  Angular trainer
 
 ## Tutorial maintainers
 
--   <a href="https://github.com/iliakan" class="about-maintainers__member-upic"><img src="https://avatars.githubusercontent.com/u/349336?v=4" class="about-maintainers__member-photo" alt="Photo" /></a>
-    <a href="https://github.com/iliakan" class="about-maintainers__member-name">Ilya Kantor</a>
+- <a href="https://github.com/iliakan" class="about-maintainers__member-upic"><img src="https://avatars.githubusercontent.com/u/349336?v=4" class="about-maintainers__member-photo" alt="Photo" /></a>
+  <a href="https://github.com/iliakan" class="about-maintainers__member-name">Ilya Kantor</a>
 
 The tutorial repository is at <https://github.com/javascript-tutorial/en.javascript.info>.
 
@@ -76,8 +71,8 @@ It's very easy to become listed. Just write an article or propose fixes in the [
 
 <span class="about-contributors__more">Show all ▾</span>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

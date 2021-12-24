@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Ffetch" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Ffetch" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/network" class="breadcrumbs__link"><span>Network requests</span></a></span>
@@ -30,10 +25,10 @@ JavaScript can send network requests to the server and load new information when
 
 For example, we can use a network request to:
 
--   Submit an order,
--   Load user information,
--   Receive latest updates from the server,
--   …etc.
+- Submit an order,
+- Load user information,
+- Receive latest updates from the server,
+- …etc.
 
 …And all of that without reloading the page!
 
@@ -47,8 +42,8 @@ The basic syntax is:
 
     let promise = fetch(url, [options])
 
--   **`url`** – the URL to access.
--   **`options`** – optional parameters: method, headers etc.
+- **`url`** – the URL to access.
+- **`options`** – optional parameters: method, headers etc.
 
 Without `options`, this is a simple GET request, downloading the contents of the `url`.
 
@@ -64,8 +59,8 @@ The promise rejects if the `fetch` was unable to make HTTP-request, e.g. network
 
 We can see HTTP-status in response properties:
 
--   **`status`** – HTTP status code, e.g. 200.
--   **`ok`** – boolean, `true` if the HTTP status code is 200-299.
+- **`status`** – HTTP status code, e.g. 200.
+- **`ok`** – boolean, `true` if the HTTP status code is 200-299.
 
 For example:
 
@@ -82,12 +77,12 @@ For example:
 
 `Response` provides multiple promise-based methods to access the body in various formats:
 
--   **`response.text()`** – read the response and return as text,
--   **`response.json()`** – parse the response as JSON,
--   **`response.formData()`** – return the response as `FormData` object (explained in the [next chapter](/formdata)),
--   **`response.blob()`** – return the response as [Blob](/blob) (binary data with type),
--   **`response.arrayBuffer()`** – return the response as [ArrayBuffer](/arraybuffer-binary-arrays) (low-level representation of binary data),
--   additionally, `response.body` is a [ReadableStream](https://streams.spec.whatwg.org/#rs-class) object, it allows you to read the body chunk-by-chunk, we’ll see an example later.
+- **`response.text()`** – read the response and return as text,
+- **`response.json()`** – parse the response as JSON,
+- **`response.formData()`** – return the response as `FormData` object (explained in the [next chapter](/formdata)),
+- **`response.blob()`** – return the response as [Blob](/blob) (binary data with type),
+- **`response.arrayBuffer()`** – return the response as [ArrayBuffer](/arraybuffer-binary-arrays) (low-level representation of binary data),
+- additionally, `response.body` is a [ReadableStream](https://streams.spec.whatwg.org/#rs-class) object, it allows you to read the body chunk-by-chunk, we’ll see an example later.
 
 For instance, let’s get a JSON-object with latest commits from GitHub:
 
@@ -188,26 +183,26 @@ To set a request header in `fetch`, we can use the `headers` option. It has an o
 
 …But there’s a list of [forbidden HTTP headers](https://fetch.spec.whatwg.org/#forbidden-header-name) that we can’t set:
 
--   `Accept-Charset`, `Accept-Encoding`
--   `Access-Control-Request-Headers`
--   `Access-Control-Request-Method`
--   `Connection`
--   `Content-Length`
--   `Cookie`, `Cookie2`
--   `Date`
--   `DNT`
--   `Expect`
--   `Host`
--   `Keep-Alive`
--   `Origin`
--   `Referer`
--   `TE`
--   `Trailer`
--   `Transfer-Encoding`
--   `Upgrade`
--   `Via`
--   `Proxy-*`
--   `Sec-*`
+- `Accept-Charset`, `Accept-Encoding`
+- `Access-Control-Request-Headers`
+- `Access-Control-Request-Method`
+- `Connection`
+- `Content-Length`
+- `Cookie`, `Cookie2`
+- `Date`
+- `DNT`
+- `Expect`
+- `Host`
+- `Keep-Alive`
+- `Origin`
+- `Referer`
+- `TE`
+- `Trailer`
+- `Transfer-Encoding`
+- `Upgrade`
+- `Via`
+- `Proxy-*`
+- `Sec-*`
 
 These headers ensure proper and safe HTTP, so they are controlled exclusively by the browser.
 
@@ -215,12 +210,12 @@ These headers ensure proper and safe HTTP, so they are controlled exclusively by
 
 To make a `POST` request, or a request with another method, we need to use `fetch` options:
 
--   **`method`** – HTTP-method, e.g. `POST`,
--   **`body`** – the request body, one of:
-    -   a string (e.g. JSON-encoded),
-    -   `FormData` object, to submit the data as `form/multipart`,
-    -   `Blob`/`BufferSource` to send binary data,
-    -   [URLSearchParams](/url), to submit the data in `x-www-form-urlencoded` encoding, rarely used.
+- **`method`** – HTTP-method, e.g. `POST`,
+- **`body`** – the request body, one of:
+  - a string (e.g. JSON-encoded),
+  - `FormData` object, to submit the data as `form/multipart`,
+  - `Blob`/`BufferSource` to send binary data,
+  - [URLSearchParams](/url), to submit the data in `x-www-form-urlencoded` encoding, rarely used.
 
 The JSON format is used most of the time.
 
@@ -317,23 +312,23 @@ Or, without `await`:
 
 Response properties:
 
--   `response.status` – HTTP code of the response,
--   `response.ok` – `true` is the status is 200-299.
--   `response.headers` – Map-like object with HTTP headers.
+- `response.status` – HTTP code of the response,
+- `response.ok` – `true` is the status is 200-299.
+- `response.headers` – Map-like object with HTTP headers.
 
 Methods to get response body:
 
--   **`response.text()`** – return the response as text,
--   **`response.json()`** – parse the response as JSON object,
--   **`response.formData()`** – return the response as `FormData` object (form/multipart encoding, see the next chapter),
--   **`response.blob()`** – return the response as [Blob](/blob) (binary data with type),
--   **`response.arrayBuffer()`** – return the response as [ArrayBuffer](/arraybuffer-binary-arrays) (low-level binary data),
+- **`response.text()`** – return the response as text,
+- **`response.json()`** – parse the response as JSON object,
+- **`response.formData()`** – return the response as `FormData` object (form/multipart encoding, see the next chapter),
+- **`response.blob()`** – return the response as [Blob](/blob) (binary data with type),
+- **`response.arrayBuffer()`** – return the response as [ArrayBuffer](/arraybuffer-binary-arrays) (low-level binary data),
 
 Fetch options so far:
 
--   `method` – HTTP-method,
--   `headers` – an object with request headers (not any header is allowed),
--   `body` – the data to send (request body) as `string`, `FormData`, `BufferSource`, `Blob` or `UrlSearchParams` object.
+- `method` – HTTP-method,
+- `headers` – an object with request headers (not any header is allowed),
+- `body` – the data to send (request body) as `string`, `FormData`, `BufferSource`, `Blob` or `UrlSearchParams` object.
 
 In the next chapters we’ll see more options and use cases of `fetch`.
 
@@ -409,26 +404,26 @@ That’s an example of how low-level Promise API can still be useful even if we 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/network" class="sidebar__link">Network requests</a>
+- <a href="/network" class="sidebar__link">Network requests</a>
 
 #### Lesson navigation
 
--   <a href="#response-headers" class="sidebar__link">Response headers</a>
--   <a href="#request-headers" class="sidebar__link">Request headers</a>
--   <a href="#post-requests" class="sidebar__link">POST requests</a>
--   <a href="#sending-an-image" class="sidebar__link">Sending an image</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#response-headers" class="sidebar__link">Response headers</a>
+- <a href="#request-headers" class="sidebar__link">Request headers</a>
+- <a href="#post-requests" class="sidebar__link">POST requests</a>
+- <a href="#sending-an-image" class="sidebar__link">Sending an image</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -436,8 +431,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/5-network/01-fetch" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fcoding-style" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fcoding-style" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -58,16 +53,16 @@ A single-line construct, such as `if (condition) doSomething()`, is an important
 Here are the annotated variants so you can judge their readability for yourself:
 
 1.  😠 Beginners sometimes do that. Bad! Curly braces are not needed:
-        if (n < 0) {alert(`Power ${n} is not supported`);}
+    if (n < 0) {alert(`Power ${n} is not supported`);}
 2.  😠 Split to a separate line without braces. Never do that, easy to make an error when adding new lines:
-        if (n < 0)
-          alert(`Power ${n} is not supported`);
+    if (n < 0)
+    alert(`Power ${n} is not supported`);
 3.  😏 One line without braces – acceptable, if it’s short:
-        if (n < 0) alert(`Power ${n} is not supported`);
+    if (n < 0) alert(`Power ${n} is not supported`);
 4.  😃 The best variant:
-        if (n < 0) {
-          alert(`Power ${n} is not supported`);
-        }
+    if (n < 0) {
+    alert(`Power ${n} is not supported`);
+    }
 
 For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a code block (the last variant) is usually more readable.
 
@@ -100,38 +95,38 @@ The maximum line length should be agreed upon at the team-level. It’s usually 
 
 There are two types of indents:
 
--   **Horizontal indents: 2 or 4 spaces.**
+- **Horizontal indents: 2 or 4 spaces.**
 
-    A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key <span class="kbd shortcut">Tab</span>). Which one to choose is an old holy war. Spaces are more common nowadays.
+  A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key <span class="kbd shortcut">Tab</span>). Which one to choose is an old holy war. Spaces are more common nowadays.
 
-    One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
+  One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.
 
-    For instance, we can align the parameters with the opening bracket, like this:
+  For instance, we can align the parameters with the opening bracket, like this:
 
-        show(parameters,
-             aligned, // 5 spaces padding at the left
-             one,
-             after,
-             another
-          ) {
-          // ...
+      show(parameters,
+           aligned, // 5 spaces padding at the left
+           one,
+           after,
+           another
+        ) {
+        // ...
+      }
+
+- **Vertical indents: empty lines for splitting code into logical blocks.**
+
+  Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
+
+      function pow(x, n) {
+        let result = 1;
+        //              <--
+        for (let i = 0; i < n; i++) {
+          result *= x;
         }
+        //              <--
+        return result;
+      }
 
--   **Vertical indents: empty lines for splitting code into logical blocks.**
-
-    Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:
-
-        function pow(x, n) {
-          let result = 1;
-          //              <--
-          for (let i = 0; i < n; i++) {
-            result *= x;
-          }
-          //              <--
-          return result;
-        }
-
-    Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
+  Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.
 
 ### <a href="#semicolons" id="semicolons" class="main__anchor">Semicolons</a>
 
@@ -205,7 +200,7 @@ The second one is more readable because the “special case” of `n < 0` is han
 
 If you are writing several “helper” functions and the code that uses them, there are three ways to organize the functions.
 
-1.  Declare the functions *above* the code that uses them:
+1.  Declare the functions _above_ the code that uses them:
 
         // function declarations
         function createElement() {
@@ -249,7 +244,7 @@ If you are writing several “helper” functions and the code that uses them, t
 
 Most of time, the second variant is preferred.
 
-That’s because when reading code, we first want to know *what it does*. If the code goes first, then it becomes clear from the start. Then, maybe we won’t need to read the functions at all, especially if their names are descriptive of what they actually do.
+That’s because when reading code, we first want to know _what it does_. If the code goes first, then it becomes clear from the start. Then, maybe we won’t need to read the functions at all, especially if their names are descriptive of what they actually do.
 
 ## <a href="#style-guides" id="style-guides" class="main__anchor">Style Guides</a>
 
@@ -261,11 +256,11 @@ Of course, a team can always write their own style guide, but usually there’s 
 
 Some popular choices:
 
--   [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
--   [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
--   [Idiomatic.JS](https://github.com/rwaldron/idiomatic.js)
--   [StandardJS](https://standardjs.com/)
--   (plus many more)
+- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Idiomatic.JS](https://github.com/rwaldron/idiomatic.js)
+- [StandardJS](https://standardjs.com/)
+- (plus many more)
 
 If you’re a novice developer, start with the cheat sheet at the beginning of this chapter. Then you can browse other style guides to pick up more ideas and decide which one you like best.
 
@@ -277,9 +272,9 @@ The great thing about them is that style-checking can also find some bugs, like 
 
 Here are some well-known linting tools:
 
--   [JSLint](https://www.jslint.com/) – one of the first linters.
--   [JSHint](https://jshint.com/) – more settings than JSLint.
--   [ESLint](https://eslint.org/) – probably the newest one.
+- [JSLint](https://www.jslint.com/) – one of the first linters.
+- [JSHint](https://jshint.com/) – more settings than JSLint.
+- [ESLint](https://eslint.org/) – probably the newest one.
 
 All of them can do the job. The author uses [ESLint](https://eslint.org/).
 
@@ -406,26 +401,26 @@ The fixed variant:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/code-quality" class="sidebar__link">Code quality</a>
+- <a href="/code-quality" class="sidebar__link">Code quality</a>
 
 #### Lesson navigation
 
--   <a href="#syntax" class="sidebar__link">Syntax</a>
--   <a href="#function-placement" class="sidebar__link">Function Placement</a>
--   <a href="#style-guides" class="sidebar__link">Style Guides</a>
--   <a href="#automated-linters" class="sidebar__link">Automated Linters</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#syntax" class="sidebar__link">Syntax</a>
+- <a href="#function-placement" class="sidebar__link">Function Placement</a>
+- <a href="#style-guides" class="sidebar__link">Style Guides</a>
+- <a href="#automated-linters" class="sidebar__link">Automated Linters</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (1)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (1)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -433,8 +428,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/03-code-quality/02-coding-style" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

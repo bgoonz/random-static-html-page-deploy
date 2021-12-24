@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fjs-animation" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fjs-animation" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/animation" class="breadcrumbs__link"><span>Animation</span></a></span>
@@ -413,7 +408,7 @@ In action for `x=1.5`:
 
 <a href="https://en.js.cx/article/js-animation/elastic/" class="toolbar__button toolbar__button_external" title="open in new window"></a>
 
-## <a href="#reversal-ease" id="reversal-ease" class="main__anchor">Reversal: ease*</a>
+## <a href="#reversal-ease" id="reversal-ease" class="main__anchor">Reversal: ease\*</a>
 
 So we have a collection of timing functions. Their direct application is called “easeIn”.
 
@@ -519,8 +514,8 @@ If there’s an animation effect in the beginning, like bouncing – it will be 
 
 In the graph above the <span style="color:#EE6B47">regular bounce</span> has the red color, and the <span style="color:#62C0DC">easeOut bounce</span> is blue.
 
--   Regular bounce – the object bounces at the bottom, then at the end sharply jumps to the top.
--   After `easeOut` – it first jumps to the top, then bounces there.
+- Regular bounce – the object bounces at the bottom, then at the end sharply jumps to the top.
+- After `easeOut` – it first jumps to the top, then bounces there.
 
 ### <a href="#easeinout" id="easeinout" class="main__anchor">easeInOut</a>
 
@@ -630,9 +625,9 @@ The effect is clearly seen if we compare the graphs of `easeIn`, `easeOut` and `
 
 <figure><img src="/article/js-animation/circ-ease.svg" width="234" height="240" /></figure>
 
--   <span style="color:#EE6B47">Red</span> is the regular variant of `circ` (`easeIn`).
--   <span style="color:#8DB173">Green</span> – `easeOut`.
--   <span style="color:#62C0DC">Blue</span> – `easeInOut`.
+- <span style="color:#EE6B47">Red</span> is the regular variant of `circ` (`easeIn`).
+- <span style="color:#8DB173">Green</span> – `easeOut`.
+- <span style="color:#62C0DC">Blue</span> – `easeInOut`.
 
 As we can see, the graph of the first half of the animation is the scaled down `easeIn`, and the second half is the scaled down `easeOut`. As a result, the animation starts and finishes with the same effect.
 
@@ -743,9 +738,9 @@ Here’s the helper `animate` function to setup most animations:
 
 Options:
 
--   `duration` – the total animation time in ms.
--   `timing` – the function to calculate animation progress. Gets a time fraction from 0 to 1, returns the animation progress, usually from 0 to 1.
--   `draw` – the function to draw the animation.
+- `duration` – the total animation time in ms.
+- `timing` – the function to calculate animation progress. Gets a time fraction from 0 to 1, returns the animation progress, usually from 0 to 1.
+- `draw` – the function to draw the animation.
 
 Surely we could improve it, add more bells and whistles, but JavaScript animations are not applied on a daily basis. They are used to do something interesting and non-standard. So you’d want to add the features that you need when you need them.
 
@@ -848,28 +843,28 @@ The code:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/animation" class="sidebar__link">Animation</a>
+- <a href="/animation" class="sidebar__link">Animation</a>
 
 #### Lesson navigation
 
--   <a href="#using-setinterval" class="sidebar__link">Using setInterval</a>
--   <a href="#using-requestanimationframe" class="sidebar__link">Using requestAnimationFrame</a>
--   <a href="#structured-animation" class="sidebar__link">Structured animation</a>
--   <a href="#timing-functions" class="sidebar__link">Timing functions</a>
--   <a href="#reversal-ease" class="sidebar__link">Reversal: ease*</a>
--   <a href="#more-interesting-draw" class="sidebar__link">More interesting “draw”</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#using-setinterval" class="sidebar__link">Using setInterval</a>
+- <a href="#using-requestanimationframe" class="sidebar__link">Using requestAnimationFrame</a>
+- <a href="#structured-animation" class="sidebar__link">Structured animation</a>
+- <a href="#timing-functions" class="sidebar__link">Timing functions</a>
+- <a href="#reversal-ease" class="sidebar__link">Reversal: ease\*</a>
+- <a href="#more-interesting-draw" class="sidebar__link">More interesting “draw”</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (2)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (2)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -877,8 +872,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/7-animation/3-js-animation" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

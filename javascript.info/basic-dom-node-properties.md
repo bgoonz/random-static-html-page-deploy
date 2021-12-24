@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fbasic-dom-node-properties" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -45,14 +40,14 @@ Here’s the picture, explanations to follow:
 
 The classes are:
 
--   [EventTarget](https://dom.spec.whatwg.org/#eventtarget) – is the root “abstract” class. Objects of that class are never created. It serves as a base, so that all DOM nodes support so-called “events”, we’ll study them later.
--   [Node](http://dom.spec.whatwg.org/#interface-node) – is also an “abstract” class, serving as a base for DOM nodes. It provides the core tree functionality: `parentNode`, `nextSibling`, `childNodes` and so on (they are getters). Objects of `Node` class are never created. But there are concrete node classes that inherit from it, namely: `Text` for text nodes, `Element` for element nodes and more exotic ones like `Comment` for comment nodes.
--   [Element](http://dom.spec.whatwg.org/#interface-element) – is a base class for DOM elements. It provides element-level navigation like `nextElementSibling`, `children` and searching methods like `getElementsByTagName`, `querySelector`. A browser supports not only HTML, but also XML and SVG. The `Element` class serves as a base for more specific classes: `SVGElement`, `XMLElement` and `HTMLElement`.
--   [HTMLElement](https://html.spec.whatwg.org/multipage/dom.html#htmlelement) – is finally the basic class for all HTML elements. It is inherited by concrete HTML elements:
-    -   [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) – the class for `<input>` elements,
-    -   [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) – the class for `<body>` elements,
-    -   [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) – the class for `<a>` elements,
-    -   …and so on.
+- [EventTarget](https://dom.spec.whatwg.org/#eventtarget) – is the root “abstract” class. Objects of that class are never created. It serves as a base, so that all DOM nodes support so-called “events”, we’ll study them later.
+- [Node](http://dom.spec.whatwg.org/#interface-node) – is also an “abstract” class, serving as a base for DOM nodes. It provides the core tree functionality: `parentNode`, `nextSibling`, `childNodes` and so on (they are getters). Objects of `Node` class are never created. But there are concrete node classes that inherit from it, namely: `Text` for text nodes, `Element` for element nodes and more exotic ones like `Comment` for comment nodes.
+- [Element](http://dom.spec.whatwg.org/#interface-element) – is a base class for DOM elements. It provides element-level navigation like `nextElementSibling`, `children` and searching methods like `getElementsByTagName`, `querySelector`. A browser supports not only HTML, but also XML and SVG. The `Element` class serves as a base for more specific classes: `SVGElement`, `XMLElement` and `HTMLElement`.
+- [HTMLElement](https://html.spec.whatwg.org/multipage/dom.html#htmlelement) – is finally the basic class for all HTML elements. It is inherited by concrete HTML elements:
+  - [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) – the class for `<input>` elements,
+  - [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) – the class for `<body>` elements,
+  - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) – the class for `<a>` elements,
+  - …and so on.
 
 There are many other tags with their own classes that may specific properties and methods, while some elements, such as `<span>`, `<section>`, `<article>` do not have any specific properties, so they are instances of `HTMLElement` class.
 
@@ -62,12 +57,12 @@ For example, let’s consider the DOM object for an `<input>` element. It belong
 
 It gets properties and methods as a superposition of (listed in inheritance order):
 
--   `HTMLInputElement` – this class provides input-specific properties,
--   `HTMLElement` – it provides common HTML element methods (and getters/setters),
--   `Element` – provides generic element methods,
--   `Node` – provides common DOM node properties,
--   `EventTarget` – gives the support for events (to be covered),
--   …and finally it inherits from `Object`, so “plain object” methods like `hasOwnProperty` are also available.
+- `HTMLInputElement` – this class provides input-specific properties,
+- `HTMLElement` – it provides common HTML element methods (and getters/setters),
+- `Element` – provides generic element methods,
+- `Node` – provides common DOM node properties,
+- `EventTarget` – gives the support for events (to be covered),
+- …and finally it inherits from `Object`, so “plain object” methods like `hasOwnProperty` are also available.
 
 To see the DOM node class name, we can recall that an object usually has the `constructor` property. It references the class constructor, and `constructor.name` is its name:
 
@@ -107,8 +102,8 @@ Most browsers support two commands in their developer tools: `console.log` and `
 
 But for DOM elements they are different:
 
--   `console.log(elem)` shows the element DOM tree.
--   `console.dir(elem)` shows the element as a DOM object, good to explore its properties.
+- `console.log(elem)` shows the element DOM tree.
+- `console.dir(elem)` shows the element as a DOM object, good to explore its properties.
 
 Try it on `document.body`.
 
@@ -145,10 +140,10 @@ The `nodeType` property provides one more, “old-fashioned” way to get the �
 
 It has a numeric value:
 
--   `elem.nodeType == 1` for element nodes,
--   `elem.nodeType == 3` for text nodes,
--   `elem.nodeType == 9` for the document object,
--   there are few other values in [the specification](https://dom.spec.whatwg.org/#node).
+- `elem.nodeType == 1` for element nodes,
+- `elem.nodeType == 3` for text nodes,
+- `elem.nodeType == 9` for the document object,
+- there are few other values in [the specification](https://dom.spec.whatwg.org/#node).
 
 For instance:
 
@@ -190,10 +185,10 @@ Is there any difference between `tagName` and `nodeName`?
 
 Sure, the difference is reflected in their names, but is indeed a bit subtle.
 
--   The `tagName` property exists only for `Element` nodes.
--   The `nodeName` is defined for any `Node`:
-    -   for elements it means the same as `tagName`.
-    -   for other node types (text, comment, etc.) it has a string with the node type.
+- The `tagName` property exists only for `Element` nodes.
+- The `nodeName` is defined for any `Node`:
+  - for elements it means the same as `tagName`.
+  - for other node types (text, comment, etc.) it has a string with the node type.
 
 In other words, `tagName` is only supported by element nodes (as it originates from `Element` class), while `nodeName` can say something about other node types.
 
@@ -277,7 +272,7 @@ Like this:
     chatDiv.innerHTML += "<div>Hello<img src='smile.gif'/> !</div>";
     chatDiv.innerHTML += "How goes?";
 
-But we should be very careful about doing it, because what’s going on is *not* an addition, but a full overwrite.
+But we should be very careful about doing it, because what’s going on is _not_ an addition, but a full overwrite.
 
 Technically, these two lines do the same:
 
@@ -344,9 +339,9 @@ The `outerHTML` assignment does not modify the DOM element (the object reference
 
 So what happened in `div.outerHTML=...` is:
 
--   `div` was removed from the document.
--   Another piece of HTML `<p>A new element</p>` was inserted in its place.
--   `div` still has its old value. The new HTML wasn’t saved to any variable.
+- `div` was removed from the document.
+- Another piece of HTML `<p>A new element</p>` was inserted in its place.
+- `div` still has its old value. The new HTML wasn’t saved to any variable.
 
 It’s so easy to make an error here: modify `div.outerHTML` and then continue to work with `div` as if it had the new content in it. But it doesn’t. Such thing is correct for `innerHTML`, but not for `outerHTML`.
 
@@ -388,7 +383,7 @@ Sometimes developers embed information or template instructions into HTML in the
 
 ## <a href="#textcontent-pure-text" id="textcontent-pure-text" class="main__anchor">textContent: pure text</a>
 
-The `textContent` provides access to the *text* inside the element: only text, minus all `<tags>`.
+The `textContent` provides access to the _text_ inside the element: only text, minus all `<tags>`.
 
 For instance:
 
@@ -414,8 +409,8 @@ In practice, reading such text is rarely needed.
 
 Let’s say we have an arbitrary string, for instance entered by a user, and want to show it.
 
--   With `innerHTML` we’ll have it inserted “as HTML”, with all HTML tags.
--   With `textContent` we’ll have it inserted “as text”, all symbols are treated literally.
+- With `innerHTML` we’ll have it inserted “as HTML”, with all HTML tags.
+- With `textContent` we’ll have it inserted “as text”, all symbols are treated literally.
 
 Compare the two:
 
@@ -476,10 +471,10 @@ Here’s a blinking element:
 
 DOM elements also have additional properties, in particular those that depend on the class:
 
--   `value` – the value for `<input>`, `<select>` and `<textarea>` (`HTMLInputElement`, `HTMLSelectElement`…).
--   `href` – the “href” for `<a href="...">` (`HTMLAnchorElement`).
--   `id` – the value of “id” attribute, for all elements (`HTMLElement`).
--   …and much more…
+- `value` – the value for `<input>`, `<select>` and `<textarea>` (`HTMLInputElement`, `HTMLSelectElement`…).
+- `href` – the “href” for `<a href="...">` (`HTMLAnchorElement`).
+- `id` – the value of “id” attribute, for all elements (`HTMLElement`).
+- …and much more…
 
 For instance:
 
@@ -723,31 +718,31 @@ We also could examine the object using `console.dir(document)` and see these nam
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/document" class="sidebar__link">Document</a>
+- <a href="/document" class="sidebar__link">Document</a>
 
 #### Lesson navigation
 
--   <a href="#dom-node-classes" class="sidebar__link">DOM node classes</a>
--   <a href="#the-nodetype-property" class="sidebar__link">The “nodeType” property</a>
--   <a href="#tag-nodename-and-tagname" class="sidebar__link">Tag: nodeName and tagName</a>
--   <a href="#innerhtml-the-contents" class="sidebar__link">innerHTML: the contents</a>
--   <a href="#outerhtml-full-html-of-the-element" class="sidebar__link">outerHTML: full HTML of the element</a>
--   <a href="#nodevalue-data-text-node-content" class="sidebar__link">nodeValue/data: text node content</a>
--   <a href="#textcontent-pure-text" class="sidebar__link">textContent: pure text</a>
--   <a href="#the-hidden-property" class="sidebar__link">The “hidden” property</a>
--   <a href="#more-properties" class="sidebar__link">More properties</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#dom-node-classes" class="sidebar__link">DOM node classes</a>
+- <a href="#the-nodetype-property" class="sidebar__link">The “nodeType” property</a>
+- <a href="#tag-nodename-and-tagname" class="sidebar__link">Tag: nodeName and tagName</a>
+- <a href="#innerhtml-the-contents" class="sidebar__link">innerHTML: the contents</a>
+- <a href="#outerhtml-full-html-of-the-element" class="sidebar__link">outerHTML: full HTML of the element</a>
+- <a href="#nodevalue-data-text-node-content" class="sidebar__link">nodeValue/data: text node content</a>
+- <a href="#textcontent-pure-text" class="sidebar__link">textContent: pure text</a>
+- <a href="#the-hidden-property" class="sidebar__link">The “hidden” property</a>
+- <a href="#more-properties" class="sidebar__link">More properties</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (4)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (4)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -755,8 +750,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/1-document/05-basic-dom-node-properties" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

@@ -1,30 +1,715 @@
-<!DOCTYPE html><html lang="en"><head><script>window.currentUser = null;</script><script>window.rateUsdToNative = 1;</script><title itemprop="name">Arrow functions revisited</title><link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><script>if (window.devicePixelRatio > 1) document.cookie = 'pixelRatio=' + window.devicePixelRatio + ';path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT';</script><link href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic" rel="stylesheet"><link rel="apple-touch-icon-precomposed" href="/img/favicon/apple-touch-icon-precomposed.png"><link rel="canonical" href="https://javascript.info/arrow-functions"><meta name="msapplication-TileColor" content="#222A2C"><meta name="msapplication-TileImage" content="/img/favicon/tileicon.png"><link rel="icon" href="/img/favicon/favicon.png"><meta itemprop="image" content="https://javascript.info/img/site_preview_en_512x512.png"><meta property="og:title" content="Arrow functions revisited"><meta property="og:image" content="https://javascript.info/img/site_preview_en_1200x630.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="fb:admins" content="100001562528165"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Arrow functions revisited"><meta name="twitter:site" content="@iliakan"><meta name="twitter:creator" content="@iliakan"><meta name="twitter:image" content="https://javascript.info/img/site_preview_en_512x512.png"><link rel="prev" href="/bind"><link rel="next" href="/object-properties"><script>window.GA_ID = "UA-2056213-15";</script><script>window.YANDEX_METRIKA_ID = 32184394;</script><script>window.GoogleAnalyticsObject="ga",window.ga=function(){window.ga.q.push(arguments)},window.ga.q=[],window.ga.l=Date.now(),ga("create",GA_ID,"auto"),window.GTM_ID&&ga("require",GTM_ID),window.currentUser?ga("set","&uid",currentUser.id):ga("set","anonymizeIp",!0),window.addEventListener("error",function(e){var r=(e.filename||e.errorUrl)+": "+(e.lineno||e.errorLine),n=e.stack||e.error&&e.error.stack;ga("send","exception",{exDescription:e.message+" "+r+" "+n,exFatal:!0})});</script><script src="https://www.google-analytics.com/analytics.js" async></script><script>ga('send', 'pageview');</script><script>window.metrika={reachGoal:function(){}},window.yandex_metrika_callbacks=[function(){try{window.metrika=new Ya.Metrika({id:YANDEX_METRIKA_ID,webvisor:!0,clickmap:!0,params:{user:window.currentUser&&window.currentUser.id}}),metrika.trackLinks({delay:150}),window.addEventListener("error",function(r){window.metrika.reachGoal("JSERROR",{src:(r.filename||r.errorUrl)+": "+(r.lineno||r.errorLine),stack:r.stack||r.error&&r.error.stack,message:r.message})})}catch(r){}}];</script><script src="//mc.yandex.ru/metrika/watch.js" async></script><script>window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";</script><script src="/pack/init.51e39bc929812b94c4a8.js"></script><script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script><meta property="og:title" content="Arrow functions revisited"><meta property="og:type" content="article"><script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script><script src="/pack/footer.2786f555ff370bdde300.js" defer></script></head><body class="no-icons"><script>window.fontTest();</script><div class="page-wrapper page-wrapper_sidebar_on"><!--[if IE]><div style="color:red;text-align:center">Sorry, Internet Explorer is not supported, please use a newer browser.</div><![endif]--><div class="sitetoolbar sitetoolbar_tutorial"><script>window.langs = [{"code":"ar","name":"Arabic"},{"code":"az","name":"Azerbaijani"},{"code":"bg","name":"Bulgarian"},{"code":"bn","name":"Bengali"},{"code":"ca","name":"Catalan"},{"code":"cs","name":"Czech"},{"code":"da","name":"Danish"},{"code":"de","name":"German"},{"code":"el","name":"Greek"},{"code":"en","name":"English"},{"code":"es","name":"Spanish"},{"code":"fa","name":"Persian (Farsi)"},{"code":"fi","name":"Finnish"},{"code":"fr","name":"French"},{"code":"he","name":"Hebrew"},{"code":"hi","name":"Hindi"},{"code":"hr","name":"Croatian"},{"code":"hu","name":"Hungarian"},{"code":"hy","name":"Armenian"},{"code":"id","name":"Indonesian"},{"code":"it","name":"Italian"},{"code":"ja","name":"Japanese"},{"code":"ka","name":"Georgian"},{"code":"kk","name":"Kazakh"},{"code":"km","name":"Central Khmer"},{"code":"ko","name":"Korean"},{"code":"lt","name":"Lithuanian"},{"code":"me","name":"Montenegrin"},{"code":"ml","name":"Malayalam"},{"code":"my","name":"Burmese"},{"code":"nl","name":"Dutch"},{"code":"no","name":"Norvegian"},{"code":"pa","name":"Punjabi"},{"code":"pl","name":"Polish"},{"code":"pt","name":"Portuguese"},{"code":"ro","name":"Romanian"},{"code":"ru","name":"Russian"},{"code":"si","name":"Sinhala"},{"code":"sk","name":"Slovak"},{"code":"sl","name":"Slovenian"},{"code":"sq","name":"Albanian"},{"code":"sr","name":"Serbian"},{"code":"ta","name":"Tamil"},{"code":"te","name":"Telugu"},{"code":"test","name":"Test"},{"code":"th","name":"Thai"},{"code":"tk","name":"Turkmen"},{"code":"tr","name":"Turkish"},{"code":"uk","name":"Ukrainian"},{"code":"ur","name":"Urdu"},{"code":"uz","name":"Uzbek"},{"code":"v2","name":"v2"},{"code":"vi","name":"Vietnamese"},{"code":"zh-hant","name":"Chinese Traditional"},{"code":"zh","name":"Chinese"}];</script><script>window.lang = "en";</script><script>{let t=navigator.languages||[];t=t.map(t=>t.toLowerCase());let o,i,n=[];for(let o of window.langs)for(let i of t)if(i===o.code||i.startsWith(o.code+"-")){n.push(o);break}if("en"===lang)o='\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    ',i="notify-discord";else if("ru"!=lang){n.find(t=>"en"==t.code)&&(o=`\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `,i="notify-translate-tutorial-local")}if(o){let t=`<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;document.write(t),showTopNotification()}}</script><div class="sitetoolbar__content"><div class="sitetoolbar__lang-switcher"><button class="sitetoolbar__dropdown-button" data-dropdown-toggler>EN</button><div class="sitetoolbar__dropdown-wrap"><div class="sitetoolbar__dropdown-body"><div class="sitetoolbar__lang-switcher-body"><div class="supported-langs supported-langs_toolbar"><div class="supported-langs__container"><ul class="supported-langs__list" style="height:200px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ar.javascript.info/arrow-functions"><span class="supported-langs__brief">AR</span><span class="supported-langs__title">عربي</span></a></li><li class="supported-langs__item supported-langs__item_current"><a class="supported-langs__link" href="https://javascript.info/arrow-functions"><span class="supported-langs__brief">EN</span><span class="supported-langs__title">English</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://es.javascript.info/arrow-functions"><span class="supported-langs__brief">ES</span><span class="supported-langs__title">Español</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://fr.javascript.info/arrow-functions"><span class="supported-langs__brief">FR</span><span class="supported-langs__title">Français</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://id.javascript.info/arrow-functions"><span class="supported-langs__brief">ID</span><span class="supported-langs__title">Indonesia</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://it.javascript.info/arrow-functions"><span class="supported-langs__brief">IT</span><span class="supported-langs__title">Italiano</span></a></li></ul><ul class="supported-langs__list" style="height:164px"><li class="supported-langs__item"><a class="supported-langs__link" href="https://ja.javascript.info/arrow-functions"><span class="supported-langs__brief">JA</span><span class="supported-langs__title">日本語</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://ko.javascript.info/arrow-functions"><span class="supported-langs__brief">KO</span><span class="supported-langs__title">한국어</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://learn.javascript.ru/arrow-functions"><span class="supported-langs__brief">RU</span><span class="supported-langs__title">Русский</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://tr.javascript.info/arrow-functions"><span class="supported-langs__brief">TR</span><span class="supported-langs__title">Türkçe</span></a></li><li class="supported-langs__item"><a class="supported-langs__link" href="https://zh.javascript.info/arrow-functions"><span class="supported-langs__brief">ZH</span><span class="supported-langs__title">简体中文</span></a></li></ul></div><div class="supported-langs__text"><p>We want to make this open-source project available for people all around the world.</p> <p><a href="https://javascript.info/translate">Help to translate</a> the content of this tutorial to your language!</p>
-</div></div></div></div></div></div><div class="sitetoolbar__logo-wrap"><a class="sitetoolbar__link sitetoolbar__link_logo" href="/"><img class="sitetoolbar__logo sitetoolbar__logo_normal" src="/img/sitetoolbar__logo_en.svg" width="200" alt="" role="presentation"/><img class="sitetoolbar__logo sitetoolbar__logo_small" src="/img/sitetoolbar__logo_small_en.svg" width="70" alt="" role="presentation"/><script>Array.prototype.forEach.call(document.querySelectorAll("img.sitetoolbar__logo"),function(e){let t=document.createElement("object");t.type="image/svg+xml",t.className=e.className,t.style.cssText="left:0;top:0;position:absolute",t.onload=function(){t.onload=null,e.style.visibility="hidden"},t.data=e.src,e.parentNode.insertBefore(t,e)});</script></a></div><div class="sitetoolbar__nav-toggle-wrap"><button class="sitetoolbar__nav-toggle" type="button"></button></div><nav class="sitetoolbar__sections"><ul class="sitetoolbar__sections-list"></ul></nav><div class="sitetoolbar__book-wrap"><a class="buy-book-button" href="/ebook"><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a></div><div class="sitetoolbar__login-wrap"><button class="sitetoolbar__login sitetoolbar__login_unready" data-action-login></button></div><div class="sitetoolbar__search-wrap"><div class="sitetoolbar__search-content"><form class="sitetoolbar__search" method="GET" action="/search"><button class="sitetoolbar__search-toggle" type="button"></button><div class="sitetoolbar__search-input"><div class="text-input"><input class="text-input__control" name="query" placeholder="Search on Javascript.info" required="required" type="text"/></div><button class="sitetoolbar__find" type="submit">Search</button></div></form></div></div></div><div class="tablet-menu"><div class="tablet-menu__line"><div class="tablet-menu__content"><form class="tablet-menu-search" action="/search/"><input class="tablet-menu-search__input" type="search" name="query" placeholder="Search in the tutorial" required="required"/><button class="tablet-menu-search__button" type="submit" name="type" value="articles">Search</button></form></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a></div></div></div><div class="tablet-menu__line"><div class="tablet-menu__content"><select class="tablet-menu__nav input-select input-select input-select_small" onchange="if(this.value) window.location.href=this.value"><option value="https://ar.javascript.info/arrow-functions">عربي</option><option value="https://javascript.info/arrow-functions" selected>English</option><option value="https://es.javascript.info/arrow-functions">Español</option><option value="https://fr.javascript.info/arrow-functions">Français</option><option value="https://id.javascript.info/arrow-functions">Indonesia</option><option value="https://it.javascript.info/arrow-functions">Italiano</option><option value="https://ja.javascript.info/arrow-functions">日本語</option><option value="https://ko.javascript.info/arrow-functions">한국어</option><option value="https://learn.javascript.ru/arrow-functions">Русский</option><option value="https://tr.javascript.info/arrow-functions">Türkçe</option><option value="https://zh.javascript.info/arrow-functions">简体中文</option></select></div></div></div><progress class="tutorial-progress" data-sticky value="59" max="92" data-tooltip="Lesson 59 of 92"></progress></div><div class="page page_sidebar_on page_inner_padding"><script>if(localStorage.noSidebar){document.querySelector(".page").classList.remove("page_sidebar_on");let e=document.querySelector(".page-wrapper");e&&e.classList.remove("page-wrapper_sidebar_on")}setTimeout(function(){document.querySelector(".page").classList.add("page_sidebar-animation-on")});</script><div class="page__inner"><main class="main main_width-limit"><header class="main__header"><div class="main__header-inner"><div class="main__header-group"><ol class="breadcrumbs"><li class="breadcrumbs__item breadcrumbs__item_home"><a class="breadcrumbs__link" href="/"><span class="breadcrumbs__hidden-text">Tutorial</span></a></li><li class="breadcrumbs__item" id="breadcrumb-1"><a class="breadcrumbs__link" href="/js"><span>The JavaScript language</span></a></li><li class="breadcrumbs__item" id="breadcrumb-2"><a class="breadcrumbs__link" href="/advanced-functions"><span>Advanced working with functions</span></a></li><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tutorial","item":"https://javascript.info/"},{"@type":"ListItem","position":2,"name":"The JavaScript language","item":"https://javascript.info/js"},{"@type":"ListItem","position":3,"name":"Advanced working with functions","item":"https://javascript.info/advanced-functions"}]}</script></ol><div class="updated-at" data-tooltip="Last updated at 1st February 2021"><div class="updated-at__content">1st February 2021</div></div></div><h1 class="main__header-title">Arrow functions revisited</h1></div></header><div class="content"><article class="formatted" itemscope itemtype="http://schema.org/TechArticle"><meta itemprop="name" content="Arrow functions revisited"><div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="email" content="iliakan@gmail.com"><meta itemprop="name" content="Ilya Kantor"></div><div itemprop="articleBody"><p>Let’s revisit arrow functions.</p>
-<p>Arrow functions are not just a “shorthand” for writing small stuff. They have some very specific and useful features.</p>
-<p>JavaScript is full of situations where we need to write a small function that’s executed somewhere else.</p>
-<p>For instance:</p>
-<ul>
-<li><code>arr.forEach(func)</code> – <code>func</code> is executed by <code>forEach</code> for every array item.</li>
-<li><code>setTimeout(func)</code> – <code>func</code> is executed by the built-in scheduler.</li>
-<li>…there are more.</li>
-</ul>
-<p>It’s in the very spirit of JavaScript to create a function and pass it somewhere.</p>
-<p>And in such functions we usually don’t want to leave the current context. That’s where arrow functions come in handy.</p>
-<h2><a class="main__anchor" name="arrow-functions-have-no-this" href="#arrow-functions-have-no-this">Arrow functions have no “this”</a></h2><p>As we remember from the chapter <a href="/object-methods">Object methods, &quot;this&quot;</a>, arrow functions do not have <code>this</code>. If <code>this</code> is accessed, it is taken from the outside.</p>
-<p>For instance, we can use it to iterate inside an object method:</p>
-<div id="j0fmjvwqe4" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:5,&quot;end&quot;:7}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      window.currentUser = null;
+    </script>
+    <script>
+      window.rateUsdToNative = 1;
+    </script>
+    <title itemprop="name">Arrow functions revisited</title>
+    <link href="/pack/styles.d6e712fda8b9d95f7338.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1.0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script>
+      if (window.devicePixelRatio > 1)
+        document.cookie =
+          "pixelRatio=" +
+          window.devicePixelRatio +
+          ";path=/;expires=Tue, 19 Jan 2038 03:14:07 GMT";
+    </script>
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:bold,italic,bolditalic"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="/img/favicon/apple-touch-icon-precomposed.png"
+    />
+    <link rel="canonical" href="https://javascript.info/arrow-functions" />
+    <meta name="msapplication-TileColor" content="#222A2C" />
+    <meta name="msapplication-TileImage" content="/img/favicon/tileicon.png" />
+    <link rel="icon" href="/img/favicon/favicon.png" />
+    <meta
+      itemprop="image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <meta property="og:title" content="Arrow functions revisited" />
+    <meta
+      property="og:image"
+      content="https://javascript.info/img/site_preview_en_1200x630.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="fb:admins" content="100001562528165" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Arrow functions revisited" />
+    <meta name="twitter:site" content="@iliakan" />
+    <meta name="twitter:creator" content="@iliakan" />
+    <meta
+      name="twitter:image"
+      content="https://javascript.info/img/site_preview_en_512x512.png"
+    />
+    <link rel="prev" href="/bind" />
+    <link rel="next" href="/object-properties" />
+    <script>
+      window.GA_ID = "UA-2056213-15";
+    </script>
+    <script>
+      window.YANDEX_METRIKA_ID = 32184394;
+    </script>
+    <script>
+      (window.GoogleAnalyticsObject = "ga"),
+        (window.ga = function () {
+          window.ga.q.push(arguments);
+        }),
+        (window.ga.q = []),
+        (window.ga.l = Date.now()),
+        ga("create", GA_ID, "auto"),
+        window.GTM_ID && ga("require", GTM_ID),
+        window.currentUser
+          ? ga("set", "&uid", currentUser.id)
+          : ga("set", "anonymizeIp", !0),
+        window.addEventListener("error", function (e) {
+          var r = (e.filename || e.errorUrl) + ": " + (e.lineno || e.errorLine),
+            n = e.stack || (e.error && e.error.stack);
+          ga("send", "exception", {
+            exDescription: e.message + " " + r + " " + n,
+            exFatal: !0,
+          });
+        });
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script>
+      ga("send", "pageview");
+    </script>
+    <script>
+      (window.metrika = { reachGoal: function () {} }),
+        (window.yandex_metrika_callbacks = [
+          function () {
+            try {
+              (window.metrika = new Ya.Metrika({
+                id: YANDEX_METRIKA_ID,
+                webvisor: !0,
+                clickmap: !0,
+                params: { user: window.currentUser && window.currentUser.id },
+              })),
+                metrika.trackLinks({ delay: 150 }),
+                window.addEventListener("error", function (r) {
+                  window.metrika.reachGoal("JSERROR", {
+                    src:
+                      (r.filename || r.errorUrl) +
+                      ": " +
+                      (r.lineno || r.errorLine),
+                    stack: r.stack || (r.error && r.error.stack),
+                    message: r.message,
+                  });
+                });
+            } catch (r) {}
+          },
+        ]);
+    </script>
+    <script src="//mc.yandex.ru/metrika/watch.js" async></script>
+    <script>
+      window.RECAPTCHA_ID = "6LfmLAEVAAAAAJMykMnf7aY8nkyTRmYi2ynx51R1";
+    </script>
+    <script src="/pack/init.51e39bc929812b94c4a8.js"></script>
+    <script src="/pack/head.7a1dfd85e1f5c29a4840.js" defer></script>
+    <meta property="og:title" content="Arrow functions revisited" />
+    <meta property="og:type" content="article" />
+    <script src="/pack/tutorial.a2cb726ed10a7d440094.js" defer></script>
+    <script src="/pack/footer.2786f555ff370bdde300.js" defer></script>
+  </head>
+  <body class="no-icons">
+    <script>
+      window.fontTest();
+    </script>
+    <div class="page-wrapper page-wrapper_sidebar_on">
+      <!--[if IE
+        ]><div style="color: red; text-align: center">
+          Sorry, Internet Explorer is not supported, please use a newer browser.
+        </div><!
+      [endif]-->
+      <div class="sitetoolbar sitetoolbar_tutorial">
+        <script>
+          window.langs = [
+            { code: "ar", name: "Arabic" },
+            { code: "az", name: "Azerbaijani" },
+            { code: "bg", name: "Bulgarian" },
+            { code: "bn", name: "Bengali" },
+            { code: "ca", name: "Catalan" },
+            { code: "cs", name: "Czech" },
+            { code: "da", name: "Danish" },
+            { code: "de", name: "German" },
+            { code: "el", name: "Greek" },
+            { code: "en", name: "English" },
+            { code: "es", name: "Spanish" },
+            { code: "fa", name: "Persian (Farsi)" },
+            { code: "fi", name: "Finnish" },
+            { code: "fr", name: "French" },
+            { code: "he", name: "Hebrew" },
+            { code: "hi", name: "Hindi" },
+            { code: "hr", name: "Croatian" },
+            { code: "hu", name: "Hungarian" },
+            { code: "hy", name: "Armenian" },
+            { code: "id", name: "Indonesian" },
+            { code: "it", name: "Italian" },
+            { code: "ja", name: "Japanese" },
+            { code: "ka", name: "Georgian" },
+            { code: "kk", name: "Kazakh" },
+            { code: "km", name: "Central Khmer" },
+            { code: "ko", name: "Korean" },
+            { code: "lt", name: "Lithuanian" },
+            { code: "me", name: "Montenegrin" },
+            { code: "ml", name: "Malayalam" },
+            { code: "my", name: "Burmese" },
+            { code: "nl", name: "Dutch" },
+            { code: "no", name: "Norvegian" },
+            { code: "pa", name: "Punjabi" },
+            { code: "pl", name: "Polish" },
+            { code: "pt", name: "Portuguese" },
+            { code: "ro", name: "Romanian" },
+            { code: "ru", name: "Russian" },
+            { code: "si", name: "Sinhala" },
+            { code: "sk", name: "Slovak" },
+            { code: "sl", name: "Slovenian" },
+            { code: "sq", name: "Albanian" },
+            { code: "sr", name: "Serbian" },
+            { code: "ta", name: "Tamil" },
+            { code: "te", name: "Telugu" },
+            { code: "test", name: "Test" },
+            { code: "th", name: "Thai" },
+            { code: "tk", name: "Turkmen" },
+            { code: "tr", name: "Turkish" },
+            { code: "uk", name: "Ukrainian" },
+            { code: "ur", name: "Urdu" },
+            { code: "uz", name: "Uzbek" },
+            { code: "v2", name: "v2" },
+            { code: "vi", name: "Vietnamese" },
+            { code: "zh-hant", name: "Chinese Traditional" },
+            { code: "zh", name: "Chinese" },
+          ];
+        </script>
+        <script>
+          window.lang = "en";
+        </script>
+        <script>
+          {
+            let t = navigator.languages || [];
+            t = t.map((t) => t.toLowerCase());
+            let o,
+              i,
+              n = [];
+            for (let o of window.langs)
+              for (let i of t)
+                if (i === o.code || i.startsWith(o.code + "-")) {
+                  n.push(o);
+                  break;
+                }
+            if ("en" === lang)
+              (o =
+                '\n      We created a Discord chat channel :), <a href="https://discord.gg/DT2QwadzJR">click here to join</a>.\n    '),
+                (i = "notify-discord");
+            else if ("ru" != lang) {
+              n.find((t) => "en" == t.code) &&
+                ((o = `\n            According to your browser headers, you know English. Please help to <a href="https://github.com/javascript-tutorial/${lang}.javascript.info#readme">translate the tutorial</a>.\n            Thank you!\n          `),
+                (i = "notify-translate-tutorial-local"));
+            }
+            if (o) {
+              let t = `<div class="notification notification_top notification_info sitetoolbar__notification" style="display:none" id="${i}">\n          <div class="notification__content">${o}</div>\n          <button class="notification__close" title="Close"></button>\n        </div>`;
+              document.write(t), showTopNotification();
+            }
+          }
+        </script>
+        <div class="sitetoolbar__content">
+          <div class="sitetoolbar__lang-switcher">
+            <button class="sitetoolbar__dropdown-button" data-dropdown-toggler>
+              EN
+            </button>
+            <div class="sitetoolbar__dropdown-wrap">
+              <div class="sitetoolbar__dropdown-body">
+                <div class="sitetoolbar__lang-switcher-body">
+                  <div class="supported-langs supported-langs_toolbar">
+                    <div class="supported-langs__container">
+                      <ul class="supported-langs__list" style="height: 200px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ar.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">AR</span
+                            ><span class="supported-langs__title">عربي</span></a
+                          >
+                        </li>
+                        <li
+                          class="supported-langs__item supported-langs__item_current"
+                        >
+                          <a
+                            class="supported-langs__link"
+                            href="https://javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">EN</span
+                            ><span class="supported-langs__title"
+                              >English</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://es.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">ES</span
+                            ><span class="supported-langs__title"
+                              >Español</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://fr.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">FR</span
+                            ><span class="supported-langs__title"
+                              >Français</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://id.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">ID</span
+                            ><span class="supported-langs__title"
+                              >Indonesia</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://it.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">IT</span
+                            ><span class="supported-langs__title"
+                              >Italiano</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                      <ul class="supported-langs__list" style="height: 164px">
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ja.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">JA</span
+                            ><span class="supported-langs__title"
+                              >日本語</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://ko.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">KO</span
+                            ><span class="supported-langs__title"
+                              >한국어</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://learn.javascript.ru/arrow-functions"
+                            ><span class="supported-langs__brief">RU</span
+                            ><span class="supported-langs__title"
+                              >Русский</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://tr.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">TR</span
+                            ><span class="supported-langs__title"
+                              >Türkçe</span
+                            ></a
+                          >
+                        </li>
+                        <li class="supported-langs__item">
+                          <a
+                            class="supported-langs__link"
+                            href="https://zh.javascript.info/arrow-functions"
+                            ><span class="supported-langs__brief">ZH</span
+                            ><span class="supported-langs__title"
+                              >简体中文</span
+                            ></a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="supported-langs__text">
+                      <p>
+                        We want to make this open-source project available for
+                        people all around the world.
+                      </p>
+                      <p>
+                        <a href="https://javascript.info/translate"
+                          >Help to translate</a
+                        >
+                        the content of this tutorial to your language!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
+          <div class="sitetoolbar__logo-wrap">
+            <a class="sitetoolbar__link sitetoolbar__link_logo" href="/"
+              ><img
+                class="sitetoolbar__logo sitetoolbar__logo_normal"
+                src="/img/sitetoolbar__logo_en.svg"
+                width="200"
+                alt=""
+                role="presentation"
+              /><img
+                class="sitetoolbar__logo sitetoolbar__logo_small"
+                src="/img/sitetoolbar__logo_small_en.svg"
+                width="70"
+                alt=""
+                role="presentation"
+              />
+              <script>
+                Array.prototype.forEach.call(
+                  document.querySelectorAll("img.sitetoolbar__logo"),
+                  function (e) {
+                    let t = document.createElement("object");
+                    (t.type = "image/svg+xml"),
+                      (t.className = e.className),
+                      (t.style.cssText = "left:0;top:0;position:absolute"),
+                      (t.onload = function () {
+                        (t.onload = null), (e.style.visibility = "hidden");
+                      }),
+                      (t.data = e.src),
+                      e.parentNode.insertBefore(t, e);
+                  }
+                );
+              </script></a
+            >
+          </div>
+          <div class="sitetoolbar__nav-toggle-wrap">
+            <button class="sitetoolbar__nav-toggle" type="button"></button>
+          </div>
+          <nav class="sitetoolbar__sections">
+            <ul class="sitetoolbar__sections-list"></ul>
+          </nav>
+          <div class="sitetoolbar__book-wrap">
+            <a class="buy-book-button" href="/ebook"
+              ><span class="buy-book-button__extra-text">Buy</span>EPUB/PDF</a
+            >
+          </div>
+          <div class="sitetoolbar__login-wrap">
+            <button
+              class="sitetoolbar__login sitetoolbar__login_unready"
+              data-action-login
+            ></button>
+          </div>
+          <div class="sitetoolbar__search-wrap">
+            <div class="sitetoolbar__search-content">
+              <form class="sitetoolbar__search" method="GET" action="/search">
+                <button
+                  class="sitetoolbar__search-toggle"
+                  type="button"
+                ></button>
+                <div class="sitetoolbar__search-input">
+                  <div class="text-input">
+                    <input
+                      class="text-input__control"
+                      name="query"
+                      placeholder="Search on Javascript.info"
+                      required="required"
+                      type="text"
+                    />
+                  </div>
+                  <button class="sitetoolbar__find" type="submit">
+                    Search
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let group = {
+        <div class="tablet-menu">
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <form class="tablet-menu-search" action="/search/">
+                <input
+                  class="tablet-menu-search__input"
+                  type="search"
+                  name="query"
+                  placeholder="Search in the tutorial"
+                  required="required"
+                /><button
+                  class="tablet-menu-search__button"
+                  type="submit"
+                  name="type"
+                  value="articles"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                ><span class="map__text">Tutorial map</span></a
+              >
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <div class="share-icons">
+                <span class="share-icons__title">Share</span
+                ><a
+                  class="share share_tw"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                  rel="nofollow"
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="tablet-menu__line">
+            <div class="tablet-menu__content">
+              <select
+                class="tablet-menu__nav input-select input-select input-select_small"
+                onchange="if(this.value) window.location.href=this.value"
+              >
+                <option value="https://ar.javascript.info/arrow-functions">
+                  عربي
+                </option>
+                <option
+                  value="https://javascript.info/arrow-functions"
+                  selected
+                >
+                  English
+                </option>
+                <option value="https://es.javascript.info/arrow-functions">
+                  Español
+                </option>
+                <option value="https://fr.javascript.info/arrow-functions">
+                  Français
+                </option>
+                <option value="https://id.javascript.info/arrow-functions">
+                  Indonesia
+                </option>
+                <option value="https://it.javascript.info/arrow-functions">
+                  Italiano
+                </option>
+                <option value="https://ja.javascript.info/arrow-functions">
+                  日本語
+                </option>
+                <option value="https://ko.javascript.info/arrow-functions">
+                  한국어
+                </option>
+                <option value="https://learn.javascript.ru/arrow-functions">
+                  Русский
+                </option>
+                <option value="https://tr.javascript.info/arrow-functions">
+                  Türkçe
+                </option>
+                <option value="https://zh.javascript.info/arrow-functions">
+                  简体中文
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <progress
+          class="tutorial-progress"
+          data-sticky
+          value="59"
+          max="92"
+          data-tooltip="Lesson 59 of 92"
+        ></progress>
+      </div>
+      <div class="page page_sidebar_on page_inner_padding">
+        <script>
+          if (localStorage.noSidebar) {
+            document.querySelector(".page").classList.remove("page_sidebar_on");
+            let e = document.querySelector(".page-wrapper");
+            e && e.classList.remove("page-wrapper_sidebar_on");
+          }
+          setTimeout(function () {
+            document
+              .querySelector(".page")
+              .classList.add("page_sidebar-animation-on");
+          });
+        </script>
+        <div class="page__inner">
+          <main class="main main_width-limit">
+            <header class="main__header">
+              <div class="main__header-inner">
+                <div class="main__header-group">
+                  <ol class="breadcrumbs">
+                    <li class="breadcrumbs__item breadcrumbs__item_home">
+                      <a class="breadcrumbs__link" href="/"
+                        ><span class="breadcrumbs__hidden-text"
+                          >Tutorial</span
+                        ></a
+                      >
+                    </li>
+                    <li class="breadcrumbs__item" id="breadcrumb-1">
+                      <a class="breadcrumbs__link" href="/js"
+                        ><span>The JavaScript language</span></a
+                      >
+                    </li>
+                    <li class="breadcrumbs__item" id="breadcrumb-2">
+                      <a class="breadcrumbs__link" href="/advanced-functions"
+                        ><span>Advanced working with functions</span></a
+                      >
+                    </li>
+                    <script type="application/ld+json">
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                          {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Tutorial",
+                            "item": "https://javascript.info/"
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "The JavaScript language",
+                            "item": "https://javascript.info/js"
+                          },
+                          {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "name": "Advanced working with functions",
+                            "item": "https://javascript.info/advanced-functions"
+                          }
+                        ]
+                      }
+                    </script>
+                  </ol>
+                  <div
+                    class="updated-at"
+                    data-tooltip="Last updated at 1st February 2021"
+                  >
+                    <div class="updated-at__content">1st February 2021</div>
+                  </div>
+                </div>
+                <h1 class="main__header-title">Arrow functions revisited</h1>
+              </div>
+            </header>
+            <div class="content">
+              <article
+                class="formatted"
+                itemscope
+                itemtype="http://schema.org/TechArticle"
+              >
+                <meta itemprop="name" content="Arrow functions revisited" />
+                <div
+                  itemprop="author"
+                  itemscope
+                  itemtype="http://schema.org/Person"
+                >
+                  <meta itemprop="email" content="iliakan@gmail.com" /><meta
+                    itemprop="name"
+                    content="Ilya Kantor"
+                  />
+                </div>
+                <div itemprop="articleBody">
+                  <p>Let’s revisit arrow functions.</p>
+                  <p>
+                    Arrow functions are not just a “shorthand” for writing small
+                    stuff. They have some very specific and useful features.
+                  </p>
+                  <p>
+                    JavaScript is full of situations where we need to write a
+                    small function that’s executed somewhere else.
+                  </p>
+                  <p>For instance:</p>
+                  <ul>
+                    <li>
+                      <code>arr.forEach(func)</code> – <code>func</code> is
+                      executed by <code>forEach</code> for every array item.
+                    </li>
+                    <li>
+                      <code>setTimeout(func)</code> – <code>func</code> is
+                      executed by the built-in scheduler.
+                    </li>
+                    <li>…there are more.</li>
+                  </ul>
+                  <p>
+                    It’s in the very spirit of JavaScript to create a function
+                    and pass it somewhere.
+                  </p>
+                  <p>
+                    And in such functions we usually don’t want to leave the
+                    current context. That’s where arrow functions come in handy.
+                  </p>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="arrow-functions-have-no-this"
+                      href="#arrow-functions-have-no-this"
+                      >Arrow functions have no “this”</a
+                    >
+                  </h2>
+                  <p>
+                    As we remember from the chapter
+                    <a href="/object-methods"
+                      >Object methods, &quot;this&quot;</a
+                    >, arrow functions do not have <code>this</code>. If
+                    <code>this</code> is accessed, it is taken from the outside.
+                  </p>
+                  <p>
+                    For instance, we can use it to iterate inside an object
+                    method:
+                  </p>
+                  <div
+                    id="j0fmjvwqe4"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":5,"end":7}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let group = {
   title: &quot;Our Group&quot;,
   students: [&quot;John&quot;, &quot;Pete&quot;, &quot;Alice&quot;],
 
@@ -36,24 +721,48 @@
 };
 
 group.showList();</code></pre>
-        </div>
-      </div>
-      
-      </div><p>Here in <code>forEach</code>, the arrow function is used, so <code>this.title</code> in it is exactly the same as in the outer method <code>showList</code>. That is: <code>group.title</code>.</p>
-<p>If we used a “regular” function, there would be an error:</p>
-<div id="s5yr3jyy2y" data-trusted="1" class="code-example" data-highlight="[{&quot;start&quot;:5,&quot;end&quot;:8}]">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>let group = {
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Here in <code>forEach</code>, the arrow function is used, so
+                    <code>this.title</code> in it is exactly the same as in the
+                    outer method <code>showList</code>. That is:
+                    <code>group.title</code>.
+                  </p>
+                  <p>
+                    If we used a “regular” function, there would be an error:
+                  </p>
+                  <div
+                    id="s5yr3jyy2y"
+                    data-trusted="1"
+                    class="code-example"
+                    data-highlight='[{"start":5,"end":8}]'
+                  >
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>let group = {
   title: &quot;Our Group&quot;,
   students: [&quot;John&quot;, &quot;Pete&quot;, &quot;Alice&quot;],
 
@@ -66,39 +775,107 @@ group.showList();</code></pre>
 };
 
 group.showList();</code></pre>
-        </div>
-      </div>
-      
-      </div><p>The error occurs because <code>forEach</code> runs functions with <code>this=undefined</code> by default, so the attempt to access <code>undefined.title</code> is made.</p>
-<p>That doesn’t affect arrow functions, because they just don’t have <code>this</code>.</p>
-<div class="important important_warn">
-            <div class="important__header"><span class="important__type">Arrow functions can’t run with <code>new</code></span></div>
-            <div class="important__content"><p>Not having <code>this</code> naturally means another limitation: arrow functions can’t be used as constructors. They can’t be called with <code>new</code>.</p>
-</div></div>
-<div class="important important_smart">
-            <div class="important__header"><span class="important__type">Arrow functions VS bind</span></div>
-            <div class="important__content"><p>There’s a subtle difference between an arrow function <code>=&gt;</code> and a regular function called with <code>.bind(this)</code>:</p>
-<ul>
-<li><code>.bind(this)</code> creates a “bound version” of the function.</li>
-<li>The arrow <code>=&gt;</code> doesn’t create any binding. The function simply doesn’t have <code>this</code>. The lookup of <code>this</code> is made exactly the same way as a regular variable search: in the outer lexical environment.</li>
-</ul>
-</div></div>
-<h2><a class="main__anchor" name="arrows-have-no-arguments" href="#arrows-have-no-arguments">Arrows have no “arguments”</a></h2><p>Arrow functions also have no <code>arguments</code> variable.</p>
-<p>That’s great for decorators, when we need to forward a call with the current <code>this</code> and <code>arguments</code>.</p>
-<p>For instance, <code>defer(f, ms)</code> gets a function and returns a wrapper around it that delays the call by <code>ms</code> milliseconds:</p>
-<div id="h8ab4rkc9i" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="toolbar codebox__toolbar">
-          <div class="toolbar__tool">
-            <a href="#" title="run" data-action="run" class="toolbar__button toolbar__button_run"></a>
-          </div>
-          <div class="toolbar__tool">
-            <a href="#" title="open in sandbox" target="_blank" data-action="edit" class="toolbar__button toolbar__button_edit"></a>
-          </div>
-        </div>
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>function defer(f, ms) {
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    The error occurs because <code>forEach</code> runs functions
+                    with <code>this=undefined</code> by default, so the attempt
+                    to access <code>undefined.title</code> is made.
+                  </p>
+                  <p>
+                    That doesn’t affect arrow functions, because they just don’t
+                    have <code>this</code>.
+                  </p>
+                  <div class="important important_warn">
+                    <div class="important__header">
+                      <span class="important__type"
+                        >Arrow functions can’t run with <code>new</code></span
+                      >
+                    </div>
+                    <div class="important__content">
+                      <p>
+                        Not having <code>this</code> naturally means another
+                        limitation: arrow functions can’t be used as
+                        constructors. They can’t be called with
+                        <code>new</code>.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="important important_smart">
+                    <div class="important__header">
+                      <span class="important__type"
+                        >Arrow functions VS bind</span
+                      >
+                    </div>
+                    <div class="important__content">
+                      <p>
+                        There’s a subtle difference between an arrow function
+                        <code>=&gt;</code> and a regular function called with
+                        <code>.bind(this)</code>:
+                      </p>
+                      <ul>
+                        <li>
+                          <code>.bind(this)</code> creates a “bound version” of
+                          the function.
+                        </li>
+                        <li>
+                          The arrow <code>=&gt;</code> doesn’t create any
+                          binding. The function simply doesn’t have
+                          <code>this</code>. The lookup of <code>this</code> is
+                          made exactly the same way as a regular variable
+                          search: in the outer lexical environment.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <h2>
+                    <a
+                      class="main__anchor"
+                      name="arrows-have-no-arguments"
+                      href="#arrows-have-no-arguments"
+                      >Arrows have no “arguments”</a
+                    >
+                  </h2>
+                  <p>
+                    Arrow functions also have no
+                    <code>arguments</code> variable.
+                  </p>
+                  <p>
+                    That’s great for decorators, when we need to forward a call
+                    with the current <code>this</code> and
+                    <code>arguments</code>.
+                  </p>
+                  <p>
+                    For instance, <code>defer(f, ms)</code> gets a function and
+                    returns a wrapper around it that delays the call by
+                    <code>ms</code> milliseconds:
+                  </p>
+                  <div id="h8ab4rkc9i" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="toolbar codebox__toolbar">
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="run"
+                            data-action="run"
+                            class="toolbar__button toolbar__button_run"
+                          ></a>
+                        </div>
+                        <div class="toolbar__tool">
+                          <a
+                            href="#"
+                            title="open in sandbox"
+                            target="_blank"
+                            data-action="edit"
+                            class="toolbar__button toolbar__button_edit"
+                          ></a>
+                        </div>
+                      </div>
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>function defer(f, ms) {
   return function() {
     setTimeout(() =&gt; f.apply(this, arguments), ms);
   };
@@ -110,15 +887,16 @@ function sayHi(who) {
 
 let sayHiDeferred = defer(sayHi, 2000);
 sayHiDeferred(&quot;John&quot;); // Hello, John after 2 seconds</code></pre>
-        </div>
-      </div>
-      
-      </div><p>The same without an arrow function would look like:</p>
-<div id="elg6tx87h2" data-trusted="1" class="code-example">
-      <div class="codebox code-example__codebox">
-        
-        <div class="codebox__code" data-code="1">
-          <pre class="line-numbers language-javascript"><code>function defer(f, ms) {
+                      </div>
+                    </div>
+                  </div>
+                  <p>The same without an arrow function would look like:</p>
+                  <div id="elg6tx87h2" data-trusted="1" class="code-example">
+                    <div class="codebox code-example__codebox">
+                      <div class="codebox__code" data-code="1">
+                        <pre
+                          class="line-numbers language-javascript"
+                        ><code>function defer(f, ms) {
   return function(...args) {
     let ctx = this;
     setTimeout(function() {
@@ -126,16 +904,241 @@ sayHiDeferred(&quot;John&quot;); // Hello, John after 2 seconds</code></pre>
     }, ms);
   };
 }</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Here we had to create additional variables
+                    <code>args</code> and <code>ctx</code> so that the function
+                    inside <code>setTimeout</code> could take them.
+                  </p>
+                  <h2>
+                    <a class="main__anchor" name="summary" href="#summary"
+                      >Summary</a
+                    >
+                  </h2>
+                  <p>Arrow functions:</p>
+                  <ul>
+                    <li>Do not have <code>this</code></li>
+                    <li>Do not have <code>arguments</code></li>
+                    <li>Can’t be called with <code>new</code></li>
+                    <li>
+                      They also don’t have <code>super</code>, but we didn’t
+                      study it yet. We will on the chapter
+                      <a href="/class-inheritance">Class inheritance</a>
+                    </li>
+                  </ul>
+                  <p>
+                    That’s because they are meant for short pieces of code that
+                    do not have their own “context”, but rather work in the
+                    current one. And they really shine in that use case.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="page__nav-wrap">
+              <a
+                class="page__nav page__nav_prev"
+                href="/bind"
+                data-tooltip="Function binding"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate"
+                  >Previous lesson</span
+                ></a
+              ><a
+                class="page__nav page__nav_next"
+                href="/object-properties"
+                data-tooltip="Object properties configuration"
+                ><span class="page__nav-text"
+                  ><span class="page__nav-text-shortcut"></span></span
+                ><span class="page__nav-text-alternate">Next lesson</span></a
+              >
+            </div>
+            <div class="article-tablet-foot tablet-only">
+              <div class="article-tablet-foot__layout">
+                <div class="share-icons">
+                  <span class="share-icons__title">Share</span
+                  ><a
+                    class="share share_tw"
+                    href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                    rel="nofollow"
+                  ></a
+                  ><a
+                    class="share share_fb"
+                    href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                    rel="nofollow"
+                  ></a>
+                </div>
+                <div class="article-tablet-foot__map">
+                  <a class="map" href="/tutorial/map" data-action="tutorial-map"
+                    ><span class="map__text">Tutorial map</span></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="comments formatted" id="comments">
+              <div class="comments__header">
+                <h2 class="comments__header-title">
+                  <a href="#comments" name="comments">Comments</a>
+                </h2>
+                <div class="comments__read-before">
+                  <span class="comments__read-before-link"
+                    >read this before commenting…</span
+                  >
+                  <div class="comments__read-before-popup">
+                    <div class="comments__read-before-popup-i">
+                      <ul>
+                        <li>
+                          If you have suggestions what to improve - please
+                          <a
+                            href="https://github.com/javascript-tutorial/en.javascript.info/issues/new"
+                            >submit a GitHub issue</a
+                          >
+                          or a pull request instead of commenting.
+                        </li>
+                        <li>
+                          If you can't understand something in the article –
+                          please elaborate.
+                        </li>
+                        <li>
+                          To insert few words of code, use the
+                          <code>&lt;code&gt;</code> tag, for several lines –
+                          wrap them in <code>&lt;pre&gt;</code> tag, for more
+                          than 10 lines – use a sandbox (<a
+                            href="https://plnkr.co/edit/?p=preview"
+                            >plnkr</a
+                          >, <a href="https://jsbin.com">jsbin</a>,
+                          <a href="http://codepen.io">codepen</a>…)
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="disqus_thread"></div>
+              <script>
+                var disqus_config = function () {
+                  if (!this.page) this.page = {};
+                  Object.assign(this.page, {
+                    url: "https:\/\/javascript.info\/arrow-functions",
+                    identifier: "\/arrow-functions",
+                  });
+                };
+              </script>
+              <script>
+                var disqus_shortname = "javascriptinfo";
+              </script>
+              <script>
+                var disqus_enabled = true;
+              </script>
+            </div>
+          </main>
+        </div>
+        <div class="sidebar page__sidebar sidebar sidebar_sticky-footer">
+          <button class="sidebar__toggle" data-sidebar-toggle></button
+          ><a
+            class="map"
+            href="/tutorial/map"
+            data-action="tutorial-map"
+            data-tooltip="Tutorial map"
+          ></a>
+          <div class="sidebar__inner">
+            <div class="sidebar__content">
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Chapter</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="/advanced-functions"
+                        >Advanced working with functions</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <h4 class="sidebar__section-title">Lesson navigation</h4>
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a
+                        class="sidebar__link"
+                        href="#arrow-functions-have-no-this"
+                        >Arrow functions have no “this”</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#arrows-have-no-arguments"
+                        >Arrows have no “arguments”</a
+                      >
+                    </li>
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#summary">Summary</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <nav class="sidebar__navigation">
+                  <ul class="sidebar__navigation-links">
+                    <li class="sidebar__navigation-link">
+                      <a class="sidebar__link" href="#comments">Comments</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sidebar__section">
+                <div class="sidebar__section-title">Share</div>
+                <a
+                  class="share share_tw sidebar__share"
+                  href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                  rel="nofollow"
+                ></a
+                ><a
+                  class="share share_fb sidebar__share"
+                  href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Farrow-functions"
+                  rel="nofollow"
+                ></a>
+              </div>
+              <div class="sidebar__section">
+                <a
+                  class="sidebar__link"
+                  href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/06-advanced-functions/12-arrow-functions"
+                  rel="nofollow"
+                  >Edit on GitHub</a
+                >
+              </div>
+              <div class="sidebar__section" id="sponsorBar">
+                <div class="sidebar__section-title" id="sponsorBarTitle"></div>
+                <div id="sponsorBarContent"></div>
+                <script>
+                  window.initSponsorBar();
+                </script>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      </div><p>Here we had to create additional variables <code>args</code> and <code>ctx</code> so that the function inside <code>setTimeout</code> could take them.</p>
-<h2><a class="main__anchor" name="summary" href="#summary">Summary</a></h2><p>Arrow functions:</p>
-<ul>
-<li>Do not have <code>this</code></li>
-<li>Do not have <code>arguments</code></li>
-<li>Can’t be called with <code>new</code></li>
-<li>They also don’t have <code>super</code>, but we didn’t study it yet. We will on the chapter <a href="/class-inheritance">Class inheritance</a></li>
-</ul>
-<p>That’s because they are meant for short pieces of code that do not have their own “context”, but rather work in the current one. And they really shine in that use case.</p>
-</div></article></div><div class="page__nav-wrap"><a class="page__nav page__nav_prev" href="/bind" data-tooltip="Function binding"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Previous lesson</span></a><a class="page__nav page__nav_next" href="/object-properties" data-tooltip="Object properties configuration"><span class="page__nav-text"><span class="page__nav-text-shortcut"></span></span><span class="page__nav-text-alternate">Next lesson</span></a></div><div class="article-tablet-foot tablet-only"><div class="article-tablet-foot__layout"><div class="share-icons"><span class="share-icons__title">Share</span><a class="share share_tw" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a><a class="share share_fb" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a></div><div class="article-tablet-foot__map"><a class="map" href="/tutorial/map" data-action="tutorial-map"><span class="map__text">Tutorial map</span></a></div></div></div><div class="comments formatted" id="comments"><div class="comments__header"><h2 class="comments__header-title"><a href="#comments" name="comments">Comments</a></h2><div class="comments__read-before"><span class="comments__read-before-link">read this before commenting…</span><div class="comments__read-before-popup"><div class="comments__read-before-popup-i"><ul><li>If you have suggestions what to improve - please <a href="https://github.com/javascript-tutorial/en.javascript.info/issues/new">submit a GitHub issue</a> or a pull request instead of commenting.</li><li>If you can't understand something in the article – please elaborate.</li><li>To insert few words of code, use the <code>&lt;code&gt;</code> tag, for several lines – wrap them in <code>&lt;pre&gt;</code> tag, for more than 10 lines – use a sandbox (<a href='https://plnkr.co/edit/?p=preview'>plnkr</a>, <a href='https://jsbin.com'>jsbin</a>, <a href='http://codepen.io'>codepen</a>…)</li></ul></div></div></div></div><div id="disqus_thread"></div><script>var disqus_config = function() { if (!this.page) this.page = {}; Object.assign(this.page, {"url":"https:\/\/javascript.info\/arrow-functions","identifier":"\/arrow-functions"}); };</script><script>var disqus_shortname = "javascriptinfo";</script><script>var disqus_enabled = true;</script></div></main></div><div class="sidebar page__sidebar sidebar sidebar_sticky-footer"><button class="sidebar__toggle" data-sidebar-toggle></button><a class="map" href="/tutorial/map" data-action="tutorial-map" data-tooltip="Tutorial map"></a><div class="sidebar__inner"><div class="sidebar__content"><div class="sidebar__section"><h4 class="sidebar__section-title">Chapter</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="/advanced-functions">Advanced working with functions</a></li></ul></nav></div><div class="sidebar__section"><h4 class="sidebar__section-title">Lesson navigation</h4><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#arrow-functions-have-no-this">Arrow functions have no “this”</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#arrows-have-no-arguments">Arrows have no “arguments”</a></li><li class="sidebar__navigation-link"><a class="sidebar__link" href="#summary">Summary</a></li></ul></nav></div><div class="sidebar__section"><nav class="sidebar__navigation"><ul class="sidebar__navigation-links"><li class="sidebar__navigation-link"><a class="sidebar__link" href="#comments">Comments</a></li></ul></nav></div><div class="sidebar__section"><div class="sidebar__section-title">Share</div><a class="share share_tw sidebar__share" href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a><a class="share share_fb sidebar__share" href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Fjavascript.info%2Farrow-functions" rel="nofollow"></a></div><div class="sidebar__section"><a class="sidebar__link" href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/06-advanced-functions/12-arrow-functions" rel="nofollow">Edit on GitHub</a></div><div class="sidebar__section" id="sponsorBar"><div class="sidebar__section-title" id="sponsorBarTitle"></div><div id="sponsorBarContent"></div><script>window.initSponsorBar()</script></div></div></div></div></div></div><div class="page-footer"><ul class="page-footer__list"><li class="page-footer__item page-footer__item_copy">©&nbsp;2007—2021&nbsp; Ilya Kantor</li><li class="page-footer__item page-footer__item_about"><a class="page-footer__link" href="/about">about the project</a></li><li class="page-footer__item page-footer__item_contact"><a class="page-footer__link" href="/about#contact-us">contact us</a></li><li class="page-footer__item page-footer__item_terms"><a class="page-footer__link" href="/terms">terms of usage</a></li><li class="page-footer__item page-footer__item_privacy"><a class="page-footer__link" href="/privacy">privacy policy</a></li></ul></div></body></html>
+    </div>
+    <div class="page-footer">
+      <ul class="page-footer__list">
+        <li class="page-footer__item page-footer__item_copy">
+          ©&nbsp;2007—2021&nbsp; Ilya Kantor
+        </li>
+        <li class="page-footer__item page-footer__item_about">
+          <a class="page-footer__link" href="/about">about the project</a>
+        </li>
+        <li class="page-footer__item page-footer__item_contact">
+          <a class="page-footer__link" href="/about#contact-us">contact us</a>
+        </li>
+        <li class="page-footer__item page-footer__item_terms">
+          <a class="page-footer__link" href="/terms">terms of usage</a>
+        </li>
+        <li class="page-footer__item page-footer__item_privacy">
+          <a class="page-footer__link" href="/privacy">privacy policy</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
