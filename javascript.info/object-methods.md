@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fobject-methods" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fobject-methods" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -34,7 +29,7 @@ Objects are usually created to represent entities of the real world, like users,
       age: 30
     };
 
-And, in the real world, a user can *act*: select something from the shopping cart, login, logout etc.
+And, in the real world, a user can _act_: select something from the shopping cart, login, logout etc.
 
 Actions are represented in JavaScript by functions in properties.
 
@@ -61,7 +56,7 @@ Here we’ve just used a Function Expression to create a function and assign it 
 
 Then we can call it as `user.sayHi()`. The user can now speak!
 
-A function that is a property of an object is called its *method*.
+A function that is a property of an object is called its _method_.
 
 So, here we’ve got a method `sayHi` of the object `user`.
 
@@ -237,7 +232,7 @@ We can even call the function without an object at all:
 
 In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
 
-In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we’ll get to it later in the chapter [Global object](/global-object)). This is a historical behavior that `"use strict"` fixes.
+In non-strict mode the value of `this` in such case will be the _global object_ (`window` in a browser, we’ll get to it later in the chapter [Global object](/global-object)). This is a historical behavior that `"use strict"` fixes.
 
 Usually such call is a programming error. If there’s `this` inside a function, it expects to be called in an object context.
 
@@ -275,15 +270,15 @@ That’s a special feature of arrow functions, it’s useful when we actually do
 
 ## <a href="#summary" id="summary" class="main__anchor">Summary</a>
 
--   Functions that are stored in object properties are called “methods”.
--   Methods allow objects to “act” like `object.doSomething()`.
--   Methods can reference the object as `this`.
+- Functions that are stored in object properties are called “methods”.
+- Methods allow objects to “act” like `object.doSomething()`.
+- Methods can reference the object as `this`.
 
 The value of `this` is defined at run-time.
 
--   When a function is declared, it may use `this`, but that `this` has no value until the function is called.
--   A function can be copied between objects.
--   When a function is called in the “method” syntax: `object.method()`, the value of `this` during the call is `object`.
+- When a function is declared, it may use `this`, but that `this` has no value until the function is called.
+- A function can be copied between objects.
+- When a function is called in the “method” syntax: `object.method()`, the value of `this` during the call is `object`.
 
 Please note that arrow functions are special: they have no `this`. When `this` is accessed inside an arrow function, it is taken from outside.
 
@@ -382,17 +377,17 @@ Now it works, because `user.ref()` is a method. And the value of `this` is set t
 
 Create an object `calculator` with three methods:
 
--   `read()` prompts for two values and saves them as object properties.
--   `sum()` returns the sum of saved values.
--   `mul()` multiplies saved values and returns the result.
+- `read()` prompts for two values and saves them as object properties.
+- `sum()` returns the sum of saved values.
+- `mul()` multiplies saved values and returns the result.
 
-    let calculator = {
-      // ... your code ...
-    };
+  let calculator = {
+  // ... your code ...
+  };
 
-    calculator.read();
-    alert( calculator.sum() );
-    alert( calculator.mul() );
+  calculator.read();
+  alert( calculator.sum() );
+  alert( calculator.mul() );
 
 [Run the demo](#)
 
@@ -509,26 +504,26 @@ We also can write a single call per line. For long chains it’s more readable:
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
+- <a href="/object-basics" class="sidebar__link">Objects: the basics</a>
 
 #### Lesson navigation
 
--   <a href="#method-examples" class="sidebar__link">Method examples</a>
--   <a href="#this-in-methods" class="sidebar__link">“this” in methods</a>
--   <a href="#this-is-not-bound" class="sidebar__link">“this” is not bound</a>
--   <a href="#arrow-functions-have-no-this" class="sidebar__link">Arrow functions have no “this”</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#method-examples" class="sidebar__link">Method examples</a>
+- <a href="#this-in-methods" class="sidebar__link">“this” in methods</a>
+- <a href="#this-is-not-bound" class="sidebar__link">“this” is not bound</a>
+- <a href="#arrow-functions-have-no-this" class="sidebar__link">Arrow functions have no “this”</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (3)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (3)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -536,8 +531,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/04-object-basics/04-object-methods" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>
