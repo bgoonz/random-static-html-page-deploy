@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fmodules-intro" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fmodules-intro" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/js" class="breadcrumbs__link"><span>The JavaScript language</span></a></span>
@@ -35,9 +30,9 @@ But eventually scripts became more and more complex, so the community invented a
 
 To name some (for historical reasons):
 
--   [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition) – one of the most ancient module systems, initially implemented by the library [require.js](http://requirejs.org/).
--   [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) – the module system created for Node.js server.
--   [UMD](https://github.com/umdjs/umd) – one more module system, suggested as a universal one, compatible with AMD and CommonJS.
+- [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition) – one of the most ancient module systems, initially implemented by the library [require.js](http://requirejs.org/).
+- [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) – the module system created for Node.js server.
+- [UMD](https://github.com/umdjs/umd) – one more module system, suggested as a universal one, compatible with AMD and CommonJS.
 
 Now all these slowly become a part of history, but we still can find them in old scripts.
 
@@ -49,8 +44,8 @@ A module is just a file. One script is one module. As simple as that.
 
 Modules can load each other and use special directives `export` and `import` to interchange functionality, call functions of one module from another one:
 
--   `export` keyword labels variables and functions that should be accessible from outside the current module.
--   `import` allows the import of functionality from other modules.
+- `export` keyword labels variables and functions that should be accessible from outside the current module.
+- `import` allows the import of functionality from other modules.
 
 For instance, if we have a file `sayHi.js` exporting a function:
 
@@ -144,8 +139,8 @@ index.html
 
 Modules should `export` what they want to be accessible from outside and `import` what they need.
 
--   `user.js` should export the `user` variable.
--   `hello.js` should import it from `user.js` module.
+- `user.js` should export the `user` variable.
+- `hello.js` should import it from `user.js` module.
 
 In other words, with modules we use import/export instead of relying on global variables.
 
@@ -248,7 +243,7 @@ As you can see, when `1.js` changes the `name` property in the imported `admin`,
 
 That’s exactly because the module is executed only once. Exports are generated, and then they are shared between importers, so if something changes the `admin` object, other modules will see that.
 
-**Such behavior is actually very convenient, because it allows us to *configure* modules.**
+**Such behavior is actually very convenient, because it allows us to _configure_ modules.**
 
 In other words, a module can provide a generic functionality that needs a setup. E.g. authentication needs credentials. Then it can export a configuration object expecting the outer code to assign to it.
 
@@ -327,13 +322,13 @@ You may want to skip this section for now if you’re reading for the first time
 
 ### <a href="#module-scripts-are-deferred" id="module-scripts-are-deferred" class="main__anchor">Module scripts are deferred</a>
 
-Module scripts are *always* deferred, same effect as `defer` attribute (described in the chapter [Scripts: async, defer](/script-async-defer)), for both external and inline scripts.
+Module scripts are _always_ deferred, same effect as `defer` attribute (described in the chapter [Scripts: async, defer](/script-async-defer)), for both external and inline scripts.
 
 In other words:
 
--   downloading external module scripts `<script type="module" src="...">` doesn’t block HTML processing, they load in parallel with other resources.
--   module scripts wait until the HTML document is fully ready (even if they are tiny and load faster than HTML), and then run.
--   relative order of scripts is maintained: scripts that go first in the document, execute first.
+- downloading external module scripts `<script type="module" src="...">` doesn’t block HTML processing, they load in parallel with other resources.
+- module scripts wait until the HTML document is fully ready (even if they are tiny and load faster than HTML), and then run.
+- relative order of scripts is maintained: scripts that go first in the document, execute first.
 
 As a side-effect, module scripts always “see” the fully loaded HTML-page, including HTML elements below them.
 
@@ -441,11 +436,11 @@ Build tools do the following:
 2.  Analyze its dependencies: imports and then imports of imports etc.
 3.  Build a single file with all modules (or multiple files, that’s tunable), replacing native `import` calls with bundler functions, so that it works. “Special” module types like HTML/CSS modules are also supported.
 4.  In the process, other transformations and optimizations may be applied:
-    -   Unreachable code removed.
-    -   Unused exports removed (“tree-shaking”).
-    -   Development-specific statements like `console` and `debugger` removed.
-    -   Modern, bleeding-edge JavaScript syntax may be transformed to older one with similar functionality using [Babel](https://babeljs.io/).
-    -   The resulting file is minified (spaces removed, variables replaced with shorter names, etc).
+    - Unreachable code removed.
+    - Unused exports removed (“tree-shaking”).
+    - Development-specific statements like `console` and `debugger` removed.
+    - Modern, bleeding-edge JavaScript syntax may be transformed to older one with similar functionality using [Babel](https://babeljs.io/).
+    - The resulting file is minified (spaces removed, variables replaced with shorter names, etc).
 
 If we use bundle tools, then as scripts are bundled together into a single file (or few files), `import/export` statements inside those scripts are replaced by special bundler functions. So the resulting “bundled” script does not contain any `import/export`, it doesn’t require `type="module"`, and we can put it into a regular script:
 
@@ -459,10 +454,10 @@ That said, native modules are also usable. So we won’t be using Webpack here: 
 To summarize, the core concepts are:
 
 1.  A module is a file. To make `import/export` work, browsers need `<script type="module">`. Modules have several differences:
-    -   Deferred by default.
-    -   Async works on inline scripts.
-    -   To load external scripts from another origin (domain/protocol/port), CORS headers are needed.
-    -   Duplicate external scripts are ignored.
+    - Deferred by default.
+    - Async works on inline scripts.
+    - To load external scripts from another origin (domain/protocol/port), CORS headers are needed.
+    - Duplicate external scripts are ignored.
 2.  Modules have their own, local top-level scope and interchange functionality via `import/export`.
 3.  Modules always `use strict`.
 4.  Module code is executed only once. Exports are created once and shared between importers.
@@ -483,25 +478,25 @@ In the next chapter we’ll see more examples of modules, and how things can be 
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/modules" class="sidebar__link">Modules</a>
+- <a href="/modules" class="sidebar__link">Modules</a>
 
 #### Lesson navigation
 
--   <a href="#what-is-a-module" class="sidebar__link">What is a module?</a>
--   <a href="#core-module-features" class="sidebar__link">Core module features</a>
--   <a href="#browser-specific-features" class="sidebar__link">Browser-specific features</a>
--   <a href="#build-tools" class="sidebar__link">Build tools</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#what-is-a-module" class="sidebar__link">What is a module?</a>
+- <a href="#core-module-features" class="sidebar__link">Core module features</a>
+- <a href="#browser-specific-features" class="sidebar__link">Browser-specific features</a>
+- <a href="#build-tools" class="sidebar__link">Build tools</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -509,8 +504,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/1-js/13-modules/01-modules-intro" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>

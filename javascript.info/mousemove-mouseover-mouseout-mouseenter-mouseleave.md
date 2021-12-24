@@ -1,14 +1,10 @@
 EN
 
-
 <!-- -->
-
 
 We want to make this open-source project available for people all around the world.
 
 [Help to translate](https://javascript.info/translate) the content of this tutorial to your language!
-
-
 
 Search
 
@@ -17,7 +13,6 @@ Search
 <a href="/tutorial/map" class="map"><span class="map__text">Tutorial map</span></a>
 
 <span class="share-icons__title">Share</span><a href="https://twitter.com/share?url=https%3A%2F%2Fjavascript.info%2Fmousemove-mouseover-mouseout-mouseenter-mouseleave" class="share share_tw"></a><a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fjavascript.info%2Fmousemove-mouseover-mouseout-mouseenter-mouseleave" class="share share_fb"></a>
-
 
 1.  <a href="/" class="breadcrumbs__link"><span class="breadcrumbs__hidden-text">Tutorial</span></a>
 2.  <span id="breadcrumb-1"><a href="/ui" class="breadcrumbs__link"><span>Browser: Document, Events, Interfaces</span></a></span>
@@ -39,13 +34,13 @@ These events are special, because they have property `relatedTarget`. This prope
 
 For `mouseover`:
 
--   `event.target` – is the element where the mouse came over.
--   `event.relatedTarget` – is the element from which the mouse came (`relatedTarget` → `target`).
+- `event.target` – is the element where the mouse came over.
+- `event.relatedTarget` – is the element from which the mouse came (`relatedTarget` → `target`).
 
 For `mouseout` the reverse:
 
--   `event.target` – is the element that the mouse left.
--   `event.relatedTarget` – is the new under-the-pointer element, that mouse left for (`target` → `relatedTarget`).
+- `event.target` – is the element that the mouse left.
+- `event.relatedTarget` – is the new under-the-pointer element, that mouse left for (`target` → `relatedTarget`).
 
 In the example below each face and its features are separate elements. When you move the mouse, you can see mouse events in the text area.
 
@@ -457,7 +452,7 @@ If we’re on `#parent` and then move the pointer deeper into `#child`, we get `
 
 That may seem strange, but can be easily explained.
 
-**According to the browser logic, the mouse cursor may be only over a *single* element at any time – the most nested one and top by z-index.**
+**According to the browser logic, the mouse cursor may be only over a _single_ element at any time – the most nested one and top by z-index.**
 
 So if it goes to another element (even a descendant), then it leaves the previous one.
 
@@ -838,9 +833,9 @@ In our case we’d like to handle transitions between table cells `<td>`: enteri
 
 Here’s what we can do:
 
--   Remember the currently highlighted `<td>` in a variable, let’s call it `currentElem`.
--   On `mouseover` – ignore the event if we’re still inside the current `<td>`.
--   On `mouseout` – ignore if we didn’t leave the current `<td>`.
+- Remember the currently highlighted `<td>` in a variable, let’s call it `currentElem`.
+- On `mouseover` – ignore the event if we’re still inside the current `<td>`.
+- On `mouseout` – ignore if we didn’t leave the current `<td>`.
 
 Here’s an example of code that accounts for all possible situations:
 
@@ -1140,8 +1135,8 @@ We covered events `mouseover`, `mouseout`, `mousemove`, `mouseenter` and `mousel
 
 These things are good to note:
 
--   A fast mouse move may skip intermediate elements.
--   Events `mouseover/out` and `mouseenter/leave` have an additional property: `relatedTarget`. That’s the element that we are coming from/to, complementary to `target`.
+- A fast mouse move may skip intermediate elements.
+- Events `mouseover/out` and `mouseenter/leave` have an additional property: `relatedTarget`. That’s the element that we are coming from/to, complementary to `target`.
 
 Events `mouseover/out` trigger even when we go from the parent element to a child element. The browser assumes that the mouse can be only over one element at one time – the deepest one.
 
@@ -1191,7 +1186,7 @@ solution
 
 <span class="task__importance" title="How important is the task, from 1 to 5">importance: 5</span>
 
-Write a function that shows a tooltip over an element only if the visitor moves the mouse *to it*, but not *through it*.
+Write a function that shows a tooltip over an element only if the visitor moves the mouse _to it_, but not _through it_.
 
 In other words, if the visitor moves the mouse to the element and stops there – show the tooltip. And if they just moved the mouse through, then no need, who wants extra blinking?
 
@@ -1201,9 +1196,9 @@ Make a universal object `new HoverIntent(options)` for it.
 
 Its `options`:
 
--   `elem` – element to track.
--   `over` – a function to call if the mouse came to the element: that is, it moves slowly or stopped over it.
--   `out` – a function to call when the mouse leaves the element (if `over` was called).
+- `elem` – element to track.
+- `over` – a function to call if the mouse came to the element: that is, it moves slowly or stopped over it.
+- `out` – a function to call when the mouse leaves the element (if `over` was called).
 
 An example of using such object for the tooltip:
 
@@ -1270,27 +1265,27 @@ P.S. Please note: the solution tests use `dispatchEvent` to see if the tooltip w
 
 <span class="comments__read-before-link">read this before commenting…</span>
 
--   If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
--   If you can't understand something in the article – please elaborate.
--   To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
+- If you have suggestions what to improve - please [submit a GitHub issue](https://github.com/javascript-tutorial/en.javascript.info/issues/new) or a pull request instead of commenting.
+- If you can't understand something in the article – please elaborate.
+- To insert few words of code, use the `<code>` tag, for several lines – wrap them in `<pre>` tag, for more than 10 lines – use a sandbox ([plnkr](https://plnkr.co/edit/?p=preview), [jsbin](https://jsbin.com), [codepen](http://codepen.io)…)
 
 <a href="/tutorial/map" class="map"></a>
 
 #### Chapter
 
--   <a href="/event-details" class="sidebar__link">UI Events</a>
+- <a href="/event-details" class="sidebar__link">UI Events</a>
 
 #### Lesson navigation
 
--   <a href="#events-mouseover-mouseout-relatedtarget" class="sidebar__link">Events mouseover/mouseout, relatedTarget</a>
--   <a href="#skipping-elements" class="sidebar__link">Skipping elements</a>
--   <a href="#mouseout-when-leaving-for-a-child" class="sidebar__link">Mouseout when leaving for a child</a>
--   <a href="#events-mouseenter-and-mouseleave" class="sidebar__link">Events mouseenter and mouseleave</a>
--   <a href="#event-delegation" class="sidebar__link">Event delegation</a>
--   <a href="#summary" class="sidebar__link">Summary</a>
+- <a href="#events-mouseover-mouseout-relatedtarget" class="sidebar__link">Events mouseover/mouseout, relatedTarget</a>
+- <a href="#skipping-elements" class="sidebar__link">Skipping elements</a>
+- <a href="#mouseout-when-leaving-for-a-child" class="sidebar__link">Mouseout when leaving for a child</a>
+- <a href="#events-mouseenter-and-mouseleave" class="sidebar__link">Events mouseenter and mouseleave</a>
+- <a href="#event-delegation" class="sidebar__link">Event delegation</a>
+- <a href="#summary" class="sidebar__link">Summary</a>
 
--   <a href="#tasks" class="sidebar__link">Tasks (2)</a>
--   <a href="#comments" class="sidebar__link">Comments</a>
+- <a href="#tasks" class="sidebar__link">Tasks (2)</a>
+- <a href="#comments" class="sidebar__link">Comments</a>
 
 Share
 
@@ -1298,8 +1293,8 @@ Share
 
 <a href="https://github.com/javascript-tutorial/en.javascript.info/blob/master/2-ui/3-event-details/3-mousemove-mouseover-mouseout-mouseenter-mouseleave" class="sidebar__link">Edit on GitHub</a>
 
--   © 2007—2021  Ilya Kantor
--   <a href="/about" class="page-footer__link">about the project</a>
--   <a href="/about#contact-us" class="page-footer__link">contact us</a>
--   <a href="/terms" class="page-footer__link">terms of usage</a>
--   <a href="/privacy" class="page-footer__link">privacy policy</a>
+- © 2007—2021  Ilya Kantor
+- <a href="/about" class="page-footer__link">about the project</a>
+- <a href="/about#contact-us" class="page-footer__link">contact us</a>
+- <a href="/terms" class="page-footer__link">terms of usage</a>
+- <a href="/privacy" class="page-footer__link">privacy policy</a>
