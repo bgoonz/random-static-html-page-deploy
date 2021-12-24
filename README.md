@@ -3,6 +3,11 @@
 
 ![preview](https://github.com/bgoonz/random-static-html-page-deploy/blob/master/static.png?raw=true)
 
+- [js-cheat-sheet](https://random-static-html-deploys.netlify.app/js-cheat-sheet.html)
+
+
+
+
 ```
 .
 │── 3D Box
