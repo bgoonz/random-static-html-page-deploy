@@ -244,7 +244,7 @@
 │   │── Screenshot_1.png
 │   
 │── Responsive Accordion Slider
-│   │── Responsive Accordion Slider.css
+│   │── 
 │   │── Responsive Accordion Slider.html
 │   │── Responsive Accordion Slider.png
 │   
