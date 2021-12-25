@@ -4,7 +4,7 @@
 
 - [paste 2 plaintext](https://random-static-html-deploys.netlify.app/paste-2-plain-text.html)
 - [guitar-tuner](https://random-static-html-deploys.netlify.app/guitar-tuner.html)
-
+- [google-add](https://random-static-html-deploys.netlify.app/google-add.html)
 
 ![preview](https://github.com/bgoonz/random-static-html-page-deploy/blob/master/static.png?raw=true)
 
