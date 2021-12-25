@@ -1,6 +1,10 @@
 # A collection of many mini js/css/html projects
 
 
+
+- [paste 2 plaintext](https://random-static-html-deploys.netlify.app/paste-2-plain-text.html)
+
+
 ![preview](https://github.com/bgoonz/random-static-html-page-deploy/blob/master/static.png?raw=true)
 
 - [js-cheat-sheet](https://random-static-html-deploys.netlify.app/js-cheat-sheet.html)
