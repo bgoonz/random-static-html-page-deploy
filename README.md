@@ -1,6 +1,6 @@
 # A collection of many mini js/css/html projects
 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/609ac5e5-9313-4ee2-a5f6-0e6253c95349/deploy-status)](https://app.netlify.com/sites/random-static-html-deploys/deploys)
 
 - [paste 2 plaintext](https://random-static-html-deploys.netlify.app/paste-2-plain-text.html)
 - [guitar-tuner](https://random-static-html-deploys.netlify.app/guitar-tuner.html)
