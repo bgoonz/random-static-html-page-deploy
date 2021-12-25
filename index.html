@@ -5,6 +5,43 @@
   <title>CodePen - Responsive iFrames Pattern Grid</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify( {
+    appId: '7QVDIKKCW2',
+    apiKey: 'a2970462d75c8f72e9b40cf8926328ba',
+    siteId: '609ac5e5-9313-4ee2-a5f6-0e6253c95349',
+    branch: 'master',
+    selector: 'div#search',
+  } );
+  instantsearch.widgets.refinementList({
+  container: document.querySelector('#search'),
+  attribute: 'search',
+  });
+
+
+  const searchClient = algoliasearch(
+
+  'a2970462d75c8f72e9b40cf8926328ba'
+  );
+
+  const search = instantsearch({
+  indexName: 'instant_search',
+  searchClient,
+  });
+
+  search.addWidgets([
+  instantsearch.widgets.refinementList({
+  container: document.querySelector('#search'),
+  attribute: 'brand',
+  })
+  ]);
+  search.start();
+</script>
+
 <style>
 iframe{
 	border-radius:15px;
@@ -76,6 +113,7 @@ iframe{
 <br>
 <br>
 <br>
+	    <div id="search">searchbar</div>
 <br>
 <br>
       <a href="./sitemap.html" >Sitemap</a>

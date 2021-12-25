@@ -1,11 +1,11 @@
 3Dbox.html
-3D Hover Effect - Alita Card.html
-Accordion Menu 2.html
-Accordion Menu 4.html
-Accordion Menu 5.html
-Accordion Menu 6.html
-Array Accordion.html
-Array.from Animation.html
+3D*Hover_Effect*-_Alita_Card.html
+Accordion_Menu_2.html
+Accordion_Menu_4.html
+Accordion_Menu_5.html
+Accordion_Menu_6.html
+Array_Accordion.html
+Array.from_Animation.html
 ArraySliceAnimation.html
 blm.html
 blog-search.html
@@ -14,41 +14,41 @@ border-generator.html
 border.html
 box.html
 codepen-embed.html
-Dark Light Menu.html
+Dark_Light_Menu.html
 dashed-border-generator.html
 DnaAnimation.html
 EMBEDS_NOTION.html
 embeds-showcase.html
-Find the largest and smallest number on an array.html
+Find_the_largest_and_smallest_number_on_an_array.html
 google-maps-embed.html
-Growing Card Flip.html
+Growing_Card_Flip.html
 HypotenuseCalculation.html
-Image Slider.html
+Image_Slider.html
 index1.html
 index.html
-JavaScript Array Card Flip.html
-JavaScript Before & After Comparison.html
-JavaScript Card Flip.html
-Javascript Rectangle Area and Circumference Calculation.html
-JavaScript Tabs Style 2.html
-JavaScript Tabs Styled 1.html
-JavaScript TEAM CARDS.html
-JavaScript To Do List.html
-JS CLASS - Login System.html
+JavaScript_Array_Card_Flip.html
+JavaScript_Before_&_After_Comparison.html
+JavaScript_Card_Flip.html
+Javascript_Rectangle_Area_and_Circumference_Calculation.html
+JavaScript_Tabs_Style_2.html
+JavaScript_Tabs_Styled_1.html
+JavaScript_TEAM_CARDS.html
+JavaScript_To_Do_List.html
+JS_CLASS_-\_Login_System.html
 JShoverEffect.html
-JS Information Card Slider.html
-JS Promise Login System.html
+JS_Information_Card_Slider.html
+JS_Promise_Login_System.html
 lambda-search.html
 markdow-tools-embed.html
-Marvel Tabs.html
+Marvel_Tabs.html
 my-starred-repos.html
 my-websites2.html
 my-websites.html
 react-tutorial1.html
 react-tutorial.html
-Responsive Accordion Slider.html
+Responsive_Accordion_Slider.html
 rotate.html
-SCSS and JS Tabs.html
+SCSS_and_JS_Tabs.html
 showcase2.html
 showcase3.html
 showcase.html
