@@ -31,12 +31,13 @@
   const search = instantsearch({
   indexName: 'instant_search',
   searchClient,
+    routing: true,
   });
 
   search.addWidgets([
   instantsearch.widgets.refinementList({
   container: document.querySelector('#search'),
-  attribute: 'brand',
+  attribute: 'title',
   })
   ]);
   search.start();
