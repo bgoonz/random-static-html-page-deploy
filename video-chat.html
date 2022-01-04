@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <!-- Inject the jitsi external api script
+         Full API documentation: https://github.com/jitsi/jitsi-meet/blob/master/doc/api.md
+    -->
+    <script src="https://stage.8x8.vc/libs/external_api.min.js"></script>
+    <style>
+      html, body, #meetContainer, iframe {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+    <script type="text/javascript">
+      const initJitsi = () => {
+        //The options object to be passed on the iframe JitsiMeetExternalAPI instantiation
+        const joinMeetingData = {
+          roomName: "vpaas-magic-cookie-f632931710e542d7adcdb2e0b930b24a/test",
+          // sets the parent html element of the iframe
+          parentNode: document.querySelector('#meetContainer'),
+          // this allows overwriting of some of the global configurations
+          configOverwrite: {
+            // when set to true, this will disable the Recording on/off audio notifications
+            disableRecordAudioNotification: true,
+            brandingRoomAlias: 'blabla'
+          },
+          interfaceConfigOverwrite: {
+            TOOLBAR_BUTTONS: [
+              'camera',
+              'chat',
+              'closedcaptions',
+              'desktop',
+              'embedmeeting',
+              'feedback',
+              'filmstrip',
+              'fodeviceselection',
+              'hangup',
+              'info',
+              'invite',
+              'microphone',
+              'mute-everyone',
+              'profile',
+              'raisehand',
+              'settings',
+              'sharedvideo',
+              'shortcuts',
+              'stats',
+              'tileview',
+              'videoquality'
+            ],
+            SETTINGS_SECTIONS: ['devices', 'language', 'moderator', 'profile']
+          },
+          jwt:"eyJhbGciOiJSUzI1NiIsImtpZCI6InZwYWFzLW1hZ2ljLWNvb2tpZS1mNjMyOTMxNzEwZTU0MmQ3YWRjZGIyZTBiOTMwYjI0YS9jYjgxZDkiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJqaXRzaSIsImNvbnRleHQiOnsidXNlciI6eyJpZCI6Imdvb2dsZS1vYXV0aDJ8MTE0MDI1NzU0ODIwMzc5NTk1MDI5IiwibmFtZSI6IkFsZXhhbmRydSBCcmF0dSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdnZk9fOHltQ1VVV3FkYm53T19qeUpLNXg0OFE1aWNrbXdTRERHTjBRIiwiZW1haWwiOiJhbGV4YW5kcnUuaW9hbi5icmF0dUBnbWFpbC5jb20iLCJtb2RlcmF0b3IiOiJ0cnVlIn0sImZlYXR1cmVzIjp7ImJyYW5kaW5nIjoidHJ1ZSIsImNhbGVuZGFyIjoidHJ1ZSIsImNhbGxzdGF0cyI6InRydWUiLCJsaXZlc3RyZWFtaW5nIjoidHJ1ZSIsImxvYmJ5IjoidHJ1ZSIsIm1vZGVyYXRpb24iOiJ0cnVlIiwicmVjb3JkaW5nIjoidHJ1ZSIsInJvb20iOiJ0cnVlIiwidHJhbnNjcmlwdGlvbiI6InRydWUifX0sImV4cCI6MTY5NjI4NDA1MiwiaXNzIjoiY2hhdCIsIm5iZiI6MTU5NjE5NzY1Miwicm9vbSI6IioiLCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtZjYzMjkzMTcxMGU1NDJkN2FkY2RiMmUwYjkzMGIyNGEifQ.Rno7K1Qyr1D1hSUYzI03yIyECi8o0KelTyQAp4nfOHWh_cWfBwH5FAag0a-FCui0rtM30yOaqv7naga01vQjW9fJaBVkWOsMCwuIWgfZqXzMrC1CHDjOwr67D2w1xogwKIozM81kpY_c6VtrfE6p9yE1Fr6O7oUw8nlBdgcNYcm1vz9FyZ8XWYL1Ff378q5Z2oC0df3zEN9FLUMGtT2gMj3c-_FTF9NBNK2Ain6WNmH2ZE3knLJO7XavBxQ_8txUS8zMpxL306OAwzexpQsrt8rlYI2QILE7FsACBqPoKu-PHYuj-qm3_QcC1pG2vev-4-SnRZ6P16bQU6VYRoCkWA"
+        };
+
+        //instantiate the iframe API
+        // api = new JitsiMeetExternalAPI("hmuresan.jitsi.net", joinMeetingData);
+        const api = new JitsiMeetExternalAPI("stage.8x8.vc", joinMeetingData);
+
+        //handle the participant joined event (add it to the dropdown)
+        api.on('participantJoined', (data, asd) => {
+          addParticipantsToDropdown(data);
+        });
+
+        // handle text message received throguh the datachannels
+        api.on('endpointTextMessageReceived', data => {
+          console.log(data);
+        });
+      }
+
+      window.onload = initJitsi
+    </script>
+  </head>
+
+  <body>
+    <div id="meetContainer" />
+  </body>
+</html>
