@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS from API test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
+</html>
+<div class="container">
+  <h1>Hi there!</h1>
+  <hr />
+  <p>
+    Welcome! This project uses the Scratch API and ScratchDB by DatOneLefty to
+    provide statistics about scratch! Enjoy!
+  </p>
+  <div class="input-container">
+    <input placeholder="Enter a user!" type="text" />
+    <button onclick="go()">Go!</button>
+  </div>
+  <div class="card">
+    <center><img src="" /></center>
+    <h1 id="header">Enter a user!</h1>
+    <div id="followers">Thanks for checking this out btw!</div>
+    <div id="user_id"></div>
+    <div id="country"></div>
+    <div id="followers_rank"></div>
+    <div id="messages"></div>
+    <div id="bio"></div>
+    <div id="WIWO"></div>
+  </div>
+</div>
+<script>
+  function go() {
+    $("#followers").html("Loading...");
+    user = $("input").val();
+    url = "https://scratchdb.lefty.one/v2/user/info/" + user;
+    messages_url =
+      "https://api.scratch.mit.edu/users/" + user + "/messages/count";
+    $("#header").html(user);
+    $.getJSON(url, function (data) {
+      $("#followers").html("Followers: " + data["followers"]);
+      $("#user_id").html("User ID: " + data["id"]);
+      $("#country").html("Country: " + data["country"]);
+      $("#followers_rank").html(
+        "Followers ranking: " + data["statistics"]["ranks"]["followers"]
+      );
+      $("#bio").html(
+        "<details><summary>Biography:</summary><blockquote><i>No bio.</i></blockquote></details>"
+      );
+      $("#WIWO").html(
+        "<details><summary>What I'm working on:</summary><blockquote><i>No What I'm working on</i></blockquote></details>"
+      );
+      $("img").attr(
+        "src",
+        "https://cdn2.scratch.mit.edu/get_image/user/" +
+          data["id"] +
+          "_90x90.png?v="
+      );
+      if (data["bio"] !== "") {
+        $("#bio").html(
+          "<details><summary>Biography:</summary><blockquote>" +
+            data["bio"] +
+            "</blockquote></details>"
+        );
+      }
+      if (data["work"] !== "") {
+        $("#WIWO").html(
+          "<details><summary>What I'm Working On: </summary><blockquote>" +
+            data["work"] +
+            "</blockquote></details>"
+        );
+      }
+    });
+    $.getJSON(messages_url, function (messages) {
+      $("#messages").html("Messages: " + messages["count"]);
+    });
+  }
+</script>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat");
+  * {
+    background: #101010;
+    color: white;
+    font-family: Montserrat;
+  }
+  .container {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+  }
+  .card {
+    transition-duration: 0.5s;
+    width: 400px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(255, 145, 0, 0.623);
+    padding: 10px 20px;
+    margin: 30px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .card:hover {
+    box-shadow: 0 0 0 5px rgba(255, 145, 0, 0.2),
+      0 0 0 1px rgba(255, 145, 0, 0.836), 0 0 0 10px rgba(255, 145, 0, 0.151);
+  }
+  blockquote {
+    border-radius: 5px;
+    border: 1px solid rgba(255, 145, 0, 0.623);
+    padding: 5px;
+    width: 80%;
+  }
+  *:focus {
+    outline: none;
+  }
+  hr {
+    border: 0;
+    border-top: 4px double rgba(255, 145, 0, 0.836);
+    text-align: center;
+  }
+  hr:after {
+    content: "\2665";
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    padding: 0 10px;
+    background: #101010;
+    color: #101010;
+    font-size: 18px;
+  }
+  button {
+    border-radius: 3px;
+    background: #101010;
+    border: 1px solid rgba(255, 145, 0, 0.623);
+    transition-duration: 0.5s;
+    padding: 10px;
+  }
+  button:hover {
+    box-shadow: 0 0 0 5px rgba(255, 145, 0, 0.2),
+      0 0 0 1px rgba(255, 145, 0, 0.836);
+  }
+
+  input {
+    transition-duration: 0.5s;
+    background: #101010;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 145, 0, 0.623);
+    padding: 10px;
+  }
+  input:focus {
+    box-shadow: 0 0 0 5px rgba(255, 145, 0, 0.2),
+      0 0 0 1px rgba(255, 145, 0, 0.836);
+  }
+  img {
+    border: 5px solid rgba(255, 145, 0, 0.2);
+    border-radius: 10px;
+  }
+</style>

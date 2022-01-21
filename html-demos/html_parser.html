@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="main.css" />
+  <title>HTML parser | JavaScript stuff</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<div class="container">
+  <a id="back" href="index.html">⇦ Back</a>
+  <h1>HTML parser</h1>
+  <p>
+    This parses html! Simply type your code in the box below and look at the
+    output! Also, inline styling and inline scripting works too! you can also
+    import external scripts!!! This is based on the
+    <a href="notetaking">Note-Taking web-app I made</a>.
+  </p>
+
+  <body onload="writeCookie()">
+    <form id="form1">
+      <div>
+        <textarea
+          onkeyup="go()"
+          id="input"
+          placeholder="Type something in here! Feel free to use HTML tags, they parse!"
+        ></textarea>
+        <input id="button" type="button" value="Run!" onclick="go()" />
+        <br />
+        <p id="output">
+          Click the run button or start typing to see the output!
+        </p>
+      </div>
+    </form>
+    <h1>Some stuff to try:</h1>
+    <div class="code">
+      &lt;head&gt;<br />
+      &lt;style&gt;<br />
+      /* Feel free to add styling here */<br />
+      * {<br />
+      /* '*' means that is styles the whole page. */<br />
+      color: blue;<br />
+      /*Text color */<br />
+      background-color: white;<br />
+      /* The background color */<br />
+      }<br />
+      &lt;/style&gt;<br />
+      &lt;/head&gt;<br />
+      <br />
+      &lt;body&gt;<br />
+      &lt;h1&gt;A heading&lt;/h1&gt;<br />
+      &lt;p&gt;A paragraph&lt;/p&gt;<br />
+      &lt;button id='button'&gt;A button!&lt;/button&gt;<br />
+      &lt;/body&gt;<br />
+    </div>
+    <h1>To reset to the defaults (without my styling)</h1>
+    <div class="code">@import url('defaults.css')</div>
+  </body>
+</div>
+<script>
+  function go() {
+    var c1 = document.getElementById("input").value;
+    var d1 = document.getElementById("output");
+    d1.innerHTML = c1;
+  }
+</script>
+<script>
+  document.addEventListener("keyup", checkCookie);
+
+  function checkCookie() {
+    text = document.getElementById("input").value;
+    localStorage.setItem("html_cookie", text);
+  }
+
+  function writeCookie() {
+    cookie = localStorage.getItem("html_cookie");
+    document.getElementById("input").value = cookie;
+  }
+</script>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
+  .code {
+    font-family: Anonymous Pro;
+    width: 100%;
+    height: 400px;
+    border: 2px solid var(--color);
+    border-radius: 10px;
+  }
+  * {
+    scroll-behavior: smooth;
+  }
+
+  button {
+    padding: 3px;
+    color: black;
+  }
+
+  #output {
+    transition: all 0.5s;
+    border: 2px solid var(--color);
+    border-radius: 10px;
+    margin: 0;
+    width: 100%;
+  }
+
+  textarea {
+    font-family: "Anonymous Pro";
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+  }
+
+  * {
+    margin: 0;
+  }
+</style>
+<div class="se-pre-con"></div>
+<style>
+  .no-js #loader {
+    display: none;
+  }
+
+  .js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+  }
+
+  .se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("load.svg") center no-repeat black;
+  }
+</style>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script>
+    //paste this code under the head tag or in a separate js file.
+    // Wait for window load
+    $(window).load(function () {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
+</head>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  $("h1, h2, h3")
+    .css("text-align", "center")
+    .append(
+      '<hr style="height: 1px; background: linear-gradient(to right, transparent , var(--color), transparent); padding: 0px; border: none;">'
+    );
+</script>

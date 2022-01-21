@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Find and replace</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="vars.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
+</html>
+<a id="back" href="index.html">⇦ Back</a>
+<div class="container">
+  <center>
+    <h1>Find and replace</h1>
+    <p><i>A simple JavaScript application I'm working on</i></p>
+  </center>
+  <div class="column_1">
+    <input placeholder="Find" id="find" type="text" />
+  </div>
+  <div class="column2">
+    <input type="text" id="replace" placeholder="Replace" />
+  </div>
+  <div class="column3">
+    <input id="match_case" type="checkbox" />
+    <label for="match_case">Match case</label>
+  </div>
+  <textarea
+    placeholder="Enter text to operate find and replace on here"
+    id="input"
+  ></textarea>
+  <textarea
+    id="output"
+    placeholder="This is where the output will be"
+  ></textarea>
+  <button onclick="go()">Go!</button>
+</div>
+<script>
+  function go() {
+    if ($("#match_case").prop("checked")) {
+      var find = $("#find").val();
+      const regex = new RegExp(find, "g");
+      var output = $("#input").val().replace(regex, $("#replace").val());
+      $("#output").val(output);
+    }
+    if ($("#match_case").prop("checked") == false) {
+      var find = $("#find").val();
+      const regex = new RegExp(find, "gi");
+      var output = $("#input").val().replace(regex, $("#replace").val());
+      $("#output").val(output);
+    }
+  }
+</script>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Quicksand");
+  * {
+    font-family: Quicksand;
+    background: #101010;
+    color: whitesmoke;
+  }
+  *:focus {
+    outline: none;
+    border: none;
+  }
+  textarea:focus,
+  input:focus {
+    background: #141414;
+    border: 1px solid var(--color);
+  }
+  textarea,
+  input {
+    transition-duration: 0.5s;
+    border: 1px solid var(--color);
+    border-radius: 3px;
+    outline: none;
+  }
+  textarea {
+    width: 45%;
+    height: 200px;
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+  }
+  [class*="column"] {
+    display: inline-block;
+    width: 32%;
+    margin: none;
+    padding: 0px;
+    overflow: hidden;
+  }
+  input:not([type="checkbox"]) {
+    width: 120px;
+  }
+  button {
+    transition-duration: 0.5s;
+    background: #101010;
+    color: white;
+    border: 1px solid var(--color);
+    border-radius: 5px;
+  }
+  button:hover {
+    background: var(--color);
+    color: black;
+    border: 1px solid var(--color);
+    border-radius: 5px;
+  }
+</style>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  $("h1, h2, h3")
+    .css("text-align", "center")
+    .append(
+      '<hr style="height: 1px; background: linear-gradient(to right, transparent , var(--color), transparent); padding: 0px; border: none;">'
+    );
+</script>

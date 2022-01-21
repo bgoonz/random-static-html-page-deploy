@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+@import url("vars.css");
+* {
+  text-shadow: 0 0 5px var(--color-transparent);
+  --font-size: 45%;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #121212;
+}
+
+* {
+  font-size: calc(var(--font-size) * 2.4);
+  padding: 20px;
+  font-family: "Quicksand";
+  font-weight: 200;
+  color: var(--color);
+  transition-duration: 0.5s;
+}
+
+a {
+  border-bottom: 1px solid var(--color);
+  padding: 2px;
+  line-height: 1em;
+  text-decoration: none;
+  background-size: 200% auto;
+  background-position: -0% 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 50%,
+    var(--color-transparent) 50%
+  );
+  transition: all 0.3s ease-out;
+}
+
+a:hover {
+  border-bottom: 1px solid transparent;
+  color: black;
+  background-position: -100% 0;
+}
+
+.button,
+[class*="button-"] {
+  margin: 0 auto;
+  border: 1px dashed var(--color);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 1em;
+  height: 3.5em;
+  font: 300 1em/3.5em "Anonymous Pro", sans-serif;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.08em;
+  color: var(--color);
+  background: black;
+  border-radius: 5px;
+  -moz-transition: ease 0.35s all;
+  -o-transition: ease 0.35s all;
+  -webkit-transition: ease 0.35s all;
+  transition: ease 0.35s all;
+}
+
+.button:hover,
+[class*="button-"]:hover {
+  background: black;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) inset;
+}
+
+.button-hover:hover {
+  line-height: 9em;
+}
+
+.button-hover:before {
+  text-align: center;
+  content: attr(data-text);
+  color: var(--color);
+  position: absolute;
+  top: -2.75em;
+}
+
+h1 {
+  font-family: "Quicksand";
+  font-weight: 200;
+  color: var(--color);
+  font-size: calc(var(--font-size) * 6);
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+#clock {
+  font-family: "Anonymous Pro";
+  color: var(--color);
+  font-size: calc(var(--font-size) * 8);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.no-js #loader {
+  display: none;
+}
+
+.js #loader {
+  display: block;
+  position: absolute;
+  left: 100px;
+  top: 0;
+}
+
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("load.svg") center no-repeat black;
+}

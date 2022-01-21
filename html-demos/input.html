@@ -1,0 +1,101 @@
+<head>
+  <link rel="stylesheet" href="main.css" />
+  <title>Input Styling | JavaScript stuff</title>
+  <script src="main.js"></script>
+</head>
+<div class="container">
+  <a id="back" href="index.html">⇦ Back</a>
+  <h1>Input test</h1>
+  <p>
+    This is just a test for nice inputs (also, these don't actually do anything.
+    It's just a test lol)
+  </p>
+  <form onfocus="writeAll()">
+    <input class="input" type="text" id="name" placeholder="Name" />
+    <input class="input" type="email" id="email" placeholder="Email" />
+    <input class="input" type="password" id="password" placeholder="Password" />
+    <input
+      class="input"
+      type="password"
+      id="confirm_password"
+      placeholder="Confirm password"
+    />
+    <input id="button" type="submit" value="Submit" />
+  </form>
+</div>
+<div class="se-pre-con"></div>
+<script>
+  document.addEventListener('keyup' setCookies());
+  window.onload = writeAll();
+  function setCookies() {
+  	checkCookie('name');
+  	checkCookie('email');
+  }
+  function writeAll() {
+  	writeCookie('name');
+  	writeCookie('email');
+  }
+  function checkCookie(id) {
+  	text = document.getElementById(id).value;
+  	localStorage.setItem(id, text);
+  }
+  function writeCookie(id) {
+  	cookie = localStorage.getItem(id);
+  	document.getElementById(id).value = cookie;
+  	return cookie;
+  }
+</script>
+<style>
+  .no-js #loader {
+    display: none;
+  }
+
+  .js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+  }
+
+  .se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("load.svg") center no-repeat black;
+  }
+  form {
+    width: 100%;
+  }
+  textarea {
+    resize: vertical;
+  }
+  .wrong_password input {
+    border: 2px solid red !important;
+  }
+</style>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script>
+    //paste this code under the head tag or in a separate js file.
+    // Wait for window load
+    $(window).load(function () {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
+</head>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  $("h1, h2, h3")
+    .css("text-align", "center")
+    .append(
+      '<hr style="height: 1px; background: linear-gradient(to right, transparent , var(--color), transparent); padding: 0px; border: none;">'
+    );
+</script>

@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+@import "vars.css";
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: var(--background);
+}
+ul {
+  padding: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+* {
+  text-shadow: 0 0 10px var(--color-transparent);
+  font-size: calc(var(--font-size) * 2.4);
+  padding: 20px;
+  font-family: "Quicksand";
+  font-weight: 200;
+  color: var(--color);
+}
+strong {
+  font-weight: 800;
+}
+a {
+  border-bottom: 1px solid var(--color);
+  padding: 2px;
+  line-height: 1em;
+  text-decoration: none;
+  background-size: 200% auto;
+  background-position: -0% 0;
+  background-image: linear-gradient(
+    to right,
+    transparent 50%,
+    var(--color-transparent) 50%
+  );
+  transition: all 0.3s ease-out;
+}
+
+a:hover {
+  border-bottom: 1px solid transparent;
+  color: var(--background);
+  background-position: -100% 0;
+}
+
+.button,
+[class*="button-"] {
+  margin: 0 auto;
+  border: 1px dashed var(--color);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 1em;
+  height: 3.5em;
+  font: 300 1em/3.5em "Anonymous Pro", sans-serif;
+  text-decoration: none;
+  text-shadow: 0 1px 3px var(--shadow);
+  letter-spacing: 0.08em;
+  color: var(--color);
+  background: var(--background);
+  border-radius: 5px;
+  -moz-transition: ease 0.35s all;
+  -o-transition: ease 0.35s all;
+  -webkit-transition: ease 0.35s all;
+  transition: ease 0.35s all;
+}
+
+.button:hover,
+[class*="button-"]:hover {
+  background: var(--background);
+  box-shadow: 0 0 3px var(--shadow) inset;
+}
+
+.button-hover:hover {
+  line-height: 9em;
+}
+
+.button-hover:before {
+  text-align: center;
+  content: attr(data-text);
+  color: var(--color);
+  position: absolute;
+  top: -2.75em;
+}
+
+h1 {
+  font-weight: 200;
+  color: var(--color);
+  font-size: calc(var(--font-size) * 6);
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+#clock {
+  font-family: "Anonymous Pro";
+  color: var(--color);
+  font-size: calc(var(--font-size) * 8);
+  text-align: center;
+  margin: 0 auto;
+}
+#input,
+.input {
+  padding: 10px;
+  box-shadow: 0 0 0 2px var(--color-transparent);
+  background: var(--background);
+  outline: none;
+  border: none;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+}
+#input,
+.input {
+  border-radius: 10px;
+  margin: 10px auto;
+}
+#input:focus,
+.input:focus {
+  box-shadow: 0 0 0 2px var(--color-transparent),
+    0 0 0 5px var(--color-transparent);
+}
+#input[type="search"],
+.input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+#input[type="search"],
+.input[type="search"] {
+  margin: 0 auto;
+  display: block;
+  background: var(--background)
+    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    10px center;
+  box-shadow: 0 0 0 2px var(--color-transparent);
+  border: none;
+  padding: 9px 10px 9px 32px;
+  width: 0px;
+  border-radius: 10px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#input[type="search"]:focus,
+.input[type="search"]:focus {
+  box-shadow: 0 0 0 2px var(--color-transparent),
+    0 0 0 5px var(--color-transparent);
+  background-color: var(--background);
+  border-color: var(--color);
+}
+#input2 {
+  border-radius: none !important;
+  box-shadow: none;
+  background: rgba(32, 32, 32, 0.4);
+  border-bottom: 1px solid #999;
+}
+#input2:focus {
+  border-radius: none !important;
+  border-bottom: 1px solid var(--color);
+  box-shadow: none;
+}
+
+#button,
+.click {
+  margin: 10px 5px;
+  color: var(--color);
+  background-color: transparent;
+  border: 1px solid var(--color);
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  height: 32px;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+#button:hover,
+.click:hover:not(input),
+input[type="number"]:focus {
+  box-shadow: 1px 1px var(--color-transparent), 2px 2px var(--color-transparent),
+    3px 3px var(--color-transparent);
+  transform: translateX(-3px);
+}
+#back {
+  position: absolute;
+  text-decoration: none;
+  top: 2px;
+  left: 10px;
+  color: var(--color);
+  border-radius: 2px;
+  opacity: 0.8;
+  border-bottom: none;
+}
+#back:hover {
+  color: var(--secondary-color);
+  opacity: 1;
+  background: none;
+}
+blockquote {
+  background: rgba(255, 255, 255, 0.144);
+  border: 0.5px solid grey;
+  color: white;
+}
+hr {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color), transparent);
+  padding: 0px;
+  border: none;
+}
+.beta *,
+.beta {
+  color: var(--color-transparent);
+  cursor: not-allowed;
+}

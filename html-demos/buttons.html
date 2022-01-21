@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="buttons.css" />
+    <title>Buttons | JavaScript stuff</title>
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="text">
+        Button Ripple Effect Test
+        <p>Sorry but they don't go anywhere. They're still fun to click!</p>
+      </div>
+      <div class="btns">
+        <a href="#">Click me</a>
+        <a href="#">Click me</a>
+      </div>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll("a");
+      buttons.forEach((button) => {
+        button.onclick = function (e) {
+          let x = e.clientX - e.target.offsetLeft;
+          let y = e.clientY - e.target.offsetTop;
+          let ripple = document.createElement("span");
+          ripple.style.left = `${x}px`;
+          ripple.style.top = `${y}px`;
+          this.appendChild(ripple);
+          setTimeout(function () {
+            ripple.remove();
+          }, 600);
+        };
+      });
+    </script>
+  </body>
+</html>
+<div class="se-pre-con"></div>
+<style>
+  .no-js #loader {
+    display: none;
+  }
+
+  .js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+  }
+
+  .se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("load.svg") center no-repeat black;
+  }
+</style>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script>
+    //paste this code under the head tag or in a separate js file.
+    // Wait for window load
+    $(window).load(function () {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: color, background-color, box-shadow 0.5s;
+  }
+
+  html,
+  body {
+    color: var(--text);
+    background: var(--background);
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+  }
+
+  .wrapper {
+    background: var(--background);
+    padding: 20px 30px;
+    box-shadow: 0px 0px 10px var(--color);
+    border-radius: 10px;
+    max-width: 570px;
+    min-width: 500px;
+  }
+
+  .wrapper:hover {
+    box-shadow: 0px 0px 20px var(--color);
+  }
+
+  .wrapper .text {
+    font-size: 35px;
+    font-weight: 600;
+  }
+
+  .wrapper p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+</style>

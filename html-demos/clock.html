@@ -1,0 +1,89 @@
+<head>
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <link rel="stylesheet" href="clock.css" />
+  <title>Clock | JavaScript stuff</title>
+  <script src="main.js"></script>
+</head>
+<a id="back" href="index.html">⇦ Back</a>
+<div class="container">
+  <h1>A clock I made</h1>
+  <p>
+    This is a clock I made to practice JS. Feel free to report any glitches over
+    on
+    <a href="https://github.com/explosion-scratch/Javascript-Stuff"
+      >the GitHub repo for this</a
+    >
+  </p>
+  <div id="clock"></div>
+  <button
+    onclick="window.location.href='https://github.com/explosion-scratch/Javascript-Stuff';"
+    data-text="Check it out on GitHub! ⇨"
+    class="button-hover"
+  >
+    Check it out on GitHub!  
+  </button>
+</div>
+<script>
+  function currentTime() {
+    var date = new Date();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    var milisec = date.getMilliseconds();
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    milisec = updateTimeMilliseconds(milisec);
+    document.getElementById("clock").innerText =
+      hour + ":" + min + ":" + sec + ":" + milisec;
+    var t = setTimeout(function () {
+      currentTime();
+    }, 1);
+  }
+
+  function updateTimeMilliseconds(k) {
+    if (k < 10) {
+      return "00" + k;
+    }
+
+    if (k < 100) {
+      return "0" + k;
+    } else {
+      return k;
+    }
+  }
+
+  function updateTime(k) {
+    if (k < 10) {
+      return "0" + k;
+    } else {
+      return k;
+    }
+  }
+
+  currentTime();
+</script>
+<div class="se-pre-con"></div>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  <script>
+    //paste this code under the head tag or in a separate js file.
+    // Wait for window load
+    $(window).load(function () {
+      // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
+</head>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  $("h1, h2, h3")
+    .css("text-align", "center")
+    .append(
+      '<hr style="height: 1px; background: linear-gradient(to right, transparent , var(--color), transparent); padding: 0px; border: none;">'
+    );
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>verify email</title>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <a id="back" href="index.html">⇦ Back</a>
+    <div class="container">
+      <h1>Email verifier</h1>
+      <p>This verifies if emails are real! Try it out!</p>
+      <input
+        class="email"
+        id="input"
+        placeholder="email"
+        onblur="verify()"
+        type="text"
+      />
+    </div>
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
+<script>
+  function verify() {
+    var valid = $("#input").val();
+    output = email($("#input").val());
+    if (output == false) {
+      $("#input").css({
+        "border-color": "red",
+        "border-width": "1px",
+        "border-style": "solid",
+        "box-shadow": "none",
+      });
+    }
+    if (output == true) {
+      $("#input").css({
+        "border-color": "var(--color)",
+        "border-width": "1px",
+        "border-style": "solid",
+        "box-shadow": "none",
+      });
+    }
+  }
+
+  function email(email) {
+    var re = /\S+@\S+\.\S+/;
+    console.log(re.test(email));
+    return re.test(email);
+  }
+</script>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  $("h1, h2, h3")
+    .css("text-align", "center")
+    .append(
+      '<hr style="height: 1px; background: linear-gradient(to right, transparent , var(--color), transparent); padding: 0px; border: none;">'
+    );
+</script>

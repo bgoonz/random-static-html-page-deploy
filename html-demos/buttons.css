@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import "vars.css";
+
+.wrapper .btns {
+  display: flex;
+  margin: 30px 0 20px 0;
+}
+
+.btns a {
+  position: relative;
+  margin: 0 20px;
+  height: 60px;
+  width: 200px;
+  display: block;
+  line-height: 60px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--background);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  overflow: hidden;
+  box-shadow: 0 0px 15px var(--color);
+}
+
+.btns a:hover {
+  box-shadow: 0 0px 20px var(--color);
+}
+
+.btns a:first-child {
+  background: linear-gradient(90deg, var(--secondary-color), var(--color));
+}
+
+.btns a:last-child {
+  background: linear-gradient(90deg, var(--color), var(--secondary-color));
+}
+
+.btns a:first-child:hover {
+  background: linear-gradient(90deg, var(--color), var(--secondary-color));
+}
+
+.btns a:last-child:hover {
+  background: linear-gradient(90deg, var(--secondary-color), var(--color));
+}
+
+.btns a > span {
+  /*Styling for the shadow */
+  position: absolute;
+  /* Ripple color */
+  background: var(--background);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripples 0.6s linear infinite;
+}
+
+@keyframes ripples {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
